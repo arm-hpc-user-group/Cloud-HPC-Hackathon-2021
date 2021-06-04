@@ -45,6 +45,7 @@ spack install cloverleaf@1.1%arm@21.0.0.879 ^openmpi/6bfbjqd
 
 ## ReFrame BM16_short (single node)
 
+[ReFrame Benchmark](cloverleaf_bm16_short.py)
 
 ```
 ../bin/reframe -c CloverLeaf/cloverleaf_bm16_short.py -r --performance-report
