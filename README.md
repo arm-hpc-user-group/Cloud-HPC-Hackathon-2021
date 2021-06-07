@@ -1,4 +1,4 @@
-# A-HUG-Workshop
+# A-HUG Cloud HPC Hackathon
 
 ![A-HUG Hackathon Logo](https://a-hug.org/wp-content/uploads/2021/05/arm-aws-hackathon.png)
 
