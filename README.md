@@ -9,7 +9,7 @@ Teams will undertake application porting and performance tuning of key HPC appli
 Teams must then undertake performance and scalability studies and to compare against other processor architectures. Amassing points for successful builds, tests, performance analysis and tuning – the team with the most points will take the prizes.
 
 
-Take a look at our example mini-app [CloverLeaf](Tutorials/CloverLeaf/README.md).
+Take a look at our example mini-app [CloverLeaf](Tutorials/CloverLeaf/).
 
 ## Gamification
 
