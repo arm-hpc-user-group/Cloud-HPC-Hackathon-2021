@@ -1,5 +1,7 @@
 # CloverLeaf
 
+Proxy Application. CloverLeaf is a miniapp that solves the compressible Euler equations on a Cartesian grid, using an explicit, second-order accurate method.
+
 ## Compilation
 
 ### Spack Package Modification
@@ -38,9 +40,59 @@ index a4a0c43d3a..589229a73b 100644
 
 Now we can simply build CloverLeaf with the desired compilers, with a dependency on the exisiting OpenMPI (identified by their hashes)
 
+
+#### GCC 10.3.0
+
 ```
 spack install cloverleaf@1.1%gcc@10.3.0 ^openmpi/ehtcdbv
+```
+
+```
+$ spack spec -Il cloverleaf@1.1%gcc@10.3.0 ^openmpi/ehtcdbv
+
+[+]  zqcxt5p  cloverleaf@1.1%gcc@10.3.0 build=ref arch=linux-amzn2-graviton2
+[+]  ehtcdbv      ^openmpi@4.1.0%gcc@10.3.0~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=ofi patches=60ce20bc14d98c572ef7883b9fcd254c3f232c2f3a13377480f96466169ac4c8 schedulers=slurm arch=linux-amzn2-graviton2
+[+]  czkhgoa          ^hwloc@2.4.1%gcc@10.3.0~cairo~cuda~gl~libudev+libxml2~netloc~nvml+pci+shared arch=linux-amzn2-graviton2
+[+]  asgtk6a              ^libpciaccess@0.16%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  iyhm3wi              ^libxml2@2.9.10%gcc@10.3.0~python arch=linux-amzn2-graviton2
+[+]  y5ei3cm                  ^libiconv@1.16%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  ye3kcvv                  ^xz@5.2.5%gcc@10.3.0~pic libs=shared,static arch=linux-amzn2-graviton2
+[+]  qepjcvj                  ^zlib@1.2.11%gcc@10.3.0+optimize+pic+shared arch=linux-amzn2-graviton2
+[+]  iwzirqc              ^ncurses@6.2%gcc@10.3.0~symlinks+termlib abi=none arch=linux-amzn2-graviton2
+[+]  tadxrfp          ^libevent@2.1.12%gcc@10.3.0+openssl arch=linux-amzn2-graviton2
+[+]  5i3lgfb              ^openssl@1.1.1k%gcc@10.3.0~docs+systemcerts arch=linux-amzn2-graviton2
+[+]  ts5lqeg          ^libfabric@1.11.1-aws%gcc@10.3.0~kdreg fabrics=sockets,tcp,udp arch=linux-amzn2-graviton2
+[+]  mhav5gn          ^numactl@2.0.14%gcc@10.3.0 patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006 arch=linux-amzn2-graviton2
+[+]  wturp6c          ^openssh@8.5p1%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  ivotdt7              ^libedit@3.1-20210216%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  wqpuvmh          ^slurm@20-02-4-1%gcc@10.3.0~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-graviton2
+```
+
+#### Arm 21.0.879
+
+```
 spack install cloverleaf@1.1%arm@21.0.0.879 ^openmpi/6bfbjqd
+```
+
+```
+$ spack spec -Il cloverleaf@1.1%arm@21.0.0.879 ^openmpi/6bfbjqd
+
+[+]  3fq5vz4  cloverleaf@1.1%arm@21.0.0.879 build=ref arch=linux-amzn2-graviton2
+[+]  6bfbjqd      ^openmpi@4.1.0%arm@21.0.0.879~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=ofi patches=60ce20bc14d98c572ef7883b9fcd254c3f232c2f3a13377480f96466169ac4c8 schedulers=slurm arch=linux-amzn2-graviton2
+[+]  eulyxmx          ^hwloc@2.4.1%arm@21.0.0.879~cairo~cuda~gl~libudev+libxml2~netloc~nvml+pci+shared arch=linux-amzn2-graviton2
+[+]  heo5xlh              ^libpciaccess@0.16%arm@21.0.0.879 arch=linux-amzn2-graviton2
+[+]  7og6524              ^libxml2@2.9.10%arm@21.0.0.879~python arch=linux-amzn2-graviton2
+[+]  4fpawwk                  ^libiconv@1.16%arm@21.0.0.879 arch=linux-amzn2-graviton2
+[+]  3uhexv5                  ^xz@5.2.5%arm@21.0.0.879~pic libs=shared,static arch=linux-amzn2-graviton2
+[+]  kfhtmo3                  ^zlib@1.2.11%arm@21.0.0.879+optimize+pic+shared arch=linux-amzn2-graviton2
+[+]  5fshnbc              ^ncurses@6.2%arm@21.0.0.879~symlinks+termlib abi=none arch=linux-amzn2-graviton2
+[+]  hj5l7x5          ^libevent@2.1.12%arm@21.0.0.879+openssl arch=linux-amzn2-graviton2
+[+]  b6rhpqo              ^openssl@1.1.1k%arm@21.0.0.879~docs+systemcerts arch=linux-amzn2-graviton2
+[+]  tr5jdui          ^libfabric@1.11.1-aws%arm@21.0.0.879~kdreg fabrics=sockets,tcp,udp arch=linux-amzn2-graviton2
+[+]  325gh7i          ^numactl@2.0.14%arm@21.0.0.879 patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006 arch=linux-amzn2-graviton2
+[+]  7cmi2lb          ^openssh@8.5p1%arm@21.0.0.879 arch=linux-amzn2-graviton2
+[+]  qytqrqe              ^libedit@3.1-20210216%arm@21.0.0.879 arch=linux-amzn2-graviton2
+[+]  uxllonc          ^slurm@20-02-4-1%arm@21.0.0.879~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-graviton2
 ```
 
 ## ReFrame BM16_short (single node)
@@ -50,6 +102,31 @@ spack install cloverleaf@1.1%arm@21.0.0.879 ^openmpi/6bfbjqd
 ```
 ../bin/reframe -c CloverLeaf/cloverleaf_bm16_short.py -r --performance-report
 ```
+
+### Validation
+
+For this test case we want to look at the `Kenetic Energy` after 87 steps (defined in the `clover.in` file).
+
+The sample output for the end of the calculation, gives us a number of validation criteria.
+```
+ Step      87 time   0.1242811 control    sound    timestep   1.46E-03       1,       1 x  1.30E-03 y  1.30E-03
+
+ Time   0.12574308920817368
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:     87      0.1000E+03      0.2800E+02      0.2800E+00      0.1707E+00      0.4269E+02      0.3075E+00      0.4299E+02
+
+
+ Calculation complete
+ Clover is finishing
+ Wall clock    166.40373587608337
+ First step overhead   1.6100406646728516E-003
+```
+
+We could check for `Calculation complete`, however as there is no internal validation this is insufficient. 
+So we look at the output variables.
+CloverLeaf conserves Volume, Mass and Density, so for validation we should use Kinetric Energy, and for this test we are looking for a value of 0.307j.
+In the ReFrame test we have allowed for some tolerance on this value for rounding and machine precision.
+
 
 ### ReFrame Output
 
@@ -106,3 +183,58 @@ CloverLeaf_BM16_short_cloverleaf_1_1__gcc_10_3_0_N_1_MPI_64_OMP_1
 | 16    | 20.12    | 19.61    |
 | 32    | 17.02    | 17.12    |
 | 64    | 17.82    | 17.93    |
+
+## ReFrame BM512_short (multi node)
+
+[ReFrame Benchmark](cloverleaf_bm512_short.py)
+
+```
+../bin/reframe -c cloverleaf_bm512_short.py -r --performance-report
+```
+
+### Validation
+
+```
+ Time    1.5737050254218295E-002
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:     87      0.1000E+03      0.2800E+02      0.2800E+00      0.1718E+00      0.4296E+02      0.3861E-01      0.4300E+02
+```
+
+Here we are looking for a Kenetic Energy value of 0.0386j.
+
+
+### Off-Node Scaling Study
+
+| Nodes | Cores | GCC 10.3 - C6g | Arm 21.0 - C6g | GCC 10.3 - C6gn | Arm 21.0 - C6gn |
+|-------|-------|----------------|----------------|-----------------|-----------------|
+| 1     | 32    | 522.76         | 511.13         | 522.41          | 511.28          |
+| 1     | 64    | 519.70         | 515.96         | 519.45          | 515.84          |
+| 2     | 128   | 263.97         | 262.94         | 263.86          | 262.91          |
+| 4     | 256   | 132.81         | 131.96         | 132.08          | 131.81          |
+
+## Report
+
+### Compilation Summary
+
+CloverLeaf compilers fairly simply 'out-of-the-box' and so no modifications were required.
+As stated the Spack recipy strips out the necessary compiler flags, so we needed to set them back to the minimal recommendation.
+We also added support for the Arm Compiler, with comparable flags to that of GCC.
+
+Otherwise no modifications were needed. CloverLeaf only has one dependency - MPI, so for this we used Open MPI.
+
+
+### Performance Summary
+
+From our performance study we see that the GCC compiler outperforms the Arm compiler for our smaller test case. 
+However, there is very little difference at higher core counts, where CloverLeaf becomes memory bound.
+
+Our scaling study for `BM_16_short` shows that we saturate memory bandwidth at about 16 cores, and the use of a full node could be detrimental.
+
+Our larger scaling study `BM_512_short` shows some similar on-node behaviour, but good scaling off node - with near perfect parallel efficiency. 
+Again, no difference between compilers is evident. 
+We also note that there is no performance gain from utilising the faster network on the C6gn instance types, as we are still memory bound rather than network bound.
+
+### Optimisation Summary
+
+We have not undertaken an optimisation exercise.
+
