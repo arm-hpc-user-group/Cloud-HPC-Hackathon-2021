@@ -22,4 +22,4 @@ To build and run a code teams will be asked to use Spack and ReFrame.
 
 To visualise the progress of teams we will be using dynamic dashboards in GrayLog to plot progress.
 
-![GrayLog](GrayLog_CloverLeaf.png)
+![GrayLog](Images/GrayLog_CloverLeaf.png)
