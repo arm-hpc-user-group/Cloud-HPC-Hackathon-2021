@@ -4,11 +4,16 @@
 
 **Team Sign-Up:** [Sign-up Form](https://docs.google.com/forms/d/e/1FAIpQLScQ5Kq3pNgtZVJrKdLQHTOp2xKu0ILyzlgmoGB6pdFZ62uyfg/viewform)
 
+**Dates:** Week of July 12th 2021
+
+**Website:** [A-HUG Hackathon](https://a-hug.org/hackathons/aws-hackathon/)
+
+
 ## Description
 
 Teams will undertake application porting and performance tuning of key HPC applications using virtual clusters on the AWS cloud – powered by their Arm Neoverse-N1 based Graviton2 processor. Using the Spack package manager teams will have to control the installation of their codes – and tune compiler, library and optimization flag choice to ensure a robust and performance tuned installation. 
 
-Teams must then undertake performance and scalability studies and to compare against other processor architectures. Amassing points for successful builds, tests, performance analysis and tuning – the team with the most points will take the prizes.
+Teams must then undertake performance and scalability studies and to compare against other processor architectures. Amassing points for successful builds, tests, performance analysis and tuning – the team with the most points will take the prizes (winning team get M1 Macbooks each).
 
 
 Take a look at our example mini-app [CloverLeaf](Tutorials/CloverLeaf/).
