@@ -2,6 +2,8 @@
 
 ![A-HUG Hackathon Logo](https://a-hug.org/wp-content/uploads/2021/05/arm-aws-hackathon.png)
 
+**Team Sign-Up:** [Sign-up Form](https://docs.google.com/forms/d/e/1FAIpQLScQ5Kq3pNgtZVJrKdLQHTOp2xKu0ILyzlgmoGB6pdFZ62uyfg/viewform)
+
 ## Description
 
 Teams will undertake application porting and performance tuning of key HPC applications using virtual clusters on the AWS cloud – powered by their Arm Neoverse-N1 based Graviton2 processor. Using the Spack package manager teams will have to control the installation of their codes – and tune compiler, library and optimization flag choice to ensure a robust and performance tuned installation. 
@@ -10,6 +12,8 @@ Teams must then undertake performance and scalability studies and to compare aga
 
 
 Take a look at our example mini-app [CloverLeaf](Tutorials/CloverLeaf/).
+
+Teams can be made up of up to 4 students, for registration please go to this [sign-up form](https://docs.google.com/forms/d/e/1FAIpQLScQ5Kq3pNgtZVJrKdLQHTOp2xKu0ILyzlgmoGB6pdFZ62uyfg/viewform).
 
 ## Gamification
 
