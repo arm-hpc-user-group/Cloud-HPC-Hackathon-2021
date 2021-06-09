@@ -4,36 +4,55 @@ Proxy Application. CloverLeaf is a miniapp that solves the compressible Euler eq
 
 ## Compilation
 
-### Spack Package Modification
-
-The existing Spack package removes the compiler flags for GCC, and has no explicit support for the Arm compiler.
+The only dependency for CloverLeaf is MPI. 
+By default we want to use Open MPI, so we look at what is available:
 
 ```
-diff --git a/var/spack/repos/builtin/packages/cloverleaf/package.py b/var/spack/repos/builtin/packages/cloverleaf/package.py
-index a4a0c43d3a..589229a73b 100644
---- a/var/spack/repos/builtin/packages/cloverleaf/package.py
-+++ b/var/spack/repos/builtin/packages/cloverleaf/package.py
-@@ -57,8 +57,8 @@ def build_targets(self):
- 
+$ spack find -l openmpi
+==> 3 installed packages
+-- linux-amzn2-graviton2 / arm@21.0.0.879 -----------------------
+6bfbjqd openmpi@4.1.0
+
+-- linux-amzn2-graviton2 / gcc@10.3.0 ---------------------------
+ehtcdbv openmpi@4.1.0
+
+-- linux-amzn2-graviton2 / nvhpc@21.2 ---------------------------
+jmzsjsv openmpi@4.1.0
+```
+
+Great, we have an Open MPI install for all 3 compilers of interest.
+
+### Spack Package Modification
+
+The existing Spack package removes the compiler flags for GCC, and has no explicit support for the Arm compiler or NVHPC.
+Note we have not added the corresponding flags for other compilers as this is out of scope for now.
+
+```
          if '%gcc' in self.spec:
              targets.append('COMPILER=GNU')
 -            targets.append('FLAGS_GNU=')
 -            targets.append('CFLAGS_GNU=')
++            targets.append('OMP_GNU=-fopenmp')
 +            targets.append('FLAGS_GNU=-O3 -march=native -funroll-loops')
 +            targets.append('CFLAGS_GNU=-O3 -march=native -funroll-loops')
          elif '%cce' in self.spec:
              targets.append('COMPILER=CRAY')
              targets.append('FLAGS_CRAY=')
-@@ -75,6 +75,10 @@ def build_targets(self):
+@@ -75,6 +76,16 @@ def build_targets(self):
              targets.append('COMPILER=XLF')
              targets.append('FLAGS_XLF=')
              targets.append('CFLAGS_XLF=')
 +        elif '%arm' in self.spec:
 +            targets.append('COMPILER=ARM')
++            targets.append('OMP_ARM=-fopenmp')
 +            targets.append('FLAGS_ARM=-O3 -mcpu=native -funroll-loops')
 +            targets.append('CFLAGS_ARM=-O3 -mcpu=native -funroll-loops')
- 
-         return targets
++        elif '%nvhpc' in self.spec:
++            targets.append('COMPILER=NVHPC')
++            targets.append('OMP_NVHPC=-mp=multicore')
++            targets.append('FLAGS_NVHPC=-O3 -fast')
++            targets.append('CFLAGS_NVHPC=-O3 -fast')
+
 ```
 
 ### Building CloverLeaf
@@ -94,6 +113,34 @@ $ spack spec -Il cloverleaf@1.1%arm@21.0.0.879 ^openmpi/6bfbjqd
 [+]  qytqrqe              ^libedit@3.1-20210216%arm@21.0.0.879 arch=linux-amzn2-graviton2
 [+]  uxllonc          ^slurm@20-02-4-1%arm@21.0.0.879~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-graviton2
 ```
+
+#### NVHPC 21.2
+
+```
+spack install cloverleaf@1.1%nvhpc@21.2 ^openmpi/jmzsjsv
+```
+
+```
+$ spack spec -Il cloverleaf@1.1%nvhpc@21.2 ^openmpi/jmzsjsv
+
+[+]  mfwj3xb  cloverleaf@1.1%nvhpc@21.2 build=ref arch=linux-amzn2-graviton2
+[+]  jmzsjsv      ^openmpi@4.1.0%nvhpc@21.2~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=ofi patches=60ce20bc14d98c572ef7883b9fcd254c3f232c2f3a13377480f96466169ac4c8,fba0d3a784a9723338722b48024a22bb32f6a951db841a4e9f08930a93f41d7a schedulers=slurm arch=linux-amzn2-graviton2
+[+]  k6nxff3          ^hwloc@2.4.1%nvhpc@21.2~cairo~cuda~gl~libudev+libxml2~netloc~nvml+pci+shared arch=linux-amzn2-graviton2
+[+]  e4m4ued              ^libpciaccess@0.16%nvhpc@21.2 patches=6e08dc445ece06e9e8b1344397f2d3f169005703ddc0f2ae24f366cde78c7377 arch=linux-amzn2-graviton2
+[+]  wo4l72s              ^libxml2@2.9.10%nvhpc@21.2~python patches=05ff238cf435825ef835c7ae39376b52dc83d8caf19e962f0766c841386a305a,10a88ad47f9797cf7cf2d7d07241f665a3b6d1f31fa026728c8c2ae93e1664e9 arch=linux-amzn2-graviton2
+[+]  r7mmkdp                  ^libiconv@1.16%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  br733tn                  ^xz@5.2.5%nvhpc@21.2~pic libs=shared,static arch=linux-amzn2-graviton2
+[+]  4js6ect                  ^zlib@1.2.11%nvhpc@21.2+optimize+pic+shared arch=linux-amzn2-graviton2
+[+]  asgm7mt              ^ncurses@6.2%nvhpc@21.2~symlinks+termlib abi=none arch=linux-amzn2-graviton2
+[+]  uttaumr          ^libevent@2.1.12%nvhpc@21.2+openssl arch=linux-amzn2-graviton2
+[+]  j2qhi7h              ^openssl@1.1.1k%nvhpc@21.2~docs+systemcerts arch=linux-amzn2-graviton2
+[+]  nnmvqus          ^libfabric@1.11.1-aws%nvhpc@21.2~kdreg fabrics=sockets,tcp,udp arch=linux-amzn2-graviton2
+[+]  5yq4tpw          ^numactl@2.0.14%nvhpc@21.2 patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006 arch=linux-amzn2-graviton2
+[+]  cl3ohqo          ^openssh@8.5p1%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  yvqpq74              ^libedit@3.1-20210216%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  zehhooy          ^slurm@20-02-4-1%nvhpc@21.2~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-graviton2
+```
+
 
 ## ReFrame BM16_short (single node)
 
@@ -174,15 +221,15 @@ CloverLeaf_BM16_short_cloverleaf_1_1__gcc_10_3_0_N_1_MPI_64_OMP_1
 
 ### On-node Compiler Scaling Study
 
-| Cores | Arm 21.0 | GCC 10.3 |
-| ----- |:--------:|:--------:|
-| 1     | 233.44   | 201.08   |
-| 2     | 109.27   | 101.62   |
-| 4     | 56.79    | 52.70    |
-| 8     | 30.92    | 29.14    |
-| 16    | 20.12    | 19.61    |
-| 32    | 17.02    | 17.12    |
-| 64    | 17.82    | 17.93    |
+| Cores | Arm 21.0 | GCC 10.3 | NVHPC 21.2 |
+| ----- |:--------:|:--------:|:----------:|
+| 1     | 233.44   | 201.08   | 198.18     |
+| 2     | 109.27   | 101.62   | 119.11     |
+| 4     | 56.79    | 52.70    | 56.38      |
+| 8     | 30.92    | 29.14    | 32.71      |
+| 16    | 20.12    | 19.61    | 20.54      |
+| 32    | 17.02    | 17.12    | 18.20      |
+| 64    | 17.82    | 17.93    | 17.61      |
 
 ## ReFrame BM512_short (multi node)
 
@@ -218,14 +265,15 @@ Here we are looking for a Kenetic Energy value of 0.0386j.
 
 CloverLeaf compilers fairly simply 'out-of-the-box' and so no modifications were required.
 As stated the Spack recipy strips out the necessary compiler flags, so we needed to set them back to the minimal recommendation.
-We also added support for the Arm Compiler, with comparable flags to that of GCC.
+We also added support for the Arm Compiler and NVHPC, with comparable flags to that of GCC.
 
-Otherwise no modifications were needed. CloverLeaf only has one dependency - MPI, so for this we used Open MPI.
+Otherwise no modifications were needed. CloverLeaf only has one dependency - MPI, so for this we used Open MPI, specifying the hash of the preinstalled versions.
 
 
 ### Performance Summary
 
-From our performance study we see that the GCC compiler outperforms the Arm compiler for our smaller test case. 
+From our performance study we see that the GCC compiler outperforms the Arm compiler for our smaller test case at a number of core counts. 
+Single core the NVHPC build is actually fastest. 
 However, there is very little difference at higher core counts, where CloverLeaf becomes memory bound.
 
 Our scaling study for `BM_16_short` shows that we saturate memory bandwidth at about 16 cores, and the use of a full node could be detrimental.

@@ -29,8 +29,9 @@ class CloverLeafTest(hack.HackathonBase):
 
     # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
     spec = parameter([
-        'cloverleaf@1.1 %gcc@10.3.0',    # CloverLeaf with the GCC compiler
-        'cloverleaf@1.1 %arm@21.0.0.879' # CloverLeaf with the Arm compiler
+        'cloverleaf@1.1 %gcc@10.3.0',     # CloverLeaf with the GCC compiler
+        'cloverleaf@1.1 %arm@21.0.0.879', # CloverLeaf with the Arm compiler
+        'cloverleaf@1.1 %nvhpc@21.2'      # CloverLeaf with the NVIDIA compiler
     ])
 
     # Parameters - MPI / Threads - Used for scaling studies
