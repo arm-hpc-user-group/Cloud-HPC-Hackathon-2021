@@ -221,7 +221,7 @@ CloverLeaf_BM16_short_cloverleaf_1_1__gcc_10_3_0_N_1_MPI_64_OMP_1
 
 ### On-node Compiler Scaling Study
 
-| Cores | Arm 21.0 | GCC 10.3 | NVHPC 21.2 |
+| Cores | GCC 10.3 | Arm 21.0 | NVHPC 21.2 |
 | ----- |:--------:|:--------:|:----------:|
 | 1     | 233.44   | 201.08   | 198.18     |
 | 2     | 109.27   | 101.62   | 119.11     |
@@ -272,7 +272,7 @@ Otherwise no modifications were needed. CloverLeaf only has one dependency - MPI
 
 ### Performance Summary
 
-From our performance study we see that the GCC compiler outperforms the Arm compiler for our smaller test case at a number of core counts. 
+From our performance study we see that the Arm compiler outperforms the GCC compiler for our smaller test case at a number of core counts. 
 Single core the NVHPC build is actually fastest. 
 However, there is very little difference at higher core counts, where CloverLeaf becomes memory bound.
 
