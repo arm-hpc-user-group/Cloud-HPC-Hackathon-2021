@@ -47,7 +47,7 @@ class CloverLeafTest(hack.HackathonBase):
 
 
     # Code validation
-    @rfm.run_before('sanity')
+    @run_before('sanity')
     def set_sanity_patterns(self):
 
        # Use the logfile for validation testing and performance 
