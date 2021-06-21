@@ -43,9 +43,9 @@ class CloverLeafTest(hack.HackathonBase):
        # Regex - Volume   Mass   Density   Pressure   Internal Energy   Kinetic Energy   Total Energy
        sol_regex = r'\s+step:\s+87\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)'
 
-       # Validate for kenetic energy (6) = 0.3075
-       kenetic_energy = sn.extractsingle(sol_regex, self.logfile, 6, float)
-       self.sanity_patterns = sn.assert_bounded(kenetic_energy, 0.30745, 0.30755)
+       # Validate for kinetic energy (6) = 0.3075
+       kinetic_energy = sn.extractsingle(sol_regex, self.logfile, 6, float)
+       self.sanity_patterns = sn.assert_bounded(kinetic_energy, 0.30745, 0.30755)
 
        # Performance Testing
        self.reference = {

@@ -152,7 +152,7 @@ $ spack spec -Il cloverleaf@1.1%nvhpc@21.2 ^openmpi/jmzsjsv
 
 ### Validation
 
-For this test case we want to look at the `Kenetic Energy` after 87 steps (defined in the `clover.in` file).
+For this test case we want to look at the `Kinetic Energy` after 87 steps (defined in the `clover.in` file).
 
 The sample output for the end of the calculation, gives us a number of validation criteria.
 ```
@@ -247,7 +247,7 @@ CloverLeaf_BM16_short_cloverleaf_1_1__gcc_10_3_0_N_1_MPI_64_OMP_1
  step:     87      0.1000E+03      0.2800E+02      0.2800E+00      0.1718E+00      0.4296E+02      0.3861E-01      0.4300E+02
 ```
 
-Here we are looking for a Kenetic Energy value of 0.0386j.
+Here we are looking for a Kinetic Energy value of 0.0386j.
 
 
 ### Off-Node Scaling Study

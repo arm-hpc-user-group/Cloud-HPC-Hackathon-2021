@@ -52,15 +52,15 @@ class CloverLeafTest(hack.HackathonBase):
        # Validation at step 87 (BM_short)
        # Regex - Volume   Mass   Density   Pressure   Internal Energy   Kinetic Energy   Total Energy
        sol_regex = r'\s+step:\s+87\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)'
-       # Validate for kenetic energy (6) 
-       kenetic_energy = sn.extractsingle(sol_regex, self.logfile, 6, float)
+       # Validate for kinetic energy (6) 
+       kinetic_energy = sn.extractsingle(sol_regex, self.logfile, 6, float)
 
        # expected = 0.03861
        expected_lower = 0.038605
        expected_upper = 0.038615
        
        # Perform a bounded assert
-       self.sanity_patterns = sn.assert_bounded(kenetic_energy, expected_lower, expected_upper)
+       self.sanity_patterns = sn.assert_bounded(kinetic_energy, expected_lower, expected_upper)
 
        # Performance Testing - FOM Total Time units 's'
        # We dont set an expected value
