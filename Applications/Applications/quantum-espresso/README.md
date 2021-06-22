@@ -1,8 +1,8 @@
-# Quantum 
+# Quantum Espresso 
 
-**Description:** espresso	http://quantum-espresso.org	Quantum ESPRESSO is an integrated suite of Open-Source computer codes for electronic-structure calculations and materials modeling at the nanoscale. It is based on density-functional theory, plane waves, and pseudopotentials.
+**Description:** Quantum ESPRESSO is an integrated suite of Open-Source computer codes for electronic-structure calculations and materials modeling at the nanoscale. It is based on density-functional theory, plane waves, and pseudopotentials.
 
-**URL:** quantum
+**URL:** http://quantum-espresso.org
 
 **Team:**  
 
