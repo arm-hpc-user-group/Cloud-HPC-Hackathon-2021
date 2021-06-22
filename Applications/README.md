@@ -98,7 +98,7 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 * [PISM](Applications/pism/README.md)
 * [QBOX](Applications/qbox/README.md)
 * [QMCPACK](Applications/qmcpack/README.md)
-* [Quantum](Applications/ESPRESSO/README.md)
+* [Quantum-Espresso](Applications/quantum-espresso/README.md)
 * [relion](Applications/relion/README.md)
 * [SIESTA](Applications/siesta/README.md)
 * [SNbone](Applications/snbone/README.md)
