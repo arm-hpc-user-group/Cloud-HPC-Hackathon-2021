@@ -70,7 +70,6 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 * [ExaML](Applications/examl/README.md)
 * [FleCSPH](Applications/flecsph/README.md)
 * [frontistr](Applications/frontistr/README.md)
-* [GATK](Applications/gatk/README.md)
 * [graph500](Applications/graph500/README.md)
 * [HPGMG](Applications/hpgmg/README.md)
 * [LAMMPS](Applications/lammps/README.md)
