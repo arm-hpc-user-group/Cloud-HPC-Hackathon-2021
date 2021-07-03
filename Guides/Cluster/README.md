@@ -41,16 +41,15 @@ Firstly, we classify the nodes as:
 * **Compute Node:** This is where you will run the jobs.
 
 For this workshop we will be using 3 different AWS instance types:
-* [C6g.16xlarge](https://aws.amazon.com/ec2/instance-types/c6/) Arm based Graviton 2 instance
 * [C6gn.16xlarge](https://aws.amazon.com/ec2/instance-types/c6/) Arm based Graviton 2 instance
 * [C5n.18xlarge](https://aws.amazon.com/ec2/instance-types/c5/) Intel Xeon Platinum based instance
 
-| Attribute      | C6g.16xlarge | C6gn.16xlarge | C5n.18xlarge |
-| -------------- | ------------ | ------------- | ------------ |
-| Cores          | 64           | 64            | 36 (72 vCPU) |
-| Speed (GHz)    | 2.5          | 2.5           | 3.0          |
-| Memory (GiB)   | 128          | 128           | 192          |
-| Network (Gbps) | 25           | 100           | 100          |
+| Attribute      | C6gn.16xlarge | C5n.18xlarge |
+| -------------- | ------------- | ------------ |
+| Cores          | 64            | 36 (72 vCPU) |
+| Speed (GHz)    | 2.5           | 3.0          |
+| Memory (GiB)   | 128           | 192          |
+| Network (Gbps) | 100           | 100          |
 
 
 
@@ -61,12 +60,11 @@ The clusters are configured to run the `Slurm` scheduler, a common HPC scheduler
 For those new to `Slurm` this [Quick Start User Guide](https://slurm.schedmd.com/quickstart.html) may be useful.
 
 
-The Arm Cluster has two queues configured - `c6g` and `c6gn`.
+The Arm Cluster has only queue configured - `c6gn`.
 ```
 $ sinfo
 PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST 
-c6g*         up   infinite      4  idle~ c6g-dy-c6g16xlarge-[1-4] 
-c6gn         up   infinite      4  idle~ c6gn-dy-c6gn16xlarge-[1-4]
+c6gn*         up   infinite      4  idle~ c6gn-dy-c6gn16xlarge-[1-4]
 ```
 
 ### Job Submission
@@ -91,7 +89,7 @@ srun -l hostname
 
 ```
 chmod +x example.sh
-sbatch -N 1 -n 64 -P c6g example.sh
+sbatch -N 1 -n 64 -P c6gn example.sh
 ```
 
 This command tells `Slurm` to run our `example.sh` script on 1 Node, with 64 cores, on partition "c6g".
@@ -102,7 +100,7 @@ If your job is queued then you can use the `squeue` command to view its status.
 ```
 $ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
-                10       c6g example.   operks CF       0:01      2 c6g-dy-c6g16xlarge-[1-2]
+                10      c6gn example.   operks CF       0:01      2 c6gn-dy-c6gn16xlarge-[1-2]
 ```
 
 
@@ -134,13 +132,13 @@ Navigating the file system is key to understanding how best to use the cluster.
 
 ```
 /
-├─ home                 
+├─ home (500 GB)                
 |  ├─ user1
 |  ├─ user2
 |  ├─ user3
 |  └─ user4
 |
-├─ software
+├─ software (20 GB)
 |  ├─ ACFL
 |  ├─ arm-forge-21.0
 |  ├─ binutils
@@ -149,7 +147,7 @@ Navigating the file system is key to understanding how best to use the cluster.
 |  ├─ reframe
 |  └─ nvhpc
 |
-├─ scratch
+├─ scratch (1200 GB)
 |  └─ opt
 |     └─ spack
 |
