@@ -2,6 +2,8 @@
 
 Based on the other user guides and Tutorial examples.
 
+For the more comprehensive tutorial view [CloverLeaf Tutorial](../../Tutorials/CloverLeaf).
+
 ## Building CloverLeaf
 
 `spack install cloverleaf@arm`
