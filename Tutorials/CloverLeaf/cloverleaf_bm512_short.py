@@ -4,8 +4,8 @@ import hackathon as hack
 
 @rfm.simple_test
 class CloverLeafTest(hack.HackathonBase):
-    # Where to run the binaries
-    valid_systems = ['aws:c6g', 'aws:c6gn'] 
+    # Where to run the binaries 'aws:c6gn' on Arm or 'aws:c5n' on Intel
+    valid_systems = ['aws:c6gn'] 
 
     # Logging Variables
     log_team_name = 'TeamArm'
