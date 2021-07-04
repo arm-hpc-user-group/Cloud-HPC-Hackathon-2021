@@ -61,8 +61,8 @@ Lastly, we want to hear about what you have done. Points will be awarded for wri
 ## Resources
 
 ### Hardware
-This event will take place on virtual clusters hosted on AWS. The main focus will be the Arm based Graviton2 instances. You will have a cluster of the 64-core (C6g.16xlarge) nodes.
-However, teams will also have access to the enhanced network (EFA) variant (C6gn.16xlarge) and Intel based clusters (C5n.18xlarge) – for performance comparisons and validation purposes.
+This event will take place on virtual clusters hosted on AWS. The main focus will be the Arm based Graviton2 instances. You will have a cluster of the 64-core (C6gn.16xlarge) nodes, with enhanced (EFA) networking.
+Teams will also have access to an Intel based clusters (C5n.18xlarge) – for performance comparisons and validation purposes.
 
 ### Software
 
@@ -73,6 +73,6 @@ However, teams will also have access to the enhanced network (EFA) variant (C6gn
 
 #### System Software
 * Compilers – GCC, [Arm (ACFL)](https://developer.arm.com/tools-and-software/server-and-hpc/compile/arm-compiler-for-linux/resources), [NVIDIA (NVHPC)](https://developer.nvidia.com/hpc-sdk)
-* MPI – Open MPI, MVAPICH2
+* MPI – Open MPI
 * Maths Libraries – [ArmPL](https://developer.arm.com/tools-and-software/server-and-hpc/downloads/arm-performance-libraries), OpenBLAS, Bliss, BYO!
-* Profilers / Debuggers – [Arm Forge (DDT / MAP)](https://developer.arm.com/tools-and-software/server-and-hpc/downloads/arm-forge), [Likwid](https://github.com/RRZE-HPC/likwid), BYO!
+* Profilers / Debuggers – [Arm Forge (DDT / MAP)](https://developer.arm.com/tools-and-software/server-and-hpc/downloads/arm-forge), BYO!
