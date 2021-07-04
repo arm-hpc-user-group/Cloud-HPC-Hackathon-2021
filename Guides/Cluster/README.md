@@ -148,6 +148,12 @@ Navigating the file system is key to understanding how best to use the cluster.
 |  └─ nvhpc
 |
 ├─ scratch (1200 GB)
+|  ├─ home
+|  |  ├─ user1
+|  |  ├─ user2
+|  |  ├─ user3
+|  |  └─ user4
+|  |
 |  └─ opt
 |     └─ spack
 |
