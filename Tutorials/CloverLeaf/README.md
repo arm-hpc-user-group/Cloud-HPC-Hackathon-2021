@@ -150,7 +150,7 @@ $ spack spec -Il cloverleaf@1.1%nvhpc@21.2 ^openmpi/jmzsjsv
 [ReFrame Benchmark](cloverleaf_bm16_short.py)
 
 ```
-../bin/reframe -c CloverLeaf/cloverleaf_bm16_short.py -r --performance-report
+reframe -c CloverLeaf/cloverleaf_bm16_short.py -r --performance-report
 ```
 
 ### Validation
