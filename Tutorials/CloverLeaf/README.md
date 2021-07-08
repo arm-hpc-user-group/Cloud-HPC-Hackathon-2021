@@ -28,6 +28,9 @@ The existing Spack package removes the compiler flags for GCC, and has no explic
 Note we have not added the corresponding flags for other compilers as this is out of scope for now.
 
 ```
+# spack edit cloverleaf
+# ...
+
          if '%gcc' in self.spec:
              targets.append('COMPILER=GNU')
 -            targets.append('FLAGS_GNU=')
