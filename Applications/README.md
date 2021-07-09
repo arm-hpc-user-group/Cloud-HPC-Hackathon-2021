@@ -11,16 +11,22 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 
 | Code                                              | Team Assigned | Porting Status |
 |---------------------------------------------------|---------------|----------------|
+| [BookLeaf-cpp](MiniApps/BookLeaf-cpp/README.md)   |               |                |
 | [CloverLeaf3D](MiniApps/CloverLeaf3D/README.md)   |               |                |
+| [CCS-QCD](MiniApps/ccs-qcd/README.md)             |               |                |
 | [CoEVP](MiniApps/CoEVP/README.md)                 |               |                |
 | [CoHMM](MiniApps/CoHMM/README.md)                 |               |                |
+| [COMD](MiniApps/comd/README.md)                   |               |                |
 | [ExaMiniMD](MiniApps/ExaMiniMD/README.md)         |               |                |
 | [ExaMPM](MiniApps/ExaMPM/README.md)               |               |                |
 | [ExaSP2](MiniApps/ExaSP2/README.md)               |               |                |
 | [GAMESS-RI-MP2](MiniApps/GAMESS-RI-MP2/README.md) |               |                |
+| [Harminv](MiniApps/harminv/README.md)             |               |                |
 | [HPCG](MiniApps/HPCG/README.md)                   |               |                |
+| [Kripke](MiniApps/kripke/README.md)               |               |                |
 | [Laghos](Applications/laghos/README.md)           |               |                |
 | [LULESH](MiniApps/LULESH/README.md)               |               |                |
+| [MACSio](MiniApps/MACSio/README.md)               |               |                |
 | [miniAero](MiniApps/miniAero/README.md)           |               |                |
 | [miniAMR](MiniApps/miniAMR/README.md)             |               |                |
 | [miniFE](MiniApps/miniFE/README.md)               |               |                |
@@ -32,6 +38,7 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [miniTri](MiniApps/miniTri/README.md)             |               |                |
 | [miniVite](MiniApps/miniVite/README.md)           |               |                |
 | [miniXyce](MiniApps/miniXyce/README.md)           |               |                |
+| [Nekbone](MiniApps/nekbone/README.md)             |               |                |
 | [PENNANT](MiniApps/PENNANT/README.md)             |               |                |
 | [PICSARlite](MiniApps/PICSARlite/README.md)       |               |                |
 | [Quicksilver](MiniApps/Quicksilver/README.md)     |               |                |
@@ -39,6 +46,8 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [RSBench](MiniApps/RSBench/README.md)             |               |                |
 | [SimpleMOC](MiniApps/SimpleMOC/README.md)         |               |                |
 | [SNAP](MiniApps/SNAP/README.md)                   |               |                |
+| [Sombrero](MiniApps/sombrero/README.md)           |               |                |
+| [swfft](MiniApps/swfft/README.md)                 |               |                |
 | [Tealeaf](MiniApps/Tealeaf/README.md)             |               |                |
 | [thornado-mini](MiniApps/thornado-mini/README.md) |               |                |
 | [Tycho2](Applications/tycho2/README.md)           |               |                |
@@ -64,7 +73,6 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [CGM](Applications/cgm/README.md)                                 |               |                |
 | [chatterbug](Applications/chatterbug/README.md)                   |               |                |
 | [cistem](Applications/cistem/README.md)                           |               |                |
-| [COMD](Applications/comd/README.md)                               |               |                |
 | [CONVERGE](Applications/converge/README.md)                       |               |                |
 | [cosmoflow-benchmark](Applications/cosmoflow-benchmark/README.md) |               |                |
 | [CosmoMC](Applications/cosmomc/README.md)                         |               |                |
@@ -81,7 +89,6 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [HPGMG](Applications/hpgmg/README.md)                             |               |                |
 | [LAMMPS](Applications/lammps/README.md)                           |               |                |
 | [latte](Applications/latte/README.md)                             |               |                |
-| [MACSio](Applications/macsio/README.md)                           |               |                |
 | [meep](Applications/meep/README.md)                               |               |                |
 | [meme](Applications/meme/README.md)                               |               |                |
 | [modylas](Applications/modylas/README.md)                         |               |                |
@@ -92,7 +99,6 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [Nalu-Wind](Applications/nalu-wind/README.md)                     |               |                |
 | [NAMD](Applications/namd/README.md)                               |               |                |
 | [Nek5000](Applications/nek5000/README.md)                         |               |                |
-| [Nekbone](Applications/nekbone/README.md)                         |               |                |
 | [Nektar](Applications/nektar/README.md)                           |               |                |
 | [NEST](Applications/nest/README.md)                               |               |                |
 | [NuT](Applications/nut/README.md)                                 |               |                |
@@ -110,7 +116,6 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [SNbone](Applications/snbone/README.md)                           |               |                |
 | [STAR](Applications/star/README.md)                               |               |                |
 | [SU2](Applications/su2/README.md)                                 |               |                |
-| [swfft](Applications/swfft/README.md)                             |               |                |
 | [tinker](Applications/tinker/README.md)                           |               |                |
 | [VASP](Applications/vasp/README.md)                               |               |                |
 | [VPFFT](Applications/vpfft/README.md)                             |               |                |
