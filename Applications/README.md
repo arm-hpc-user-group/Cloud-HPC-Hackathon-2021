@@ -9,50 +9,51 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 
 ## MiniApps
 
-| Code                                              | Team Assigned | Porting Status |
-|---------------------------------------------------|---------------|----------------|
-| [BookLeaf-cpp](MiniApps/BookLeaf-cpp/README.md)   |               |                |
-| [CloverLeaf3D](MiniApps/CloverLeaf3D/README.md)   |               |                |
-| [CCS-QCD](MiniApps/ccs-qcd/README.md)             |               |                |
-| [CoEVP](MiniApps/CoEVP/README.md)                 |               |                |
-| [CoHMM](MiniApps/CoHMM/README.md)                 |               |                |
-| [COMD](MiniApps/comd/README.md)                   |               |                |
-| [ExaMiniMD](MiniApps/ExaMiniMD/README.md)         |               |                |
-| [ExaMPM](MiniApps/ExaMPM/README.md)               |               |                |
-| [ExaSP2](MiniApps/ExaSP2/README.md)               |               |                |
-| [GAMESS-RI-MP2](MiniApps/GAMESS-RI-MP2/README.md) |               |                |
-| [Harminv](MiniApps/harminv/README.md)             |               |                |
-| [HPCCG](MiniApps/HPCCG/README.md)                 |               |                |
-| [HPCG](MiniApps/HPCG/README.md)                   |               |                |
-| [Kripke](MiniApps/kripke/README.md)               |               |                |
-| [Laghos](Applications/laghos/README.md)           |               |                |
-| [LULESH](MiniApps/LULESH/README.md)               |               |                |
-| [MACSio](MiniApps/MACSio/README.md)               |               |                |
-| [miniAero](MiniApps/miniAero/README.md)           |               |                |
-| [miniAMR](MiniApps/miniAMR/README.md)             |               |                |
-| [miniFE](MiniApps/miniFE/README.md)               |               |                |
-| [miniGhost](MiniApps/miniGhost/README.md)         |               |                |
-| [miniGMG](Applications/minigmg/README.md)         |               |                |
-| [miniMD](MiniApps/miniMD/README.md)               |               |                |
-| [miniQMC](MiniApps/miniQMC/README.md)             |               |                |
-| [miniSMAC2D](MiniApps/miniSMAC2D/README.md)       |               |                |
-| [miniTri](MiniApps/miniTri/README.md)             |               |                |
-| [miniVite](MiniApps/miniVite/README.md)           |               |                |
-| [miniXyce](MiniApps/miniXyce/README.md)           |               |                |
-| [Nekbone](MiniApps/nekbone/README.md)             |               |                |
-| [PENNANT](MiniApps/PENNANT/README.md)             |               |                |
-| [PICSARlite](MiniApps/PICSARlite/README.md)       |               |                |
-| [Quicksilver](MiniApps/Quicksilver/README.md)     |               |                |
-| [Remhos](MiniApps/Remhos/README.md)               |               |                |
-| [RSBench](MiniApps/RSBench/README.md)             |               |                |
-| [SimpleMOC](MiniApps/SimpleMOC/README.md)         |               |                |
-| [SNAP](MiniApps/SNAP/README.md)                   |               |                |
-| [Sombrero](MiniApps/sombrero/README.md)           |               |                |
-| [swfft](MiniApps/swfft/README.md)                 |               |                |
-| [Tealeaf](MiniApps/Tealeaf/README.md)             |               |                |
-| [thornado-mini](MiniApps/thornado-mini/README.md) |               |                |
-| [Tycho2](Applications/tycho2/README.md)           |               |                |
-| [XSBench](MiniApps/XSBench/README.md)             |               |                |
+| Code                                              | Team Assigned                 | Porting Status |
+|---------------------------------------------------|-------------------------------|----------------|
+| [BookLeaf-cpp](MiniApps/BookLeaf-cpp/README.md)   | DeepNeuron Blue               |                |
+| [CCS-QCD](MiniApps/ccs-qcd/README.md)             | KeyzerSozeHPC                 |                |
+| [CloverLeaf3D](MiniApps/CloverLeaf3D/README.md)   | C-unMake                      |                |
+| [CoEVP](MiniApps/CoEVP/README.md)                 | Top Gun                       |                |
+| [CoHMM](MiniApps/CoHMM/README.md)                 | Serendipity                   |                |
+| [COMD](MiniApps/comd/README.md)                   | Falkners                      |                |
+| [ExaMiniMD](MiniApps/ExaMiniMD/README.md)         | MexicanWolf                   |                |
+| [ExaMPM](MiniApps/ExaMPM/README.md)               | Firefly                       |                |
+| [ExaSP2](MiniApps/ExaSP2/README.md)               | CloudHPC                      |                |
+| [GAMESS-RI-MP2](MiniApps/GAMESS-RI-MP2/README.md) | neuralmimicry                 |                |
+| [Harminv](MiniApps/harminv/README.md)             | QMLab                         |                |
+| [HPCCG](MiniApps/HPCCG/README.md)                 | SPEED                         |                |
+| [HPCG](MiniApps/HPCG/README.md)                   | HPC-LUL                       |                |
+| [Kripke](MiniApps/kripke/README.md)               | DogeCoinToTheMoon             |                |
+| [Laghos](MiniApps/laghos/README.md)               | Iman                          |                |
+| [LULESH](MiniApps/LULESH/README.md)               | Calligo HPC Cluster Team      |                |
+| [MACSio](MiniApps/MACSio/README.md)               | Fast Solvers with Firedrake   |                |
+| [miniAero](MiniApps/miniAero/README.md)           | Team Joe                      |                |
+| [miniAMR](MiniApps/miniAMR/README.md)             | TPPU                          |                |
+| [miniFE](MiniApps/miniFE/README.md)               | Karthikeyan                   |                |
+| [miniGhost](MiniApps/miniGhost/README.md)         | Quantori                      |                |
+| [miniGMG](Applications/minigmg/README.md)         | Wolfpack                      |                |
+| [miniMD](MiniApps/miniMD/README.md)               | Alejandro Ruiz                |                |
+| [miniQMC](MiniApps/miniQMC/README.md)             | Team Phoenix                  |                |
+| [miniSMAC2D](MiniApps/miniSMAC2D/README.md)       | Explorer                      |                |
+| [miniTri](MiniApps/miniTri/README.md)             | HPCNepal                      |                |
+| [miniVite](MiniApps/miniVite/README.md)           | Garotes de Premià             |                |
+| [miniXyce](MiniApps/miniXyce/README.md)           | SGHackers                     |                |
+| [Nekbone](MiniApps/nekbone/README.md)             | RISCy Business                |                |
+| [PENNANT](MiniApps/PENNANT/README.md)             | HPC Matrix                    |                |
+| [PICSARlite](MiniApps/PICSARlite/README.md)       | TeamEPCC                      |                |
+| [Quicksilver](MiniApps/Quicksilver/README.md)     | Fidesys                       |                |
+| [Remhos](MiniApps/Remhos/README.md)               | C3SR                          |                |
+| [RSBench](MiniApps/RSBench/README.md)             | DeepNeuron Purple             |                |
+| [SimpleMOC](MiniApps/SimpleMOC/README.md)         | BlueHPCHens                   |                |
+| [SNAP](MiniApps/SNAP/README.md)                   | X-Factor                      |                |
+| [Sombrero](MiniApps/sombrero/README.md)           | ARC-wolves                    |                |
+| [swfft](MiniApps/swfft/README.md)                 | ElkNet                        |                |
+| [Tealeaf](MiniApps/Tealeaf/README.md)             | Master of puppets             |                |
+| [thornado-mini](MiniApps/thornado-mini/README.md) | Clangers                      |                |
+| [Tycho2](MiniApps/tycho2/README.md)               | Harry Porters                 |                |
+| [XSBench](MiniApps/XSBench/README.md)             | Gopher HPC                    |                |
+
 
 
 ## Full Applications
