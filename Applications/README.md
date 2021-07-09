@@ -22,6 +22,7 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [ExaSP2](MiniApps/ExaSP2/README.md)               |               |                |
 | [GAMESS-RI-MP2](MiniApps/GAMESS-RI-MP2/README.md) |               |                |
 | [Harminv](MiniApps/harminv/README.md)             |               |                |
+| [HPCCG](MiniApps/HPCCG/README.md)                 |               |                |
 | [HPCG](MiniApps/HPCG/README.md)                   |               |                |
 | [Kripke](MiniApps/kripke/README.md)               |               |                |
 | [Laghos](Applications/laghos/README.md)           |               |                |
