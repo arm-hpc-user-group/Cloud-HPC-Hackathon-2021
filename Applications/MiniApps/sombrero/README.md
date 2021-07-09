@@ -1,8 +1,8 @@
-# MACSio 
+# Sombrero 
 
-**Description:** A Multi-purpose, Application-Centric, Scalable I/O Proxy Application.
+**Description:** A next-generation conjugate gradient benchmark from computational particle physics.
 
-**URL:** https://computing.llnl.gov/projects/co-design/macsio
+**URL:** https://github.com/sa2c/sombrero
 
 **Team:**  
 
@@ -16,7 +16,7 @@ Git commit hash of checkout for pacakage:
 
 Pull request for Spack recipe changes:
 
-### Building MACSio
+### Building Sombrero
 
 
 
