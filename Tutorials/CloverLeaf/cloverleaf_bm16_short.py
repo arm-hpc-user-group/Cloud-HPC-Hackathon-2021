@@ -5,7 +5,7 @@ import hackathon as hack
 @rfm.simple_test
 class CloverLeafTest(hack.HackathonBase):
     # Where to run the binaries 'aws:c6gn' on Arm or 'aws:c5n' on Intel
-    valid_systems = ['aws:c6gn'] 
+    valid_systems = ['aws:c6gn']
 
     # Logging Variables
     log_team_name = 'TeamArm'
@@ -50,18 +50,18 @@ class CloverLeafTest(hack.HackathonBase):
     @run_before('sanity')
     def set_sanity_patterns(self):
 
-       # Use the logfile for validation testing and performance 
+       # Use the logfile for validation testing and performance
 
        # Validation at step 87 (BM_short)
        # Regex - Volume   Mass   Density   Pressure   Internal Energy   Kinetic Energy   Total Energy
        sol_regex = r'\s+step:\s+87\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)'
-       # Validate for kinetic energy (6) 
+       # Validate for kinetic energy (6)
        kinetic_energy = sn.extractsingle(sol_regex, self.logfile, 6, float)
 
        # expected = 0.3075
        expected_lower = 0.30745
        expected_upper = 0.30755
-       
+
        # Perform a bounded assert
        self.sanity_patterns = sn.assert_bounded(kinetic_energy, expected_lower, expected_upper)
 
@@ -73,10 +73,7 @@ class CloverLeafTest(hack.HackathonBase):
 
        # CloverLeaf prints the 'Wall clock' every timestep - so extract all lines matching the regex
        pref_regex = r'\s+Wall clock\s+(\S+)'
-       times = sn.extractall(pref_regex,self.logfile, 1, float)
-
-       # Use the last wall clock entry in the list (Step 87)
-       self.perf_patterns = { 
-               'Total Time':  times[sn.count(times) -1],
+       self.perf_patterns = {
+               'Total Time': sn.extractsingle(pref_regex, self.logfile, 1, float, item=-1)
        }
 
