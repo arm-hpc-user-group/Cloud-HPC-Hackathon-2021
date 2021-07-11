@@ -91,7 +91,6 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [GATK](Applications/gatk/README.md)                               | Falkners         |                |
 | [graph500](Applications/graph500/README.md)                       | Masterofpuppets  |                |
 | [HPGMG](Applications/hpgmg/README.md)                             |                  |                |
-| [Laghos](Applications/laghos/README.md)                           | Iman             |                |
 | [LAMMPS](Applications/lammps/README.md)                           | Masterofpuppets  |                |
 | [latte](Applications/latte/README.md)                             |                  |                |
 | [meep](Applications/meep/README.md)                               | X-Factor         |                |
