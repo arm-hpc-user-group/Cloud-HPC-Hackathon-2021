@@ -1,0 +1,12 @@
+% simple circuit 3
+% series RLC circuit
+
+3 1 1
+
+R1 1 2 1
+L1 2 3 1e-6
+C1 3 0 1e-6
+
+V1 1 0 SINE 0 5 1e6 0
+
+
