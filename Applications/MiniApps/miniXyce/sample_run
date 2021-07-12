@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+srun --ntasks 20 miniXyce.x --circuit tests/cir1.net --t_start 1e-6 --pf tests/default_params.txt
+
