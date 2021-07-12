@@ -96,8 +96,8 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [meep](Applications/meep/README.md)                               | X-Factor         |                |
 | [meme](Applications/meme/README.md)                               |                  |                |
 | [MemXCT](Applications/memxct/README.md)                           | C3SR             |                |
-| [modylas](Applications/modylas/README.md)                         | DogeCoinToTheMoon|                |
-| [MrBayes](Applications/mrbayes/README.md)                         |                  |                |
+| [modylas](Applications/modylas/README.md)                         |                  |                |
+| [MrBayes](Applications/mrbayes/README.md)                         |DogeCoinToTheMoon |                |
 | [MRChem](Applications/mrchem/README.md)                           |                  |                |
 | [MXNet](Applications/mxnet/README.md)                             | X-Factor         |                |
 | [NALU](Applications/nalu/README.md)                               |                  |                |
