@@ -1,12 +1,24 @@
 # MemXCT
 
-**Description:** ABINIT is a package whose main program allows one to find the total energy, charge density and electronic structure of systems made of electrons and nuclei (molecules and periodic solids) within Density Functional Theory (DFT), using pseudopotentials and a planewave or wavelet basis. ABINIT also includes options to optimize the geometry according to the DFT forces and stresses, or to perform molecular dynamics simulations using these forces, or to generate dynamical matrices, Born effective charges, and dielectric tensors, based on Density-Functional Perturbation Theory, and many more properties. Excited states can be computed within the Many-Body Perturbation Theory (the GW approximation and the Bethe-Salpeter equation), and Time- Dependent Density Functional Theory (for molecules). In addition to the main ABINIT code, different utility programs are provided.
+**Description:** 
+MemXCT is an accelerated implementation of X-ray compute tomography application. X-ray computed tomography (XCT) is used regularly at synchrotron light sources to study the internal morphology of materials at high resolution. However, experimental constraints, such as radiation sensitivity, can result in noisy or undersampled measurements. Further, depending on the resolution, sample size and data acquisition rates, the resulting noisy dataset can be terabyte-scale. Advanced iterative reconstruction techniques can produce high-quality images from noisy measurements, but their computational requirements have made their use exception rather than the rule. MemXCT proposed a novel memory-centric approach that avoids redundant computations at the expense of additional memory complexity. Fundamentally, MemXCT uses an optimized SpMV implementation with two-level pseudo-Hilbert ordering and multi-stage input buffering. In this code base, we provide complete implementation of the MemXCT kernel along with the associated dataset that is required to generate resulting data for x86, powerr9 and ARM systems. 
 
-**URL:** 
 
-**Team:**  
+**URL: Initial implementation of the work is taken from :  [SC19 paper](https://github.com/merthidayetoglu/MemXCT-CPU)**  
+
+**Team:TeamC3SR**  
 
 ## Compilation
+
+Currently we dont support Spack package. Building is simple: 
+
+```
+make -f Makefile.<platform>
+bash run.sh.<platform>
+```
+
+More details on how to run and algorithm changes - refer details.md 
+
 
 ### Spack Package Modification
 
