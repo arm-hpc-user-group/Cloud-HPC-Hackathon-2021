@@ -1,3 +1,4 @@
 *.o
 memxct
 dataset
+*.sw*
