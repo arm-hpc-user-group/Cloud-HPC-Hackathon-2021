@@ -1,0 +1,92 @@
+Initializing redistribution using a pencil layout on 1 ranks.
+distribution 1D: [1:1:1]
+distribution 3D: [1:1:1]
+distribution 2z: [1:1:1]
+distribution 2x: [1:1:1]
+distribution 2y: [1:1:1]
+
+Hex representations of double precision floats
+0.000000e+00 = 0
+1.000000e+00 = 3ff0000000000000
+134217728.000000 = 41a0000000000000
+
+
+TESTING 0
+
+FORWARD     max 1.830e+01s  avg 1.830e+01s  min 1.830e+01s  dev 0.000e+00s
+
+k-space:
+real in [1.000000e+00,1.000000e+00] = [3ff0000000000000,3ff0000000000000]
+imag in [0.000000e+00,0.000000e+00] = [0,0]
+
+BACKWARD    max 1.614e+01s  avg 1.614e+01s  min 1.614e+01s  dev 0.000e+00s
+
+r-space:
+a[0,0,0] = (134217728.000000,0.000000) = (41a0000000000000,0)
+real in [0.000000e+00,0.000000e+00] = [0,0]
+imag in [0.000000e+00,0.000000e+00] = [0,0]
+
+
+TESTING 1
+
+FORWARD     max 1.647e+01s  avg 1.647e+01s  min 1.647e+01s  dev 0.000e+00s
+
+k-space:
+real in [1.000000e+00,1.000000e+00] = [3ff0000000000000,3ff0000000000000]
+imag in [0.000000e+00,0.000000e+00] = [0,0]
+
+BACKWARD    max 1.609e+01s  avg 1.609e+01s  min 1.609e+01s  dev 0.000e+00s
+
+r-space:
+a[0,0,0] = (134217728.000000,0.000000) = (41a0000000000000,0)
+real in [0.000000e+00,0.000000e+00] = [0,0]
+imag in [0.000000e+00,0.000000e+00] = [0,0]
+
+
+TESTING 2
+
+FORWARD     max 1.645e+01s  avg 1.645e+01s  min 1.645e+01s  dev 0.000e+00s
+
+k-space:
+real in [1.000000e+00,1.000000e+00] = [3ff0000000000000,3ff0000000000000]
+imag in [0.000000e+00,0.000000e+00] = [0,0]
+
+BACKWARD    max 1.611e+01s  avg 1.611e+01s  min 1.611e+01s  dev 0.000e+00s
+
+r-space:
+a[0,0,0] = (134217728.000000,0.000000) = (41a0000000000000,0)
+real in [0.000000e+00,0.000000e+00] = [0,0]
+imag in [0.000000e+00,0.000000e+00] = [0,0]
+
+
+TESTING 3
+
+FORWARD     max 1.642e+01s  avg 1.642e+01s  min 1.642e+01s  dev 0.000e+00s
+
+k-space:
+real in [1.000000e+00,1.000000e+00] = [3ff0000000000000,3ff0000000000000]
+imag in [0.000000e+00,0.000000e+00] = [0,0]
+
+BACKWARD    max 1.612e+01s  avg 1.612e+01s  min 1.612e+01s  dev 0.000e+00s
+
+r-space:
+a[0,0,0] = (134217728.000000,0.000000) = (41a0000000000000,0)
+real in [0.000000e+00,0.000000e+00] = [0,0]
+imag in [0.000000e+00,0.000000e+00] = [0,0]
+
+
+TESTING 4
+
+FORWARD     max 1.642e+01s  avg 1.642e+01s  min 1.642e+01s  dev 0.000e+00s
+
+k-space:
+real in [1.000000e+00,1.000000e+00] = [3ff0000000000000,3ff0000000000000]
+imag in [0.000000e+00,0.000000e+00] = [0,0]
+
+BACKWARD    max 1.611e+01s  avg 1.611e+01s  min 1.611e+01s  dev 0.000e+00s
+
+r-space:
+a[0,0,0] = (134217728.000000,0.000000) = (41a0000000000000,0)
+real in [0.000000e+00,0.000000e+00] = [0,0]
+imag in [0.000000e+00,0.000000e+00] = [0,0]
+

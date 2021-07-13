@@ -4,11 +4,54 @@
 
 **URL:** https://xgitlab.cels.anl.gov/hacc/SWFFT
 
-**Team:**  
+**Team:** ElkNet
 
 ## Compilation
 
-SWFFT depends on MPI and FFTT. TODO
+SWFFT depends on MPI and FFTT:
+
+```
+$ spack info swfft
+
+MakefilePackage:   swfft
+
+Description:
+    A stand-alone version of HACC's distributed-memory, pencil-decomposed,
+    parallel 3D FFT.
+
+Homepage: https://xgitlab.cels.anl.gov/hacc/SWFFT
+
+Externally Detectable: 
+    False
+
+Tags: 
+    ecp-proxy-app  proxy-app
+
+Preferred version:  
+    1.0        https://xgitlab.cels.anl.gov/api/v4/projects/hacc%2FSWFFT/repository/archive.tar.gz?sha=v1.0
+
+Safe versions:  
+    develop    [git] https://xgitlab.cels.anl.gov/hacc/SWFFT.git on branch master
+    1.0        https://xgitlab.cels.anl.gov/api/v4/projects/hacc%2FSWFFT/repository/archive.tar.gz?sha=v1.0
+
+Variants:
+    None
+
+Installation Phases:
+    edit    build    install
+
+Build Dependencies:
+    fftw  mpi
+
+Link Dependencies:
+    fftw  mpi
+
+Run Dependencies:
+    None
+
+Virtual Packages: 
+    None
+```
 
 ### Spack Package Modification
 
@@ -127,22 +170,50 @@ spack install swfft@1.0%nvhpc@21.2
 
 ```
 $ spack spec -Il swfft@1.0%nvhpc@21.2
+
+[+]  rnwwpa7  swfft@1.0%nvhpc@21.2 patches=ef6d6c7a5e5b207fef33ba4713be9fe522cd32f8aa53781a9a4e7b063ee52729 arch=linux-amzn2-graviton2
+[+]  76tyq4g      ^fftw@3.3.9%nvhpc@21.2+mpi~openmp~pfft_patches precision=double,float arch=linux-amzn2-graviton2
+[+]  krxyvbc          ^openmpi@4.1.0%nvhpc@21.2~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=ofi patches=60ce20bc14d98c572ef7883b9fcd254c3f232c2f3a13377480f96466169ac4c8,fba0d3a784a9723338722b48024a22bb32f6a951db841a4e9f08930a93f41d7a schedulers=slurm arch=linux-amzn2-graviton2
+[+]  jroqews              ^hwloc@2.5.0%nvhpc@21.2~cairo~cuda~gl~libudev+libxml2~netloc~nvml+pci+shared arch=linux-amzn2-graviton2
+[+]  e4m4ued                  ^libpciaccess@0.16%nvhpc@21.2 patches=6e08dc445ece06e9e8b1344397f2d3f169005703ddc0f2ae24f366cde78c7377 arch=linux-amzn2-graviton2
+[+]  kk4ax3i                      ^libtool@2.4.6%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  6c4kz5g                          ^m4@1.4.18%nvhpc@21.2+sigsegv patches=3877ab548f88597ab2327a2230ee048d2d07ace1062efe81fc92e91b7f39cd00,5746cf51f45b405661c3edae7a78c33d41e54d83f635d16e2bf1f956dbfbf635,fc9b61654a3ba1a8d6cd78ce087e7c96366c290bc8d2c299f09828d793b853c8 arch=linux-amzn2-graviton2
+[+]  pa6wm5j                              ^libsigsegv@2.13%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  vtiml6g                      ^pkgconf@1.7.4%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  4imdwuy                      ^util-macros@1.19.3%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  wo4l72s                  ^libxml2@2.9.10%nvhpc@21.2~python patches=05ff238cf435825ef835c7ae39376b52dc83d8caf19e962f0766c841386a305a,10a88ad47f9797cf7cf2d7d07241f665a3b6d1f31fa026728c8c2ae93e1664e9 arch=linux-amzn2-graviton2
+[+]  r7mmkdp                      ^libiconv@1.16%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  br733tn                      ^xz@5.2.5%nvhpc@21.2~pic libs=shared,static arch=linux-amzn2-graviton2
+[+]  4js6ect                      ^zlib@1.2.11%nvhpc@21.2+optimize+pic+shared arch=linux-amzn2-graviton2
+[+]  asgm7mt                  ^ncurses@6.2%nvhpc@21.2~symlinks+termlib abi=none arch=linux-amzn2-graviton2
+[+]  uttaumr              ^libevent@2.1.12%nvhpc@21.2+openssl arch=linux-amzn2-graviton2
+[+]  j2qhi7h                  ^openssl@1.1.1k%nvhpc@21.2~docs+systemcerts arch=linux-amzn2-graviton2
+[+]  gn4fgp5                      ^perl@5.32.1%nvhpc@21.2+cpanm+shared+threads patches=21cf6a73cec16760f8de2e8895ace1299aff2d8e92dc581cd18f1d95a4503048 arch=linux-amzn2-graviton2
+[+]  5uyf3k4                          ^berkeley-db@18.1.40%nvhpc@21.2+cxx~docs+stl patches=b231fcc4d5cff05e5c3a4814f6a5af0e9a966428dc2176540d2c05aff41de522 arch=linux-amzn2-graviton2
+[+]  wsi7g3j                          ^bzip2@1.0.8%nvhpc@21.2~debug~pic+shared arch=linux-amzn2-graviton2
+[+]  s4mb5no                              ^diffutils@3.7%nvhpc@21.2 patches=6e42dc243f17aab29fd167f060f5bc1f08813e03368eb301b43c95d4b1386681 arch=linux-amzn2-graviton2
+[+]  m2wdbeo                          ^gdbm@1.19%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  zori3wf                              ^readline@8.1%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  xl6zavq              ^libfabric@1.11.1-aws%nvhpc@21.2~debug~kdreg fabrics=sockets,tcp,udp arch=linux-amzn2-graviton2
+[+]  5yq4tpw              ^numactl@2.0.14%nvhpc@21.2 patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006 arch=linux-amzn2-graviton2
+[+]  fo57byt                  ^autoconf@2.69%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  gmd4264                  ^automake@1.16.3%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  cl3ohqo              ^openssh@8.5p1%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  yvqpq74                  ^libedit@3.1-20210216%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  zehhooy              ^slurm@20-02-4-1%nvhpc@21.2~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-graviton2
 ```
 
-## Test Case 1
+## Medium test-case (single node)
 
-[ReFrame Benchmark 1](#)
+[ReFrame Benchmark](medium.py)
 
 ```
-../bin/reframe -c benchmark.py -r --performance-report
+reframe -c medium.py -r --performance-report
 ```
 
 ### Validation
 
-Details of the validation for `Test Case 1`.
-
-The validation of the results consists in a comparison of the binary output, extracting the performance measurements and using the x86 output as the reference.
-
+The validation of the results consists in a comparison of the output, extracting the performance measurements and using the x86 output as the [reference](reference-medium.txt).
 
 ### ReFrame Output
 
@@ -150,17 +221,231 @@ The validation of the results consists in a comparison of the binary output, ext
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-     **** 
+SWFFT_SWFFT-MEDIUM_swfft_1_0_gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 130.62 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_gcc_10_3_0_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 72.57 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_gcc_10_3_0_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 39.73 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_gcc_10_3_0_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 22.15 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 15.19 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 12.29 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 12.67 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 130.62 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_arm_21_0_0_879_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 75.38 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_arm_21_0_0_879_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 41.17 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_arm_21_0_0_879_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 22.36 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_arm_21_0_0_879_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 14.7 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_arm_21_0_0_879_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 11.84 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_arm_21_0_0_879_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 12.08 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_nvhpc_21_2_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 181.54 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_nvhpc_21_2_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 99.45 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_nvhpc_21_2_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 53.54 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_nvhpc_21_2_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 28.43 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 17.54 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 12.83 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-MEDIUM_swfft_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 12.48 s
 ------------------------------------------------------------------------------
 ```
 
 ### On-node Compiler Comparison
 
-Performance comparison of two compilers.
+SWFTT does not use OpenMP by default. This comparison has been carried out on a single node using different number of MPI ranks and compilers.
 
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-|       |            |            |
+| MPI ranks | GCC 10.3.0 | ARM 21.0.0.879 | NVHPC 21.2 |
+|-----------|------------|----------------|------------|
+|    1      |  130.62    |   130.62       | 181.54     |
+|    2      |  72.57 s   |   75.38 s      | 99.45 s    |
+|    4      |  39.73 s   |   41.17 s      | 53.54 s    |
+|    8      |  22.15 s   |   22.36 s      | 28.43 s    |
+|    16     |  15.19 s   |   14.7 s       |  17.54 s   |
+|    32     |  12.29 s   |   11.84 s      | 12.83 s    |
+|    64     |  12.67 s   |   12.08 s      | 12.48 s    |
+
+## Large test-case (multi node)
+
+[ReFrame Benchmark](large.py)
+
+```
+reframe -c large.py -r --performance-report
+```
+
+### Validation
+
+The validation of the results consists in a comparison of the output, extracting the performance measurements and initialization, using the x86 output as the [reference](reference-large.txt).
+
+### ReFrame Output
+
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+SWFFT_SWFFT-LARGE_swfft_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 32
+      * Total Time: 80.12 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-LARGE_swfft_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 74.03 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-LARGE_swfft_1_0_gcc_10_3_0_N_2_MPI_128_OMP_1
+   - builtin
+      * num_tasks: 128
+      * Total Time: 43.55 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-LARGE_swfft_1_0_gcc_10_3_0_N_4_MPI_256_OMP_1
+   - builtin
+      * num_tasks: 256
+      * Total Time: 27.5 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-LARGE_swfft_1_0_arm_21_0_0_879_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 81.68 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-LARGE_swfft_1_0_arm_21_0_0_879_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 74.01 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-LARGE_swfft_1_0_arm_21_0_0_879_N_2_MPI_128_OMP_1
+   - builtin
+      * num_tasks: 128
+      * Total Time: 42.57 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-LARGE_swfft_1_0_arm_21_0_0_879_N_4_MPI_256_OMP_1
+   - builtin
+      * num_tasks: 256
+      * Total Time: 26.42 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-LARGE_swfft_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 87.65 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-LARGE_swfft_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 74.6 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-LARGE_swfft_1_0_nvhpc_21_2_N_2_MPI_128_OMP_1
+   - builtin
+      * num_tasks: 128
+      * Total Time: 43.11 s
+------------------------------------------------------------------------------
+SWFFT_SWFFT-LARGE_swfft_1_0_nvhpc_21_2_N_4_MPI_256_OMP_1
+   - builtin
+      * num_tasks: 256
+      * Total Time: 26.83 s
+------------------------------------------------------------------------------
+```
+
+
+### Multi-node Compiler Comparison
+
+| Nodes | Total MPI ranks | GCC 10.3.0 | ARM 21.0.0.879 | NVHPC 21.2 |
+|-------|-----------------|------------|----------------|------------|
+|    1  |    32           |    80.12 s |    81.68 s     |    87.65 s |
+|    1  |    64           |    74.03 s |    74.01 s     |    74.6 s  |
+|    2  |    128          |    43.55 s |    42.57 s     |    43.11 s|
+|    4  |    256          |    27.5 s  |    26.42 s     |     26.83 s|
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ### Serial Hot-spot Profile
@@ -208,34 +493,22 @@ Profiling command used:
 | 9        |         |          |          |         |
 | 10       |         |          |          |         |
 
-### Strong Scaling Study
-
-On-node scaling study for two compilers.
-
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
 
 
-### Off-Node Scaling Study
 
-Off-node scaling study comparing C6g and C6gn instances.
 
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ### On-Node Architecture Comparison
@@ -252,6 +525,19 @@ On-node scaling study for two architectures.
 | 32    |                |           |
 | 64    |                |           |
 
+### Off-Node Architecture Comparison
+
+Off-node scaling study for two architectures.
+
+| Nodes | Cores | C6g | C6gn |
+|-------|-------|-----|------|
+| 1     | 8     |     |      |
+| 1     | 16    |     |      |
+| 1     | 32    |     |      |
+| 1     | 64    |     |      |
+| 2     | 128   |     |      |
+| 4     | 256   |     |      |
+| 8     | 512   |     |      |
 
 ## Optimisation
 
