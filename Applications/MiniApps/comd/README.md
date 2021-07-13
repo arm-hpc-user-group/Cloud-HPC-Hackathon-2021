@@ -162,6 +162,8 @@ Output from the test shows how well the MPI scales with work-load. It also provi
 
 ### ReFrame Output
 
+ReFrame run on ARM with gcc, ARM and NVIDIA compilers.
+
 ```
 ==============================================================================
 PERFORMANCE REPORT
@@ -274,6 +276,50 @@ CoMD_CoMD_weak_64_comd_1_1__nvhpc_21_2_N_1_MPI_64_OMP_1
 ------------------------------------------------------------------------------
 ```
 
+ReFrame run on x86 with gcc.
+
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_1_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 1
+      * Total Time: 52.1079 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_2_comd_1_1__gcc_10_3_0_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 52.0548 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_4_comd_1_1__gcc_10_3_0_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 52.5905 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_8_comd_1_1__gcc_10_3_0_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 52.5659 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_16_comd_1_1__gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 52.5794 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_32_comd_1_1__gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 53.8952 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_64_comd_1_1__gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 56.7359 s
+------------------------------------------------------------------------------
+```
+
 ### On-node Compiler Comparison
 
 Performance comparison of two compilers. Note: each step increases in complexity and work in order to utilize the extra MPI. Do not expect times to overall decrease. This demonstrates relative performance of different compiles as workload increases. 
@@ -340,15 +386,15 @@ Profiling command used:
 
 On-node scaling study for two compilers.
 
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
+| Cores | gcc@10.3.0 | arm@21.0.0.879 |
+|-------|------------|----------------|
+|   1   |   44.91    |  39.50         |
+|   2   |   45.50    |  39.68         |
+|   4   |   45.49    |  39.73         |
+|   8   |   45.88    |  39.93         |
+|   16  |   46.21    |  41.13         |
+|   32  |   49.98    |  44.02         |
+|   64  |   55.55    |  44.11         |
 
 
 ### Off-Node Scaling Study
@@ -368,18 +414,18 @@ Off-node scaling study comparing C6g and C6gn instances.
 
 ### On-Node Architecture Comparison
 
-On-node scaling study for two architectures.
+On-node scaling study for two architectures. `gcc@10.3.0` was used in both cases.
 
-| Cores | C6gn (Aarch64) | C5n (X86) |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
 
+| Cores | C6gn (ARM) | C5n (Intel)    |
+|-------|------------|----------------|
+|   1   |   44.91    |  52.10         |
+|   2   |   45.50    |  52.05         |
+|   4   |   45.49    |  52.59         |
+|   8   |   45.88    |  52.56         |
+|   16  |   46.21    |  52.57         |
+|   32  |   49.98    |  53.89         |
+|   64  |   55.55    |  56.73         |
 
 
 ## Test Case 2
