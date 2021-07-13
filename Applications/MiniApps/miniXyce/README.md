@@ -54,27 +54,62 @@ MiniXyce_short_test_minixyce__gcc_10_3_0_N_1_MPI_64_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 64
-      * Total Time: 40.0757 s
+      * Total Time: 39.7227 s
 ------------------------------------------------------------------------------
 MiniXyce_short_test_minixyce__gcc_10_3_0_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 61.494 s
+      * Total Time: 69.0703 s
 ------------------------------------------------------------------------------
 MiniXyce_short_test_minixyce__gcc_10_3_0_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 137.31 s
+      * Total Time: 153.912 s
 ------------------------------------------------------------------------------
 MiniXyce_short_test_minixyce__gcc_10_3_0_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 351.759 s
+      * Total Time: 359.213 s
+------------------------------------------------------------------------------
+MiniXyce_short_test_minixyce__gcc_10_3_0_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 848.906 s
 ------------------------------------------------------------------------------
 MiniXyce_short_test_minixyce__gcc_10_3_0_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 263.599 s
+      * Total Time: 310.014 s
+------------------------------------------------------------------------------
+MiniXyce_short_test_minixyce__arm_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 45.7333 s
+------------------------------------------------------------------------------
+MiniXyce_short_test_minixyce__arm_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 68.6743 s
+------------------------------------------------------------------------------
+MiniXyce_short_test_minixyce__arm_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 164.17 s
+------------------------------------------------------------------------------
+MiniXyce_short_test_minixyce__arm_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 422.918 s
+------------------------------------------------------------------------------
+MiniXyce_short_test_minixyce__arm_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 840.92 s
+------------------------------------------------------------------------------
+MiniXyce_short_test_minixyce__arm_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 358.462 s
 ------------------------------------------------------------------------------
 
 ```
