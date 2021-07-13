@@ -14,14 +14,26 @@ class MiniXyceTest(hack.HackathonBase):
 
     # Define test case
     # In this case we download the file from GitHub and write as clover.in - the expected input file
-    prerun_cmds = ['cp /scratch/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/minixyce-1.0-6txjvdkxg5w6myfup6wocxhwlolawgq4/doc/tests/cir4.net cir4.net' ,
-                    'cp /scratch/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/minixyce-1.0-6txjvdkxg5w6myfup6wocxhwlolawgq4/bin/default_params.txt default_params.txt']
+    prerun_cmds = ['cp -r /scratch/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/minixyce-1.0-6txjvdkxg5w6myfup6wocxhwlolawgq4/doc/tests tests' ,
+                   'cp /scratch/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/minixyce-1.0-6txjvdkxg5w6myfup6wocxhwlolawgq4/bin/default_params.txt default_params.txt']
+    '''
+    prerun_cmds = ['cp /home/rae/Cloud-HPC-Hackathon-2021/Applications/MiniApps/miniXyce/tests/cir6.net cir6.net' ,
+                    'cp /home/rae/Cloud-HPC-Hackathon-2021/Applications/MiniApps/miniXyce/tests/default_params.txt default_params.txt']
+    '''
 
     # Define Execution
     # Binary to run
     executable = 'miniXyce.x'
-    # Command line options to pass
-    executable_opts = ['-c cir4.net > output']
+    # Command line options to pass executable_opts is parametrised
+    # executable_opts = ['-c tests/cir1.net > output']
+    exec_opts = parameter([
+        "-c tests/cir1.net --t_start 0 --pf default_params.txt > output",
+        "-c tests/cir2.net > output",
+        "-c tests/cir3.net > output",
+        "-c tests/cir4.net > output",
+        "-c tests/cir5.net > output"
+        ])
+
     # Where the output is written to
     logfile = 'output'
     # Store the output file (used for validation later)
@@ -37,15 +49,19 @@ class MiniXyceTest(hack.HackathonBase):
 
     # Parameters - MPI / Threads - Used for scaling studies
     parallelism = parameter([
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 1},
+         { 'nodes' : 1, 'mpi' : 2, 'omp' : 1},
         #{ 'nodes' : 1, 'mpi' : 2, 'omp' : 1},
         #{ 'nodes' : 1, 'mpi' : 4, 'omp' : 1},
         #{ 'nodes' : 1, 'mpi' : 8, 'omp' : 1},
         #{ 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
         #{ 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
-        { 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
+        # { 'nodes' : 1, 'mpi' : 4, 'omp' : 1},
+        { 'nodes' : 1, 'mpi' : 8, 'omp' : 1},
     ])
-
+ 
+    @run_before('run')
+    def set_executable_opts(self):
+        self.executable_opts = [self.exec_opts]
 
     # Code validation
     @run_before('sanity')
@@ -55,9 +71,9 @@ class MiniXyceTest(hack.HackathonBase):
 
        # Validation at step 87 (BM_short)
        # Regex - Volume   Mass   Density   Pressure   Internal Energy   Kinetic Energy   Total Energy
-       #sol_regex = r'\s+step:\s+87\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)'
+       # sol_regex = r'\s+step:\s+87\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)'
        # Validate for kinetic energy (6)
-       #kinetic_energy = sn.extractsingle(sol_regex, self.logfile, 6, float)
+       # result = sn.extractsingle(sol_regex, self.logfile, 6, float)
 
        expected = 0.3075
        expected_lower = 0.30745
@@ -68,13 +84,15 @@ class MiniXyceTest(hack.HackathonBase):
 
        # Performance Testing - FOM Total Time units 's'
        # We dont set an expected value
-       #self.reference = {
-       #   '*': {'Total Time': (0, None, None, 's'),}
-       #}
+       self.reference = {
+          '*': {'Total Time': (0, None, None, 's'),}
+       }
+
 
        # CloverLeaf prints the 'Wall clock' every timestep - so extract all lines matching the regex
-       #pref_regex = r'\s+Wall clock\s+(\S+)'
-       #self.perf_patterns = {
-       #        'Total Time': sn.extractsingle(pref_regex, self.logfile, 1, float, item=-1)
-       #}
+       pref_regex = r'\s+Total Simulation Time:\s+(\S+)'
+       self.perf_patterns = {
+            'Total Time': sn.extractsingle(pref_regex, self.logfile, 1, float, item=-1)
+       }
+
 
