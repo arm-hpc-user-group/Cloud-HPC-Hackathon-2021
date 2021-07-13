@@ -164,7 +164,7 @@ reframe -c remhos_validation.py -r --performance-report -v
 ```
 
 #### Validation Test Cases Details
-For validation, we have a combination of 3 compilers, 7 mpi parameters and 4 test cases, which results into 84 test runs in total. The 3 compilers are` gcc@10.3.0`, `arm@21.0.0.879`, and `nvhpc@21.2`. The 7 mpi parameters are numbers of CPUs used, which are powers of 2 from 1(2^0) to 64(2^6). The 4 test cases are verification of 6, 7, 9, and 10 of https://github.com/CEED/Remhos/tree/v1.0#verification-of-results, which are chosen to cover the {Remap Mode, Transport Mode} x {2D Mode, 3D Mode} combination. As suggested by Remhos, we compare the resulting `mass` and `max` to the values, with a tolerance of relative error of `1e-9`. 
+For validation, we have a combination of 3 compilers, 7 mpi parameters and 4 test cases, which results into 84 test runs in total. The 3 compilers are `gcc@10.3.0`, `arm@21.0.0.879`, and `nvhpc@21.2`. The 7 mpi parameters are numbers of cores used, which are powers of 2 from 1(2^0) to 64(2^6). The 4 test cases are verification of 6, 7, 9, and 10 of https://github.com/CEED/Remhos/tree/v1.0#verification-of-results, which are chosen to cover the {Remap Mode, Transport Mode} x {2D Mode, 3D Mode} combination. As suggested by Remhos, we compare the resulting `mass` and `max` to the values, with a tolerance of relative error of `1e-9`. 
 
 | Test Case     | `mass`        | `max`        |
 |---------------|---------------|--------------|
@@ -349,6 +349,480 @@ For validation, we have a combination of 3 compilers, 7 mpi parameters and 4 tes
 [ [32m PASSED [0m ] Ran 84/84 test case(s) from 84 check(s) (0 failure(s), 0 skipped)
 [==========] Finished on Tue Jul 13 16:03:20 2021
 ```
+
+### Performance Analysis
+We choose the execution time of the program as our metric. These data come with the validation script since we enable the performance report and set the corresponding reference and pattern. The raw data below is extracted from the output of the script. The following tables collect the result across different test cases, different compilers and different resourses, where the experiments are done on AWS C6gn.
+
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 18.55 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 10.07 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 5.99 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 4.22 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 4.57 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 5.03 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 7.39 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 21.2 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 11.09 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 6.47 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 4.45 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.85 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 4.07 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 5.44 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 22.83 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 12.22 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 7.03 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 5.16 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 4.03 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 4.2 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 6.17 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 10.46 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 5.82 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 3.6 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 2.51 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.21 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 2.37 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 3.27 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 12.08 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 6.49 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 4.21 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 2.67 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.28 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 2.42 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 3.34 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 13.35 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 7.29 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 4.31 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 3.24 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.39 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 2.5 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 3.35 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 7.42 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 4.45 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 3.03 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 2.47 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.53 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 2.87 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.09 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 7.52 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 4.5 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 3.06 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 2.48 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.45 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 3.35 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.07 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 7.85 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 4.67 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 3.15 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 2.53 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.48 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 2.89 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.71 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 9.7 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 5.67 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 3.71 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 2.95 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.04 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 3.46 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.72 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 10.19 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 5.93 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 3.87 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 3.04 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.48 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 3.48 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.87 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 11.46 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 6.48 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 4.13 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 3.17 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.1 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 3.55 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.76 s
+------------------------------------------------------------------------------
+```
+
+#### Test Case 1: 2DRemap
+| Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
+|-------|--------------|------------------|--------------|
+| 1     |  18.55 s     |   21.20 s        |   22.83 s    |
+| 2     |  10.07 s     |   11.09 s        |   12.22 s    |
+| 4     |   5.99 s     |    6.47 s        |    7.03 s    |
+| 8     |   4.22 s     |    4.45 s        |    5.16 s    |
+| 16    |   4.57 s     |    3.85 s        |    4.03 s    |
+| 32    |   5.03 s     |    4.07 s        |    4.20 s    |
+| 64    |   7.39 s     |    5.44 s        |    6.17 s    |
+
+#### Test Case 2: 3DRemap
+| Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
+|-------|--------------|------------------|--------------|
+| 1     |  10.46 s     |   12.08 s        |   13.35 s    |
+| 2     |   5.82 s     |    6.49 s        |    7.29 s    |
+| 4     |   3.60 s     |    4.21 s        |    4.31 s    |
+| 8     |   2.51 s     |    2.67 s        |    3.24 s    |
+| 16    |   2.21 s     |    2.28 s        |    2.39 s    |
+| 32    |   2.37 s     |    2.42 s        |    2.50 s    |
+| 64    |   3.27 s     |    3.34 s        |    3.35 s    |
+
+#### Test Case 3: 2DTransport
+| Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
+|-------|--------------|------------------|--------------|
+| 1     |   7.42 s     |    7.52 s        |    7.85 s    |
+| 2     |   4.45 s     |    4.50 s        |    4.67 s    |
+| 4     |   3.03 s     |    3.06 s        |    3.15 s    |
+| 8     |   2.47 s     |    2.48 s        |    2.53 s    |
+| 16    |   2.53 s     |    2.45 s        |    2.48 s    |
+| 32    |   2.87 s     |    3.35 s        |    2.89 s    |
+| 64    |   4.09 s     |    4.07 s        |    4.71 s    |
+
+#### Test Case 4: 3DTransport
+| Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
+|-------|--------------|------------------|--------------|
+| 1     |   9.70 s     |   10.19 s        |   11.46 s    |
+| 2     |   5.67 s     |    5.93 s        |    6.48 s    |
+| 4     |   3.71 s     |    3.87 s        |    4.13 s    |
+| 8     |   2.95 s     |    3.04 s        |    3.17 s    |
+| 16    |   3.04 s     |    3.48 s        |    3.10 s    |
+| 32    |   3.46 s     |    3.48 s        |    3.55 s    |
+| 64    |   4.72 s     |    4.87 s        |    4.76 s    |
 
 ### On-node Compiler Comparison
 
