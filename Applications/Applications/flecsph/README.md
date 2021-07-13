@@ -4,7 +4,7 @@
 
 **URL:** http://flecsi.lanl.com
 
-**Team:**  
+**Team:** BlueHPCHens  
 
 ## Compilation
 
@@ -14,7 +14,9 @@ Details of any changes to the Spack recipe used.
 
 Git commit hash of checkout for pacakage:
 
-Pull request for Spack recipe changes:
+Pull request for Spack recipe changes: https://github.com/mferrato/spack/commit/2687874dc6e6d86a78ed405ebd8adaa941229489
+
+** Had to edit Spack package for FleCSPH **
 
 ### Building FleCSPH
 
@@ -23,11 +25,11 @@ Pull request for Spack recipe changes:
 #### Compiler 1
 
 ```
-spack install <app>%<compiler1>
+spack install flecsph
 ```
 
 ```
-$ spack spec -Il <app>%<compiler1>
+$ spack load flecsph
 
 ```
 
