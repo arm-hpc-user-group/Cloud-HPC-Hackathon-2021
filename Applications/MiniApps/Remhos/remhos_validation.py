@@ -1,6 +1,7 @@
 import reframe as rfm
 import reframe.utility.sanity as sn
 import hackathon as hack
+from datetime import datetime
 
 class RemhosValidationTestBase(hack.HackathonBase):
     valid_systems = ['aws:c6gn']
@@ -8,7 +9,7 @@ class RemhosValidationTestBase(hack.HackathonBase):
     log_team_name = 'C3SR'
     log_app_name = 'Remhos'
 
-    executable = 'remhos'
+    executable = 'time -p remhos'
     
     logfile = 'remhos.out'
 
@@ -29,6 +30,21 @@ class RemhosValidationTestBase(hack.HackathonBase):
         { 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
         { 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
     ])
+
+    @run_before('performance')
+    def set_perf_patterns(self):
+        self.reference = {
+            '*': {'Total Time': (0, None, None, 's'),}
+        }
+
+        perf_regex = r'real\s+(\S+)'
+        self.perf_patterns = {
+            'Total Time': sn.max(sn.extractall(perf_regex, self.stderr, 1, float))
+        }
+
+    @run_before('run')
+    def prepare_job(self):
+       self.job.options += ['--exclusive']
 
 @rfm.simple_test
 class Remhos2DRemapValidationTest(RemhosValidationTestBase):
