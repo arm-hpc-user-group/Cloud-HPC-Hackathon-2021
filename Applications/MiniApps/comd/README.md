@@ -1,8 +1,10 @@
-# COMD 
+# CoMD 
 
 **Description:** CoMD is a reference implementation of classical molecular dynamics algorithms and workloads as used in materials science. It is created and maintained by The Exascale Co-Design Center for Materials in Extreme Environments (ExMatEx). The code is intended to serve as a vehicle for co-design by allowing others to extend and/or reimplement it as needed to test performance of new architectures, programming models, etc. New versions of CoMD will be released to incorporate the lessons learned from the co-design process.
 
 **URL:** http://www.exmatex.org/comd.html
+
+**Source-Code:** https://github.com/ECP-copa/CoMD
 
 **Team:**  
 
