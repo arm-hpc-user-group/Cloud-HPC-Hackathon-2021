@@ -444,6 +444,8 @@ See `comd_strong.py` for the steps, data download and copy of the test from CoMD
 
 ### ReFrame Output
 
+ReFrame output from the ARM HPC.
+
 ```
 ==============================================================================
 PERFORMANCE REPORT
@@ -556,6 +558,50 @@ CoMD_CoMD_strong_64_comd_1_1__nvhpc_21_2_N_1_MPI_64_OMP_1
 ------------------------------------------------------------------------------
 ```
 
+ReFrame output from the x86 HPC.
+
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_1_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 1
+      * Total Time: 369.6075 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_2_comd_1_1__gcc_10_3_0_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 372.4271 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_4_comd_1_1__gcc_10_3_0_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 372.2095 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_8_comd_1_1__gcc_10_3_0_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 375.1501 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_16_comd_1_1__gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 379.333 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_32_comd_1_1__gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 381.3141 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_64_comd_1_1__gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 391.3633 s
+------------------------------------------------------------------------------
+```
+
 ### On-node Compiler Comparison
 
 Performance comparison of three available compilers on the ARM HPC. Note: each step increases in complexity and work in order to utilize the extra MPI. Do not expect times to overall decrease. This demonstrates relative performance of different compiles as workload increases. 
@@ -569,6 +615,98 @@ Performance comparison of three available compilers on the ARM HPC. Note: each s
 |   16  |  332.2     |  290.8         |  211.9     |
 |   32  |  335.1     |  296.2         |  213.1     |
 |   64  |  344.8     |  306.8         |  224.3     |
+
+### Serial Hot-spot Profile
+
+> WIP: have not profiled
+
+List of top-10 functions / code locations from a serial profile.
+
+Profiling command used:
+```
+:
+```
+
+| Position | Routine | Time (s) | Time (%) |
+|----------|---------|----------|----------|
+| 1        |         |          |          |
+| 2        |         |          |          |
+| 3        |         |          |          |
+| 4        |         |          |          |
+| 5        |         |          |          |
+| 6        |         |          |          |
+| 7        |         |          |          |
+| 8        |         |          |          |
+| 9        |         |          |          |
+| 10       |         |          |          |
+
+
+### Full Node Hot-spot Profile
+
+List of top-10 functions / code locations from a full node profile.
+
+Profiling command used:
+```
+:
+```
+
+| Position | Routine | Time (s) | Time (%) | MPI (%) |
+|----------|---------|----------|----------|---------|
+| 1        |         |          |          |         |
+| 2        |         |          |          |         |
+| 3        |         |          |          |         |
+| 4        |         |          |          |         |
+| 5        |         |          |          |         |
+| 6        |         |          |          |         |
+| 7        |         |          |          |         |
+| 8        |         |          |          |         |
+| 9        |         |          |          |         |
+| 10       |         |          |          |         |
+
+### Strong Scaling Study
+
+On-node scaling study for two compilers.
+
+| Cores | gcc@10.3.0 | arm@21.0.0.879 |
+|-------|------------|----------------|
+|   1   |  319.4     |  282.6         |
+|   2   |  322.8     |  282.3         |
+|   4   |  323.4     |  282.5         |
+|   8   |  325.1     |  283.0         |
+|   16  |  332.2     |  290.8         |
+|   32  |  335.1     |  296.2         |
+|   64  |  344.8     |  306.8         |
+
+### Off-Node Scaling Study
+
+Off-node scaling study comparing C6g and C6gn instances.
+
+| Nodes | Cores | C6g | C6gn |
+|-------|-------|-----|------|
+| 1     | 8     |     |      |
+| 1     | 16    |     |      |
+| 1     | 32    |     |      |
+| 1     | 64    |     |      |
+| 2     | 128   |     |      |
+| 4     | 256   |     |      |
+| 8     | 512   |     |      |
+
+
+### On-Node Architecture Comparison
+
+On-node scaling study for two architectures. `gcc@10.3.0` was used in both cases.
+
+
+| Cores | C6gn (ARM) | C5n (x86/Intel)    |
+|-------|------------|----------------|
+|   1   |  319.4     |  369.6         |
+|   2   |  322.8     |  372.4         |
+|   4   |  323.4     |  372.2         |
+|   8   |  325.1     |  375.1         |
+|   16  |  332.2     |  379.3         |
+|   32  |  335.1     |  381.3         |
+|   64  |  344.8     |  391.3         |
+
 
 
 ## Optimisation
