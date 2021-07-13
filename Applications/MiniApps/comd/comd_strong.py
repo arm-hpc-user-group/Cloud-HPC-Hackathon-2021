@@ -1,23 +1,22 @@
 """
-"weak scaling" test from CoMD's examples
+"strong scaling" test from CoMD's examples
 
 This reframe test helps check that compiles of CoMD for HPC work correctly. It also enables comparison of different compilers. e.g. gcc vs arm on Graviton2 nodes.
 
 Test logically scale up to 64 MPI and follow the test script from CoMD's website
 
-https://github.com/ECP-copa/CoMD/blob/master/examples/mpi-weakScaling.sh
+  https://github.com/ECP-copa/CoMD/blob/master/examples/mpi-strongScaling.sh
 
 ```
 #!/bin/sh
 
-# Simple weak scaling study with eam potential and 32000 atoms per task
-mpirun -np 1  ../bin/CoMD-mpi -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
-mpirun -np 2  ../bin/CoMD-mpi -e -i 2 -j 1 -k 1 -x 40 -y 20 -z 20
-mpirun -np 4  ../bin/CoMD-mpi -e -i 2 -j 2 -k 1 -x 40 -y 40 -z 20
+# Simple strong scaling study with eam potential and 256,000 atoms
+mpirun -np 1  ../bin/CoMD-mpi -e -i 1 -j 1 -k 1 -x 40 -y 40 -z 40
+mpirun -np 2  ../bin/CoMD-mpi -e -i 2 -j 1 -k 1 -x 40 -y 40 -z 40
+mpirun -np 4  ../bin/CoMD-mpi -e -i 2 -j 2 -k 1 -x 40 -y 40 -z 40
 mpirun -np 8  ../bin/CoMD-mpi -e -i 2 -j 2 -k 2 -x 40 -y 40 -z 40
-mpirun -np 16 ../bin/CoMD-mpi -e -i 4 -j 2 -k 2 -x 80 -y 40 -z 40
+mpirun -np 16 ../bin/CoMD-mpi -e -i 4 -j 2 -k 2 -x 40 -y 40 -z 40
 ```
-
 """
 import reframe as rfm
 import reframe.utility.sanity as sn
@@ -53,10 +52,10 @@ class CoMDTest(hack.HackathonBase):
     ])
 
     def __init__(self, mpi, i, j, k):
-        self.log_test_name = f'CoMD_weak_{mpi}'
+        self.log_test_name = f'CoMD_strong_{mpi}'
 
-        # CLI args. "weak" largely means fewer atoms with eam potential
-        self.executable_opts = [f'&> comd.out -e -i {i} -j {j} -k {k} -x {i*20} -y {j*20} -z {k*20}']
+        # CLI args. "strong" largely means more atoms with eam potential
+        self.executable_opts = [f'&> comd.out -e -i {i} -j {j} -k {k} -x {i*40} -y {j*40} -z {k*40}']
 
         # Scale MPI to confirm that more work takes similar time 
         self.parallelism = { 'nodes' : 1, 'mpi' : mpi, 'omp' : 1}
