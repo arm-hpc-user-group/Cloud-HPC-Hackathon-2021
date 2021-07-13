@@ -156,21 +156,9 @@ reframe -c comd_weak.py -r --performance-report
 
 `Test Case 1` is a validation of the example "weak scaling" study data and based on the steps from the `mpi-weakScaling.sh` script in CoMD's repository. This test relies relies on the potentials from the `pots/Cu_u6.eam` file in the same GitHub repository.
 
-A copy of the scaling script for reference.
+See `comd_weak.py` for the reframe test that does all the downloads needed potential data and does scaling steps. 
 
-```
-#!/bin/sh
-
-# Simple weak scaling study with eam potential and 32000 atoms per task
-mpirun -np 1  ../bin/CoMD-mpi -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
-mpirun -np 2  ../bin/CoMD-mpi -e -i 2 -j 1 -k 1 -x 40 -y 20 -z 20
-mpirun -np 4  ../bin/CoMD-mpi -e -i 2 -j 2 -k 1 -x 40 -y 40 -z 20
-mpirun -np 8  ../bin/CoMD-mpi -e -i 2 -j 2 -k 2 -x 40 -y 40 -z 40
-mpirun -np 16 ../bin/CoMD-mpi -e -i 4 -j 2 -k 2 -x 80 -y 40 -z 40
-```
-
-MPI must match j * i * k. e.g. 1 for this test and not otherwise scaled. OMP is scaled from 1-64 by increments of 2 to show performance gains 
-
+Output from the test shows how well the MPI scales with work-load. It also provides a way to compare different compilers on the same architecture.
 
 ### ReFrame Output
 
@@ -391,6 +379,150 @@ On-node scaling study for two architectures.
 | 16    |                |           |
 | 32    |                |           |
 | 64    |                |           |
+
+
+
+## Test Case 2
+
+[ReFrame Benchmark 2](#)
+
+```
+reframe -c comd_strong.py -r --performance-report
+```
+
+### Validation
+
+`Test Case 2` is a validation of the example "strong scaling" study data and based on the steps from the `mpi-strongScaling.sh` script in CoMD's repository. This test relies relies on the potentials from the `pots/Cu_u6.eam` file in the same GitHub repository.
+
+See `comd_strong.py` for the steps, data download and copy of the test from CoMD's website.
+
+### ReFrame Output
+
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_1_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 319.4221 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_1_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 282.6846 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_1_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 203.7015 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_2_comd_1_1__gcc_10_3_0_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 322.864 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_2_comd_1_1__arm_21_0_0_879_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 282.3552 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_2_comd_1_1__nvhpc_21_2_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 203.505 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_4_comd_1_1__gcc_10_3_0_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 323.488 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_4_comd_1_1__arm_21_0_0_879_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 282.5151 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_4_comd_1_1__nvhpc_21_2_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 204.6477 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_8_comd_1_1__gcc_10_3_0_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 325.1472 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_8_comd_1_1__arm_21_0_0_879_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 283.0221 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_8_comd_1_1__nvhpc_21_2_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 205.5526 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_16_comd_1_1__gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 332.2591 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_16_comd_1_1__arm_21_0_0_879_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 290.8025 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_16_comd_1_1__nvhpc_21_2_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 211.963 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_32_comd_1_1__gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 335.1125 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_32_comd_1_1__arm_21_0_0_879_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 296.2035 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_32_comd_1_1__nvhpc_21_2_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 213.1795 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_64_comd_1_1__gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 344.871 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_64_comd_1_1__arm_21_0_0_879_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 306.812 s
+------------------------------------------------------------------------------
+CoMD_CoMD_strong_64_comd_1_1__nvhpc_21_2_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 224.3529 s
+------------------------------------------------------------------------------
+```
+
+### On-node Compiler Comparison
+
+Performance comparison of three available compilers on the ARM HPC. Note: each step increases in complexity and work in order to utilize the extra MPI. Do not expect times to overall decrease. This demonstrates relative performance of different compiles as workload increases. 
+
+| Cores | gcc@10.3.0 | arm@21.0.0.879 | nvhpc@21.2 |
+|-------|------------|----------------|------------|
+|   1   |  319.4     |  282.6         |  203.7     |
+|   2   |  322.8     |  282.3         |  203.5     |
+|   4   |  323.4     |  282.5         |  204.6     |
+|   8   |  325.1     |  283.0         |  205.5     |
+|   16  |  332.2     |  290.8         |  211.9     |
+|   32  |  335.1     |  296.2         |  213.1     |
+|   64  |  344.8     |  306.8         |  224.3     |
 
 
 ## Optimisation
