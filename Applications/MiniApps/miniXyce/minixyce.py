@@ -14,12 +14,12 @@ class MiniXyceTest(hack.HackathonBase):
 
     # Define test case
     # In this case we download the file from GitHub and write as clover.in - the expected input file
+    '''
     prerun_cmds = ['cp -r /scratch/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/minixyce-1.0-6txjvdkxg5w6myfup6wocxhwlolawgq4/doc/tests tests' ,
                    'cp /scratch/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/minixyce-1.0-6txjvdkxg5w6myfup6wocxhwlolawgq4/bin/default_params.txt default_params.txt']
     '''
-    prerun_cmds = ['cp /home/rae/Cloud-HPC-Hackathon-2021/Applications/MiniApps/miniXyce/tests/cir6.net cir6.net' ,
+    prerun_cmds = ['cp -r /home/rae/Cloud-HPC-Hackathon-2021/Applications/MiniApps/miniXyce/tests tests' ,
                     'cp /home/rae/Cloud-HPC-Hackathon-2021/Applications/MiniApps/miniXyce/tests/default_params.txt default_params.txt']
-    '''
 
     # Define Execution
     # Binary to run
@@ -27,11 +27,12 @@ class MiniXyceTest(hack.HackathonBase):
     # Command line options to pass executable_opts is parametrised
     # executable_opts = ['-c tests/cir1.net > output']
     exec_opts = parameter([
-        "-c tests/cir1.net --t_start 0 --pf default_params.txt > output",
-        "-c tests/cir2.net > output",
-        "-c tests/cir3.net > output",
-        "-c tests/cir4.net > output",
-        "-c tests/cir5.net > output"
+        #"-c tests/cir1.net --t_start 0 --pf default_params.txt > output",
+        #"-c tests/cir2.net > output",
+        #"-c tests/cir3.net > output",
+        #"-c tests/cir4.net > output",
+        #"-c tests/cir5.net > output"
+        "-c tests/cir6.net --t_start 0 --pf default_params.txt > output",
         ])
 
     # Where the output is written to
@@ -42,21 +43,20 @@ class MiniXyceTest(hack.HackathonBase):
 
     # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
     spec = parameter([
-        'minixyce %gcc@10.3.0'     # CloverLeaf with the GCC compiler
+        'minixyce %gcc@10.3.0',     # CloverLeaf with the GCC compiler
+
 #        'cloverleaf@1.1 %arm@21.0.0.879', # CloverLeaf with the Arm compiler
 #        'cloverleaf@1.1 %nvhpc@21.2'      # CloverLeaf with the NVIDIA compiler
     ])
 
     # Parameters - MPI / Threads - Used for scaling studies
     parallelism = parameter([
-         { 'nodes' : 1, 'mpi' : 2, 'omp' : 1},
-        #{ 'nodes' : 1, 'mpi' : 2, 'omp' : 1},
-        #{ 'nodes' : 1, 'mpi' : 4, 'omp' : 1},
-        #{ 'nodes' : 1, 'mpi' : 8, 'omp' : 1},
-        #{ 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
-        #{ 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
-        # { 'nodes' : 1, 'mpi' : 4, 'omp' : 1},
+        { 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
+        { 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
+        { 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
         { 'nodes' : 1, 'mpi' : 8, 'omp' : 1},
+        { 'nodes' : 1, 'mpi' : 4, 'omp' : 1},
+        { 'nodes' : 1, 'mpi' : 2, 'omp' : 1},
     ])
  
     @run_before('run')
