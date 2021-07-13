@@ -149,12 +149,12 @@ $ spack spec -Il comd@1.1 %nvhpc@21.2
 [ReFrame Benchmark 1](#)
 
 ```
-reframe -c comd_weak_omp.py -r --performance-report
+reframe -c comd_weak.py -r --performance-report
 ```
 
 ### Validation
 
-`Test Case 1` is a validation of the example "weak scaling" study data using MPI=1 and the first step from the `mpi-weakScaling.sh` script in CoMD's repository, which also relies on the `pots/
+`Test Case 1` is a validation of the example "weak scaling" study data and based on the steps from the `mpi-weakScaling.sh` script in CoMD's repository. This test relies relies on the potentials from the `pots/Cu_u6.eam` file in the same GitHub repository.
 
 A copy of the scaling script for reference.
 
@@ -169,9 +169,7 @@ mpirun -np 8  ../bin/CoMD-mpi -e -i 2 -j 2 -k 2 -x 40 -y 40 -z 40
 mpirun -np 16 ../bin/CoMD-mpi -e -i 4 -j 2 -k 2 -x 80 -y 40 -z 40
 ```
 
-MPI must match j * i * k. e.g. 1 for this test and not otherwise scaled. OMP is scaled from 1-64 by increments of 2 to show performance gains from multiple threads.
-
-See `Test Case 2` for a the more extreme weak scaling run that uses MPI up to 64. 
+MPI must match j * i * k. e.g. 1 for this test and not otherwise scaled. OMP is scaled from 1-64 by increments of 2 to show performance gains 
 
 
 ### ReFrame Output
@@ -180,127 +178,127 @@ See `Test Case 2` for a the more extreme weak scaling run that uses MPI up to 64
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_1
+CoMD_CoMD_weak_1_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 1
-      * Total Time: 45.118 s
+      * Total Time: 44.911 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_2
+CoMD_CoMD_weak_1_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 45.2142 s
+      * Total Time: 39.5082 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_4
+CoMD_CoMD_weak_1_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 44.8503 s
+      * Total Time: 28.5893 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_8
+CoMD_CoMD_weak_2_comd_1_1__gcc_10_3_0_N_1_MPI_2_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 44.8245 s
+      * num_tasks: 2
+      * Total Time: 45.5082 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_16
+CoMD_CoMD_weak_2_comd_1_1__arm_21_0_0_879_N_1_MPI_2_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 45.1151 s
+      * num_tasks: 2
+      * Total Time: 39.6867 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_32
+CoMD_CoMD_weak_2_comd_1_1__nvhpc_21_2_N_1_MPI_2_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 45.0771 s
+      * num_tasks: 2
+      * Total Time: 28.7488 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_64
+CoMD_CoMD_weak_4_comd_1_1__gcc_10_3_0_N_1_MPI_4_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 44.5126 s
+      * num_tasks: 4
+      * Total Time: 45.4903 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_1
+CoMD_CoMD_weak_4_comd_1_1__arm_21_0_0_879_N_1_MPI_4_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 39.1143 s
+      * num_tasks: 4
+      * Total Time: 39.7383 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_2
+CoMD_CoMD_weak_4_comd_1_1__nvhpc_21_2_N_1_MPI_4_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 39.2642 s
+      * num_tasks: 4
+      * Total Time: 28.8755 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_4
+CoMD_CoMD_weak_8_comd_1_1__gcc_10_3_0_N_1_MPI_8_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 39.1785 s
+      * num_tasks: 8
+      * Total Time: 45.8829 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_8
+CoMD_CoMD_weak_8_comd_1_1__arm_21_0_0_879_N_1_MPI_8_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 39.188 s
+      * num_tasks: 8
+      * Total Time: 39.9327 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_16
+CoMD_CoMD_weak_8_comd_1_1__nvhpc_21_2_N_1_MPI_8_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 39.3722 s
+      * num_tasks: 8
+      * Total Time: 29.1963 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_32
+CoMD_CoMD_weak_16_comd_1_1__gcc_10_3_0_N_1_MPI_16_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 39.525 s
+      * num_tasks: 16
+      * Total Time: 46.2156 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_64
+CoMD_CoMD_weak_16_comd_1_1__arm_21_0_0_879_N_1_MPI_16_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 39.0224 s
+      * num_tasks: 16
+      * Total Time: 41.1308 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_1
+CoMD_CoMD_weak_16_comd_1_1__nvhpc_21_2_N_1_MPI_16_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 28.4473 s
+      * num_tasks: 16
+      * Total Time: 30.4601 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_2
+CoMD_CoMD_weak_32_comd_1_1__gcc_10_3_0_N_1_MPI_32_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 28.4003 s
+      * num_tasks: 32
+      * Total Time: 49.983 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_4
+CoMD_CoMD_weak_32_comd_1_1__arm_21_0_0_879_N_1_MPI_32_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 28.3877 s
+      * num_tasks: 32
+      * Total Time: 44.027 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_8
+CoMD_CoMD_weak_32_comd_1_1__nvhpc_21_2_N_1_MPI_32_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 28.3701 s
+      * num_tasks: 32
+      * Total Time: 33.5083 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_16
+CoMD_CoMD_weak_64_comd_1_1__gcc_10_3_0_N_1_MPI_64_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 28.2478 s
+      * num_tasks: 64
+      * Total Time: 55.5555 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_32
+CoMD_CoMD_weak_64_comd_1_1__arm_21_0_0_879_N_1_MPI_64_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 28.5443 s
+      * num_tasks: 64
+      * Total Time: 44.1167 s
 ------------------------------------------------------------------------------
-CoMD_CoMD_weak_example_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_64
+CoMD_CoMD_weak_64_comd_1_1__nvhpc_21_2_N_1_MPI_64_OMP_1
    - builtin
-      * num_tasks: 1
-      * Total Time: 28.2558 s
+      * num_tasks: 64
+      * Total Time: 38.6034 s
 ------------------------------------------------------------------------------
 ```
 
 ### On-node Compiler Comparison
 
-Performance comparison of two compilers.
+Performance comparison of two compilers. Note: each step increases in complexity and work in order to utilize the extra MPI. Do not expect times to overall decrease. This demonstrates relative performance of different compiles as workload increases. 
 
 | Cores | gcc@10.3.0 | arm@21.0.0.879 | nvhpc@21.2 |
 |-------|------------|----------------|------------|
-|   1   |   45.11    |  39.11         |  28.40     |
-|   2   |   45.21    |  39.26         |  28.38     |
-|   4   |   44.85    |  39.17         |  28.87     |
-|   8   |   44.82    |  39.18         |  28.37     |
-|   16  |   45.11    |  39.37         |  28.24     |
-|   32  |   45.07    |  39.52         |  28.54     |
-|   64  |   44.51    |  39.02         |  28.25     |
+|   1   |   44.91    |  39.50         |  28.58     |
+|   2   |   45.50    |  39.68         |  28.74     |
+|   4   |   45.49    |  39.73         |  28.87     |
+|   8   |   45.88    |  39.93         |  29.19     |
+|   16  |   46.21    |  41.13         |  30.46     |
+|   32  |   49.98    |  44.02         |  33.50     |
+|   64  |   55.55    |  44.11         |  38.60     |
 
 
 ### Serial Hot-spot Profile

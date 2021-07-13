@@ -2,7 +2,6 @@ import reframe as rfm
 import reframe.utility.sanity as sn
 import hackathon as hack
 
-@rfm.simple_test
 class CoMDTest(hack.HackathonBase):
     # Where to run the binaries 'aws:c6gn' on Arm or 'aws:c5n' on Intel
     valid_systems = ['aws:c6gn']
@@ -10,7 +9,6 @@ class CoMDTest(hack.HackathonBase):
     # Logging Variables
     log_team_name = 'Falkners'
     log_app_name = 'CoMD'
-    log_test_name = 'CoMD_weak_example'
 
     # Define test case
     # In this case we download the file from GitHub and write as clover.in - the expected input file
@@ -22,13 +20,10 @@ class CoMDTest(hack.HackathonBase):
     # Define Execution
     # Binary to run
     executable = 'CoMD-mpi'
-    # Command line options to pass
-    executable_opts = ['&> comd.out -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20']
     # Where the output is written to
     logfile = 'comd.out'
     # Store the output file (used for validation later)
     keep_files = [logfile]
-
 
     # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
     spec = parameter([
@@ -37,17 +32,14 @@ class CoMDTest(hack.HackathonBase):
         'comd@1.1 %nvhpc@21.2'      # CoMD with the NVIDIA compiler
     ])
 
-    # Parameters - MPI / Threads - Used for scaling studies
-    parallelism = parameter([
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 1},
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 2},
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 4},
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 8},
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 16},
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 32},
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 64},
-    ])
+    def __init__(self, mpi, i, j, k):
+        self.log_test_name = f'CoMD_weak_{mpi}'
+        # Command line options to pass
+        self.executable_opts = [f'&> comd.out -e -i {i} -j {j} -k {k} -x {i*20} -y {j*20} -z {k*20}']
 
+        # Parameters - MPI / Threads - Used for scaling studies
+        #self.parallelism = parameter([
+        self.parallelism = { 'nodes' : 1, 'mpi' : mpi, 'omp' : 1}
 
     # Code validation
     @run_before('sanity')
@@ -70,3 +62,39 @@ class CoMDTest(hack.HackathonBase):
         self.perf_patterns = {
             'Total Time': sn.extractsingle(pref_regex, self.logfile, 1, float, item=-1)
         }
+
+@rfm.simple_test
+class CoMDTest1(CoMDTest):
+    def __init__(self):
+        super().__init__(mpi=1, i=1, j=1, k=1)
+
+@rfm.simple_test
+class CoMDTest2(CoMDTest):
+    def __init__(self):
+        super().__init__(mpi=2, i=2, j=1, k=1)
+
+@rfm.simple_test
+class CoMDTest4(CoMDTest):
+    def __init__(self):
+        super().__init__(mpi=4, i=2, j=2, k=1)
+
+@rfm.simple_test
+class CoMDTest8(CoMDTest):
+    def __init__(self):
+        super().__init__(mpi=8, i=2, j=2, k=2)
+
+@rfm.simple_test
+class CoMDTest16(CoMDTest):
+    def __init__(self):
+        super().__init__(mpi=16, i=4, j=2, k=2)
+
+@rfm.simple_test
+class CoMDTest32(CoMDTest):
+    def __init__(self):
+        super().__init__(mpi=32, i=4, j=4, k=2)
+
+@rfm.simple_test
+class CoMDTest64(CoMDTest):
+    def __init__(self):
+        super().__init__(mpi=64, i=4, j=4, k=4)
+
