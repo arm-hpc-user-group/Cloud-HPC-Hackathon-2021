@@ -26,8 +26,6 @@ Pull request for Spack recipe changes:
 
 ```
 spack install comd@1.1 %arm@21.0.0.879
-spack install comd@1.1 %nvhpc@21.2
-spack install comd@1.1 %gcc@10.3.0
 ```
 
 ```
@@ -399,17 +397,7 @@ On-node scaling study for two compilers.
 
 ### Off-Node Scaling Study
 
-Off-node scaling study comparing C6g and C6gn instances.
-
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
+Off-node scaling study comparing C6g and C6gn instances was not done. No C6g resources were avavailable.
 
 
 ### On-Node Architecture Comparison
@@ -679,18 +667,7 @@ On-node scaling study for two compilers.
 
 ### Off-Node Scaling Study
 
-Off-node scaling study comparing C6g and C6gn instances.
-
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
-
+Off-node scaling study comparing C6g and C6gn instances was not done. No C6g resources were avavailable.
 
 ### On-Node Architecture Comparison
 
