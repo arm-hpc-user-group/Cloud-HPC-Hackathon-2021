@@ -13,7 +13,7 @@ class CloverLeafTest(hack.HackathonBase):
     # Logging Variables
     log_team_name = 'TeamArm'
     log_app_name = 'CloverLeaf'
-    log_test_name = 'BM16_short_profile'
+    log_test_name = 'BM16_short_hotspot'
     log_test_type = 'profile'
 
     # Define test case
@@ -53,24 +53,40 @@ class CloverLeafTest(hack.HackathonBase):
        }
 
        # Extract wall clock values
-       pref_regex = r'\s+Wall clock\s+(\S+)'
+       perf_regex = r'\s+Wall clock\s+(\S+)'
 
        # Use last wall clock
        self.perf_patterns = { 
-               'Total Time': sn.extractsingle(pref_regex, self.logfile, 1, float, item=-1)
+               'Total Time': sn.extractsingle(perf_regex, self.logfile, 1, float, item=-1)
        }
 
-
-    # Here we modify the launcher to use the MAP profiler, and generate a `profile.map` file
-    # We tell ReFrame to stage this file back too
+    # Before we run, we want to add MAP to the launcher
+    # But we want to export the functions list to a csv file
     @run_before('run')
     def set_profiler(self):
-      self.proffile = 'profile.map'
+      self.proffile = 'prof.csv'
       self.keep_files.append(self.proffile)
-  
       self.modules.append('arm-forge@21.0')
-   
       self.job.launcher = LauncherWrapper(self.job.launcher, 'map',
-                                            ['--profile', '--outfile='+self.proffile])
+                   ['--profile', '--export-functions='+self.proffile])
 
+
+    # Now we can retrieve the csv file and parse it for the top 10 functions
+    # We log them to the `hot_spots` variable
+    # This then gets logged by ReFrame
+    @run_before('sanity')
+    def get_prof_data(self):
+        self.hot_spots = []
+        file_path = os.path.join(self.stagedir, self.proffile)
+        with open(file_path, newline='') as csvfile:
+            reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+            next(reader, None) # Skip Header
+            for index, row in zip(range(10), reader):
+               self.hot_spots.append(
+                       {
+                           "position" : index, 
+                           "name" : row[7], 
+                           "percent" : row[2], 
+                           "mpi_percent" : row[4]
+                        })
 
