@@ -50,8 +50,33 @@ Details of the validation for `Test Case 1`.
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-     **** 
+MiniXyce_short_test_minixyce__gcc_10_3_0_N_1_MPI_64_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 64
+      * Total Time: 40.0757 s
 ------------------------------------------------------------------------------
+MiniXyce_short_test_minixyce__gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 61.494 s
+------------------------------------------------------------------------------
+MiniXyce_short_test_minixyce__gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 137.31 s
+------------------------------------------------------------------------------
+MiniXyce_short_test_minixyce__gcc_10_3_0_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 351.759 s
+------------------------------------------------------------------------------
+MiniXyce_short_test_minixyce__gcc_10_3_0_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 263.599 s
+------------------------------------------------------------------------------
+
 ```
 
 ### On-node Compiler Comparison
