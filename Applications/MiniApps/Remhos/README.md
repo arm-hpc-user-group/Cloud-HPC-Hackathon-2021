@@ -12,7 +12,7 @@
 
 Details of any changes to the Spack recipe used.
 
-Git commit hash of checkout for pacakage: 667ab50 (current HEAD)
+Git commit hash of checkout for package: 667ab50 (current HEAD of Spack)
 
 Pull request for Spack recipe changes: No changes are required
 
@@ -156,27 +156,198 @@ $ spack spec -Il remhos%nvhpc@21.2 ^cmake%gcc@10.3.0 ^zlib%gcc@10.3.0 ^openblas%
 [+]  hz44w7s              ^cmake@3.20.5%gcc@10.3.0~doc+ncurses+openssl+ownlibs~qt build_type=Release arch=linux-amzn2-graviton2
 ```
 
-## Test Case 1
-
-[ReFrame Benchmark 1](#)
-
-```
-../bin/reframe -c benchmark.py -r --performance-report
-```
-
-### Validation
-
-Details of the validation for `Test Case 1`.
-
-
-### ReFrame Output
+### Validating Remhos
+[ReFrame Validation Script](remhos_validation.py)
 
 ```
-==============================================================================
-PERFORMANCE REPORT
-------------------------------------------------------------------------------
-     **** 
-------------------------------------------------------------------------------
+reframe -c remhos_validation.py -r --performance-report -v
+```
+
+#### Validation Test Cases Details
+For validation, we have a combination of 3 compilers, 7 mpi parameters and 4 test cases, which results into 84 test runs in total. The 3 compilers are` gcc@10.3.0`, `arm@21.0.0.879`, and `nvhpc@21.2`. The 7 mpi parameters are numbers of CPUs used, which are powers of 2 from 1(2^0) to 64(2^6). The 4 test cases are verification of 6, 7, 9, and 10 of https://github.com/CEED/Remhos/tree/v1.0#verification-of-results, which are chosen to cover the {Remap Mode, Transport Mode} x {2D Mode, 3D Mode} combination. As suggested by Remhos, we compare the resulting `mass` and `max` to the values, with a tolerance of relative error of `1e-9`. 
+
+| Test Case     | `mass`        | `max`        |
+|---------------|---------------|--------------|
+| 2DRemap       | 0.08479546727 | 0.8378749205 |
+| 3DRemap       | 0.1197297047  | 0.9985405673 |
+| 2DTransport   | 0.1623263888  | 0.7469836332 |
+| 3DTransport   | 0.9607429525  | 0.767823337  |
+
+#### [ReFrame Validation Output](validation.txt)
+
+```
+[ [32m      OK[0m ] ( 1/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.260s total: 6.422s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.260s sanity: 0.001s performance: 0.074s total: 6.422s
+[ [32m      OK[0m ] ( 2/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 10.148s total: 10.325s]
+==> timings: setup: 0.012s compile: 0.005s run: 10.148s sanity: 0.000s performance: 0.073s total: 10.325s
+[ [32m      OK[0m ] ( 3/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 12.300s total: 12.476s]
+==> timings: setup: 0.006s compile: 0.005s run: 12.300s sanity: 0.000s performance: 0.073s total: 12.476s
+[ [32m      OK[0m ] ( 4/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 11.700s total: 11.869s]
+==> timings: setup: 0.006s compile: 0.005s run: 11.700s sanity: 0.000s performance: 0.073s total: 11.869s
+[ [32m      OK[0m ] ( 5/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 13.853s total: 14.041s]
+==> timings: setup: 0.006s compile: 0.005s run: 13.853s sanity: 0.000s performance: 0.073s total: 14.041s
+[ [32m      OK[0m ] ( 6/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 15.271s total: 15.444s]
+==> timings: setup: 0.006s compile: 0.005s run: 15.271s sanity: 0.000s performance: 0.072s total: 15.444s
+[ [32m      OK[0m ] ( 7/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 18.653s total: 18.829s]
+==> timings: setup: 0.006s compile: 0.005s run: 18.653s sanity: 0.000s performance: 0.073s total: 18.829s
+[ [32m      OK[0m ] ( 8/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 19.564s total: 19.745s]
+==> timings: setup: 0.006s compile: 0.005s run: 19.564s sanity: 0.000s performance: 0.073s total: 19.745s
+[ [32m      OK[0m ] ( 9/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 22.471s total: 22.637s]
+==> timings: setup: 0.006s compile: 0.005s run: 22.471s sanity: 0.000s performance: 0.073s total: 22.637s
+[ [32m      OK[0m ] (10/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 23.374s total: 23.541s]
+==> timings: setup: 0.006s compile: 0.005s run: 23.374s sanity: 0.000s performance: 0.073s total: 23.541s
+[ [32m      OK[0m ] (11/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 24.771s total: 24.934s]
+==> timings: setup: 0.006s compile: 0.005s run: 24.771s sanity: 0.000s performance: 0.073s total: 24.934s
+[ [32m      OK[0m ] (12/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 34.224s total: 34.397s]
+==> timings: setup: 0.006s compile: 0.005s run: 34.224s sanity: 0.000s performance: 0.073s total: 34.397s
+[ [32m      OK[0m ] (13/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.019s run: 28.895s total: 29.074s]
+==> timings: setup: 0.006s compile: 0.019s run: 28.895s sanity: 0.000s performance: 0.073s total: 29.074s
+[ [32m      OK[0m ] (14/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 28.444s total: 28.465s]
+==> timings: setup: 0.006s compile: 0.005s run: 28.444s sanity: 0.000s performance: 0.073s total: 28.465s
+[ [32m      OK[0m ] (15/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 33.444s total: 33.602s]
+==> timings: setup: 0.006s compile: 0.005s run: 33.444s sanity: 0.000s performance: 0.074s total: 33.602s
+[ [32m      OK[0m ] (16/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 39.087s total: 39.261s]
+==> timings: setup: 0.006s compile: 0.005s run: 39.087s sanity: 0.000s performance: 0.074s total: 39.261s
+[ [32m      OK[0m ] (17/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 50.497s total: 50.518s]
+==> timings: setup: 0.006s compile: 0.005s run: 50.497s sanity: 0.000s performance: 0.073s total: 50.518s
+[ [32m      OK[0m ] (18/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 41.133s total: 41.304s]
+==> timings: setup: 0.006s compile: 0.005s run: 41.133s sanity: 0.000s performance: 0.073s total: 41.304s
+[ [32m      OK[0m ] (19/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 50.195s total: 50.216s]
+==> timings: setup: 0.006s compile: 0.005s run: 50.195s sanity: 0.000s performance: 0.074s total: 50.216s
+[ [32m      OK[0m ] (20/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 49.742s total: 49.763s]
+==> timings: setup: 0.006s compile: 0.005s run: 49.742s sanity: 0.000s performance: 0.073s total: 49.763s
+[ [32m      OK[0m ] (21/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 49.290s total: 49.311s]
+==> timings: setup: 0.006s compile: 0.005s run: 49.290s sanity: 0.000s performance: 0.074s total: 49.311s
+[ [32m      OK[0m ] (22/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 9.479s total: 9.656s]
+==> timings: setup: 0.006s compile: 0.005s run: 9.479s sanity: 0.000s performance: 0.074s total: 9.656s
+[ [32m      OK[0m ] (23/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 9.221s total: 9.380s]
+==> timings: setup: 0.006s compile: 0.005s run: 9.221s sanity: 0.000s performance: 0.073s total: 9.380s
+[ [32m      OK[0m ] (24/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.964s total: 8.127s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.964s sanity: 0.000s performance: 0.074s total: 8.127s
+[ [32m      OK[0m ] (25/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.369s total: 11.335s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.369s sanity: 0.000s performance: 0.073s total: 11.335s
+[ [32m      OK[0m ] (26/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 14.901s total: 15.077s]
+==> timings: setup: 0.006s compile: 0.005s run: 14.901s sanity: 0.000s performance: 0.074s total: 15.077s
+[ [32m      OK[0m ] (27/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.603s total: 13.328s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.603s sanity: 0.000s performance: 0.075s total: 13.328s
+[ [32m      OK[0m ] (28/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.366s total: 15.098s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.366s sanity: 0.000s performance: 0.073s total: 15.098s
+[ [32m      OK[0m ] (29/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.446s total: 19.383s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.446s sanity: 0.000s performance: 0.074s total: 19.383s
+[ [32m      OK[0m ] (30/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.450s total: 22.863s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.450s sanity: 0.000s performance: 0.073s total: 22.863s
+[ [32m      OK[0m ] (31/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.462s total: 24.865s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.462s sanity: 0.000s performance: 0.074s total: 24.865s
+[ [32m      OK[0m ] (32/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.441s total: 26.613s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.441s sanity: 0.000s performance: 0.074s total: 26.613s
+[ [32m      OK[0m ] (33/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.751s total: 32.208s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.751s sanity: 0.000s performance: 0.074s total: 32.208s
+[ [32m      OK[0m ] (34/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.736s total: 34.423s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.736s sanity: 0.000s performance: 0.074s total: 34.423s
+[ [32m      OK[0m ] (35/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.730s total: 34.666s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.730s sanity: 0.000s performance: 0.074s total: 34.666s
+[ [32m      OK[0m ] (36/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 4.832s total: 39.861s]
+==> timings: setup: 0.006s compile: 0.005s run: 4.832s sanity: 0.000s performance: 0.074s total: 39.861s
+[ [32m      OK[0m ] (37/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 13.166s total: 38.853s]
+==> timings: setup: 0.006s compile: 0.005s run: 13.166s sanity: 0.000s performance: 0.073s total: 38.853s
+[ [32m      OK[0m ] (38/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.659s total: 46.426s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.659s sanity: 0.000s performance: 0.073s total: 46.426s
+[ [32m      OK[0m ] (39/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 4.718s total: 49.184s]
+==> timings: setup: 0.006s compile: 0.005s run: 4.718s sanity: 0.000s performance: 0.073s total: 49.184s
+[ [32m      OK[0m ] (40/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 4.966s total: 51.177s]
+==> timings: setup: 0.006s compile: 0.005s run: 4.966s sanity: 0.000s performance: 0.074s total: 51.177s
+[ [32m      OK[0m ] (41/84) Remhos_Remhos3DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 13.773s total: 51.535s]
+==> timings: setup: 0.006s compile: 0.005s run: 13.773s sanity: 0.000s performance: 0.073s total: 51.535s
+[ [32m      OK[0m ] (42/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.019s total: 55.788s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.019s sanity: 0.000s performance: 0.073s total: 55.788s
+[ [32m      OK[0m ] (43/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.092s total: 59.825s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.092s sanity: 0.000s performance: 0.074s total: 59.825s
+[ [32m      OK[0m ] (44/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 4.953s total: 63.078s]
+==> timings: setup: 0.006s compile: 0.005s run: 4.953s sanity: 0.000s performance: 0.074s total: 63.078s
+[ [32m      OK[0m ] (45/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 10.541s total: 61.301s]
+==> timings: setup: 0.006s compile: 0.005s run: 10.541s sanity: 0.001s performance: 0.073s total: 61.301s
+[ [32m      OK[0m ] (46/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.679s total: 65.042s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.679s sanity: 0.000s performance: 0.073s total: 65.042s
+[ [32m      OK[0m ] (47/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.854s total: 69.763s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.854s sanity: 0.000s performance: 0.074s total: 69.763s
+[ [32m      OK[0m ] (48/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.391s total: 73.772s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.391s sanity: 0.000s performance: 0.074s total: 73.772s
+[ [32m      OK[0m ] (49/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.384s total: 75.741s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.384s sanity: 0.000s performance: 0.073s total: 75.741s
+[ [32m      OK[0m ] (50/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 12.059s total: 76.715s]
+==> timings: setup: 0.006s compile: 0.005s run: 12.059s sanity: 0.000s performance: 0.074s total: 76.715s
+[ [32m      OK[0m ] (51/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.096s total: 81.171s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.096s sanity: 0.000s performance: 0.073s total: 81.171s
+[ [32m      OK[0m ] (52/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.614s total: 82.907s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.614s sanity: 0.000s performance: 0.074s total: 82.907s
+[ [32m      OK[0m ] (53/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 4.856s total: 86.867s]
+==> timings: setup: 0.006s compile: 0.005s run: 4.856s sanity: 0.000s performance: 0.074s total: 86.867s
+[ [32m      OK[0m ] (54/84) Remhos_Remhos2DTransportValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 10.531s total: 86.604s]
+==> timings: setup: 0.006s compile: 0.005s run: 10.531s sanity: 0.000s performance: 0.073s total: 86.604s
+[ [32m      OK[0m ] (55/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 9.045s total: 93.662s]
+==> timings: setup: 0.006s compile: 0.005s run: 9.045s sanity: 0.000s performance: 0.074s total: 93.662s
+[ [32m      OK[0m ] (56/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.166s total: 97.235s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.166s sanity: 0.000s performance: 0.074s total: 97.235s
+[ [32m      OK[0m ] (57/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 11.080s total: 96.948s]
+==> timings: setup: 0.006s compile: 0.005s run: 11.080s sanity: 0.000s performance: 0.075s total: 96.948s
+[ [32m      OK[0m ] (58/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.084s total: 100.833s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.084s sanity: 0.000s performance: 0.074s total: 100.833s
+[ [32m      OK[0m ] (59/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.742s total: 104.039s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.742s sanity: 0.000s performance: 0.074s total: 104.039s
+[ [32m      OK[0m ] (60/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.734s total: 105.250s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.734s sanity: 0.000s performance: 0.073s total: 105.250s
+[ [32m      OK[0m ] (61/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 16.496s total: 106.335s]
+==> timings: setup: 0.006s compile: 0.005s run: 16.496s sanity: 0.000s performance: 0.074s total: 106.335s
+[ [32m      OK[0m ] (62/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.336s total: 113.654s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.336s sanity: 0.001s performance: 0.073s total: 113.654s
+[ [32m      OK[0m ] (63/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 9.751s total: 112.879s]
+==> timings: setup: 0.006s compile: 0.005s run: 9.751s sanity: 0.000s performance: 0.074s total: 112.879s
+[ [32m      OK[0m ] (64/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.764s total: 114.857s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.764s sanity: 0.000s performance: 0.073s total: 114.857s
+[ [32m      OK[0m ] (65/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.234s total: 117.106s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.234s sanity: 0.000s performance: 0.073s total: 117.106s
+[ [32m      OK[0m ] (66/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 4.639s total: 119.389s]
+==> timings: setup: 0.006s compile: 0.005s run: 4.639s sanity: 0.000s performance: 0.074s total: 119.389s
+[ [32m      OK[0m ] (67/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.031s total: 122.245s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.031s sanity: 0.000s performance: 0.073s total: 122.245s
+[ [32m      OK[0m ] (68/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.680s total: 125.133s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.680s sanity: 0.000s performance: 0.073s total: 125.133s
+[ [32m      OK[0m ] (69/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.158s total: 128.374s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.158s sanity: 0.000s performance: 0.075s total: 128.374s
+[ [32m      OK[0m ] (70/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.480s total: 131.559s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.480s sanity: 0.000s performance: 0.073s total: 131.559s
+[ [32m      OK[0m ] (71/84) Remhos_Remhos3DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 13.005s total: 132.201s]
+==> timings: setup: 0.006s compile: 0.005s run: 13.005s sanity: 0.000s performance: 0.074s total: 132.201s
+[ [32m      OK[0m ] (72/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 9.561s total: 138.262s]
+==> timings: setup: 0.006s compile: 0.005s run: 9.561s sanity: 0.000s performance: 0.074s total: 138.262s
+[ [32m      OK[0m ] (73/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.006s run: 8.096s total: 144.876s]
+==> timings: setup: 0.006s compile: 0.006s run: 8.096s sanity: 0.001s performance: 0.073s total: 144.876s
+[ [32m      OK[0m ] (74/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.536s total: 146.893s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.536s sanity: 0.000s performance: 0.074s total: 146.893s
+[ [32m      OK[0m ] (75/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 15.906s total: 146.589s]
+==> timings: setup: 0.006s compile: 0.005s run: 15.906s sanity: 0.000s performance: 0.074s total: 146.589s
+[ [32m      OK[0m ] (76/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.496s total: 152.457s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.496s sanity: 0.000s performance: 0.074s total: 152.457s
+[ [32m      OK[0m ] (77/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.770s total: 154.744s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.770s sanity: 0.000s performance: 0.074s total: 154.744s
+[ [32m      OK[0m ] (78/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 9.153s total: 158.837s]
+==> timings: setup: 0.006s compile: 0.005s run: 9.153s sanity: 0.000s performance: 0.073s total: 158.837s
+[ [32m      OK[0m ] (79/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_nvhpc_21_2_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 24.538s total: 158.421s]
+==> timings: setup: 0.006s compile: 0.005s run: 24.538s sanity: 0.000s performance: 0.073s total: 158.421s
+[ [32m      OK[0m ] (80/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 13.283s total: 167.338s]
+==> timings: setup: 0.006s compile: 0.005s run: 13.283s sanity: 0.000s performance: 0.073s total: 167.338s
+[ [32m      OK[0m ] (81/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 233.397s total: 233.419s]
+==> timings: setup: 0.006s compile: 0.005s run: 233.397s sanity: 0.000s performance: 0.074s total: 233.419s
+[ [32m      OK[0m ] (82/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 234.766s total: 234.787s]
+==> timings: setup: 0.006s compile: 0.005s run: 234.766s sanity: 0.000s performance: 0.074s total: 234.787s
+[ [32m      OK[0m ] (83/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 234.542s total: 234.563s]
+==> timings: setup: 0.006s compile: 0.005s run: 234.542s sanity: 0.000s performance: 0.074s total: 234.563s
+[ [32m      OK[0m ] (84/84) Remhos_Remhos2DRemapValidationTest_remhos_1_0_arm_21_0_0_879_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 277.949s total: 277.970s]
+==> timings: setup: 0.006s compile: 0.005s run: 277.949s sanity: 0.000s performance: 0.073s total: 277.970s
+[----------] all spawned checks have finished
+
+[ [32m PASSED [0m ] Ran 84/84 test case(s) from 84 check(s) (0 failure(s), 0 skipped)
+[==========] Finished on Tue Jul 13 16:03:20 2021
 ```
 
 ### On-node Compiler Comparison
