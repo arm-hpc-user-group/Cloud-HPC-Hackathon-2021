@@ -4,9 +4,15 @@
 
 **URL:** https://software.broadinstitute.org/gatk/
 
-**Team:**  
+**Team:** Falkners 
 
 ## Compilation
+
+GATK has two requirements:
+* [BWA](http://bio-bwa.sourceforge.net/)
+* [SAMTools](http://samtools.sourceforge.net/)
+
+It also relies on JDK 1.8+ to be installed.
 
 ### Spack Package Modification
 
