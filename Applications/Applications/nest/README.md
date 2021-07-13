@@ -4,9 +4,14 @@
 
 **URL:** http://www.nest-simulator.org
 
-**Team:**  
+**Team:** @neuralmimicry https://github.com/neuralmimicry/nest-simulator 
 
 ## Compilation
+
+Initial installation of Cloverleaf example in-progress:
+  spack environment updated
+  compilers enabled on Aarch64
+  nvidia compiler error on x86 - troubleshooting
 
 ### Spack Package Modification
 
