@@ -57,6 +57,7 @@ class MiniXyceTest(hack.HackathonBase):
          { 'nodes' : 1, 'mpi' : 8, 'omp' : 1},
          { 'nodes' : 1, 'mpi' : 4, 'omp' : 1},
          { 'nodes' : 1, 'mpi' : 2, 'omp' : 1},
+         { 'nodes' : 1, 'mpi' : 1, 'omp' : 1},
     ])
  
     @run_before('run')
