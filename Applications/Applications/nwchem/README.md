@@ -152,7 +152,7 @@ reframe -c reframe_nwchem_test.py -r --performance-report
 ### Validation
 
 Details of the validation for `Test Case 1`.
-test example (input file for nwchem) is downloaded from {NWChem github page}[https://raw.githubusercontent.com/nwchemgit/nwchem/master/QA/tests/h2o-bhlyp/h2o-bhlyp.nw]
+test example (input file for nwchem) is downloaded from [NWChem github page](https://raw.githubusercontent.com/nwchemgit/nwchem/master/QA/tests/h2o-bhlyp/h2o-bhlyp.nw)
 Refernce energy is obtained from NWChem output file in the Gitrepo.    
 https://raw.githubusercontent.com/nwchemgit/nwchem/master/QA/tests/h2o-bhlyp/h2o-bhlyp.out    
 used in the calculation =-76.421923745064  
@@ -236,7 +236,100 @@ NWChem_nwchem_short_exclusive_nwchem_7_0_2__arm_21_0_0_879_N_1_MPI_64_OMP_1
       * Total Time: 6.7 s
 ------------------------------------------------------------------------------
 ```
+## Test case 2
+### CCSD_T test 
+```
+reframe -c reframe_nwchem_ccsd_t_test.py  -r --performance-report
+```
 
+### Validation
+
+Details of the validation for `Test Case 2`.
+test example (input file for nwchem) is downloaded from [NWChem github page](https://raw.githubusercontent.com/nwchemgit/nwchem/master/QA/tests/tce_ccsd2_t_cl2o/tce_ccsd2_t_cl2o.nw)
+Refernce energy is obtained from NWChem output file in the Gitrepo.
+https://github.com/nwchemgit/nwchem/blob/master/QA/tests/tce_ccsd2_t_cl2o/tce_ccsd2_t_cl2o.out
+Reference energy used is
+ CCSD(2)_T total energy / hartree       =      -994.176800488995000   
+threshold +- 0.0004 is used.
+
+### ReFrame Output
+
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+NWChem_nwchem_short_exclusive_nwchem_7_0_2__gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 73.2 s
+------------------------------------------------------------------------------
+NWChem_nwchem_short_exclusive_nwchem_7_0_2__gcc_10_3_0_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 52.5 s
+------------------------------------------------------------------------------
+NWChem_nwchem_short_exclusive_nwchem_7_0_2__gcc_10_3_0_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 36.3 s
+------------------------------------------------------------------------------
+NWChem_nwchem_short_exclusive_nwchem_7_0_2__gcc_10_3_0_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 27.1 s
+------------------------------------------------------------------------------
+NWChem_nwchem_short_exclusive_nwchem_7_0_2__gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 25.6 s
+------------------------------------------------------------------------------
+NWChem_nwchem_short_exclusive_nwchem_7_0_2__gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 33.3 s
+------------------------------------------------------------------------------
+NWChem_nwchem_short_exclusive_nwchem_7_0_2__gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 73.0 s
+------------------------------------------------------------------------------
+NWChem_nwchem_short_exclusive_nwchem_7_0_2__arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 75.1 s
+------------------------------------------------------------------------------
+NWChem_nwchem_short_exclusive_nwchem_7_0_2__arm_21_0_0_879_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 54.5 s
+------------------------------------------------------------------------------
+NWChem_nwchem_short_exclusive_nwchem_7_0_2__arm_21_0_0_879_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 36.8 s
+------------------------------------------------------------------------------
+NWChem_nwchem_short_exclusive_nwchem_7_0_2__arm_21_0_0_879_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 28.4 s
+------------------------------------------------------------------------------
+NWChem_nwchem_short_exclusive_nwchem_7_0_2__arm_21_0_0_879_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 26.7 s
+------------------------------------------------------------------------------
+NWChem_nwchem_short_exclusive_nwchem_7_0_2__arm_21_0_0_879_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 34.1 s
+------------------------------------------------------------------------------
+NWChem_nwchem_short_exclusive_nwchem_7_0_2__arm_21_0_0_879_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 72.7 s
+------------------------------------------------------------------------------
+```
 ### On-node Compiler Comparison
 
 Performance comparison of two compilers.
