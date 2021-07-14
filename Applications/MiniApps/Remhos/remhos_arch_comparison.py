@@ -15,19 +15,19 @@ class RemhosArchComparisonTestBase(hack.HackathonBase):
     keep_files = [logfile]
 
     spec = parameter([
-        'remhos@1.0%gcc@10.3.0',
+        #'remhos@1.0%gcc@10.3.0',
         'remhos@1.0%nvhpc@21.2'
     ])
 
     parallelism = parameter([
-        { 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
-        { 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
-        { 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
-        { 'nodes' : 2, 'mpi' : 16, 'omp' : 1},
-        { 'nodes' : 2, 'mpi' : 32, 'omp' : 1},
-        { 'nodes' : 2, 'mpi' : 64, 'omp' : 1},
-        { 'nodes' : 4, 'mpi' : 16, 'omp' : 1},
-        { 'nodes' : 4, 'mpi' : 32, 'omp' : 1},
+        #{ 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
+        #{ 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
+        #{ 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
+        #{ 'nodes' : 2, 'mpi' : 16, 'omp' : 1},
+        #{ 'nodes' : 2, 'mpi' : 32, 'omp' : 1},
+        #{ 'nodes' : 2, 'mpi' : 64, 'omp' : 1},
+        #{ 'nodes' : 4, 'mpi' : 16, 'omp' : 1},
+        #{ 'nodes' : 4, 'mpi' : 32, 'omp' : 1},
         { 'nodes' : 4, 'mpi' : 64, 'omp' : 1},
     ])
 
@@ -45,7 +45,7 @@ class RemhosArchComparisonTestBase(hack.HackathonBase):
     @run_before('run')
     def prepare_job(self):
        self.job.options += ['--exclusive']
-
+"""
 @rfm.simple_test
 class Remhos2DRemapArchComparisonTest(RemhosArchComparisonTestBase):
     log_test_name = 'Remhos2DRemapArchComparisonTest'
@@ -85,6 +85,7 @@ class Remhos2DRemapArchComparisonTest(RemhosArchComparisonTestBase):
            sn.assert_bounded(result_mass, expected_mass_lower, expected_mass_upper),
            sn.assert_bounded(result_max, expected_max_lower, expected_max_upper),
        ])
+"""
 
 @rfm.simple_test
 class Remhos3DRemapArchComparisonTest(RemhosArchComparisonTestBase):
@@ -126,7 +127,7 @@ class Remhos3DRemapArchComparisonTest(RemhosArchComparisonTestBase):
            sn.assert_bounded(result_mass, expected_mass_lower, expected_mass_upper),
            sn.assert_bounded(result_max, expected_max_lower, expected_max_upper),
        ])
-
+"""
 @rfm.simple_test
 class Remhos2DTransportArchComparisonTest(RemhosArchComparisonTestBase):
     log_test_name = 'Remhos2DTransportArchComparisonTest'
@@ -207,3 +208,4 @@ class Remhos3DTransportArchComparisonTest(RemhosArchComparisonTestBase):
            sn.assert_bounded(result_mass, expected_mass_lower, expected_mass_upper),
            sn.assert_bounded(result_max, expected_max_lower, expected_max_upper),
        ])
+"""

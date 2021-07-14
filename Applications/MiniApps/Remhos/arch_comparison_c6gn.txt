@@ -680,9 +680,10 @@ Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_32_OMP_1
       * Total Time: 2.16 s
 ------------------------------------------------------------------------------
 Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_64_OMP_1
+- aws:c6gn
    - builtin
       * num_tasks: 64
-      * Total Time: 122.48 s
+      * Total Time: 2.26 s
 ------------------------------------------------------------------------------
 Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1
    - builtin
