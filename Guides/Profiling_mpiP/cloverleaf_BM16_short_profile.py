@@ -63,14 +63,6 @@ class CloverLeafTest(hack.HackathonBase):
     # Profiling
     @run_before('run')
     def preload_mpiP(self):
-        # Load perf-libs-tools-module
-        self.modules.append('mpip')
-        # Add the LD_PRELOAD to srun
-        self.job.launcher.options = ['--export=ALL,LD_PRELOAD=libmpiP.so']
-
-    # Profiling
-    @run_before('run')
-    def preload_mpiP(self):
         # Load mpiP module
         self.modules.append('mpip')
 
