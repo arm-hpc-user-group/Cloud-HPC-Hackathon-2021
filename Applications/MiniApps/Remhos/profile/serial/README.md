@@ -1,4 +1,4 @@
-#### Serial Hot-spot Profile
+### Serial Hot-spot Profile
 The 12 tables below are the serial hot-spot profiling results across 3 compilers and 4 test cases. The raw profiles can be found at the current directory.
 
 Profiling command used:
@@ -7,7 +7,7 @@ export OMP_NUM_THREADS=1
 map --profile -o profile/serial/<test case>_<compiler>.map srun -N 1 -n 1 remhos <executable opts based on the test case>
 ```
 
-##### Test Case 1: 2DRemap x Compiler 1: `gcc@10.3.0`
+#### Test Case 1: 2DRemap x Compiler 1: `gcc@10.3.0`
 | Position | Routine                                                           | Time (s) | Time (%) |
 |----------|-------------------------------------------------------------------|----------|----------|
 | 1        | mfem::AddMult_a_VVt                                               |    2.39  |   13.40  |
@@ -21,7 +21,7 @@ map --profile -o profile/serial/<test case>_<compiler>.map srun -N 1 -n 1 remhos
 | 9        | mfem::SparseMatrix::SearchRow                                     |    0.43  |    2.40  |
 | 10       | mfem::L2Pos_QuadrilateralElement::CalcDShape                      |    0.37  |    2.10  |
 
-##### Test Case 1: 2DRemap x Compiler 1: `gcc@10.3.0`
+#### Test Case 1: 2DRemap x Compiler 1: `gcc@10.3.0`
 | Position | Routine                                                           | Time (s) | Time (%) |
 |----------|-------------------------------------------------------------------|----------|----------|
 | 1        | mfem::AddMult_a_VVt                                               |    2.39  |   13.40  |
@@ -35,7 +35,7 @@ map --profile -o profile/serial/<test case>_<compiler>.map srun -N 1 -n 1 remhos
 | 9        | mfem::L2Pos_QuadrilateralElement::CalcDShape                      |    0.37  |    2.10  |
 | 10       | mfem::Poly_1D::Basis::Eval(double, mfem::Vector&)                 |    0.43  |    2.40  |
 
-##### Test Case 1: 2DRemap x Compiler 2: `arm@21.0.0.879`
+#### Test Case 1: 2DRemap x Compiler 2: `arm@21.0.0.879`
 | Position | Routine                                                           | Time (s) | Time (%) |
 |----------|-------------------------------------------------------------------|----------|----------|
 | 1        | mfem::AddMult_a_VVt                                               | 3.33     | 16.80    |
@@ -49,7 +49,7 @@ map --profile -o profile/serial/<test case>_<compiler>.map srun -N 1 -n 1 remhos
 | 9        | mfem::L2Pos_QuadrilateralElement::CalcDShape                      | 0.52     | 2.60     |
 | 10       | mfem::Poly_1D::Basis::Eval(double, mfem::Vector&)                 | 0.50     | 2.50     |
 
-##### Test Case 1: 2DRemap x Compiler 2: `arm@21.0.0.879`
+#### Test Case 1: 2DRemap x Compiler 2: `arm@21.0.0.879`
 | Position | Routine                                                           | Time (s) | Time (%) |
 |----------|-------------------------------------------------------------------|----------|----------|
 | 1        | mfem::AddMult_a_VVt                                               | 3.33     | 16.80    |
@@ -63,7 +63,7 @@ map --profile -o profile/serial/<test case>_<compiler>.map srun -N 1 -n 1 remhos
 | 9        | mfem::L2Pos_QuadrilateralElement::CalcDShape                      | 0.52     | 2.60     |
 | 10       | mfem::Poly_1D::Basis::Eval(double, mfem::Vector&)                 | 0.50     | 2.50     |
 
-##### Test Case 1: 2DRemap x Compiler 3: `nvhpc@21.2`
+#### Test Case 1: 2DRemap x Compiler 3: `nvhpc@21.2`
 | Position | Routine                                                          | Time (s) | Time (%) |
 |----------|------------------------------------------------------------------|----------|----------|
 | 1        | mfem::AddMultVWt                                                 | 4.44     | 20.10    |
@@ -77,7 +77,7 @@ map --profile -o profile/serial/<test case>_<compiler>.map srun -N 1 -n 1 remhos
 | 9        | mfem::L2Pos_QuadrilateralElement::CalcDShape                     | 0.80     | 3.60     |
 | 10       | mfem::Poly_1D::Basis::Eval(double, mfem::Vector&)                | 0.51     | 2.30     |
 
-##### Test Case 2: 3DRemap x Compiler 1: `gcc@10.3.0`
+#### Test Case 2: 3DRemap x Compiler 1: `gcc@10.3.0`
 | Position | Routine                                                          | Time (s) | Time (%) |
 |----------|------------------------------------------------------------------|----------|----------|
 | 1        | mfem::Mult                                                       | 2.33     | 24.50    |
@@ -91,7 +91,7 @@ map --profile -o profile/serial/<test case>_<compiler>.map srun -N 1 -n 1 remhos
 | 9        | mfem::Vector::operator*                                          | 0.22     | 2.30     |
 | 10       | mfem::H1_HexahedronElement::CalcShape                            | 0.22     | 2.30     |
 
-##### Test Case 2: 3DRemap x Compiler 2: `arm@21.0.0.879`
+#### Test Case 2: 3DRemap x Compiler 2: `arm@21.0.0.879`
 | Position | Routine                                                          | Time (s) | Time (%) |
 |----------|------------------------------------------------------------------|----------|----------|
 | 1        | mfem::AddMult_a_VVt                                              | 2.25     | 20.70    |
@@ -105,7 +105,7 @@ map --profile -o profile/serial/<test case>_<compiler>.map srun -N 1 -n 1 remhos
 | 9        | mfem::Vector::operator*                                          | 0.36     | 3.30     |
 | 10       | mfem::Poly_1D::Basis::Eval(double, mfem::Vector&)                | 0.28     | 2.60     |
 
-##### Test Case 2: 3DRemap x Compiler 3: `nvhpc@21.2`
+#### Test Case 2: 3DRemap x Compiler 3: `nvhpc@21.2`
 | Position | Routine                                                          | Time (s) | Time (%) |
 |----------|------------------------------------------------------------------|----------|----------|
 | 1        | mfem::Mult                                                       | 2.65     | 21.30    |
@@ -119,7 +119,7 @@ map --profile -o profile/serial/<test case>_<compiler>.map srun -N 1 -n 1 remhos
 | 9        | mfem::L2Pos_HexahedronElement::CalcShape                         | 0.30     | 2.40     |
 | 10       | mfem::Poly_1D::Binom                                             | 0.24     | 1.90     |
 
-##### Test Case 3: 2DTransport x Compiler 1: `gcc@10.3.0`
+#### Test Case 3: 2DTransport x Compiler 1: `gcc@10.3.0`
 | Position | Routine                                    | Time (s) | Time (%) |
 |----------|--------------------------------------------|----------|----------|
 | 1        | mfem::SparseMatrix::AddMult                | 3.53     | 54.80    |
@@ -133,7 +133,7 @@ map --profile -o profile/serial/<test case>_<compiler>.map srun -N 1 -n 1 remhos
 | 9        | mfem::DofInfo::ComputeBounds               | 0.06     | 0.90     |
 | 10       | mfem::Vector::operator-=                   | 0.06     | 0.90     |
 
-##### Test Case 3: 2DTransport x Compiler 2: `arm@21.0.0.879`
+#### Test Case 3: 2DTransport x Compiler 2: `arm@21.0.0.879`
 | Position | Routine                                    | Time (s) | Time (%) |
 |----------|--------------------------------------------|----------|----------|
 | 1        | mfem::SparseMatrix::AddMult                | 3.59     | 54.90    |
@@ -147,7 +147,7 @@ map --profile -o profile/serial/<test case>_<compiler>.map srun -N 1 -n 1 remhos
 | 9        | malloc                                     | 0.10     | 1.50     |
 | 10       | mfem::DofInfo::ComputeBounds               | 0.10     | 1.50     |
 
-##### Test Case 3: 2DTransport x Compiler 3: `nvhpc@21.2`
+#### Test Case 3: 2DTransport x Compiler 3: `nvhpc@21.2`
 | Position | Routine                                    | Time (s) | Time (%) |
 |----------|--------------------------------------------|----------|----------|
 | 1        | mfem::SparseMatrix::AddMult                | 3.46     | 50.30    |
@@ -161,7 +161,7 @@ map --profile -o profile/serial/<test case>_<compiler>.map srun -N 1 -n 1 remhos
 | 9        | malloc                                     | 0.06     | 0.90     |
 | 10       | mfem::Mult                                 | 0.04     | 0.60     |
 
-##### Test Case 4: 3DTransport x Compiler 1: `gcc@10.3.0`
+#### Test Case 4: 3DTransport x Compiler 1: `gcc@10.3.0`
 | Position | Routine                                    | Time (s) | Time (%) |
 |----------|--------------------------------------------|----------|----------|
 | 1        | mfem::SparseMatrix::AddMult                | 5.17     | 58.70    |
@@ -175,7 +175,7 @@ map --profile -o profile/serial/<test case>_<compiler>.map srun -N 1 -n 1 remhos
 | 9        | mfem::DofInfo::ComputeBounds               | 0.08     | 0.90     |
 | 10       | mfem::Mult                                 | 0.06     | 0.70     |
 
-##### Test Case 4: 3DTransport x Compiler 2: `arm@21.0.0.879`
+#### Test Case 4: 3DTransport x Compiler 2: `arm@21.0.0.879`
 | Position | Routine                                    | Time (s) | Time (%) |
 |----------|--------------------------------------------|----------|----------|
 | 1        | mfem::SparseMatrix::AddMult                | 5.66     | 61.10    |
@@ -189,7 +189,7 @@ map --profile -o profile/serial/<test case>_<compiler>.map srun -N 1 -n 1 remhos
 | 9        | mfem::AddMultVWt                           | 0.04     | 0.40     |
 | 10       | mfem::Vector::operator-=                   | 0.04     | 0.40     |
 
-##### Test Case 4: 3DTransport x Compiler 3: `nvhpc@21.2`
+#### Test Case 4: 3DTransport x Compiler 3: `nvhpc@21.2`
 | Position | Routine                                    | Time (s) | Time (%) |
 |----------|--------------------------------------------|----------|----------|
 | 1        | mfem::SparseMatrix::AddMult                | 5.58     | 53.00    |

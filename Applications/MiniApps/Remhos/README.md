@@ -156,15 +156,15 @@ $ spack spec -Il remhos%nvhpc@21.2 ^cmake%gcc@10.3.0 ^zlib%gcc@10.3.0 ^openblas%
 [+]  hz44w7s              ^cmake@3.20.5%gcc@10.3.0~doc+ncurses+openssl+ownlibs~qt build_type=Release arch=linux-amzn2-graviton2
 ```
 
-### Validating Remhos
+## Validating Remhos
 [ReFrame Validation Script](remhos_validation.py)
 
 ```
 reframe -c remhos_validation.py -r --performance-report -v
 ```
 
-#### Validation Test Cases Details
-For validation, we have a combination of 3 compilers, 7 mpi parameters and 4 test cases, which results into 84 test runs in total. The 3 compilers are `gcc@10.3.0`, `arm@21.0.0.879`, and `nvhpc@21.2`. The 7 mpi parameters are numbers of cores used, which are powers of 2 from 1(2^0) to 64(2^6). The 4 test cases are verification of 6, 7, 9, and 10 of https://github.com/CEED/Remhos/tree/v1.0#verification-of-results, which are chosen to cover the {Remap Mode, Transport Mode} x {2D Mode, 3D Mode} combination. As suggested by Remhos, we compare the resulting `mass` and `max` to the values, with a tolerance of relative error of `1e-9`. 
+### Validation Test Cases Details
+For validation, we have a combination of 3 compilers, 7 mpi parameters and 4 test cases, which results into 84 test runs in total. The 3 compilers are `gcc@10.3.0`, `arm@21.0.0.879`, and `nvhpc@21.2`. The 7 mpi parameters are the numbers of cores used, which are powers of 2 from 1(2^0) to 64(2^6). The 4 test cases are verification of 6, 7, 9, and 10 of https://github.com/CEED/Remhos/tree/v1.0#verification-of-results, which are chosen to cover the {Remap Mode, Transport Mode} x {2D Mode, 3D Mode} combination. As suggested by Remhos, we compare the resulting `mass` and `max` to the values, with a tolerance of relative error of `1e-9`. 
 
 | Test Case     | `mass`        | `max`        |
 |---------------|---------------|--------------|
@@ -173,17 +173,17 @@ For validation, we have a combination of 3 compilers, 7 mpi parameters and 4 tes
 | 2DTransport   | 0.1623263888  | 0.7469836332 |
 | 3DTransport   | 0.9607429525  | 0.767823337  |
 
-#### ReFrame Validation Output
+### ReFrame Validation Output
 
 Refer to [validation.txt](validation.txt) to check the Reframe Validation Output.
 
-### Performance Analysis
+## Performance Analysis
 
-#### On-node Profiling Across Compilers and Test Cases
+### On-node Profiling Across Compilers and Test Cases
 
-We choose the execution time of the program as our metric. These data come with the validation script since we enable the performance report and set the corresponding reference and pattern. Refer to [perflogs/aws/c6gn/](perflogs/aws/c6gn/) and [validation.txt](validation.txt) to check the raw performance report. The following tables collect the result across different test cases, different compilers and different resourses, where the experiments are done on AWS C6gn.
+We choose the execution time of the program as our metric. These data come with the validation script since we enable the performance report and set the corresponding reference and pattern. Refer to [perflogs/aws/c6gn/](perflogs/aws/c6gn/) and [validation.txt](validation.txt) to check the raw performance report. The following tables collect the results across different test cases, different compilers and different resourses, where the experiments are done on AWS C6gn.
 
-##### Test Case 1: 2DRemap
+#### Test Case 1: 2DRemap
 | Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
 |-------|--------------|------------------|--------------|
 | 1     |  18.55 s     |   21.20 s        |   22.83 s    |
@@ -194,7 +194,7 @@ We choose the execution time of the program as our metric. These data come with 
 | 32    |   5.03 s     |    4.07 s        |    4.20 s    |
 | 64    |   7.39 s     |    5.44 s        |    6.17 s    |
 
-##### Test Case 2: 3DRemap
+#### Test Case 2: 3DRemap
 | Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
 |-------|--------------|------------------|--------------|
 | 1     |  10.46 s     |   12.08 s        |   13.35 s    |
@@ -205,7 +205,7 @@ We choose the execution time of the program as our metric. These data come with 
 | 32    |   2.37 s     |    2.42 s        |    2.50 s    |
 | 64    |   3.27 s     |    3.34 s        |    3.35 s    |
 
-##### Test Case 3: 2DTransport
+#### Test Case 3: 2DTransport
 | Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
 |-------|--------------|------------------|--------------|
 | 1     |   7.42 s     |    7.52 s        |    7.85 s    |
@@ -216,7 +216,7 @@ We choose the execution time of the program as our metric. These data come with 
 | 32    |   2.87 s     |    3.35 s        |    2.89 s    |
 | 64    |   4.09 s     |    4.07 s        |    4.71 s    |
 
-##### Test Case 4: 3DTransport
+#### Test Case 4: 3DTransport
 | Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
 |-------|--------------|------------------|--------------|
 | 1     |   9.70 s     |   10.19 s        |   11.46 s    |
@@ -227,23 +227,23 @@ We choose the execution time of the program as our metric. These data come with 
 | 32    |   3.46 s     |    3.48 s        |    3.55 s    |
 | 64    |   4.72 s     |    4.87 s        |    4.76 s    |
 
-#### Serial Hot-spot Profile
+### Serial Hot-spot Profile
 Refer to [profile/serial/README.md](profile/serial/README.md).
 
-#### Full Node Hot-spot Profile
+### Full Node Hot-spot Profile
 Refer to [profile/full/README.md](profile/full/README.md).
 
-#### Strong Scaling Study
+### Strong Scaling Study
 [ReFrame Strong Scaling Script](remhos_strong_scaling.py)
 
 ```
 reframe -c remhos_strong_scaling.py -r --performance-report -v
 ```
 
-##### Strong Scaling Study Details
-For strong scaling study, we have a combination of 3 compilers, 9 parallelism schemes and 4 test cases, which results into 108 test runs in total. The 3 compilers are `gcc@10.3.0`, `arm@21.0.0.879`, and `nvhpc@21.2`. The 9 parallelism schemes are {1 node, 2 nodes, 4 nodes} x {16 cores in total, 32 cores in total, 64 cores in total}. The 4 test cases are verification of 6, 7, 9, and 10 of https://github.com/CEED/Remhos/tree/v1.0#verification-of-results, which are chosen to cover the {Remap Mode, Transport Mode} x {2D Mode, 3D Mode} combination. The following tables collect the result across different test cases, different compilers and different resourses, where the experiments are done on AWS C6gn. Refer to [perflogs/aws/c6gn/](perflogs/aws/c6gn/) and [strong_scaling.txt](strong_scaling.txt) to check the raw performance report.
+#### Strong Scaling Study Details
+For strong scaling study, we have a combination of 3 compilers, 9 parallelism schemes and 4 test cases, which results into 108 test runs in total. The 3 compilers are `gcc@10.3.0`, `arm@21.0.0.879`, and `nvhpc@21.2`. The 9 parallelism schemes are {1 node, 2 nodes, 4 nodes} x {16 cores in total, 32 cores in total, 64 cores in total}. The 4 test cases are verification of 6, 7, 9, and 10 of https://github.com/CEED/Remhos/tree/v1.0#verification-of-results, which are chosen to cover the {Remap Mode, Transport Mode} x {2D Mode, 3D Mode} combination. The following tables collect the results across different test cases, different compilers and different resourses, where the experiments are done on AWS C6gn. Refer to [perflogs/aws/c6gn/](perflogs/aws/c6gn/) and [strong_scaling.txt](strong_scaling.txt) to check the raw performance report.
 
-##### Test Case 1: 2DRemap
+#### Test Case 1: 2DRemap
 | Nodes | Cores Per Node | Total Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
 |-------|----------------|-------------|--------------|------------------|--------------|
 | 1     |         16     |        16   |    3.74 s    |       3.90 s     |    4.04 s    |
@@ -256,7 +256,7 @@ For strong scaling study, we have a combination of 3 compilers, 9 parallelism sc
 | 4     |          8     |        32   |    7.41 s    |       7.58 s     |    6.85 s    |
 | 4     |         16     |        64   |    7.32 s    |       8.05 s     |    8.11 s    |
 
-##### Test Case 2: 3DRemap
+#### Test Case 2: 3DRemap
 | Nodes | Cores Per Node | Total Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
 |-------|----------------|-------------|--------------|------------------|--------------|
 | 1     |         16     |        16   |    2.19 s    |       2.27 s     |    2.49 s    |
@@ -269,7 +269,7 @@ For strong scaling study, we have a combination of 3 compilers, 9 parallelism sc
 | 4     |          8     |        32   |    2.28 s    |       2.09 s     |    2.14 s    |
 | 4     |         16     |        64   |    7.32 s    |       2.46 s     |    2.30 s    |
 
-##### Test Case 3: 2DTransport
+#### Test Case 3: 2DTransport
 | Nodes | Cores Per Node | Total Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
 |-------|----------------|-------------|--------------|------------------|--------------|
 | 1     |         16     |        16   |    2.46 s    |       2.46 s     |    2.49 s    |
@@ -282,7 +282,7 @@ For strong scaling study, we have a combination of 3 compilers, 9 parallelism sc
 | 4     |          8     |        32   |    3.71 s    |       3.96 s     |    4.00 s    |
 | 4     |         16     |        64   |    4.44 s    |       4.19 s     |    4.47 s    |
 
-##### Test Case 4: 3DTransport
+#### Test Case 4: 3DTransport
 | Nodes | Cores Per Node | Total Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
 |-------|----------------|-------------|--------------|------------------|--------------|
 | 1     |         16     |        16   |    3.03 s    |       3.02 s     |    3.14 s    |
@@ -295,17 +295,17 @@ For strong scaling study, we have a combination of 3 compilers, 9 parallelism sc
 | 4     |          8     |        32   |    4.81 s    |       4.87 s     |    4.87 s    |
 | 4     |         16     |        64   |    5.87 s    |       5.89 s     |    5.91 s    |
 
-#### Architecture Comparison
+### Architecture Comparison
 [ReFrame Architecture Comparison Script](remhos_arch_comparison.py)
 
 ```
 reframe -c remhos_arch_comparison.py -r --performance-report -v
 ```
 
-##### Architecture Comparison Details
+#### Architecture Comparison Details
 For architecture comparison, we have a combination of 2 compilers, 2 architectures, 9 parallelism schemes and 4 test cases, which results into 72 * 2 test runs in total. The 2 compilers are `gcc@10.3.0` and `nvhpc@21.2`. The 2 architectures are C6gn(Aarch64) and C5n (X86). The 9 parallelism schemes are {1 node, 2 nodes, 4 nodes} x {16 cores in total, 32 cores in total, 64 cores in total}. The 4 test cases are verification of 6, 7, 9, and 10 of https://github.com/CEED/Remhos/tree/v1.0#verification-of-results, which are chosen to cover the {Remap Mode, Transport Mode} x {2D Mode, 3D Mode} combination. The folloing commands demonstrate how we build Remhos on C5n.
 
-###### Compiler 1: GCC 10.3.0
+##### Compiler 1: GCC 10.3.0
 
 ```
 spack install remhos%gcc@10.3.0
@@ -350,7 +350,7 @@ $ spack spec -Il remhos%gcc@10.3.0
 [+]  gozuirv              ^cmake@3.20.5%gcc@10.3.0~doc+ncurses+openssl+ownlibs~qt build_type=Release arch=linux-amzn2-skylake_avx512
 ```
 
-###### Compiler 2: NVHPC 21.2
+##### Compiler 2: NVHPC 21.2
 
 ```
 spack install remhos%nvhpc@21.2 ^cmake%gcc@10.3.0 ^zlib%gcc@10.3.0 ^openblas%gcc@10.3.0 ^openssh%gcc@10.3.0
@@ -395,9 +395,9 @@ $ spack spec -Il remhos%gcc@10.3.0
 [+]  xbu4njq              ^cmake@3.20.5%gcc@10.3.0~doc+ncurses+openssl+ownlibs~qt build_type=Release arch=linux-amzn2-skylake_avx512
 ```
 
-##### Architecture Comparison Result
+#### Architecture Comparison Result
 
-The following tables collect the result across different test cases, different compilers, different architectures and different resourses, where the experiments are done on AWS C6gn and C5n. Refer to [perflogs/aws/c6gn/](perflogs/aws/c6gn/), [perflogs/aws/c5n](perflogs/aws/c5n), [arch_comparison_c6gn.txt](arch_comparison_c6gn.txt) and [arch_comparison_c5n.txt](arch_comparison_c5n.txt) to check the raw performance report.
+The following tables collect the results across different test cases, different compilers, different architectures and different resourses, where the experiments are done on AWS C6gn and C5n. Refer to [perflogs/aws/c6gn/](perflogs/aws/c6gn/), [perflogs/aws/c5n](perflogs/aws/c5n), [arch_comparison_c6gn.txt](arch_comparison_c6gn.txt) and [arch_comparison_c5n.txt](arch_comparison_c5n.txt) to check the raw performance report.
 
 ##### Test Case 1: 2DRemap
 | Nodes | Cores Per Node | Total Cores | `gcc@10.3.0` - C6gn | `nvhpc@21.2` - C6gn | `gcc@10.3.0` - C5n | `nvhpc@21.2` - C5n |
