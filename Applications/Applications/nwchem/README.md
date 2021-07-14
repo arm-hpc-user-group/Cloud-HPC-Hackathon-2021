@@ -152,9 +152,9 @@ reframe -c reframe_nwchem_test.py -r --performance-report
 ### Validation
 
 Details of the validation for `Test Case 1`.
-test example (input file for nwchem) is downloaded from (NWChem github page)[https://raw.githubusercontent.com/nwchemgit/nwchem/master/QA/tests/h2o-bhlyp/h2o-bhlyp.nw]
-Refernce energy is obtained from NWChem output file in the Gitrepo.
-https://raw.githubusercontent.com/nwchemgit/nwchem/master/QA/tests/h2o-bhlyp/h2o-bhlyp.out
+test example (input file for nwchem) is downloaded from {NWChem github page}[https://raw.githubusercontent.com/nwchemgit/nwchem/master/QA/tests/h2o-bhlyp/h2o-bhlyp.nw]
+Refernce energy is obtained from NWChem output file in the Gitrepo.    
+https://raw.githubusercontent.com/nwchemgit/nwchem/master/QA/tests/h2o-bhlyp/h2o-bhlyp.out    
 used in the calculation =-76.421923745064  
 reference energy in NWCHem git = -76.421923745109  
 threshold +- 0.0004 is used.   
