@@ -1,14 +1,14 @@
 #!/bin/bash
 
 #DOMAIN INFORMATION
-export NUMTHE=360
-export NUMRHO=256
+export NUMTHE=1500
+export NUMRHO=1024
 export PIXSIZE=1
 #SOLVER DATA
 export NUMITER=24
 #TILE SIZE (MUST BE POWER OF TWO)
-export SPATSIZE=32
-export SPECSIZE=32
+export SPATSIZE=64
+export SPECSIZE=64
 #BLOCK SIZE
 export PROJBLOCK=128
 export BACKBLOCK=128
@@ -16,10 +16,10 @@ export BACKBLOCK=128
 export PROJBUFF=8
 export BACKBUFF=8
 #I/O FILES
-export THEFILE=/home/vsm2/MemXCT-CPU/dataset/ADS3_theta.bin
-export SINFILE=/home/vsm2/MemXCT-CPU/dataset/ADS3_sinogram.bin
-export OUTFILE=/home/vsm2/MemXCT-CPU/dataset/recon_ADS3.bin
+export THEFILE=/gpfs/alpine/csc362/scratch/merth/dataset/ADS3_theta.bin
+export SINFILE=/gpfs/alpine/csc362/scratch/merth/dataset/ADS3_sinogram.bin
+export OUTFILE=/gpfs/alpine/csc362/scratch/merth/dataset/recon_ADS3.bin
 
 export OMP_NUM_THREADS=1
 
-mpirun -np 32 ./memxct
+jsrun -n1 -a6 -c42 -EOMP_NUM_THREADS=7 -r1 -bpacked:7 js_task_info ./memxct
