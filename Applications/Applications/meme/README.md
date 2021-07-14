@@ -31,6 +31,91 @@ $ spack spec -Il <app>%<compiler1>
 
 ```
 
+#### GCC
+
+  - No major errors were detected when building with `gcc`.
+  - We use `perl@5.32.1` as suggested on slack.
+  - We use external `python` to speedup the compilation.
+
+```
+spack external find python
+```
+
+```
+$ spack spec -Il meme%gcc ^perl@5.32.1
+Input spec
+--------------------------------
+ -   meme%gcc
+ -       ^perl@5.32.1
+
+Concretized
+--------------------------------
+[+]  gl7hp6y  meme@5.3.0%gcc@10.3.0~image-magick+mpi arch=linux-amzn2-graviton2
+[+]  equosbj      ^libgcrypt@1.9.3%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  hjnbovy          ^libgpg-error@1.42%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  wbcp5ow              ^gawk@5.1.0%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  fqlpcsl                  ^gettext@0.21%gcc@10.3.0+bzip2+curses+git~libunistring+libxml2+tar+xz arch=linux-amzn2-graviton2
+[+]  rqrpmap                      ^bzip2@1.0.8%gcc@10.3.0~debug~pic+shared arch=linux-amzn2-graviton2
+[+]  2w7bert                          ^diffutils@3.7%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  y5ei3cm                              ^libiconv@1.16%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  iyhm3wi                      ^libxml2@2.9.10%gcc@10.3.0~python arch=linux-amzn2-graviton2
+[+]  s4pw7zm                          ^pkgconf@1.7.4%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  ye3kcvv                          ^xz@5.2.5%gcc@10.3.0~pic libs=shared,static arch=linux-amzn2-graviton2
+[+]  qepjcvj                          ^zlib@1.2.11%gcc@10.3.0+optimize+pic+shared arch=linux-amzn2-graviton2
+[+]  iwzirqc                      ^ncurses@6.2%gcc@10.3.0~symlinks+termlib abi=none arch=linux-amzn2-graviton2
+[+]  v6cutkh                      ^tar@1.34%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  rego5fd                  ^gmp@6.2.1%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  djnylog                      ^autoconf@2.69%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  3mz7xyt                          ^m4@1.4.19%gcc@10.3.0+sigsegv arch=linux-amzn2-graviton2
+[+]  ltbv6bk                              ^libsigsegv@2.13%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  4m7exgb                          ^perl@5.32.1%gcc@10.3.0+cpanm+shared+threads arch=linux-amzn2-graviton2
+[+]  y42m6yr                              ^berkeley-db@18.1.40%gcc@10.3.0+cxx~docs+stl patches=b231fcc4d5cff05e5c3a4814f6a5af0e9a966428dc2176540d2c05aff41de522 arch=linux-amzn2-graviton2
+[+]  wjwqncx                              ^gdbm@1.19%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  3zy7kxk                                  ^readline@8.1%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  xb2w5nc                      ^automake@1.16.3%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  z2uysov                      ^libtool@2.4.6%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  4jwrra6                  ^mpfr@4.1.0%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  yutdrfy                      ^autoconf-archive@2019.01.06%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  egfqbtl                      ^texinfo@6.5%gcc@10.3.0 patches=12f6edb0c6b270b8c8dba2ce17998c580db01182d871ee32b7b6e4129bd1d23a,1732115f651cff98989cb0215d8f64da5e0f7911ebf0c13b064920f088f2ffe1 arch=linux-amzn2-graviton2
+[+]  vapzblj      ^libxslt@1.1.33%gcc@10.3.0+crypto~python arch=linux-amzn2-graviton2
+[+]  l7oony6      ^openmpi@4.1.1%gcc@10.3.0~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=none schedulers=none arch=linux-amzn2-graviton2
+[+]  cukmqbg          ^hwloc@2.5.0%gcc@10.3.0~cairo~cuda~gl~libudev+libxml2~netloc~nvml+pci+shared arch=linux-amzn2-graviton2
+[+]  asgtk6a              ^libpciaccess@0.16%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  4xr3hhh                  ^util-macros@1.19.3%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  tadxrfp          ^libevent@2.1.12%gcc@10.3.0+openssl arch=linux-amzn2-graviton2
+[+]  5i3lgfb              ^openssl@1.1.1k%gcc@10.3.0~docs+systemcerts arch=linux-amzn2-graviton2
+[+]  mhav5gn          ^numactl@2.0.14%gcc@10.3.0 patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006 arch=linux-amzn2-graviton2
+[+]  wturp6c          ^openssh@8.5p1%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  ivotdt7              ^libedit@3.1-20210216%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  lqb6dym      ^perl-xml-parser@2.44%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  ychdz7l          ^expat@2.4.1%gcc@10.3.0+libbsd arch=linux-amzn2-graviton2
+[+]  ourxkez              ^libbsd@0.11.3%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  nssrqfc                  ^libmd@1.0.3%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  f5v6774          ^perl-libwww-perl@6.33%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  7bktzwy              ^perl-encode-locale@1.05%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  ng42qsj              ^perl-file-listing@6.04%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  iel7364                  ^perl-http-date@6.02%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  6c5zqpy              ^perl-html-parser@3.72%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  5356pec                  ^perl-html-tagset@3.20%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  rn72dje              ^perl-http-cookies@6.04%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  lzhpg5e                  ^perl-http-message@6.13%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  cw4yunq                      ^perl-io-html@1.001%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  uwpw4jb                      ^perl-lwp-mediatypes@6.02%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  lbi5zlw                      ^perl-try-tiny@0.28%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  mwjmhxr                      ^perl-uri@1.72%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  ilcgd4p                          ^perl-test-needs@0.002005%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  kqe5fq4              ^perl-http-daemon@6.01%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  n2pgdkj                  ^perl-module-build-tiny@0.039%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  2nu5ktn                      ^perl-extutils-config@0.008%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  oaj7c6l                      ^perl-extutils-helpers@0.026%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  3bmurgv                      ^perl-extutils-installpaths@0.012%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  l3vxnln                      ^perl-module-build@0.4224%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  memap53              ^perl-http-negotiate@6.01%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  jp2quri              ^perl-net-http@6.17%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  ojglnnz              ^perl-www-robotrules@6.02%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  gcliuat      ^python@3.7.10%gcc@10.3.0+bz2+ctypes+dbm~debug+libxml2+lzma+nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87 arch=linux-amzn2-graviton2
+```
+
 #### NVHPC
 
   - `nvhpc` conflicts with `python`, which can be fixed by using the external `python`.
@@ -119,7 +204,7 @@ Concretized
 [+]  6pt5n5r      ^python@3.7.10%nvhpc@21.2+bz2+ctypes+dbm~debug+libxml2+lzma+nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87 arch=linux-amzn2-graviton2
 ```
 
-  - The default `spack meme` package generates `xml` link errors. Installing `libxml2` and `libxslt` as `spack packages` and building `meme` against them solves this problem.
+  - The default `spack meme` package generates `xml` link errors. Installing `libxml2` and `libxslt` as `spack` packages and building `meme` against them solves this problem.
   - Some of the compilation flags used by `meme` and `libxmlst` are not supported by `nvhpc`, but these flags can be easily patched out.
 
 ```
