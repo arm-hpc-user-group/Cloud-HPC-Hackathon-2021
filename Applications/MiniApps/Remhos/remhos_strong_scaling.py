@@ -2,7 +2,7 @@ import reframe as rfm
 import reframe.utility.sanity as sn
 import hackathon as hack
 
-class RemhosValidationTestBase(hack.HackathonBase):
+class RemhosStrongScalingTestBase(hack.HackathonBase):
     valid_systems = ['aws:c6gn']
     
     log_team_name = 'C3SR'
@@ -21,13 +21,15 @@ class RemhosValidationTestBase(hack.HackathonBase):
     ])
 
     parallelism = parameter([
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 1},
-        { 'nodes' : 1, 'mpi' : 2, 'omp' : 1},
-        { 'nodes' : 1, 'mpi' : 4, 'omp' : 1},
-        { 'nodes' : 1, 'mpi' : 8, 'omp' : 1},
         { 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
         { 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
         { 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
+        { 'nodes' : 2, 'mpi' : 16, 'omp' : 1},
+        { 'nodes' : 2, 'mpi' : 32, 'omp' : 1},
+        { 'nodes' : 2, 'mpi' : 64, 'omp' : 1},
+        { 'nodes' : 4, 'mpi' : 16, 'omp' : 1},
+        { 'nodes' : 4, 'mpi' : 32, 'omp' : 1},
+        { 'nodes' : 4, 'mpi' : 64, 'omp' : 1},
     ])
 
     @run_before('performance')
@@ -46,8 +48,8 @@ class RemhosValidationTestBase(hack.HackathonBase):
        self.job.options += ['--exclusive']
 
 @rfm.simple_test
-class Remhos2DRemapValidationTest(RemhosValidationTestBase):
-    log_test_name = 'Remhos2DRemapValidationTest'
+class Remhos2DRemapStrongScalingTest(RemhosStrongScalingTestBase):
+    log_test_name = 'Remhos2DRemapStrongScalingTest'
 
     prerun_cmds = ['wget https://raw.githubusercontent.com/CEED/Remhos/v1.0/data/inline-quad.mesh']
     executable_opts = ['-m', 'inline-quad.mesh',
@@ -86,8 +88,8 @@ class Remhos2DRemapValidationTest(RemhosValidationTestBase):
        ])
 
 @rfm.simple_test
-class Remhos3DRemapValidationTest(RemhosValidationTestBase):
-    log_test_name = 'Remhos3DRemapValidationTest'
+class Remhos3DRemapStrongScalingTest(RemhosStrongScalingTestBase):
+    log_test_name = 'Remhos3DRemapStrongScalingTest'
 
     prerun_cmds = ['wget https://raw.githubusercontent.com/CEED/Remhos/v1.0/data/cube01_hex.mesh']
     executable_opts = ['-m', 'cube01_hex.mesh',
@@ -127,8 +129,8 @@ class Remhos3DRemapValidationTest(RemhosValidationTestBase):
        ])
 
 @rfm.simple_test
-class Remhos2DTransportValidationTest(RemhosValidationTestBase):
-    log_test_name = 'Remhos2DTransportValidationTest'
+class Remhos2DTransportStrongScalingTest(RemhosStrongScalingTestBase):
+    log_test_name = 'Remhos2DTransportStrongScalingTest'
 
     prerun_cmds = ['wget https://raw.githubusercontent.com/CEED/Remhos/v1.0/data/periodic-square.mesh']
     executable_opts = ['-m', 'periodic-square.mesh',
@@ -167,8 +169,8 @@ class Remhos2DTransportValidationTest(RemhosValidationTestBase):
        ])
 
 @rfm.simple_test
-class Remhos3DTransportValidationTest(RemhosValidationTestBase):
-    log_test_name = 'Remhos3DTransportValidationTest'
+class Remhos3DTransportStrongScalingTest(RemhosStrongScalingTestBase):
+    log_test_name = 'Remhos3DTransportStrongScalingTest'
 
     prerun_cmds = ['wget https://raw.githubusercontent.com/CEED/Remhos/v1.0/data/periodic-cube.mesh']
     executable_opts = ['-m', 'periodic-cube.mesh',
