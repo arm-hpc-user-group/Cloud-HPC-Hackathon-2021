@@ -199,13 +199,13 @@ Off-node scaling study comparing C6g and C6gn instances.
 
 | Nodes | Cores | C6g | C6gn |
 |-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
+| 1     | 8     |     |363.83|
+| 1     | 16    |     |136.99|
+| 1     | 32    |     |61.952|
+| 1     | 64    |     |38.711|
+| 2     | 128   |     |66.053|
+| 4     | 256   |     |53.526|
+| 8     | 512   |     |38.311|
 
 
 ### On-Node Architecture Comparison
@@ -232,17 +232,19 @@ Please document work with compiler flags, maths libraries, system libraries, cod
 
 Compiler flags before:
 ```
-CFLAGS=
-FFLAGS=
+CFLAGS=" "
+FFLAGS=" "
 ```
 
 Compiler flags after:
 ```
-CFLAGS=
-FFLAGS=
+CFLAGS=-O3 -march=native -funroll-loops -mtune=cortex-a76
+FFLAGS=-O3 -march=native -funroll-loops -mtune=cortex-a76
 ```
 
 #### Compiler Flag Performance
+
+We didn't observe any significant performance improvement by adding the new flags.
 
 | Cores | Original Flags | New Flags |
 |-------|----------------|-----------|
