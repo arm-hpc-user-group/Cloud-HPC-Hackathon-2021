@@ -2,7 +2,7 @@
 
 **Description:** Mini-application for the evaulation of programming models and hardware for next generation platforms, kokkos, unstructured finite volume code that solves the compressibl Navier-Stokes equations
 
-**URL:** https://github.com/Mantevo/miniAer 
+**URL:** https://github.com/Mantevo/miniAero 
 
 **Team:**  
 
