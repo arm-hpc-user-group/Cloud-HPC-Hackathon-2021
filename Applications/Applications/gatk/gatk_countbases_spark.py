@@ -1,15 +1,9 @@
 """
-Tests `gatk CountBases` using public example data 
+Tests `gatk CountBasesSpark` using public example data 
 
 This is a more basic test that verifies GATK is fully installed.
 
 This tests relies on a publically accessible HiSEQ 2500 BAM file. It is saved in scratch to avoid repetitively downloading big files.
-
-```
-mkdir /scratch/home/jayson/gatk-data
-cd /scratch/home/jayson/gatk-data
-wget https://storage.googleapis.com/genomics-public-data/test-data/dna/wgs/hiseq2500/NA12878/H06HDADXX130110.1.ATCACGAT.20k_reads.bam
-```
 """
 import reframe as rfm
 import reframe.utility.sanity as sn
@@ -45,17 +39,15 @@ class GATKTest(hack.HackathonBase):
         'gatk@4.1.8.1%arm@21.0.0.879', # gatk CountBasesSpark with ARM compiler
     ])
 
-    log_test_name = f'gatk_countbases'
+    log_test_name = f'gatk_countbases_spark'
 
-        # CLI args. "strong" largely means more atoms with eam potential
+    # CLI args to use the Spark version of base counting 
     executable_opts = [
-         f'CountBases -I {bam_file} &> gatk.out'
+         f'CountBasesSpark -I {bam_file} &> gatk.out'
     ]
 
-    # Scale MPI to confirm that more work takes similar time 
     parallelism = parameter([{ 'nodes' : 1, 'mpi' : 1, 'omp' : 1}])
 
-    # Code validation
     @run_before('sanity')
     def set_sanity_patterns(self):
 
@@ -65,12 +57,12 @@ class GATKTest(hack.HackathonBase):
 
         self.sanity_patterns = sn.assert_eq(expected_count, 5000000)
 
-        # timing is taken from the code's self-reporting numbers
+        # timing is taken from the code's self-reported numbers
         self.reference = {
             '*': {'Total Time': (0, None, None, 's'),}
         }
 
-        perf_regex = r'Processed 20000 total reads in (\S+) minutes'
+        perf_regex = r'Job 2 finished: .* took (\S+) s'
         self.perf_patterns = {
             'Total Time': sn.extractsingle(perf_regex, self.logfile, 1, float, item=-1)
         }
