@@ -24,8 +24,13 @@ class GATKTest(hack.HackathonBase):
     log_team_name = 'Falkners'
     log_app_name = 'GATK'
 
+    bam_file = '/scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam'
+
     # no pre-run. File are big and already in scratch
-    prerun_cmds = []
+    prerun_cmds = [
+        f'mkdir -p /scratch/home/jayson/gatk-data/',
+        f'wget -nc https://storage.googleapis.com/genomics-public-data/test-data/dna/wgs/hiseq2500/NA12878/H06HDADXX130110.1.ATCACGAT.20k_reads.bam -O {bam_file}'
+    ]
 
     # Binary to run
     executable = 'gatk'
@@ -46,7 +51,7 @@ class GATKTest(hack.HackathonBase):
 
         # CLI args. "strong" largely means more atoms with eam potential
     executable_opts = [
-         'CountBases -I /scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam &> gatk.out'
+         f'CountBases -I {bam_file} &> gatk.out'
     ]
 
     # Scale MPI to confirm that more work takes similar time 
