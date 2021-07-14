@@ -18,19 +18,6 @@ Pull request for Spack recipe changes:
 
 ### Building meme
 
-
-
-#### Compiler 1
-
-```
-spack install <app>%<compiler1>
-```
-
-```
-$ spack spec -Il <app>%<compiler1>
-
-```
-
 #### Arm
 
   - `meme` does not build due to the way some inline functions are declared, so we patched it as below (probably will try to get this included upstream).
@@ -74,7 +61,7 @@ $ spack spec -Il <app>%<compiler1>
  #endif /* MT_EXTERN */
 ```
 
-  - Here's the patched `spack meme` package, including the changes required to compile `nvhpc`.
+  - Here's the patched `spack meme` package, including the changes required to compile `nvhpc` (see below).
 
 ```
 diff --git a/var/spack/repos/builtin/packages/meme/package.py b/var/spack/repos/builtin/packages/meme/package.py
@@ -442,14 +429,15 @@ $ spack install meme%gcc ^perl@5.32.1
 
 #### NVHPC
 
-  - `nvhpc` conflicts with `python`, which can be fixed by using the external `python`.
+  - `nvhpc` conflicts with `python`.
+    - Can be fixed by using the external `python`.
 
 ```
 spack external find python
 ```
 
-  - Various dependencies of `libgcrypt` do not compile with `nvhpc`. As a work around, we can build them with `gcc`.
-  - `libbsd-0.11.3` doesn't build, initially because the current patch included in the package does not apply, but other errors emerge after fixing that patch as well.
+  - Various dependencies of `libgcrypt` do not compile with `nvhpc`. As a work around, we build them with `gcc`.
+  - `libbsd-0.11.3` doesn't build, initially because the current patch included in the package does not apply, but other errors emerge after fixing the patch.
     - Using `libbsd@0.10.0` works.
   - `perl@5.34.0` hangs during compilation, so we use `perl@5.32.1`.
 
@@ -530,8 +518,8 @@ Concretized
 ```
 
   - The default `spack meme` package generates `xml` link errors.
-    - Installing `libxml2` and `libxslt` as `spack` packages and building `meme` against them solves this problem.
-  - Some of the compilation flags used by `meme` and `libxmlst` are not supported by `nvhpc`, but these flags can be easily patched out.
+    - Installing `libxml2` and `libxslt` as `spack` packages and building `meme` against them solves this problem (requires changes to `spack`'s `meme` package).
+  - Some of the compilation flags used by `meme` and `libxmlst` are not supported by `nvhpc`, but they can be easily patched out.
 
 ```
 diff --git a/var/spack/repos/builtin/packages/libxslt/package.py b/var/spack/repos/builtin/packages/libxslt/package.py
@@ -551,7 +539,7 @@ index c42240f303..cecd64d477 100644
 
 ```
 diff --git a/var/spack/repos/builtin/packages/meme/package.py b/var/spack/repos/builtin/packages/meme/package.py
-# see the arm section for the changes required to this file
+# See Arm's build section for the changes required to this file.
 ```
 
 ```
