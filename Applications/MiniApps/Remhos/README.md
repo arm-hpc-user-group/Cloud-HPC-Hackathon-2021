@@ -241,20 +241,59 @@ reframe -c remhos_strong_scaling.py -r --performance-report -v
 ```
 
 #### Strong Scaling Study Details
-For strong scaling study, we have a combination of 3 compilers, 9 parallelism schemes and 4 test cases, which results into 108 test runs in total. The 3 compilers are `gcc@10.3.0`, `arm@21.0.0.879`, and `nvhpc@21.2`. The 9 parallelism schemes are {1 node, 2 nodes, 4 nodes} x {16 cores in total, 32 cores in total, 64 cores in total}. The 4 test cases are verification of 6, 7, 9, and 10 of https://github.com/CEED/Remhos/tree/v1.0#verification-of-results, which are chosen to cover the {Remap Mode, Transport Mode} x {2D Mode, 3D Mode} combination. The following tables collect the result across different test cases, different compilers and different resourses, where the experiments are done on AWS C6gn.
+For strong scaling study, we have a combination of 3 compilers, 9 parallelism schemes and 4 test cases, which results into 108 test runs in total. The 3 compilers are `gcc@10.3.0`, `arm@21.0.0.879`, and `nvhpc@21.2`. The 9 parallelism schemes are {1 node, 2 nodes, 4 nodes} x {16 cores in total, 32 cores in total, 64 cores in total}. The 4 test cases are verification of 6, 7, 9, and 10 of https://github.com/CEED/Remhos/tree/v1.0#verification-of-results, which are chosen to cover the {Remap Mode, Transport Mode} x {2D Mode, 3D Mode} combination. The following tables collect the result across different test cases, different compilers and different resourses, where the experiments are done on AWS C6gn. Refer to [perflogs/aws/c6gn/](perflogs/aws/c6gn/) and [strong_scaling.txt](strong_scaling.txt) to check the raw performance report.
 
 ##### Test Case 1: 2DRemap
 | Nodes | Cores Per Node | Total Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
 |-------|----------------|-------------|--------------|------------------|--------------|
-| 1     |         16     |        16   |              |                  |              |
-| 1     |         32     |        32   |              |                  |              |
-| 1     |         64     |        64   |              |                  |              |
-| 2     |          8     |        16   |              |                  |              |
-| 2     |         16     |        32   |              |                  |              |
-| 2     |         32     |        64   |              |                  |              |
-| 4     |          4     |        16   |              |                  |              |
-| 4     |          8     |        32   |              |                  |              |
-| 4     |         16     |        64   |              |                  |              |
+| 1     |         16     |        16   |    3.74 s    |       3.90 s     |    4.04 s    |
+| 1     |         32     |        32   |    4.03 s    |       4.04 s     |    4.20 s    |
+| 1     |         64     |        64   |    5.45 s    |       5.33 s     |    5.68 s    |
+| 2     |          8     |        16   |    5.73 s    |       5.84 s     |    5.70 s    |
+| 2     |         16     |        32   |    5.43 s    |       5.56 s     |    5.65 s    |
+| 2     |         32     |        64   |    6.19 s    |       6.17 s     |    6.27 s    |
+| 4     |          4     |        16   |    6.77 s    |       6.80 s     |    7.67 s    |
+| 4     |          8     |        32   |    7.41 s    |       7.58 s     |    6.85 s    |
+| 4     |         16     |        64   |    7.32 s    |       8.05 s     |    8.11 s    |
+
+##### Test Case 2: 3DRemap
+| Nodes | Cores Per Node | Total Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
+|-------|----------------|-------------|--------------|------------------|--------------|
+| 1     |         16     |        16   |    2.19 s    |       2.27 s     |    2.49 s    |
+| 1     |         32     |        32   |    2.39 s    |       2.44 s     |    2.62 s    |
+| 1     |         64     |        64   |    3.31 s    |       3.23 s     |    3.54 s    |
+| 2     |          8     |        16   |    2.16 s    |       2.22 s     |    2.38 s    |
+| 2     |         16     |        32   |    2.20 s    |       2.20 s     |    2.32 s    |
+| 2     |         32     |        64   |    2.12 s    |       2.57 s     |    2.65 s    |
+| 4     |          4     |        16   |    2.04 s    |       2.24 s     |    2.33 s    |
+| 4     |          8     |        32   |    2.28 s    |       2.09 s     |    2.14 s    |
+| 4     |         16     |        64   |    7.32 s    |       2.46 s     |    2.30 s    |
+
+##### Test Case 3: 2DTransport
+| Nodes | Cores Per Node | Total Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
+|-------|----------------|-------------|--------------|------------------|--------------|
+| 1     |         16     |        16   |    2.46 s    |       2.46 s     |    2.49 s    |
+| 1     |         32     |        32   |    2.87 s    |       2.84 s     |    2.88 s    |
+| 1     |         64     |        64   |    4.08 s    |       4.15 s     |    4.16 s    |
+| 2     |          8     |        16   |    3.06 s    |       3.00 s     |    3.04 s    |
+| 2     |         16     |        32   |    3.41 s    |       3.29 s     |    3.32 s    |
+| 2     |         32     |        64   |    3.93 s    |       3.92 s     |    4.11 s    |
+| 4     |          4     |        16   |    3.51 s    |       3.90 s     |    3.49 s    |
+| 4     |          8     |        32   |    3.71 s    |       3.96 s     |    4.00 s    |
+| 4     |         16     |        64   |    4.44 s    |       4.19 s     |    4.47 s    |
+
+##### Test Case 4: 3DTransport
+| Nodes | Cores Per Node | Total Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
+|-------|----------------|-------------|--------------|------------------|--------------|
+| 1     |         16     |        16   |    3.03 s    |       3.02 s     |    3.14 s    |
+| 1     |         32     |        32   |    3.46 s    |       3.46 s     |    3.53 s    |
+| 1     |         64     |        64   |    4.95 s    |       4.83 s     |    4.86 s    |
+| 2     |          8     |        16   |    3.85 s    |       3.89 s     |    3.98 s    |
+| 2     |         16     |        32   |    4.20 s    |       4.29 s     |    4.29 s    |
+| 2     |         32     |        64   |    5.10 s    |       5.30 s     |    5.13 s    |
+| 4     |          4     |        16   |    4.97 s    |       5.00 s     |    5.15 s    |
+| 4     |          8     |        32   |    4.81 s    |       4.87 s     |    4.87 s    |
+| 4     |         16     |        64   |    5.87 s    |       5.89 s     |    5.91 s    |
 
 ### On-Node Architecture Comparison
 
