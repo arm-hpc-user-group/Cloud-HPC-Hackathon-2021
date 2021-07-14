@@ -1,0 +1,2 @@
+2021-07-14T16:00:11|reframe 3.7.0-dev.3+34ee3d0b|Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_16_OMP_1 on aws:c5n using builtin|jobid=49|Total Time=7.96|ref=0 (l=null, u=null)|s
+2021-07-14T16:06:00|reframe 3.7.0-dev.3+34ee3d0b|Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_16_OMP_1 on aws:c5n using builtin|jobid=121|Total Time=7.98|ref=0 (l=null, u=null)|s

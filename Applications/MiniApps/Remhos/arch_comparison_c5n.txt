@@ -1,0 +1,867 @@
+[ReFrame Setup]
+  version:           3.7.0-dev.3+34ee3d0b
+  command:           '/software/reframe/bin/reframe -c remhos_arch_comparison.py -r --performance-report -v'
+  launched by:       yhchang3@ip-10-0-0-220
+  working directory: '/home/yhchang3/Cloud-HPC-Hackathon-2021/Applications/MiniApps/Remhos'
+  settings file:     '/software/reframe/settings.py'
+  check search path: '/home/yhchang3/Cloud-HPC-Hackathon-2021/Applications/MiniApps/Remhos/remhos_arch_comparison.py'
+  stage directory:   '/home/yhchang3/Cloud-HPC-Hackathon-2021/Applications/MiniApps/Remhos/stage'
+  output directory:  '/home/yhchang3/Cloud-HPC-Hackathon-2021/Applications/MiniApps/Remhos/output'
+
+Loaded 72 test(s)
+Generated 72 test case(s)
+Filtering test cases(s) by name: 72 remaining
+Filtering test cases(s) by tags: 72 remaining
+Filtering test cases(s) by other attributes: 72 remaining
+Final number of test cases: 72
+[==========] Running 72 check(s)
+[==========] Started on Wed Jul 14 16:05:39 2021 
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1 (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1 (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1 (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_16_OMP_1 (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_32_OMP_1 (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_64_OMP_1 (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_16_OMP_1 (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_32_OMP_1 (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1 (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_ (Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1 (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_16_OMP_1 (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_32_OMP_1 (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_64_OMP_1 (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_64_OMP_1 (Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1 (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_ (Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1 (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1 (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_32_OMP_1 (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_64_OMP_1 (Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_64_OMP_1 (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_ (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_64_OMP_1 (Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_16_OMP_1 (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___2___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_32_OMP_1 (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0___nodes___4___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1 (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_16_OMP_1 (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_32_OMP_1 (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___2___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_ on aws:c5n using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_ on aws:c5n using builtin
+[----------] finished processing Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_ (Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2___nodes___4___mpi___64___omp___1_)
+
+[----------] waiting for spawned checks to finish
+[ [32m      OK[0m ] ( 1/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 16.859s total: 17.040s]
+==> timings: setup: 0.005s compile: 0.006s run: 16.859s sanity: 0.002s performance: 0.074s total: 17.040s
+[ [32m      OK[0m ] ( 2/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 19.779s total: 19.963s]
+==> timings: setup: 0.005s compile: 0.006s run: 19.779s sanity: 0.000s performance: 0.075s total: 19.963s
+[ [32m      OK[0m ] ( 3/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 25.017s total: 25.191s]
+==> timings: setup: 0.005s compile: 0.007s run: 25.017s sanity: 0.001s performance: 0.075s total: 25.191s
+[ [32m      OK[0m ] ( 4/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 20.865s total: 21.076s]
+==> timings: setup: 0.005s compile: 0.006s run: 20.865s sanity: 0.000s performance: 0.075s total: 21.076s
+[ [32m      OK[0m ] ( 5/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 27.093s total: 27.264s]
+==> timings: setup: 0.006s compile: 0.006s run: 27.093s sanity: 0.000s performance: 0.073s total: 27.264s
+[ [32m      OK[0m ] ( 6/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.004s run: 38.289s total: 38.306s]
+==> timings: setup: 0.005s compile: 0.004s run: 38.289s sanity: 0.000s performance: 0.073s total: 38.306s
+[ [32m      OK[0m ] ( 7/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 29.130s total: 29.311s]
+==> timings: setup: 0.005s compile: 0.006s run: 29.130s sanity: 0.000s performance: 0.076s total: 29.311s
+[ [32m      OK[0m ] ( 8/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 30.036s total: 30.215s]
+==> timings: setup: 0.005s compile: 0.006s run: 30.036s sanity: 0.000s performance: 0.076s total: 30.215s
+[ [32m      OK[0m ] ( 9/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 30.951s total: 31.124s]
+==> timings: setup: 0.005s compile: 0.006s run: 30.951s sanity: 0.000s performance: 0.075s total: 31.124s
+[ [32m      OK[0m ] (10/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 36.636s total: 36.820s]
+==> timings: setup: 0.005s compile: 0.006s run: 36.636s sanity: 0.000s performance: 0.075s total: 36.820s
+[ [32m      OK[0m ] (11/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 39.664s total: 39.687s]
+==> timings: setup: 0.005s compile: 0.006s run: 39.664s sanity: 0.000s performance: 0.076s total: 39.687s
+[ [32m      OK[0m ] (12/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 32.686s total: 32.849s]
+==> timings: setup: 0.005s compile: 0.006s run: 32.686s sanity: 0.000s performance: 0.075s total: 32.849s
+[ [32m      OK[0m ] (13/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 40.570s total: 40.595s]
+==> timings: setup: 0.005s compile: 0.007s run: 40.570s sanity: 0.000s performance: 0.076s total: 40.595s
+[ [32m      OK[0m ] (14/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 42.504s total: 42.529s]
+==> timings: setup: 0.005s compile: 0.007s run: 42.504s sanity: 0.000s performance: 0.076s total: 42.529s
+[ [32m      OK[0m ] (15/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 41.474s total: 41.499s]
+==> timings: setup: 0.005s compile: 0.006s run: 41.474s sanity: 0.000s performance: 0.076s total: 41.499s
+[ [32m      OK[0m ] (16/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 42.223s total: 42.248s]
+==> timings: setup: 0.005s compile: 0.007s run: 42.223s sanity: 0.001s performance: 0.075s total: 42.248s
+[ [32m      OK[0m ] (17/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 43.566s total: 43.592s]
+==> timings: setup: 0.005s compile: 0.007s run: 43.566s sanity: 0.000s performance: 0.076s total: 43.592s
+[ [32m      OK[0m ] (18/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 44.347s total: 44.372s]
+==> timings: setup: 0.005s compile: 0.007s run: 44.347s sanity: 0.000s performance: 0.076s total: 44.372s
+[ [32m      OK[0m ] (19/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 19.412s total: 19.585s]
+==> timings: setup: 0.005s compile: 0.007s run: 19.412s sanity: 0.001s performance: 0.075s total: 19.585s
+[ [32m      OK[0m ] (20/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 16.883s total: 17.068s]
+==> timings: setup: 0.005s compile: 0.006s run: 16.883s sanity: 0.000s performance: 0.074s total: 17.068s
+[ [32m      OK[0m ] (21/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 15.940s total: 16.138s]
+==> timings: setup: 0.005s compile: 0.006s run: 15.940s sanity: 0.001s performance: 0.076s total: 16.138s
+[ [32m      OK[0m ] (22/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 19.480s total: 19.671s]
+==> timings: setup: 0.005s compile: 0.006s run: 19.480s sanity: 0.001s performance: 0.075s total: 19.671s
+[ [32m      OK[0m ] (23/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 18.007s total: 18.169s]
+==> timings: setup: 0.005s compile: 0.006s run: 18.007s sanity: 0.001s performance: 0.076s total: 18.169s
+[ [32m      OK[0m ] (24/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 17.486s total: 17.673s]
+==> timings: setup: 0.005s compile: 0.006s run: 17.486s sanity: 0.001s performance: 0.076s total: 17.673s
+[ [32m      OK[0m ] (25/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 21.241s total: 21.415s]
+==> timings: setup: 0.005s compile: 0.007s run: 21.241s sanity: 0.001s performance: 0.073s total: 21.415s
+[ [32m      OK[0m ] (26/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 21.696s total: 21.899s]
+==> timings: setup: 0.005s compile: 0.007s run: 21.696s sanity: 0.001s performance: 0.075s total: 21.899s
+[ [32m      OK[0m ] (27/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 19.073s total: 23.133s]
+==> timings: setup: 0.005s compile: 0.006s run: 19.073s sanity: 0.001s performance: 0.076s total: 23.133s
+[ [32m      OK[0m ] (28/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 21.503s total: 26.798s]
+==> timings: setup: 0.006s compile: 0.006s run: 21.503s sanity: 0.001s performance: 0.075s total: 26.798s
+[ [32m      OK[0m ] (29/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 21.883s total: 30.787s]
+==> timings: setup: 0.005s compile: 0.007s run: 21.883s sanity: 0.001s performance: 0.076s total: 30.787s
+[ [32m      OK[0m ] (30/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 16.893s total: 35.659s]
+==> timings: setup: 0.005s compile: 0.007s run: 16.893s sanity: 0.001s performance: 0.075s total: 35.659s
+[ [32m      OK[0m ] (31/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 24.545s total: 35.204s]
+==> timings: setup: 0.005s compile: 0.005s run: 24.545s sanity: 0.001s performance: 0.076s total: 35.204s
+[ [32m      OK[0m ] (32/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 20.990s total: 38.005s]
+==> timings: setup: 0.005s compile: 0.007s run: 20.990s sanity: 0.001s performance: 0.075s total: 38.005s
+[ [32m      OK[0m ] (33/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 22.112s total: 42.859s]
+==> timings: setup: 0.005s compile: 0.007s run: 22.112s sanity: 0.001s performance: 0.075s total: 42.859s
+[ [32m      OK[0m ] (34/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 10.133s total: 48.830s]
+==> timings: setup: 0.005s compile: 0.007s run: 10.133s sanity: 0.001s performance: 0.076s total: 48.830s
+[ [32m      OK[0m ] (35/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 24.583s total: 50.851s]
+==> timings: setup: 0.005s compile: 0.007s run: 24.583s sanity: 0.001s performance: 0.076s total: 50.851s
+[ [32m      OK[0m ] (36/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 21.831s total: 52.097s]
+==> timings: setup: 0.005s compile: 0.007s run: 21.831s sanity: 0.000s performance: 0.075s total: 52.097s
+[ [32m      OK[0m ] (37/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 19.654s total: 53.574s]
+==> timings: setup: 0.005s compile: 0.005s run: 19.654s sanity: 0.001s performance: 0.076s total: 53.574s
+[ [32m      OK[0m ] (38/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 14.640s total: 58.254s]
+==> timings: setup: 0.005s compile: 0.007s run: 14.640s sanity: 0.001s performance: 0.076s total: 58.254s
+[ [32m      OK[0m ] (39/72) Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 17.736s total: 58.758s]
+==> timings: setup: 0.005s compile: 0.007s run: 17.736s sanity: 0.000s performance: 0.075s total: 58.758s
+[ [32m      OK[0m ] (40/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 16.182s total: 61.826s]
+==> timings: setup: 0.005s compile: 0.007s run: 16.182s sanity: 0.001s performance: 0.076s total: 61.826s
+[ [32m      OK[0m ] (41/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 16.963s total: 66.217s]
+==> timings: setup: 0.005s compile: 0.005s run: 16.963s sanity: 0.001s performance: 0.075s total: 66.217s
+[ [32m      OK[0m ] (42/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 10.963s total: 68.712s]
+==> timings: setup: 0.005s compile: 0.005s run: 10.963s sanity: 0.000s performance: 0.075s total: 68.712s
+[ [32m      OK[0m ] (43/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 15.997s total: 68.953s]
+==> timings: setup: 0.005s compile: 0.007s run: 15.997s sanity: 0.000s performance: 0.076s total: 68.953s
+[ [32m      OK[0m ] (44/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.008s run: 9.680s total: 73.077s]
+==> timings: setup: 0.005s compile: 0.008s run: 9.680s sanity: 0.001s performance: 0.075s total: 73.077s
+[ [32m      OK[0m ] (45/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 13.324s total: 73.821s]
+==> timings: setup: 0.005s compile: 0.007s run: 13.324s sanity: 0.001s performance: 0.076s total: 73.821s
+[ [32m      OK[0m ] (46/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 15.832s total: 74.851s]
+==> timings: setup: 0.005s compile: 0.007s run: 15.832s sanity: 0.001s performance: 0.076s total: 74.851s
+[ [32m      OK[0m ] (47/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.008s run: 12.182s total: 78.587s]
+==> timings: setup: 0.005s compile: 0.008s run: 12.182s sanity: 0.000s performance: 0.075s total: 78.587s
+[ [32m      OK[0m ] (48/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 13.301s total: 81.510s]
+==> timings: setup: 0.005s compile: 0.005s run: 13.301s sanity: 0.000s performance: 0.075s total: 81.510s
+[ [32m      OK[0m ] (49/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 8.673s total: 85.295s]
+==> timings: setup: 0.005s compile: 0.007s run: 8.673s sanity: 0.000s performance: 0.075s total: 85.295s
+[ [32m      OK[0m ] (50/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 10.896s total: 83.498s]
+==> timings: setup: 0.005s compile: 0.005s run: 10.896s sanity: 0.001s performance: 0.075s total: 83.498s
+[ [32m      OK[0m ] (51/72) Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 10.910s total: 84.746s]
+==> timings: setup: 0.005s compile: 0.007s run: 10.910s sanity: 0.001s performance: 0.076s total: 84.746s
+[ [32m      OK[0m ] (52/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 9.923s total: 89.160s]
+==> timings: setup: 0.005s compile: 0.007s run: 9.923s sanity: 0.001s performance: 0.075s total: 89.160s
+[ [32m      OK[0m ] (53/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 9.675s total: 90.661s]
+==> timings: setup: 0.005s compile: 0.007s run: 9.675s sanity: 0.000s performance: 0.075s total: 90.661s
+[ [32m      OK[0m ] (54/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 10.580s total: 93.590s]
+==> timings: setup: 0.005s compile: 0.005s run: 10.580s sanity: 0.001s performance: 0.076s total: 93.590s
+[ [32m      OK[0m ] (55/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 8.685s total: 95.845s]
+==> timings: setup: 0.005s compile: 0.007s run: 8.685s sanity: 0.001s performance: 0.076s total: 95.845s
+[ [32m      OK[0m ] (56/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 11.832s total: 96.083s]
+==> timings: setup: 0.005s compile: 0.007s run: 11.832s sanity: 0.001s performance: 0.074s total: 96.083s
+[ [32m      OK[0m ] (57/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 8.713s total: 100.371s]
+==> timings: setup: 0.005s compile: 0.007s run: 8.713s sanity: 0.001s performance: 0.075s total: 100.371s
+[ [32m      OK[0m ] (58/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 10.953s total: 99.353s]
+==> timings: setup: 0.005s compile: 0.007s run: 10.953s sanity: 0.000s performance: 0.074s total: 99.353s
+[ [32m      OK[0m ] (59/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.008s run: 10.955s total: 101.355s]
+==> timings: setup: 0.005s compile: 0.008s run: 10.955s sanity: 0.000s performance: 0.076s total: 101.355s
+[ [32m      OK[0m ] (60/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.008s run: 9.080s total: 103.857s]
+==> timings: setup: 0.005s compile: 0.008s run: 9.080s sanity: 0.001s performance: 0.075s total: 103.857s
+[ [32m      OK[0m ] (61/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 9.922s total: 106.194s]
+==> timings: setup: 0.005s compile: 0.005s run: 9.922s sanity: 0.001s performance: 0.074s total: 106.194s
+[ [32m      OK[0m ] (62/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 6.987s total: 110.909s]
+==> timings: setup: 0.005s compile: 0.005s run: 6.987s sanity: 0.000s performance: 0.076s total: 110.909s
+[ [32m      OK[0m ] (63/72) Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 10.371s total: 111.792s]
+==> timings: setup: 0.005s compile: 0.005s run: 10.371s sanity: 0.001s performance: 0.075s total: 111.792s
+[ [32m      OK[0m ] (64/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 15.876s total: 121.058s]
+==> timings: setup: 0.005s compile: 0.007s run: 15.876s sanity: 0.001s performance: 0.076s total: 121.058s
+[ [32m      OK[0m ] (65/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 16.462s total: 123.671s]
+==> timings: setup: 0.005s compile: 0.007s run: 16.462s sanity: 0.001s performance: 0.076s total: 123.671s
+[ [32m      OK[0m ] (66/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 22.491s total: 130.941s]
+==> timings: setup: 0.005s compile: 0.007s run: 22.491s sanity: 0.001s performance: 0.077s total: 130.941s
+[ [32m      OK[0m ] (67/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 21.909s total: 132.854s]
+==> timings: setup: 0.005s compile: 0.007s run: 21.909s sanity: 0.001s performance: 0.075s total: 132.854s
+[ [32m      OK[0m ] (68/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 24.103s total: 133.801s]
+==> timings: setup: 0.005s compile: 0.006s run: 24.103s sanity: 0.000s performance: 0.076s total: 133.801s
+[ [32m      OK[0m ] (69/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 21.308s total: 139.225s]
+==> timings: setup: 0.005s compile: 0.007s run: 21.308s sanity: 0.001s performance: 0.077s total: 139.225s
+[ [32m      OK[0m ] (70/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 24.539s total: 139.829s]
+==> timings: setup: 0.005s compile: 0.007s run: 24.539s sanity: 0.001s performance: 0.076s total: 139.829s
+[ [32m      OK[0m ] (71/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 26.889s total: 140.170s]
+==> timings: setup: 0.005s compile: 0.007s run: 26.889s sanity: 0.000s performance: 0.077s total: 140.170s
+[ [32m      OK[0m ] (72/72) Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 21.432s total: 147.391s]
+==> timings: setup: 0.005s compile: 0.007s run: 21.432s sanity: 0.001s performance: 0.075s total: 147.391s
+[----------] all spawned checks have finished
+
+[ [32m PASSED [0m ] Ran 72/72 test case(s) from 72 check(s) (0 failure(s), 0 skipped)
+[==========] Finished on Wed Jul 14 16:08:11 2021 
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.97 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 5.07 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 7.36 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 6.55 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 6.73 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 7.68 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 7.98 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 8.35 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 9.34 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.99 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 5.21 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 7.1 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 6.56 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 6.31 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 7.94 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 8.06 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 8.56 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 9.02 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.28 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 2.85 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.28 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.4 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 2.33 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 2.91 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.39 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 2.28 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 2.6 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.41 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 2.97 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.3 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.54 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 2.48 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 2.99 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.45 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 2.37 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 2.59 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.5 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 3.32 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 5.82 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.52 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 3.62 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.8 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 4.21 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 4.49 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.85 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.49 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 3.29 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 5.04 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.48 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 3.83 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.76 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 4.21 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 4.46 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.99 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.17 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 4.12 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 6.57 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 4.38 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 4.83 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_2_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 6.32 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 5.43 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 6.0 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_gcc_10_3_0_N_4_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 6.77 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.11 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 4.19 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 6.17 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 4.5 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 5.05 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_2_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 6.25 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 5.53 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 5.8 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_4_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 7.23 s
+------------------------------------------------------------------------------
+Log file(s) saved in: '/tmp/rfm-a8jr8s2l.log'
