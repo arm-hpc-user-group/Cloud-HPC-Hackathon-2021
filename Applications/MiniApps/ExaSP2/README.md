@@ -18,6 +18,26 @@ Pull request for Spack recipe changes:
 
 ### Building ExaSP2
 
+#### Compiler NVHPC v21.2 x86_64
+```
+spack install python@3.8.11
+spack install cmake@3.20.4
+spack external find cmake
+spack external find python
+
+spack add exasp2%nvhpc
+spack install
+```
+#### Compiler NVHPC v21.2 AARCH64
+```
+spack install python@3.8.11
+spack install cmake@3.20.4
+spack external find cmake
+spack external find python
+
+spack add exasp2%nvhpc
+spack install
+```
 #### Compiler GCC v10.3 x86_64
 
 ```
