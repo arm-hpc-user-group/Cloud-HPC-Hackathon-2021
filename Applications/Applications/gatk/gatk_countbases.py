@@ -18,7 +18,7 @@ import hackathon as hack
 @rfm.simple_test
 class GATKTest(hack.HackathonBase):
     # Where to run the binaries 'aws:c6gn' on Arm or 'aws:c5n' on Intel
-    valid_systems = ['aws:c6gn']
+    valid_systems = ['aws:c6gn', 'aws:c5n']
 
     # Logging Variables
     log_team_name = 'Falkners'
@@ -46,7 +46,7 @@ class GATKTest(hack.HackathonBase):
 
         # CLI args. "strong" largely means more atoms with eam potential
     executable_opts = [
-         'CountBases -I /scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam > gatk.out'
+         'CountBases -I /scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam &> gatk.out'
     ]
 
     # Scale MPI to confirm that more work takes similar time 
@@ -57,10 +57,10 @@ class GATKTest(hack.HackathonBase):
     def set_sanity_patterns(self):
 
         # Use the logfile for validation testing and performance
-        expected_count_regex = r'5000000'
-        expected_count = sn.extractsingle(expected_count, self.logfile, 1, float)
+        expected_count_regex = r'(5000000)'
+        expected_count = sn.extractsingle(expected_count_regex, self.logfile, 1, float)
 
-        self.sanity_patterns = sn.assert_equal(expected_count, 5000000)
+        self.sanity_patterns = sn.assert_eq(expected_count, 5000000)
 
         # timing is taken from the code's self-reporting numbers
         self.reference = {
@@ -69,5 +69,5 @@ class GATKTest(hack.HackathonBase):
 
         perf_regex = r'Processed 20000 total reads in (\S+) minutes'
         self.perf_patterns = {
-            'Total Time': sn.extractsingle(pref_regex, self.logfile, 1, float, item=-1)
+            'Total Time': sn.extractsingle(perf_regex, self.logfile, 1, float, item=-1)
         }

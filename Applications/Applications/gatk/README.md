@@ -1,6 +1,6 @@
 # GATK 
 
-**Description:** Genome Analysis Toolkit Variant Discovery in High-Throughput Sequencing Data
+**Description:** GATK (pronounced "Gee-ay-tee-kay", not "Gat-kay"), stands for GenomeAnalysisToolkit. It is a collection of command-line tools for analyzing high-throughput sequencing data with a primary focus on variant discovery. The tools can be used individually or chained together into complete workflows 
 
 **URL:** https://software.broadinstitute.org/gatk/
 
@@ -28,14 +28,86 @@ Pull request for Spack recipe changes:
 
 #### Compiler 1
 
+Install on ARM HPC for `gcc`, `arm` and `nvhpc`..
 ```
-spack install <app>%<compiler1>
+spack install gatk@1.1 %arm@21.0.0.879
+spack install gatk@1.1 %nvhpc@21.2
+spack install gatk@1.1 %gcc@10.3.0
 ```
 
-```
-$ spack spec -Il <app>%<compiler1>
+`arm` dependencies used.
 
 ```
+$ spack spec -Il arm%21.0.0.879
+
+```
+
+`nvhpc` dependencies used.
+```
+```
+
+`gcc` dependencies used.
+```
+```
+
+x86 `gcc` dependencies used.
+```
+gatk@4.1.8.1%gcc@10.3.0~r arch=linux-amzn2-skylake_avx512
+    ^openjdk@1.8.0_265-b01%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+    ^python@3.8.11%gcc@10.3.0+bz2+ctypes+dbm~debug+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87 arch=linux-amzn2-skylake_avx512
+        ^bzip2@1.0.8%gcc@10.3.0~debug~pic+shared arch=linux-amzn2-skylake_avx512
+            ^diffutils@3.7%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+                ^libiconv@1.16%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+        ^expat@2.4.1%gcc@10.3.0+libbsd arch=linux-amzn2-skylake_avx512
+            ^libbsd@0.11.3%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+                ^libmd@1.0.3%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+        ^gdbm@1.19%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+            ^readline@8.1%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+                ^ncurses@6.2%gcc@10.3.0~symlinks+termlib abi=none arch=linux-amzn2-skylake_avx512
+                    ^pkgconf@1.7.4%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+        ^gettext@0.21%gcc@10.3.0+bzip2+curses+git~libunistring+libxml2+tar+xz arch=linux-amzn2-skylake_avx512
+            ^libxml2@2.9.10%gcc@10.3.0~python arch=linux-amzn2-skylake_avx512
+                ^xz@5.2.5%gcc@10.3.0~pic libs=shared,static arch=linux-amzn2-skylake_avx512
+                ^zlib@1.2.11%gcc@10.3.0+optimize+pic+shared arch=linux-amzn2-skylake_avx512
+            ^tar@1.34%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+        ^libffi@3.3%gcc@10.3.0 patches=26f26c6f29a7ce9bf370ad3ab2610f99365b4bdd7b82e7c31df41a3370d685c0 arch=linux-amzn2-skylake_avx512
+        ^openssl@1.1.1k%gcc@10.3.0~docs+systemcerts arch=linux-amzn2-skylake_avx512
+            ^perl@5.32.1%gcc@10.3.0+cpanm+shared+threads arch=linux-amzn2-skylake_avx512
+                ^berkeley-db@18.1.40%gcc@10.3.0+cxx~docs+stl patches=b231fcc4d5cff05e5c3a4814f6a5af0e9a966428dc2176540d2c05aff41de522 arch=linux-amzn2-skylake_avx512
+        ^sqlite@3.35.5%gcc@10.3.0+column_metadata+fts~functions~rtree arch=linux-amzn2-skylake_avx512
+        ^util-linux-uuid@2.36.2%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+```
+
+## Test Case 0
+
+This confirms that GATK is working by doing a basic analysis of a BAM file.
+
+```
+reframe -c gatk_countbases.py -r --performance-report
+```
+
+### Validation
+
+This is a public BAM file from an Illumina HiSeq 2500 and is known to have 20K reads and 5000000 bases in it.
+
+Running GATK by hand (same commands) lets you inspect stats and work with this file. It is small enough that it should always process in a fraction of a second.
+
+### ReFrame Output
+
+ARM HPC output after `gcc` compile.
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+GATK_gatk_countbases_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 0.0 s
+------------------------------------------------------------------------------
+```
+
+
 
 ## Test Case 1
 
@@ -55,7 +127,7 @@ Details of the validation for `Test Case 1`.
 ```
 ==============================================================================
 PERFORMANCE REPORT
-------------------------------------------------------------------------------
+-----------------------------------------------------------------------------
      **** 
 ------------------------------------------------------------------------------
 ```
