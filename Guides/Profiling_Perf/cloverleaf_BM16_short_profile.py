@@ -20,8 +20,8 @@ class CloverLeafTest(hack.HackathonBase):
     prerun_cmds = ['wget -O clover.in https://raw.githubusercontent.com/UK-MAC/CloverLeaf_ref/master/InputDecks/clover_bm16_short.in']
 
     # Define Execution
-    executable = 'clover_leaf'
-    executable_opts = []
+    executable = 'perf'
+    executable_opts = ['stat', 'clover_leaf']
 
     logfile = 'clover.out'
     keep_files.append(logfile)
@@ -59,18 +59,5 @@ class CloverLeafTest(hack.HackathonBase):
        self.perf_patterns = { 
                'Total Time': sn.extractsingle(pref_regex, self.logfile, 1, float, item=-1)
        }
-
-
-    # Here we modify the launcher to use the MAP profiler, and generate a `profile.map` file
-    # We tell ReFrame to stage this file back too
-    @run_before('run')
-    def set_profiler(self):
-      self.proffile = 'profile.map'
-      self.keep_files.append(self.proffile)
-  
-      self.modules.append('arm-forge@21.0')
-   
-      self.job.launcher = LauncherWrapper(self.job.launcher, 'map',
-                                            ['--profile', '--output='+self.proffile])
 
 
