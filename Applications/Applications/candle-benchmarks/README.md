@@ -1,20 +1,32 @@
-# CANDLE-benchmarks 
+# CANDLE-benchmarks
 
 **Description:** ECP-CANDLE Benchmarks
 
 **URL:** https://github.com/ECP-CANDLE/Benchmarks
 
-**Team:**  
+**Team:**
 
 ## Compilation
 
+```
+spack install candle-benchmarks
+```
+
 ### Spack Package Modification
 
-Details of any changes to the Spack recipe used.
+We have encountered several issues during the installation of candle-benchmarks.
+
+Firstly, `+gpu` is an invalid boolean variant for py-theano package as appeared in candle-benchmarks script, which is correted to be `+cuda`.
+
+Secondly, `+highgui` is flaged as conflicted with `imgproc`, therefore we removed `+highgui`.
+
+Lastly, the expected arch argument in `cudnn` is set to `aarch64sbsa`, which does not align with spack convention.
 
 Git commit hash of checkout for pacakage:
 
 Pull request for Spack recipe changes:
+
+* Fixing cuDNN: https://github.com/spack/spack/pull/24882
 
 ### Building CANDLE-benchmarks
 
@@ -50,7 +62,7 @@ Details of the validation for `Test Case 1`.
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-     **** 
+     ****
 ------------------------------------------------------------------------------
 ```
 
@@ -196,7 +208,7 @@ Please attach the corresponding apl files.
 Performance analysis of the use of different maths libraries.
 
 
-| Cores | OpenBLAS | ArmPL | BLIS | 
+| Cores | OpenBLAS | ArmPL | BLIS |
 |-------|----------|-------| ---- |
 | 1     |          |       |      |
 | 2     |          |       |      |
