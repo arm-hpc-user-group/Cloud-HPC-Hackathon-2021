@@ -33,7 +33,6 @@ class CloverLeafTest(hack.HackathonBase):
 
     # Parameters - MPI / Threads
     parallelism = parameter([
-        { 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
         { 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
     ])
 
@@ -61,16 +60,20 @@ class CloverLeafTest(hack.HackathonBase):
        }
 
 
-    # Here we modify the launcher to use the MAP profiler, and generate a `profile.map` file
-    # We tell ReFrame to stage this file back too
+    # Profiling
     @run_before('run')
-    def set_profiler(self):
-      self.proffile = 'profile.map'
-      self.keep_files.append(self.proffile)
-  
-      self.modules.append('arm-forge@21.0')
-   
-      self.job.launcher = LauncherWrapper(self.job.launcher, 'map',
-                                            ['--profile', '--output='+self.proffile])
+    def preload_mpiP(self):
+        # Load mpiP module
+        self.modules.append('mpip')
 
+        # Store output in a folder
+        mpip_output = 'mpip_output'
+        self.prerun_cmds.append('mkdir "%s"' % mpip_output)
+        # Configure mpiP
+        self.variables['MPIP'] = '"-f %s"' % mpip_output
+        # Tell reframe to keep the folder after cleanup
+        self.keep_files.append(mpip_output)
 
+        # Add the LD_PRELOAD to srun
+        self.job.launcher.options = ['--export=ALL,LD_PRELOAD=libmpiP.so']
+        
