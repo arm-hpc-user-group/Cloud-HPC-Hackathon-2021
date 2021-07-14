@@ -8,13 +8,17 @@
 
 ## Compilation
 
-### Spack Package Modification
+### Modifications
 
-Details of any changes to the Spack recipe used.
+  - `meme` has to be patched for `arm`
+    - https://github.com/spack/spack/pull/24883/files#diff-765aeff1784028c4b0d57514f10e8ddf9357fb3153f93b6823e4f9c9027c1620
+    - We'll try to get this included upstream.
+  - `spack meme` has to be patched for `arm` and `nvhpc`
+    - https://github.com/spack/spack/pull/24883
+  - `spack libxslt` has to be patched for `nvhpc`
+    - https://github.com/spack/spack/pull/24873
 
-Git commit hash of checkout for pacakage:
-
-Pull request for Spack recipe changes:
+These patches are also included below.
 
 ### Building meme
 
