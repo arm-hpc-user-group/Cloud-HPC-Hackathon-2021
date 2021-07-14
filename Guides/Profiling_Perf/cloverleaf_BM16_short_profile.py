@@ -61,16 +61,3 @@ class CloverLeafTest(hack.HackathonBase):
        }
 
 
-    # Here we modify the launcher to use the MAP profiler, and generate a `profile.map` file
-    # We tell ReFrame to stage this file back too
-    @run_before('run')
-    def set_profiler(self):
-      self.proffile = 'profile.map'
-      self.keep_files.append(self.proffile)
-  
-      self.modules.append('arm-forge@21.0')
-   
-      self.job.launcher = LauncherWrapper(self.job.launcher, 'map',
-                                            ['--profile', '--outfile='+self.proffile])
-
-
