@@ -71,6 +71,6 @@ class CloverLeafTest(hack.HackathonBase):
       self.modules.append('arm-forge@21.0')
    
       self.job.launcher = LauncherWrapper(self.job.launcher, 'map',
-                                            ['--profile', '--outfile='+self.proffile])
+                                            ['--profile', '--output='+self.proffile])
 
 
