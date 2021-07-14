@@ -38,17 +38,18 @@ map --profile -o profile/full/<test case>_<compiler>.map srun -N 1 -n 64 remhos 
 ```
 Maximum backtrace size in sampler exceeded, stack too deep.
 ```
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
+| Position | Routine                         | Time (s) | Time (%) | MPI (%) |
+|----------|---------------------------------|----------|----------|---------|
+| 1        | MPI_Allreduce                   | 5.82     | 48.80    | 48.80   |
+| 2        | ompi_mtl_ofi_iprobe_true        | 1.54     | 12.90    | 12.90   |
+| 3        | ompi_mtl_ofi_progress_no_inline | 1.41     | 11.80    | 11.80   |
+| 4        | MPI_Bcast                       | 1.20     | 10.10    | 10.10   |
+| 5        | PMPI_Iprobe                     | 0.85     | 7.10     | 7.10    |
+| 6        | MPI_Waitall                     | 0.39     | 3.30     | 3.30    |
+| 7        | MPI_Isend                       | 0.08     | 0.70     | 0.70    |
+| 8        | mfem::AddMult_a_VVt             | 0.08     | 0.70     | 0.00    |
+| 9        | MPI_Irecv                       | 0.08     | 0.70     | 0.70    |
+| 10       | mfem::DenseMatrix::Mult         | 0.06     | 0.50     | 0.00    |
 
 ##### Test Case 2: 3DRemap x Compiler 1: `gcc@10.3.0`
 | Position | Routine             | Time (s) | Time (%) | MPI (%) |
@@ -82,17 +83,18 @@ Maximum backtrace size in sampler exceeded, stack too deep.
 ```
 Maximum backtrace size in sampler exceeded, stack too deep.
 ```
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
+| Position | Routine                         | Time (s) | Time (%) | MPI (%) |
+|----------|---------------------------------|----------|----------|---------|
+| 1        | ompi_mtl_ofi_progress_no_inline | 2.10     | 38.20    | 38.20   |
+| 2        | MPI_Bcast                       | 0.86     | 15.70    | 15.70   |
+| 3        | ompi_mtl_ofi_iprobe_true        | 0.74     | 13.50    | 13.50   |
+| 4        | MPI_Isend                       | 0.68     | 12.40    | 12.40   |
+| 5        | <unknown>                       | 0.25     | 4.50     | 16.90   |
+| 6        | ompi_request_default_test_all   | 0.25     | 4.50     | 4.50    |
+| 7        | MPI_Allreduce                   | 0.19     | 3.40     | 3.40    |
+| 8        | mfem::AddMult_a_VVt             | 0.12     | 2.20     | 0.00    |
+| 9        | mfem::Mult                      | 0.12     | 2.20     | 0.00    |
+| 10       | MPI_Waitall                     | 0.12     | 2.20     | 2.20    |
 
 ##### Test Case 3: 2DTransport x Compiler 1: `gcc@10.3.0`
 | Position | Routine                     | Time (s) | Time (%) | MPI (%) |
@@ -126,17 +128,18 @@ Maximum backtrace size in sampler exceeded, stack too deep.
 ```
 Maximum backtrace size in sampler exceeded, stack too deep.
 ```
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
+| Position | Routine                         | Time (s) | Time (%) | MPI (%) |
+|----------|---------------------------------|----------|----------|---------|
+| 1        | MPI_Allreduce                   | 2.23     | 38.50    | 38.50   |
+| 2        | MPI_Bcast                       | 1.35     | 23.30    | 23.30   |
+| 3        | <unknown>                       | 1.21     | 21.00    | 0.80    |
+| 4        | MPI_Waitall                     | 0.27     | 4.60     | 4.60    |
+| 5        | MPI_Isend                       | 0.22     | 3.80     | 3.80    |
+| 6        | mfem::SparseMatrix::AddMult     | 0.13     | 2.30     | 0.00    |
+| 7        | ompi_mtl_ofi_progress_no_inline | 0.09     | 1.50     | 1.50    |
+| 8        | MPI_Reduce                      | 0.05     | 0.80     | 0.80    |
+| 9        | __mpn_mul_1                     | 0.05     | 0.80     | 0.00    |
+| 10       | libmetis__FM_2WayRefine         | 0.05     | 0.80     | 0.00    |
 
 ##### Test Case 4: 3DTransport x Compiler 1: `gcc@10.3.0`
 | Position | Routine                     | Time (s) | Time (%) | MPI (%) |
@@ -170,14 +173,15 @@ Maximum backtrace size in sampler exceeded, stack too deep.
 ```
 Maximum backtrace size in sampler exceeded, stack too deep.
 ```
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
+| Position | Routine                         | Time (s) | Time (%) | MPI (%) |
+|----------|---------------------------------|----------|----------|---------|
+| 1        | MPI_Allreduce                   | 3.75     | 33.40    | 33.40   |
+| 2        | <unknown>                       | 1.84     | 16.40    | 4.90    |
+| 3        | ompi_mtl_ofi_progress_no_inline | 1.82     | 16.20    | 16.20   |
+| 4        | ompi_mtl_ofi_iprobe_true        | 0.99     | 8.80     | 8.80    |
+| 5        | MPI_Bcast                       | 0.90     | 8.00     | 8.00    |
+| 6        | MPI_Isend                       | 0.55     | 4.90     | 4.90    |
+| 7        | MPI_Waitall                     | 0.55     | 4.90     | 4.90    |
+| 8        | PMPI_Testall                    | 0.25     | 2.20     | 2.20    |
+| 9        | MPI_Waitany                     | 0.17     | 1.50     | 1.50    |
+| 10       | mfem::SparseMatrix::AddMult     | 0.12     | 1.10     | 0.00    |
