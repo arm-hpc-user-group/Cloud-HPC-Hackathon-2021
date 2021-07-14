@@ -53,6 +53,10 @@ Virtual Packages:
     None
 ```
 
+Git commit hash of checkout for pacakage: fe5c226d
+
+Pull request for Spack recipe changes: TODO: What is this?
+
 ### Spack Package Modification
 
 Details of any changes to the Spack recipe used.
@@ -67,11 +71,6 @@ The existing Spack package does not set the correct output granularity for maxim
           targets.append('DFFT_MPI_F90=%s' % spec['mpi'].mpifc)
 
 +         targets.append('DFFT_MPI_CPPFLAGS=-DDFFT_TIMING=0')
-
-          if self.spec.satisfies('%nvhpc'):
-               # remove -Wno-deprecated -std=gnu99
--              targets.append('DFFT_MPI_CFLAGS=-g -O3 -Wall')
-+              targets.append('DFFT_MPI_CFLAGS+=-g -O3 -Wall')
 ```
 
 Git commit hash of checkout for pacakage: fe5c226d
@@ -335,7 +334,7 @@ SWFTT does not use OpenMP by default. This comparison has been carried out on a 
 
 | MPI ranks | GCC 10.3.0 | ARM 21.0.0.879 | NVHPC 21.2 |
 |-----------|------------|----------------|------------|
-|    1      |  130.62    |   130.62       | 181.54     |
+|    1      |  130.62 s  |   130.62 s     | 181.54 s   |
 |    2      |  72.57 s   |   75.38 s      | 99.45 s    |
 |    4      |  39.73 s   |   41.17 s      | 53.54 s    |
 |    8      |  22.15 s   |   22.36 s      | 28.43 s    |
@@ -424,195 +423,118 @@ SWFFT_SWFFT-LARGE_swfft_1_0_nvhpc_21_2_N_4_MPI_256_OMP_1
 ------------------------------------------------------------------------------
 ```
 
-
 ### Multi-node Compiler Comparison
 
 | Nodes | Total MPI ranks | GCC 10.3.0 | ARM 21.0.0.879 | NVHPC 21.2 |
 |-------|-----------------|------------|----------------|------------|
 |    1  |    32           |    80.12 s |    81.68 s     |    87.65 s |
 |    1  |    64           |    74.03 s |    74.01 s     |    74.6 s  |
-|    2  |    128          |    43.55 s |    42.57 s     |    43.11 s|
-|    4  |    256          |    27.5 s  |    26.42 s     |     26.83 s|
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+|    2  |    128          |    43.55 s |    42.57 s     |    43.11 s |
+|    4  |    256          |    27.5 s  |    26.42 s     |    26.83 s |
 
 ### Serial Hot-spot Profile
 
-List of top-10 functions / code locations from a serial profile.
+To profile the serial execution of the app we have used the Arm Forge (MAP) profiler. [This](armforge-medium-serial.sh) is the script that has been used to run the profiler.
 
-Profiling command used:
-```
-:
-```
-
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
-
+![List of top-10 functions / code locations](pictures/armforge-medium-fullnode.png)
 
 ### Full Node Hot-spot Profile
 
-List of top-10 functions / code locations from a full node profile.
+To profile the Full Node MPI execution of the app we have used the Arm Forge (MAP) profiler. [This](armforge-medium-fullnode.sh) is the script that has been used to run the profiler.
 
-Profiling command used:
-```
-:
-```
-
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
-| 10       |         |          |          |         |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![List of top-10 functions / code locations](pictures/armforge-medium-fullnode.png)
 
 ### On-Node Architecture Comparison
 
-On-node scaling study for two architectures.
+In this experiment, we have compared both architectures with the same compiler (gcc) in one node.
+We have chosen gcc because it gives the best performance in most cases. We tested with 1 to 64 MPI processes
+to get the maximum performance in one node. As we see, in ARM Cluster we obtain a notorious improvement in 
+performance until 64 cores where the gap closes.
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
 |-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+| 1     |  130.62 s      |  175.4 s  |
+| 2     |  72.57 s       |  97.76 s  |
+| 4     |  39.73 s       |  57.85 s  |
+| 8     |  22.15 s       |  34.0 s   |
+| 16    |  15.19 s       |  24.4 s   |
+| 32    |  12.29 s       |  20.82 s  |
+| 64    |  12.67 s       |  13.09 s  |
 
 ### Off-Node Architecture Comparison
 
-Off-node scaling study for two architectures.
+In this experiment, we have compared both architectures with the same compiler (gcc) in 1, 2 and 4 nodes using different number of MPI rans. We have chosen gcc because it gives the best performance in most cases. In the tests we see that from 64 to 256 cores the performance is very similar between architectures.
 
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
+| Nodes | Cores | C6gn (Aarch64) | C5n (X86) |
+|-------|-------|----------------|-----------|
+| 1     | 32    |  80.12 s       | 139.66 s  |
+| 1     | 64    |  74.03 s       | 77.23 s   |
+| 2     | 128   |  43.55 s       | 45.9 s    |
+| 4     | 256   |  27.5 s        | 27.91 s   |
 
 ## Optimisation
 
-Details of steps taken to optimise performance of the application.
-Please document work with compiler flags, maths libraries, system libraries, code optimisations, etc.
+SWFFT does not use any math library (we do not consider FFTW a math library). We have tried to improve the performance of the application by tunning the compiler flags.
 
 ### Compiler Flag Tuning
 
 Compiler flags before:
 ```
-CFLAGS=
-FFLAGS=
+DFFT_MPI_CFLAGS=-g -O3 -Wall -Wno-deprecated -std=gnu99
+DFFT_MPI_CXXFLAGS=-g -O3 -Wall
 ```
 
-Compiler flags after:
+Compiler flags after (Spack configuration flag):
 ```
-CFLAGS=
-FFLAGS=
+if '%gcc' in self.spec:
+   targets.append('DFFT_MPI_CFLAGS=-g -Ofast -march=native -mtune=native -mcpu=native -Wall -Wno-deprecated -std=gnu99')
+   targets.append('DFFT_MPI_CXXFLAGS=-g -Ofast -march=native -mtune=native -mcpu=native -Wall')
+elif '%arm' in self.spec:
+   targets.append('DFFT_MPI_CFLAGS=-g -Ofast -mtune=native -mcpu=native -Wall -Wno-deprecated -std=gnu99')
+   targets.append('DFFT_MPI_CXXFLAGS=-g -Ofast -mtune=native -mcpu=native -Wall')
+elif '%nvhpc' in self.spec:
+   # remove -Wno-deprecated -std=gnu99
+   targets.append('DFFT_MPI_CFLAGS=-g -fast -O3 -Wall')
+   targets.append('DFFT_MPI_CXXFLAGS=-g -fast -O3 -Wall')
 ```
 
 #### Compiler Flag Performance
 
-| Cores | Original Flags | New Flags |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+##### BEFORE FLAG TUNNING
 
+| MPI ranks | GCC 10.3.0 | ARM 21.0.0.879 | NVHPC 21.2 |
+|-----------|------------|----------------|------------|
+|    1      |  130.62 s  |   130.62 s     | 181.54 s   |
+|    2      |  72.57 s   |   75.38 s      | 99.45 s    |
+|    4      |  39.73 s   |   41.17 s      | 53.54 s    |
+|    8      |  22.15 s   |   22.36 s      | 28.43 s    |
+|    16     |  15.19 s   |   14.7 s       |  17.54 s   |
+|    32     |  12.29 s   |   11.84 s      | 12.83 s    |
+|    64     |  12.67 s   |   12.08 s      | 12.48 s    |
 
-### Maths Library Report
+##### AFTER FLAG TUNNING
 
-Report on use of maths library calls generated by (Perf Lib Tools)[https://github.com/ARM-software/perf-libs-tools].
-Please attach the corresponding apl files.
+| MPI ranks | GCC 10.3.0 | ARM 21.0.0.879 | NVHPC 21.2 |
+|-----------|------------|----------------|------------|
+|    1      |  129.66    |   133.62       |  179.99 s  |
+|    2      |  71.22 s   |   75.39 s      |  98.94 s   |
+|    4      |  39.71 s   |   41.24 s      |  53.41 s   |
+|    8      |  22.11 s   |   22.15 s      |  28.24 s   |
+|    16     |  15.19 s   |   14.77 s      |  17.68 s   |
+|    32     |  12.35 s   |   12.07 s      |  12.74 s   |
+|    64     |  12.79 s   |   11.91 s      |  12.37 s   |
 
-
-### Maths Library Optimisation
-
-Performance analysis of the use of different maths libraries.
-
-
-| Cores | OpenBLAS | ArmPL | BLIS | 
-|-------|----------|-------| ---- |
-| 1     |          |       |      |
-| 2     |          |       |      |
-| 4     |          |       |      |
-| 8     |          |       |      |
-| 16    |          |       |      |
-| 32    |          |       |      |
-| 64    |          |       |      |
-
+In this experiment, we do not get any improvements in the performance with the flags tested, 
+the application even performs worse in some cases with the new flags. The increments or decrements in
+execution time are small enough to consider that the flags tried do not have any effect in the performance.
 
 ### Performance Regression
 
-How fast can you make the code?
-
-Use all of the above aproaches and any others to make the code as fast as possible.
-Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
-
-
+We have only tried to improve the performance of the app by tunning the compiler flags. We have not obtained any performance gain.
 
 ## Report
 
 ### Compilation Summary
 
-Details of lessons from compiling the application.
-
-### Performance Summary
-
-Details of lessons from analysing the performance of the application.
-
-
-### Optimisation Summary
-
-Details of lessons from performance optimising the application.
+We have very liked Spack to fast installing an app along with its dependencies. It also makes it very easy to install different versions of the app with different compilers. Furthemore, combining it with reFrame make them a fast way of testing applications with different compilers and architectures, without 
+forgetting to check the correctness of the results. 
