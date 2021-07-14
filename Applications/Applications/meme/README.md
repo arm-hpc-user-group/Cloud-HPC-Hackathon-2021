@@ -36,7 +36,7 @@ $ spack spec -Il <app>%<compiler1>
   - `nvhpc` conflicts with `python`, which can be fixed by using the external `python`.
 
 ```
-spack extarnel find python
+spack external find python
 ```
 
   - Various dependencies of `libgcrypt` do not compile with `nvhpc`. As a work around, we can build them with `gcc`.
