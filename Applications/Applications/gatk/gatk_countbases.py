@@ -117,24 +117,24 @@ class GATKCountBases1000GenomesLowCoverageTest(GATKTest):
                 perf_regex=r'Processed 145063589 total reads in (\S+) minutes',
             )
 
-#@rfm.simple_test
-#class GATKCountBasesSpark1000GenomesHighCoverageTest(GATKTest):
-#    def __init__(self):
-#        super().__init__(
-#                log_test_name="gatk_countbasesspark_1000_genomes_high_coverage",
-#                bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
-#                gatk_tool="CountBasesSpark", 
-#                expected_bases=145063589,
-#                perf_regex=r'Job 2 finished: .* took (\S+) s',
-#            )
-#
-#@rfm.simple_test
-#class GATKCountBases1000GenomesHighCoverageTest(GATKTest):
-#    def __init__(self):
-#        super().__init__(
-#                log_test_name="gatk_countbases_1000_genomes_high_coverage",
-#                bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
-#                gatk_tool="CountBases",
-#                expected_bases=145063589,
-#                perf_regex=r'Processed 20000 total reads in (\S+) minutes',
-#            )
+@rfm.simple_test
+class GATKCountBasesSpark1000GenomesHighCoverageTest(GATKTest):
+    def __init__(self):
+        super().__init__(
+                log_test_name="gatk_countbasesspark_1000_genomes_high_coverage",
+                bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
+                gatk_tool="CountBasesSpark", 
+                expected_bases=652944493,
+                perf_regex=r'Job .* finished: .* took (\S+) s',
+            )
+
+@rfm.simple_test
+class GATKCountBases1000GenomesHighCoverageTest(GATKTest):
+    def __init__(self):
+        super().__init__(
+                log_test_name="gatk_countbases_1000_genomes_high_coverage",
+                bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
+                gatk_tool="CountBases",
+                expected_bases=652944493,
+                perf_regex=r'Processed 652944493 total reads in (\S+) minutes',
+            )

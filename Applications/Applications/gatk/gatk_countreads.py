@@ -117,24 +117,24 @@ class GATKCountReads1000GenomesLowCoverageTest(GATKTest):
                 perf_regex=r'Processed 145063589 total reads in (\S+) minutes',
             )
 
-#@rfm.simple_test
-#class GATKCountReadsSpark1000GenomesHighCoverageTest(GATKTest):
-#    def __init__(self):
-#        super().__init__(
-#                log_test_name="gatk_countreadsspark_1000_genomes_high_coverage",
-#                bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
-#                gatk_tool="CountReadsSpark", 
-#                expected_reads=145063589,
-#                perf_regex=r'Job .* finished: .* took (\S+) s',
-#            )
-#
-#@rfm.simple_test
-#class GATKCountReads1000GenomesHighCoverageTest(GATKTest):
-#    def __init__(self):
-#        super().__init__(
-#                log_test_name="gatk_countreads_1000_genomes_high_coverage",
-#                bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
-#                gatk_tool="CountReads",
-#                expected_reads=145063589,
-#                perf_regex=r'Processed 145063589 total reads in (\S+) minutes',
-#            )
+@rfm.simple_test
+class GATKCountReadsSpark1000GenomesHighCoverageTest(GATKTest):
+    def __init__(self):
+        super().__init__(
+                log_test_name="gatk_countreadsspark_1000_genomes_high_coverage",
+                bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
+                gatk_tool="CountReadsSpark", 
+                expected_reads=652944493,
+                perf_regex=r'Job .* finished: .* took (\S+) s',
+            )
+
+@rfm.simple_test
+class GATKCountReads1000GenomesHighCoverageTest(GATKTest):
+    def __init__(self):
+        super().__init__(
+                log_test_name="gatk_countreads_1000_genomes_high_coverage",
+                bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
+                gatk_tool="CountReads",
+                expected_reads=652944493,
+                perf_regex=r'Processed 652944493 total reads in (\S+) minutes',
+            )
