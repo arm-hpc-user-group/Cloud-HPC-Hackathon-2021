@@ -6,17 +6,17 @@
 
 **Team:**  Iman
 
-##### notice: the output folders are dumped into /data for verification/further analysis
+##### notice: the output folders are dumped into /data for verification/further analysis (some directories might have been overwritten through runs that I set off wrong and cancelled, but hey, the graylogs are there and every test can also be run again)
 
 ## Compilation
 
 ### Spack Package Modification
 
-Details of any changes to the Spack recipe used.
+Details of any changes to the Spack recipe used. (Not used until the last step, when I added ofast variant for the package to spack)
 
-Git commit hash of checkout for pacakage:
+Git commit hash of checkout for pacakage: 
 
-Pull request for Spack recipe changes:
+Pull request for Spack recipe changes: 
 
 ### Building Laghos
 
@@ -181,17 +181,21 @@ Concretized
 ```
 
 ## Validation
-Laghos conveniently has specific run configurations and results for verification here: https://github.com/CEED/Laghos#verification-of-results Those verification tables are used to make the 4 test cases that follow, which checks the final iterations (step), time steps (dt) and the energy absolute values (|e|). 
+Laghos conveniently has specific run configurations and results for verification here: https://github.com/CEED/Laghos#verification-of-results Those verification tables are used to make the 4 test cases that follow, which checks the final iterations (step), time steps (dt) and the energy absolute values (|e|). I tried to pick 4 varied test cases from the table, including the longest and shortest runs.
 
 ## Test Case 1
 
 [ReFrame Benchmark 1](#)
+
+Test Case 1 (in t0.py, notice the filenames start from 0), is the verifaction example number 1 here: https://github.com/CEED/Laghos#verification-of-results
 
 ```
 reframe --stage /scratch/home/${USER} -c t0.py -r --performance-report
 ```
 
 ### ReFrame Output
+
+More verbose paper trail of various runs is available be in /data.
 
 ```
 ==============================================================================
@@ -274,7 +278,8 @@ laghos_test0_laghos_3_1__nvhpc_N_4_MPI_256_OMP_1
 
 ### On-node Compiler Comparison
 
-Performance comparison of two compilers. Measure is Major kernels total rate in megadorf x steps / seconds.
+(this is a taste, more details of 3 compiler comparison later in scaling) **Also on next test case on this section I used the same data from scaling, one of those runs. The only reason is I got more savvy as time went on :) **
+Performance comparison of 3 compilers. Measure is Major kernels total rate in megadorf x steps / seconds which is relevant and despite total time, an scalable measure.
 
 | Cores | arm        | gcc        | nvhpc      | 
 |-------|------------|------------|------------|
@@ -339,7 +344,7 @@ self.job.launcher = LauncherWrapper(self.job.launcher,'map',['--profile', '--exp
 
 ### Strong Scaling Study
 
-On-node scaling study for two compilers. Here 'major kernels total time' in seconds, is reported. 
+On-node scaling study for 3 compilers. Here 'major kernels total time' in seconds, is reported. 
 
 | Cores | arm  | gcc  | nvhpc |
 |-------|------|------|-------|
@@ -348,96 +353,546 @@ On-node scaling study for two compilers. Here 'major kernels total time' in seco
 | 16    | 2.13 | 2.17 | 2.20  |
 | 64    | 3.58 | 3.83 | 3.71  |
 
+## Test Case 2
 
-### Off-Node Scaling Study
+[ReFrame Benchmark 2](#)
 
-Off-node scaling study comparing C6g and C6gn instances.
+Test Case 2 (in t1.py, notice the filenames start from 0), is the verifaction example number 4 here: https://github.com/CEED/Laghos#verification-of-results
 
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
+```
+reframe --stage /scratch/home/${USER} -c t1.py -r --performance-report
+```
+
+### ReFrame Output
+
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+laghos_test1_laghos_3_1__arm_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Major kernels total time: 136.110060353 s
+      * Major kernels total rate: 6.6695623574 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test1_laghos_3_1__arm_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Major kernels total time: 38.311105694 s
+      * Major kernels total rate: 23.691873872 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test1_laghos_3_1__arm_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Major kernels total time: 18.149532447 s
+      * Major kernels total rate: 50.0093954294 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test1_laghos_3_1__arm_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Major kernels total time: 21.105944921 s
+      * Major kernels total rate: 43.0043359062 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test1_laghos_3_1__gcc__3a63qmj_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Major kernels total time: 112.604552075 s
+      * Major kernels total rate: 8.0617925144 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test1_laghos_3_1__gcc__3a63qmj_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Major kernels total time: 32.004987319 s
+      * Major kernels total rate: 28.3600138614 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test1_laghos_3_1__gcc__3a63qmj_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Major kernels total time: 16.920477199 s
+      * Major kernels total rate: 53.6419354091 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test1_laghos_3_1__gcc__3a63qmj_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Major kernels total time: 22.012998304 s
+      * Major kernels total rate: 41.2323270308 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test1_laghos_3_1__nvhpc_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Major kernels total time: 122.91817339 s
+      * Major kernels total rate: 7.3843972617 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test1_laghos_3_1__nvhpc_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Major kernels total time: 34.685442426 s
+      * Major kernels total rate: 26.1679563966 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test1_laghos_3_1__nvhpc_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Major kernels total time: 17.74052262 s
+      * Major kernels total rate: 51.1623678987 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test1_laghos_3_1__nvhpc_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Major kernels total time: 21.288998248 s
+      * Major kernels total rate: 42.6345633753 Mdofs x steps / s
+------------------------------------------------------------------------------
+```
+
+### On-node Compiler Comparison
+
+(this is a taste, more details of 3 compiler comparison later in scaling)
+Performance comparison of 3 compilers. Measure is Major kernels total rate in megadorf x steps / seconds which is relevant and despite total time, an scalable measure.
+
+| Cores | arm        | gcc        | nvhpc      | 
+|-------|------------|------------|------------|
+|   64  | 21.10      |  22.01     | 21.29      |
+
+### Serial Hot-spot Profile
+
+List of top-10 functions / code locations from a serial profile.
+
+Profiling command used: I actually used the normal reframe test case run, but the script includes flags for _PROFILE\_RUN_ and _DEBUG\_RUN_ which I use to set it up for profiling or a short run for debug. 
+```
+reframe --stage /scratch/home/${USER} -c t1.py -r --performance-report
+```
+
+The profiling is done on arm compiler, by using the ReFrame's _LaunchWrapper_ call map like this:
+```
+self.job.launcher = LauncherWrapper(self.job.launcher,'map',['--profile', '--export-functions='+self.proffile])
+```
+
+The resulting top 10:
+
+|depth|Self |Total|Child|MPI|Overhead|Regions|Function                                                                                                                                                                                                                                                                                                            |
+|-----|-----|-----|-----|---|--------|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|0    |29.0%|29.0%|     |   |        |       |mfem::PAMassApply(int, int, int, int, mfem::Array<double                                                                                                                                                                                                                                                            |
+|0    |11.2%|46.4%|35.2%|   |        |       |void mfem::hydrodynamics::QUpdateBody<3>(int, int, int, int, bool, bool, double, double, double, double, double*, double*, double*, double*, double*, double*, double*, double*, double*, double const*, double const*, double const*, double const*, double const*, double const*, double const*, double*, double*)|
+|0    |7.1% |7.1% |     |   |        |       |mfem::ElementRestriction::MultTranspose(mfem::Vector const&, mfem::Vector&) const                                                                                                                                                                                                                                   |
+|0    |6.5% |6.5% |     |   |        |       |mfem::ElementRestriction::Mult(mfem::Vector const&, mfem::Vector&) const                                                                                                                                                                                                                                            |
+|0    |6.2% |23.3%|17.1%|   |        |       |void mfem::kernels::CalcEigenvalues<3>(double const*, double*, double*)                                                                                                                                                                                                                                             |
+|0    |6.1% |10.1%|4.0% |   |        |       |mfem::kernels::internal::KernelVector3S(int const&, double const&, double const&, double const&, double&, double&, double&)                                                                                                                                                                                         |
+|0    |5.6% |12.0%|6.4% |   |        |       |double mfem::kernels::CalcSingularvalue<3>(double const*, int)                                                                                                                                                                                                                                                      |
+|0    |4.3% |4.3% |     |   |        |       |cos                                                                                                                                                                                                                                                                                                                 |
+|0    |4.1% |4.1% |     |   |        |       |mfem::D2QGrad(mfem::FiniteElementSpace const&, mfem::DofToQuad const*, mfem::Vector const&, mfem::Vector&)                                                                                                                                                                                                          |
+|0    |3.8% |5.7% |1.9% |   |        |       |hypot                                                                                                                                                                                                                                                                                                               |
+
+### Full Node Hot-spot Profile
+
+List of top-10 functions / code locations from a full node profile.
+
+Profiling command used: I actually used the normal reframe test case run, but the script includes flags for _PROFILE\_RUN_ and _DEBUG\_RUN_ which I use to set it up for profiling or a short run for debug. 
+```
+reframe --stage /scratch/home/${USER} -c t1.py -r --performance-report
+```
+
+The profiling is done on arm compiler, by using the ReFrame's _LaunchWrapper_ call map like this:
+```
+self.job.launcher = LauncherWrapper(self.job.launcher,'map',['--profile', '--export-functions='+self.proffile])
+```
+
+|depth|Self |Total|Child|MPI  |Overhead|Regions|Function                                                                                                                                                                                                                                                                                                            |
+|-----|-----|-----|-----|-----|--------|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|0    |67.2%|67.2%|     |67.2%|        |       |MPI_Allreduce                                                                                                                                                                                                                                                                                                       |
+|0    |10.0%|10.0%|     |10.0%|        |       |MPI_Waitall                                                                                                                                                                                                                                                                                                         |
+|0    |8.1% |8.1% |     |8.1% |        |       |MPI_Waitany                                                                                                                                                                                                                                                                                                         |
+|0    |5.4% |5.4% |     |5.4% |        |       |MPI_Isend                                                                                                                                                                                                                                                                                                           |
+|0    |3.4% |3.4% |     |3.4% |        |       |MPI_Irecv                                                                                                                                                                                                                                                                                                           |
+|0    |1.3% |1.3% |     |     |        |       |mfem::PAMassApply(int, int, int, int, mfem::Array<double                                                                                                                                                                                                                                                            |
+|0    |0.5% |2.0% |1.5% |     |        |       |void mfem::hydrodynamics::QUpdateBody<3>(int, int, int, int, bool, bool, double, double, double, double, double*, double*, double*, double*, double*, double*, double*, double*, double*, double const*, double const*, double const*, double const*, double const*, double const*, double const*, double*, double*)|
+|0    |0.4% |0.4% |     |     |        |       |mfem::ElementRestriction::Mult(mfem::Vector const&, mfem::Vector&) const                                                                                                                                                                                                                                            |
+|0    |0.3% |0.5% |0.2% |     |        |       |mfem::kernels::internal::KernelVector3S(int const&, double const&, double const&, double const&, double&, double&, double&)                                                                                                                                                                                         |
+|0    |0.3% |0.3% |     |     |        |       |mfem::ElementRestriction::MultTranspose(mfem::Vector const&, mfem::Vector&) const                                                                                                                                                                                                                                   |
+
+### Strong Scaling Study
+
+On-node scaling study for 3 compilers. Here 'major kernels total time' in seconds, is reported. 
+
+| Cores | arm    | gcc    | nvhpc  |
+|-------|--------|--------|--------|
+| 1     | 136.11 | 112.60 | 122.92 |
+| 4     | 38.31  | 32.00  | 34.68  |
+| 16    | 18.15  | 16.92  | 17.74  |
+| 64    | 21.11  | 22.01  | 21.29  |
+
+## Test Case 3
+
+[ReFrame Benchmark 3](#)
+
+Test Case 3 (in t2.py, notice the filenames start from 0), is the verifaction example number 3 here: https://github.com/CEED/Laghos#verification-of-results
+
+```
+reframe --stage /scratch/home/${USER} -c t2.py -r --performance-report
+```
+
+### ReFrame Output
+
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+laghos_test2_laghos_3_1__arm_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Major kernels total time: 11.582825254 s
+      * Major kernels total rate: 18.3152461811 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test2_laghos_3_1__arm_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Major kernels total time: 6.001865907 s
+      * Major kernels total rate: 35.3460572574 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test2_laghos_3_1__arm_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Major kernels total time: 8.70790653 s
+      * Major kernels total rate: 24.3620318235 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test2_laghos_3_1__arm_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Major kernels total time: 14.013425059 s
+      * Major kernels total rate: 15.1385043347 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test2_laghos_3_1__gcc__3a63qmj_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Major kernels total time: 10.088893639 s
+      * Major kernels total rate: 21.0273101879 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test2_laghos_3_1__gcc__3a63qmj_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Major kernels total time: 5.863037985 s
+      * Major kernels total rate: 36.1829987359 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test2_laghos_3_1__gcc__3a63qmj_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Major kernels total time: 8.818843213 s
+      * Major kernels total rate: 24.0555695204 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test2_laghos_3_1__gcc__3a63qmj_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Major kernels total time: 14.922970587 s
+      * Major kernels total rate: 14.2158221624 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test2_laghos_3_1__nvhpc_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Major kernels total time: 12.110388458 s
+      * Major kernels total rate: 17.5173816047 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test2_laghos_3_1__nvhpc_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Major kernels total time: 6.382783241 s
+      * Major kernels total rate: 33.2366442647 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test2_laghos_3_1__nvhpc_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Major kernels total time: 9.009894686 s
+      * Major kernels total rate: 23.5454800964 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test2_laghos_3_1__nvhpc_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Major kernels total time: 14.868176572 s
+      * Major kernels total rate: 14.2682120415 Mdofs x steps / s
+------------------------------------------------------------------------------
+```
+
+### On-node Compiler Comparison
+
+(this is a taste, more details of 3 compiler comparison later in scaling)
+Performance comparison of 3 compilers. Measure is Major kernels total rate in megadorf x steps / seconds which is relevant and despite total time, an scalable measure.
+
+| Cores | arm        | gcc        | nvhpc      | 
+|-------|------------|------------|------------|
+| 64    | 14.01      | 14.92      | 14.86      |
+
+### Serial Hot-spot Profile
+
+List of top-10 functions / code locations from a serial profile.
+
+Profiling command used: I actually used the normal reframe test case run, but the script includes flags for _PROFILE\_RUN_ and _DEBUG\_RUN_ which I use to set it up for profiling or a short run for debug. 
+```
+reframe --stage /scratch/home/${USER} -c t2.py -r --performance-report
+```
+
+The profiling is done on arm compiler, by using the ReFrame's _LaunchWrapper_ call map like this:
+```
+self.job.launcher = LauncherWrapper(self.job.launcher,'map',['--profile', '--export-functions='+self.proffile])
+```
+
+The resulting top 10:
+
+|depth|Self |Total|Child|MPI|Overhead|Regions|Function                                                                                                                                                                                                                                                                                                            |
+|-----|-----|-----|-----|---|--------|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|0    |25.9%|25.9%|     |   |        |       |mfem::PAMassApply(int, int, int, int, mfem::Array<double                                                                                                                                                                                                                                                            |
+|0    |23.1%|23.9%|0.8% |   |        |       |void mfem::hydrodynamics::QUpdateBody<2>(int, int, int, int, bool, bool, double, double, double, double, double*, double*, double*, double*, double*, double*, double*, double*, double*, double const*, double const*, double const*, double const*, double const*, double const*, double const*, double*, double*)|
+|0    |13.6%|13.6%|     |   |        |       |mfem::ElementRestriction::MultTranspose(mfem::Vector const&, mfem::Vector&) const                                                                                                                                                                                                                                   |
+|0    |12.8%|12.8%|     |   |        |       |mfem::ElementRestriction::Mult(mfem::Vector const&, mfem::Vector&) const                                                                                                                                                                                                                                            |
+|0    |5.8% |5.8% |     |   |        |       |mfem::add(mfem::Vector const&, double, mfem::Vector const&, mfem::Vector&)                                                                                                                                                                                                                                          |
+|0    |3.6% |3.6% |     |   |        |       |mfem::Vector::operator*(mfem::Vector const&) const                                                                                                                                                                                                                                                                  |
+|0    |3.0% |3.0% |     |   |        |       |mfem::D2QGrad(mfem::FiniteElementSpace const&, mfem::DofToQuad const*, mfem::Vector const&, mfem::Vector&)                                                                                                                                                                                                          |
+|0    |1.7% |1.7% |     |   |        |       |void mfem::hydrodynamics::ForceMult2D<2, 3, 4, 2, 1>(int, mfem::Array<double                                                                                                                                                                                                                                        |
+|0    |1.4% |1.4% |     |   |        |       |void mfem::hydrodynamics::ForceMultTranspose2D<2, 3, 4, 2, 1>(int, mfem::Array<double                                                                                                                                                                                                                               |
+|0    |1.3% |1.3% |     |   |        |       |memcpy                                                                                                                                                                                                                                                                                                              |
+
+### Full Node Hot-spot Profile
+
+List of top-10 functions / code locations from a full node profile.
+
+Profiling command used: I actually used the normal reframe test case run, but the script includes flags for _PROFILE\_RUN_ and _DEBUG\_RUN_ which I use to set it up for profiling or a short run for debug. 
+```
+reframe --stage /scratch/home/${USER} -c t2.py -r --performance-report
+```
+
+The profiling is done on arm compiler, by using the ReFrame's _LaunchWrapper_ call map like this:
+```
+self.job.launcher = LauncherWrapper(self.job.launcher,'map',['--profile', '--export-functions='+self.proffile])
+```
+
+|depth|Self |Total|Child|MPI  |Overhead|Regions|Function                                                                                                                                                                                                                                                                                                            |
+|-----|-----|-----|-----|-----|--------|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|0    |79.2%|79.2%|     |79.2%|        |       |MPI_Allreduce                                                                                                                                                                                                                                                                                                       |
+|0    |6.4% |6.4% |     |6.4% |        |       |MPI_Waitany                                                                                                                                                                                                                                                                                                         |
+|0    |6.3% |6.3% |     |6.3% |        |       |MPI_Waitall                                                                                                                                                                                                                                                                                                         |
+|0    |3.5% |3.5% |     |3.5% |        |       |MPI_Isend                                                                                                                                                                                                                                                                                                           |
+|0    |2.4% |2.4% |     |2.4% |        |       |MPI_Irecv                                                                                                                                                                                                                                                                                                           |
+|0    |0.4% |0.4% |     |0.4% |        |       |MPI_Barrier                                                                                                                                                                                                                                                                                                         |
+|0    |0.2% |0.2% |     |     |        |       |mfem::PAMassApply(int, int, int, int, mfem::Array<double                                                                                                                                                                                                                                                            |
+|0    |0.1% |0.1% |<0.1%|     |        |       |void mfem::hydrodynamics::QUpdateBody<2>(int, int, int, int, bool, bool, double, double, double, double, double*, double*, double*, double*, double*, double*, double*, double*, double*, double const*, double const*, double const*, double const*, double const*, double const*, double const*, double*, double*)|
+|0    |0.1% |0.1% |     |0.1% |        |       |MPI_Finalize                                                                                                                                                                                                                                                                                                        |
+|0    |0.1% |0.1% |     |0.1% |        |       |MPI_Scan                                                                                                                                                                                                                                                                                                            |
+
+### Strong Scaling Study
+
+On-node scaling study for 3 compilers. Here 'major kernels total time' in seconds, is reported. 
+
+| Cores | arm    | gcc    | nvhpc  |
+|-------|--------|--------|--------|
+| 1     | 11.58  | 10.09  | 12.11  |
+| 4     | 6.00   | 5.86   | 6.38   |
+| 16    | 8.70   | 8.81   | 9.00   |
+| 64    | 14.01  | 14.92  | 14.86  |
+
+## Test Case 4
+
+[ReFrame Benchmark 4](#)
+
+Test Case 4 (in t3.py, notice the filenames start from 0), is the verifaction example number 2 here: https://github.com/CEED/Laghos#verification-of-results
+
+```
+reframe --stage /scratch/home/${USER} -c t3.py -r --performance-report
+```
+
+### ReFrame Output
+
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+laghos_test3_laghos_3_1__arm_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Major kernels total time: 19.162289123 s
+      * Major kernels total rate: 10.202975842 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test3_laghos_3_1__arm_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Major kernels total time: 9.533126451 s
+      * Major kernels total rate: 20.5087359331 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test3_laghos_3_1__arm_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Major kernels total time: 14.211477484 s
+      * Major kernels total rate: 13.7573572642 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test3_laghos_3_1__arm_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Major kernels total time: 25.775125467 s
+      * Major kernels total rate: 7.5853121743 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test3_laghos_3_1__gcc__3a63qmj_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Major kernels total time: 14.99363824 s
+      * Major kernels total rate: 13.0396885579 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test3_laghos_3_1__gcc__3a63qmj_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Major kernels total time: 8.606444554 s
+      * Major kernels total rate: 22.716973516 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test3_laghos_3_1__gcc__3a63qmj_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Major kernels total time: 14.683130275 s
+      * Major kernels total rate: 13.3154422346 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test3_laghos_3_1__gcc__3a63qmj_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Major kernels total time: 25.600715535 s
+      * Major kernels total rate: 7.636988612 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test3_laghos_3_1__nvhpc_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Major kernels total time: 17.060229793 s
+      * Major kernels total rate: 11.4601254129 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test3_laghos_3_1__nvhpc_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Major kernels total time: 9.159993388 s
+      * Major kernels total rate: 21.344160931 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test3_laghos_3_1__nvhpc_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Major kernels total time: 14.841085262 s
+      * Major kernels total rate: 13.1737248017 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test3_laghos_3_1__nvhpc_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Major kernels total time: 26.239687812 s
+      * Major kernels total rate: 7.4510174969 Mdofs x steps / s
+------------------------------------------------------------------------------
+```
+
+### On-node Compiler Comparison
+
+(this is a taste, more details of 3 compiler comparison later in scaling)
+Performance comparison of 3 compilers. Measure is Major kernels total rate in megadorf x steps / seconds which is relevant and despite total time, an scalable measure.
+
+| Cores | arm        | gcc        | nvhpc      | 
+|-------|------------|------------|------------|
+| 64    | 25.77      | 25.60      | 26.23      |
+
+### Serial Hot-spot Profile
+
+List of top-10 functions / code locations from a serial profile.
+
+Profiling command used: I actually used the normal reframe test case run, but the script includes flags for _PROFILE\_RUN_ and _DEBUG\_RUN_ which I use to set it up for profiling or a short run for debug. 
+```
+reframe --stage /scratch/home/${USER} -c t3.py -r --performance-report
+```
+
+The profiling is done on arm compiler, by using the ReFrame's _LaunchWrapper_ call map like this:
+```
+self.job.launcher = LauncherWrapper(self.job.launcher,'map',['--profile', '--export-functions='+self.proffile])
+```
+
+The resulting top 10:
+
+|depth|Self |Total|Child|MPI|Overhead|Regions|Function                                                                                                                                                                                                                                                                                                            |
+|-----|-----|-----|-----|---|--------|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|0    |35.1%|35.1%|     |   |        |       |mfem::PAMassApply(int, int, int, int, mfem::Array<double                                                                                                                                                                                                                                                            |
+|0    |8.7% |19.1%|10.4%|   |        |       |double mfem::kernels::CalcSingularvalue<3>(double const*, int)                                                                                                                                                                                                                                                      |
+|0    |8.5% |8.5% |     |   |        |       |mfem::ElementRestriction::MultTranspose(mfem::Vector const&, mfem::Vector&) const                                                                                                                                                                                                                                   |
+|0    |7.0% |26.1%|19.1%|   |        |       |void mfem::hydrodynamics::QUpdateBody<3>(int, int, int, int, bool, bool, double, double, double, double, double*, double*, double*, double*, double*, double*, double*, double*, double*, double const*, double const*, double const*, double const*, double const*, double const*, double const*, double*, double*)|
+|0    |6.5% |6.5% |     |   |        |       |mfem::D2QGrad(mfem::FiniteElementSpace const&, mfem::DofToQuad const*, mfem::Vector const&, mfem::Vector&)                                                                                                                                                                                                          |
+|0    |6.5% |6.5% |     |   |        |       |mfem::ElementRestriction::Mult(mfem::Vector const&, mfem::Vector&) const                                                                                                                                                                                                                                            |
+|0    |4.1% |4.1% |     |   |        |       |void mfem::hydrodynamics::ForceMult3D<3, 3, 4, 2>(int, mfem::Array<double                                                                                                                                                                                                                                           |
+|0    |3.6% |4.8% |1.2% |   |        |       |mfem::kernels::internal::KernelVector3S(int const&, double const&, double const&, double const&, double&, double&, double&)                                                                                                                                                                                         |
+|0    |3.0% |3.0% |     |   |        |       |void mfem::hydrodynamics::ForceMultTranspose3D<3, 3, 4, 2>(int, mfem::Array<double                                                                                                                                                                                                                                  |
+|0    |2.5% |2.5% |     |   |        |       |mfem::add(mfem::Vector const&, double, mfem::Vector const&, mfem::Vector&)                                                                                                                                                                                                                                          |
+
+
+### Full Node Hot-spot Profile
+
+List of top-10 functions / code locations from a full node profile.
+
+Profiling command used: I actually used the normal reframe test case run, but the script includes flags for _PROFILE\_RUN_ and _DEBUG\_RUN_ which I use to set it up for profiling or a short run for debug. 
+```
+reframe --stage /scratch/home/${USER} -c t2.py -r --performance-report
+```
+
+The profiling is done on arm compiler, by using the ReFrame's _LaunchWrapper_ call map like this:
+```
+self.job.launcher = LauncherWrapper(self.job.launcher,'map',['--profile', '--export-functions='+self.proffile])
+```
+
+|depth|Self |Total|Child|MPI  |Overhead|Regions|Function                                                                                                                                                                                                                                                                                                            |
+|-----|-----|-----|-----|-----|--------|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|0    |71.1%|71.1%|     |71.1%|        |       |MPI_Allreduce                                                                                                                                                                                                                                                                                                       |
+|0    |10.1%|10.1%|     |10.1%|        |       |MPI_Waitall                                                                                                                                                                                                                                                                                                         |
+|0    |8.1% |8.1% |     |8.1% |        |       |MPI_Waitany                                                                                                                                                                                                                                                                                                         |
+|0    |5.3% |5.3% |     |5.3% |        |       |MPI_Isend                                                                                                                                                                                                                                                                                                           |
+|0    |3.5% |3.5% |     |3.5% |        |       |MPI_Irecv                                                                                                                                                                                                                                                                                                           |
+|0    |0.3% |0.3% |     |     |        |       |mfem::PAMassApply(int, int, int, int, mfem::Array<double                                                                                                                                                                                                                                                            |
+|0    |0.2% |0.2% |     |0.2% |        |       |MPI_Barrier                                                                                                                                                                                                                                                                                                         |
+|0    |0.1% |4.5% |4.4% |4.4% |        |       |void mfem::GroupCommunicator::BcastBegin<double>(double*, int) const                                                                                                                                                                                                                                                |
+|0    |0.1% |0.1% |     |0.1% |        |       |MPI_Finalize                                                                                                                                                                                                                                                                                                        |
+|0    |0.1% |4.5% |4.4% |4.4% |        |       |void mfem::GroupCommunicator::ReduceBegin<double>(double const*) const                                                                                                                                                                                                                                              |
+
+### Strong Scaling Study
+
+On-node scaling study for 3 compilers. Here 'major kernels total time' in seconds, is reported. 
+
+| Cores | arm    | gcc    | nvhpc  |
+|-------|--------|--------|--------|
+| 1     | 19.16  | 14.99  | 17.06  |
+| 4     | 9.53   | 8.60   | 9.15   |
+| 16    | 14.21  | 14.68  | 14.84  |
+| 64    | 25.77  | 25.60  | 26.23  |
 
 ## Optimisation
 
-Details of steps taken to optimise performance of the application.
-Please document work with compiler flags, maths libraries, system libraries, code optimisations, etc.
+Initially the package did not set _any_ compiler flag. I fiddled with them a little bit, and the clear thing to do was to go with inlining and -Ofast. I picked gnu compiler as it was the fastest among the compilers and added those flags (and well, Ofast is only available on gnu). Gains were mostly evident in serial (single core) and they where still very modest changes as it can be seen, but well, C'est la vie! (A modest 3% enhancement is observed)
 
 ### Compiler Flag Tuning
 
-Compiler flags before:
-```
-CFLAGS=
-FFLAGS=
-```
+No compiler flag was set before.
 
 Compiler flags after:
 ```
-CFLAGS=
-FFLAGS=
+CXXFLAGS= -Ofast -finline-functions
 ```
 
 #### Compiler Flag Performance
 
-| Cores | Original Flags | New Flags |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+Major kernel time for different test cases. Among the enhancements are 2 or 3%, greatest enhancement is in test case 3 of a modest 3.3% .
 
-
-### Maths Library Report
-
-Report on use of maths library calls generated by (Perf Lib Tools)[https://github.com/ARM-software/perf-libs-tools].
-Please attach the corresponding apl files.
-
-
-### Maths Library Optimisation
-
-Performance analysis of the use of different maths libraries.
-
-
-| Cores | OpenBLAS | ArmPL | BLIS | 
-|-------|----------|-------| ---- |
-| 1     |          |       |      |
-| 2     |          |       |      |
-| 4     |          |       |      |
-| 8     |          |       |      |
-| 16    |          |       |      |
-| 32    |          |       |      |
-| 64    |          |       |      |
-
+| test case | Original Flags | New Flags |
+|-----------|----------------|-----------|
+| 1         | 2.31           | 2.27      |
+| 2         | 112.60         | 108.81    |
+| 3         | 10.09          | 9.75      |
+| 4         | 14.99          | 14.58     |
 
 ### Performance Regression
 
-How fast can you make the code?
-
-Use all of the above aproaches and any others to make the code as fast as possible.
-Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
-
-
+How fast can you make the code? 3% faster with compiler tuning.
 
 ## Report
 
 ### Compilation Summary
 
-Details of lessons from compiling the application.
+The program compiled smoothly for all but 1 compiler, and that 1 was _nvhpc_ due to it being unable to compile cmake, the solution was to build whatever nvhpc can't build with other (in my case I went with gcc) compilers which can.
 
 ### Performance Summary
 
-Details of lessons from analysing the performance of the application.
-
+The application uses _MFEM_ which in itself brings in _HYPRE_ which then draws along _openblas_ but it seems that no call to blas is made, even though using _ldd_ showed that openblas **IS** linked. Using the _ARM MAP_ profiler for a serial run, we can see that the app is compute bound and we have low CPI (Cycles Per Instruction) which is nice and hints at good vectorization. 
 
 ### Optimisation Summary
 
-Details of lessons from performance optimising the application.
-
+The app didn't set any compiler flag, so the obvious thing to do was to add a variant with optimization flags, this got us a modest increase of 3% through 'Ofast' and function inline being added.  

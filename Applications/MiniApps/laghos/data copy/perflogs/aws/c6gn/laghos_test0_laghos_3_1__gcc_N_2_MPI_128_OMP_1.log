@@ -1,0 +1,4 @@
+2021-07-15T07:33:29|reframe 3.7.0-dev.3+34ee3d0b|laghos_test0_laghos_3_1__gcc_N_2_MPI_128_OMP_1 on aws:c6gn using builtin|jobid=74|Major kernels total time=9.917638947|ref=0 (l=null, u=null)|s
+2021-07-15T07:33:29|reframe 3.7.0-dev.3+34ee3d0b|laghos_test0_laghos_3_1__gcc_N_2_MPI_128_OMP_1 on aws:c6gn using builtin|jobid=74|Major kernels total rate=5.4363689068|ref=0 (l=null, u=null)|Mdofs x steps / s
+2021-07-15T08:08:30|reframe 3.7.0-dev.3+34ee3d0b|laghos_test0_laghos_3_1__gcc_N_2_MPI_128_OMP_1 on aws:c6gn using builtin|jobid=88|Major kernels total time=10.80813928|ref=0 (l=null, u=null)|s
+2021-07-15T08:08:30|reframe 3.7.0-dev.3+34ee3d0b|laghos_test0_laghos_3_1__gcc_N_2_MPI_128_OMP_1 on aws:c6gn using builtin|jobid=88|Major kernels total rate=4.9884575507|ref=0 (l=null, u=null)|Mdofs x steps / s

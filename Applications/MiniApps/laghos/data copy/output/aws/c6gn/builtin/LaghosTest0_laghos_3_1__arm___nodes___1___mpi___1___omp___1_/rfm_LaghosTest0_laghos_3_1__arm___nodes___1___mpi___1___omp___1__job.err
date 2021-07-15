@@ -1,0 +1,13 @@
+Arm Forge 21.0.2 - Arm MAP
+
+Profiling             : srun laghos -p 0 -dim 2 -rs 3 -tf 0.75 -pa
+Allinea sampler       : preload (Express Launch)
+MPI implementation    : Auto-Detect (SLURM (MPMD))
+* number of processes : 1
+* number of nodes     : 1
+* Allinea MPI wrapper : preload (JIT compiled) (Express Launch)
+
+
+MAP analysing program...
+MAP gathering samples...
+MAP generated /scratch/home/iman/aws/c6gn/builtin/LaghosTest0_laghos_3_1__arm___nodes___1___mpi___1___omp___1_/profile.map
