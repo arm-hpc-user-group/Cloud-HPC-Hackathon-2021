@@ -121,7 +121,7 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [SNbone](Applications/snbone/README.md)                           | FastSolversWithFiredrake|                |
 | [STAR](Applications/star/README.md)                               | BlueHPCHens      |                |
 | [SU2](Applications/su2/README.md)                                 | CloudHPC         |                |
-| [tinker](Applications/tinker/README.md)                           |                  |                |
+| [tinker](Applications/tinker/README.md)                           | DogeCoinToTheMoon |                |
 | [VASP](Applications/vasp/README.md)                               | HarryPorters     |                |
 | [VPFFT](Applications/vpfft/README.md)                             |                  |                |
 | [VPIC](Applications/vpic/README.md)                               | MexicanWolf      |                |
