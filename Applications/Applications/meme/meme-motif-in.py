@@ -32,8 +32,9 @@ my_prerun_cmds = [
 
 # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
 my_spec = [
-    #'meme/csigtg7',     # Meme with the Arm compiler
-    'meme%arm ^perl@5.32.1'
+    'meme/csigtg7',  # Meme with the Arm compiler
+    'meme/xzjirlu',  # Meme with the Gnu compiler
+    'meme/fifpy6p',  # Meme with the Nvidia compiler
 ]
 
 # Parameters - MPI / Threads - Used for scaling studies
