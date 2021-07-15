@@ -208,22 +208,25 @@ reframe -c gatk_countreads.py -r --performance-report
 
 ### Validation
 
-Generally, an existing sequencing analysis tool was used to count reads. One of the BAM files is advertised as 20K reads, which will also be 5000000 bases for that sequencing run.
+An existing sequencing analysis tool was used to count reads. One of the BAM files is advertised as 20K reads, which will also be 5000000 bases for that sequencing run.
 
 ```
 spack load samtools
 
 # reads in the "small" BAM
 samtools view -c H06HDADXX130110.1.ATCACGAT.20k_reads.bam
-20000
+20,000
+5,000,000 bases
 
 # reads in the "medium" BAM
 samtools view -c HG00096.mapped.ILLUMINA.bwa.GBR.low_coverage.20120522.bam
-145063589
+145,063,589
+14,506,358,900 bases
 
 # reads in the "large" BAM
 samtools view -c HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam
-652944493
+652,944,493 reads
+161,506,906,064 bases
 ```
 
 ### ReFrame Output
@@ -271,11 +274,10 @@ x86 HPC output
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-GATK_gatk_countreadsspark_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
-- aws:c5n
+GATK_gatk_countreads_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 0.399857 s
+      * Total Time: 0.0 s
 ------------------------------------------------------------------------------
 GATK_gatk_countreads_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
@@ -293,9 +295,11 @@ GATK_gatk_countreads_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_
 
 Performance comparison of two compilers.
 
-| Cores | gcc        | arm        |
+| BAM | gcc        | arm        |
 |-------|------------|------------|
-| All   |  408.0     |   408.0    |
+| small   | < sec      |   < sec    |
+| medium   |  414 s    |   408 s   |
+| large   |   4488 s     |  4488 s  |
 
 
 
