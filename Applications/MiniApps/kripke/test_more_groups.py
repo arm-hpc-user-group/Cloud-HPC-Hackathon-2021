@@ -6,7 +6,7 @@ from datetime import datetime
 @rfm.simple_test
 class KripkeTest(hack.HackathonBase):
     # Where to run the binaries 'aws:c6gn' on Arm or 'aws:c5n' on Intel
-    valid_systems = ['aws:c6gn']
+    valid_systems = ['aws:c6gn', 'aws:cn5']
 
     # Logging Variables
     log_team_name = 'Dogecointothemoon'
