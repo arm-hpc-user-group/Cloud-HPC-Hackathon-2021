@@ -151,28 +151,125 @@ On-node scaling study for two compilers.
 
 On-node scaling study for two architectures.
 
-| Cores | C6gn (Aarch64) | C5n (X86) |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+#### Test Case 1
+X86 script:  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)
+
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            | 19.09 s   |
+| 2     |            | 23.29 s   |
+| 4     |            | 20.83 s   |
+| 8     |            | 19.91 s   |
+| 16    |            | 22.06 s   |
+| 32    |            | 30.28 s   |
+| 64    |            | 46.11 s   |
+
+#### Test Case 2
+X86 script:  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)
+
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            | 164.75 s  |
+| 2     |            | 128.39 s  |
+| 4     |            | 85.88 s   |
+| 8     |            | 72.85 s   |
+| 16    |            | 84.45 s   |
+| 32    |            | 142.46 s  |
+| 64    |            | 252.93 s  |
+
+#### Test Case 3
+X86 script:  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)
+
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            | 1335.42 s |
+| 2     |            | 981.23 s  |
+| 4     |            | 627.84 s  |
+| 8     |            | 543.84 s  |
+| 16    |            | 640.72 s  |
+| 32    |            | 1087.96 s |
+| 64    |            | 2025.36 s |
+
+#### Test Case 4
+X86 script:  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)
+
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            | 4790.18 s |
+| 2     |            | 3343.18 s |
+| 4     |            | 1994.46 s |
+| 8     |            | 1305.74 s |
+| 16    |            | 1915.15 s |
+| 32    |            | 3563.73 s |
+| 64    |            | 7220.35 s |
 
 ### Off-Node Architecture Comparison
 
 Off-node scaling study for two architectures.
 
-| Nodes | Cores | C5n (X86) | C6gn (Aarch64) |
-|-------|-------|-----------|----------------|
-| 1     | 8     |           |                |
-| 1     | 16    |           |                |
-| 1     | 32    |           |                |
-| 1     | 64    |           |                |
-| 2     | 128   |           |                |
-| 4     | 256   |           |                |
+#### Test Case 1
+X86 script:  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)
+
+| Nodes | Cores | C6gn (ARM) |  C5n (X86) |
+|-------|-------|------------|------------|
+| 1     | 32    |            | 30.28 s    |
+| 1     | 64    |            | 46.11 s    |
+| 2     | 128   |            | 33.52 s    |
+| 4     | 256   |            | 26.4 s     |
+
+#### Test Case 2
+X86 script:  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)
+
+| Nodes | Cores | C6gn (ARM) |  C5n (X86) |
+|-------|-------|------------|------------|
+| 1     | 32    |            | 142.46 s   |
+| 1     | 64    |            | 252.93 s   |
+| 2     | 128   |            | 141.92 s   |
+| 4     | 256   |            | 82.26 s    |
+
+#### Test Case 3
+X86 script:  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)
+
+| Nodes | Cores | C6gn (ARM) |  C5n (X86) |
+|-------|-------|------------|------------|
+| 1     | 32    |            | 1087.96 s  |
+| 1     | 64    |            | 2025.36 s  |
+| 2     | 128   |            | 1027.75 s  |
+| 4     | 256   |            | 526.23 s   |
+
+#### Test Case 4
+X86 script:  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)
+
+| Nodes | Cores | C6gn (ARM) |  C5n (X86) |
+|-------|-------|------------|------------|
+| 1     | 32    |            | 3563.73 s  |
+| 1     | 64    |            | 7220.35 s  |
+| 2     | 128   |            | 3421.94 s  |
+| 4     | 256   |            | 1732.57 s  |
 
 ## Optimisation
 
