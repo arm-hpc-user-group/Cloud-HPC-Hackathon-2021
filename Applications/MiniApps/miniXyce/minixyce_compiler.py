@@ -43,7 +43,7 @@ class MiniXyceTest(hack.HackathonBase):
 
     # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
     spec = parameter([
-        'minixyce %gcc@10.3.0',     # CloverLeaf with the GCC compiler
+        'minixyce %gcc@10.3.0' ,     # CloverLeaf with the GCC compiler
         'minixyce %arm',     # CloverLeaf with the GCC compiler
         'minixyce %nvhpc',     # CloverLeaf with the GCC compiler
 #        'cloverleaf@1.1 %arm@21.0.0.879', # CloverLeaf with the Arm compiler
@@ -105,9 +105,11 @@ class MiniXyceTest(hack.HackathonBase):
        result = sn.extractsingle(sol_regex, self.logfile, 1, int)
        self.sanity_patterns = sn.assert_bounded(result, 5000, 5000)
 
+       '''
        sol_regex = r'\s+Capacitors_\(C\):\s+(\S+)'
        result = sn.extractsingle(sol_regex, self.logfile, 1, int)
        self.sanity_patterns = sn.assert_bounded(result, 5000, 5000)
+       '''
 
 
        # Performance Testing - FOM Total Time units 's'

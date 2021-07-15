@@ -492,13 +492,9 @@ to install.
 ### Compilation Summary
 
 spack allows a fine granularity of managing packages by allowing mix and match of different dependency versions and built by different versions of compilers.\
-
 Each package file has a set of constraints and the concretizer perform algorithms to find a valid set of combinations that satisft all the constraints.\
-
 This definitely has it pros and cons. We appreciate the fact that spack tries to hide all the gruesome work of figuring out dependencies,\
-
 and leave us a fool-proof way to install packages with a few lines of commands. However, there are definitely some catches:
-
 
 1. As spack tries to hide all the details, it could be sometimes less flexible (at least for inexperience users) to make easy fixes to the build scripts directly.
 
@@ -509,27 +505,20 @@ and leave us a fool-proof way to install packages with a few lines of commands. 
 (such as 2 python paths). 
 
 4. The clingo concretizer is undoubtly magical, but our experience is that it could sometimes introduce unnecessary and over-complicated builds, leading to 
-
 an explosion of cached dependencies. In these cases the default concretizer that follows the greedy solution could be more favourable.
 
 
 ### Performance Summary
 
 The empirical observation we have is that the performance trend follows a parabolic trend, with 8-core configuration having the higher overhead, which single-core and multi-core higher than 8 performs increasingly better. This lead us to suspect that mpi introduces more overhead than benefits. As the nature of the application\
-
 performs small but numerous tasks, the overhead of message passing dominates and lead to worsening performance than single-core. \
-
 By using arm-forge toolchain, we profiled the application and observed that MPI synchronization contribute to 94% of the total computation time. This \
-
 suggests that this application is not suitable for mpi application, or can be much better optimized. (In fact, we suspect GPU could be a much better fit for this workload)
 
 
 ### Optimisation Summary
 
 As explained in the previous section, we do not observe much performance benefits in turining on optimisation flags. \
-
 We also did not manage to optimize code base by introducing compiler intrinsics specific to the current architecture. \
-
 Some simple optimizations are made, such as reserving capacity for vectors and observed 10% speedup for large benchmarks, \
-
 as this avoids overhead in relocation.
