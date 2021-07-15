@@ -41,7 +41,7 @@ $ spack spec -Il <app>%<compiler1>
 
 ### Validation
 
-Details of the validation for `Test Case 1`.
+miniGMG reduces the norm until it is less than 1e-15. If the norm is still greater than 1e-15 after `maxVCycles` v-cycles, the program will ends. So we check if all the norms produced by last v-cycles are less than 1e-15.
 
 
 ### ReFrame Output
