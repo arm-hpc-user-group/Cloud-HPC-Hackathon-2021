@@ -160,7 +160,7 @@ spack spec -Il minixyce%nvhpc@21.2 ^openmpi
 [+]  zehhooy          ^slurm@20-02-4-1%nvhpc@21.2~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-graviton2
 
 ```
-## Test Case 1
+## Test Set 1
 
 [ReFrame Benchmark 1](#)
 
@@ -171,7 +171,12 @@ reframe -c minixyce_compiler.py -r --performance-report -v
 
 ### Validation
 
-Details of the validation for `Test Case 1`.
+This Test Set contains 21 tests in total.
+
+Test Set 1 (minixyce_compiler.py) is for scaling analysis such as on-node and off-node analysis, as well as performance comparison across different compilers.
+The input is a large circuit with 15000 electrical components. Basic sanity check is done to ensure the validity of benchmark. This includes checking for resistor/inductor/capacitor counts from the output dump.
+
+For functional validation, see Test Set 2.
 
 
 ### ReFrame Output
@@ -292,6 +297,7 @@ MiniXyce_short_test_minixyce__nvhpc_N_1_MPI_1_OMP_1
 
 ```
 
+
 ### On-node Compiler Comparison
 
 Performance comparison of three compilers(in seconds).
@@ -398,6 +404,33 @@ On-node scaling study for two architectures.
 | 16    | 184.024        | 204.829   |
 | 32    | 85.407         | 86.7813   |
 | 64    | 52.2978        | 54.0766   |
+
+## Test Set 2
+
+[ReFrame Benchmark 2](#)
+
+```
+reframe -c minixyce_gold_standards.py -r --performance-report -v
+
+```
+
+### Validation
+
+This Test Set contains 63 tests in total.
+
+Test Set 2 aims to ensure functional validity to prevent errors that could arise from flaws in implementing distributed software, as well as compilation bugs due to aggressive compiler optimisation (such as -Ofast)
+This test integrates miniXyce's goldStandards benchmarks with 4 different circuits and their corresponding expected results that was provided by this repository.
+
+A sample pass case looks like the following
+
+```
+[       OK ] ( 7/63) MiniXyce_short_test_minixyce__nvhpc_21_2_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.006s run: 4.010s total: 261.839s]
+==> timings: setup: 0.006s compile: 0.006s run: 4.010s sanity: 0.001s performance: 0.207s total: 261.839s
+Output:  5e-06  Goldstandard:  5e-06
+Output:  5.0  Goldstandard:  5.0
+Output:  4.16666667  Goldstandard:  4.16666667
+Output:  3.33333333  Goldstandard:  3.33333333
+```
 
 ## Optimisation
 
