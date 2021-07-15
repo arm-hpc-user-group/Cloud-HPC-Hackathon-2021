@@ -69,7 +69,7 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [athena](Applications/athena/README.md)                           |                  |                |
 | [BLIS](Applications/blis/README.md)                               | SPEED            |                |
 | [Bowtie](Applications/bowtie/README.md)                           |                  |                |
-| [branson](Applications/branson/README.md)                         |                  |                |
+| [branson](Applications/branson/README.md)                         | Iman             |                |
 | [CAMx](Applications/camx/README.md)                               | TPPU             |                |
 | [CANDLE-benchmarks](Applications/candle-benchmarks/README.md)     | DeepNeuronBlue   |                |
 | [Cbench](Applications/cbench/README.md)                           | KeyzerSozeHPC    |                |
