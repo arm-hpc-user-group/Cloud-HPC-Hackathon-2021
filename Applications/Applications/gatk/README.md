@@ -313,9 +313,7 @@ reframe -c gatk_countbases.py -r --performance-report
 
 ### Validation
 
-This is a public BAM file from an Illumina HiSeq 2500 and is known to have 20K reads and 5000000 bases in it.
-
-Running GATK by hand (same commands) lets you inspect stats and work with this file. It is small enough that it should always process in a fraction of a second.
+Expected base counts were manually collected using samtools.
 
 ### ReFrame Output
 
@@ -509,7 +507,7 @@ GATK_gatk_countbasesspark_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_
 GATK_gatk_countbasesspark_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 78.0 s
+      * Total Time: 78.0 m
 ------------------------------------------------------------------------------
 ```
 
@@ -668,11 +666,13 @@ Performance analysis of the use of different maths libraries.
 
 ### Performance Regression
 
-How fast can you make the code?
+The spack package for GATK runs relatively optimally as-is becauase it relies mainly on the JVM. For example, not a custom C binary where compiler flags may substantially help.
 
-Use all of the above aproaches and any others to make the code as fast as possible.
-Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
+It is unclear if/how to add these commands to the spack package, but all of the `--java-opts` can substantially speed up a single HPC node. In particular, using `-Xmx60g` to make sure RAM is limited by the JVM.
 
+GATK also uses Spark for some of its new tooling, which is based on a scatter/gather strategy. It appears that it may be possible to try to run this cross-node; however, it also will default to trying to optimize on same node. The strategy appears to work as expected. The Spark runs above shows that the new GATK Spark-based tool replacements will work on an HPC and likely be faster regardless of architecture.
+
+The best strategy for replicating large-scale genomics work such as 1000 Genomes is to rely moreso on Slurm to fan out analyses of the many (3000ish) very large (150GB+) files and store results in `/scratch`. GATK can then combine the results.
 
 
 ## Report
