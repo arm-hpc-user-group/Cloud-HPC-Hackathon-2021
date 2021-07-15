@@ -50,6 +50,7 @@ class GATKTest(hack.HackathonBase):
         self.bam_file = bam_file
         self.expected_reads = expected_reads
         self.perf_regex = perf_regex
+        self.gatk_tool = gatk_tool
 
     @run_before('sanity')
     def set_sanity_patterns(self):
@@ -64,8 +65,11 @@ class GATKTest(hack.HackathonBase):
             '*': {'Total Time': (0, None, None, 's'),}
         }
 
+        total_time = sn.extractsingle(self.perf_regex, self.logfile, 1, float, item=-1)
+        if 'Spark' not in self.gatk_tool:
+            total_time *= 60
         self.perf_patterns = {
-            'Total Time': sn.extractsingle(self.perf_regex, self.logfile, 1, float, item=-1)
+            'Total Time': total_time
         }
 
 
