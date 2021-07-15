@@ -14,9 +14,9 @@
 
 Details of any changes to the Spack recipe used. (Not used until the last step, when I added ofast variant for the package to spack)
 
-Git commit hash of checkout for pacakage: 
+Git commit hash of checkout for pacakage: https://github.com/spack/spack/pull/24910/commits/886e372f0ff9a709579d38dc89b7a38b8b6d6b87
 
-Pull request for Spack recipe changes: 
+Pull request for Spack recipe changes: https://github.com/spack/spack/pull/24910
 
 ### Building Laghos
 
@@ -891,6 +891,8 @@ The program compiled smoothly for all but 1 compiler, and that 1 was _nvhpc_ due
 
 ### Performance Summary
 
+![alt text](https://raw.githubusercontent.com/ImanHosseini/Cloud-HPC-Hackathon-2021/app/laghos/Applications/MiniApps/laghos/ser_sum.PNG)
+ 
 The application uses _MFEM_ which in itself brings in _HYPRE_ which then draws along _openblas_ but it seems that no call to blas is made, even though using _ldd_ showed that openblas **IS** linked. Using the _ARM MAP_ profiler for a serial run, we can see that the app is compute bound and we have low CPI (Cycles Per Instruction) which is nice and hints at good vectorization. 
 
 ### Optimisation Summary
