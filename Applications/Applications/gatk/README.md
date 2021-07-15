@@ -285,9 +285,7 @@ Performance comparison of two compilers.
 
 ## Test Case 2
 
-ReadCountsSpark
-
-This confirms that GATK is working by doing a basic analysis of a BAM file. The BAM file will be downloaded, if it doesn't already exist.
+This confirms that GATK is working by doing a common read analysis of a BAM file using the `ReadCountsSpark` tool that was added in GATK4. This is run against the small, medium and large sequencing runs noted in the description. This is run on both the ARM and x86 HPC. This tool is used in a similar way as `ReadCount` but it is distinct and has distinct output.
 
 ```
 reframe -c gatk_countbases.py -r --performance-report
@@ -350,7 +348,7 @@ GATK_gatk_countreadsspark_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_
 
 ## Test Case 3
 
-BasesCount
+This confirms that GATK is working by doing a common read analysis of base pairs in a BAM file using the `BaseCounts` tool that has been in all versions of GATK. This is run against the small, medium and large sequencing runs noted in the description. This is run on both the ARM and x86 HPC.
 
 ```
 reframe -c gatk_countbases.py -r --performance-report
@@ -358,7 +356,7 @@ reframe -c gatk_countbases.py -r --performance-report
 
 ### Validation
 
-Same as the validation done for the first test. Same BAM file is used.
+Expected base counts were manually collected using samtools.
 
 ### ReFrame Output
 
@@ -367,16 +365,25 @@ ARM HPC output after `gcc` compile.
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-GATK_gatk_countbases_spark_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
-- aws:c6gn
+GATK_gatk_countbases_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 0.649437 s
+      * Total Time: 0.0 s
 ------------------------------------------------------------------------------
-GATK_gatk_countbases_spark_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+GATK_gatk_countbases_hiseq_2500_20k_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 0.665504 s
+      * Total Time: 0.0 s
+------------------------------------------------------------------------------
+GATK_gatk_countbases_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 408.0 s
+------------------------------------------------------------------------------
+GATK_gatk_countbases_1000_genomes_low_coverage_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 402.0 s
 ------------------------------------------------------------------------------
 ```
 
@@ -387,7 +394,9 @@ x86 HPC output after `gcc` compile.
 
 ## Test Case 4
 
-[ReFrame Benchmark 1](#)
+[ReFrame Benchmark 4](#)
+
+This confirms that GATK is working by doing a common read analysis of base counts from a BAM file using the `BaseCountsSpark` tool that was added in GATK4. This is run against the small, medium and large sequencing runs noted in the description. This is run on both the ARM and x86 HPC. This tool is used in a similar way as `BaseCount` but it is distinct and has distinct output.
 
 ```
 reframe -c gatk_countbases.py -r --performance-report
@@ -395,13 +404,35 @@ reframe -c gatk_countbases.py -r --performance-report
 
 ### Validation
 
-samtools showing count
-
+Expected base counts were manually collected using samtools.
 
 ### ReFrame Output
 
 ```
-...
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+GATK_gatk_countbasesspark_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 0.656905 s
+------------------------------------------------------------------------------
+GATK_gatk_countbasesspark_hiseq_2500_20k_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 0.676111 s
+------------------------------------------------------------------------------
+GATK_gatk_countbasesspark_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 451.688856 s
+------------------------------------------------------------------------------
+GATK_gatk_countbasesspark_1000_genomes_low_coverage_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 458.258934 s
+------------------------------------------------------------------------------
 ```
 
 ### On-node Compiler Comparison
