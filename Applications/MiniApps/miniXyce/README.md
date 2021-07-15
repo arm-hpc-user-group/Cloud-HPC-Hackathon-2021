@@ -509,6 +509,13 @@ How fast can you make the code?
 Use all of the above aproaches and any others to make the code as fast as possible.
 Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
 
+We would really like to get SIMD instruction working with the code base, as there are some matrix operations that can be replaced using compiler intrinsics.
+However, due to time constraint we could not get a bug-free version soon enough.
+
+However, we have added some more straightforward optimizations, such as reserving capacity for std::vectors to avoid uncessary copies due to relocation.
+The speedup is about 10% (15.5s to 14s). This is done by `spack fetch` followed by `spack stage`, then modify the code inplace and `spack install --dont-restage --keep-stage <miniapp>`\
+to install.
+
 
 ## Report
 
