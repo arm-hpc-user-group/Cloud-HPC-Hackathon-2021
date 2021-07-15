@@ -1,7 +1,7 @@
 """
-Tests `gatk CountReadsSpark` using public example data 
+Tests `gatk CountReads[Spark]` using public example data
 
-This is a more basic test that verifies GATK is fully installed.
+This tests one of the common GATK tools and both the GATK3 version and GATK4 (aka Spark-based) version.
 
 This tests relies on publically accessible data for an example Illumina 2500 HiSeq run that is known to have 20K reads and 5000000 bases. 
 """
@@ -91,46 +91,46 @@ class GATKCountReads20kTest(GATKTest):
                 perf_regex=r'Processed 20000 total reads in (\S+) minutes',
             )
 
-@rfm.simple_test
-class GATKCountReadsSpark1000GenomesLowCoverageTest(GATKTest):
-    def __init__(self):
-        super().__init__(
-                log_test_name="gatk_countreadsspark_1000_genomes_low_coverage",
-                bam_file="/scratch/home/jayson/gatk-data/HG00096.mapped.ILLUMINA.bwa.GBR.low_coverage.20120522.bam",
-                gatk_tool="CountReadsSpark", 
-                expected_reads=145063589,
-                perf_regex=r'Job 2 finished: .* took (\S+) s',
-            )
-
-@rfm.simple_test
-class GATKCountReads1000GenomesLowCoverageTest(GATKTest):
-    def __init__(self):
-        super().__init__(
-                log_test_name="gatk_countreads_1000_genomes_low_coverage",
-                bam_file="/scratch/home/jayson/gatk-data/HG00096.mapped.ILLUMINA.bwa.GBR.low_coverage.20120522.bam",
-                gatk_tool="CountReads",
-                expected_reads=145063589,
-                perf_regex=r'Processed 20000 total reads in (\S+) minutes',
-            )
-
-@rfm.simple_test
-class GATKCountReadsSpark1000GenomesHighCoverageTest(GATKTest):
-    def __init__(self):
-        super().__init__(
-                log_test_name="gatk_countreadsspark_1000_genomes_high_coverage",
-                bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
-                gatk_tool="CountReadsSpark", 
-                expected_reads=145063589,
-                perf_regex=r'Job 2 finished: .* took (\S+) s',
-            )
-
-@rfm.simple_test
-class GATKCountReads1000GenomesHighCoverageTest(GATKTest):
-    def __init__(self):
-        super().__init__(
-                log_test_name="gatk_countreads_1000_genomes_high_coverage",
-                bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
-                gatk_tool="CountReads",
-                expected_reads=145063589,
-                perf_regex=r'Processed 20000 total reads in (\S+) minutes',
-            )
+#@rfm.simple_test
+#class GATKCountReadsSpark1000GenomesLowCoverageTest(GATKTest):
+#    def __init__(self):
+#        super().__init__(
+#                log_test_name="gatk_countreadsspark_1000_genomes_low_coverage",
+#                bam_file="/scratch/home/jayson/gatk-data/HG00096.mapped.ILLUMINA.bwa.GBR.low_coverage.20120522.bam",
+#                gatk_tool="CountReadsSpark", 
+#                expected_reads=145063589,
+#                perf_regex=r'Job 2 finished: .* took (\S+) s',
+#            )
+#
+#@rfm.simple_test
+#class GATKCountReads1000GenomesLowCoverageTest(GATKTest):
+#    def __init__(self):
+#        super().__init__(
+#                log_test_name="gatk_countreads_1000_genomes_low_coverage",
+#                bam_file="/scratch/home/jayson/gatk-data/HG00096.mapped.ILLUMINA.bwa.GBR.low_coverage.20120522.bam",
+#                gatk_tool="CountReads",
+#                expected_reads=145063589,
+#                perf_regex=r'Processed 20000 total reads in (\S+) minutes',
+#            )
+#
+#@rfm.simple_test
+#class GATKCountReadsSpark1000GenomesHighCoverageTest(GATKTest):
+#    def __init__(self):
+#        super().__init__(
+#                log_test_name="gatk_countreadsspark_1000_genomes_high_coverage",
+#                bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
+#                gatk_tool="CountReadsSpark", 
+#                expected_reads=145063589,
+#                perf_regex=r'Job 2 finished: .* took (\S+) s',
+#            )
+#
+#@rfm.simple_test
+#class GATKCountReads1000GenomesHighCoverageTest(GATKTest):
+#    def __init__(self):
+#        super().__init__(
+#                log_test_name="gatk_countreads_1000_genomes_high_coverage",
+#                bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
+#                gatk_tool="CountReads",
+#                expected_reads=145063589,
+#                perf_regex=r'Processed 20000 total reads in (\S+) minutes',
+#            )
