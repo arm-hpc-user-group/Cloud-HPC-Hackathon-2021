@@ -6,6 +6,7 @@
 #SBATCH --output=rfm_MiniTriTest_minitri__arm_21_0_0_879___nodes___1___mpi___1___omp___1__job.out
 #SBATCH --error=rfm_MiniTriTest_minitri__arm_21_0_0_879___nodes___1___mpi___1___omp___1__job.err
 #SBATCH -p c6gn
+#SBATCH --exclusive=user
 spack load minitri %arm@21.0.0.879
 export OMP_NUM_THREADS=1
 export OMP_PLACES=cores

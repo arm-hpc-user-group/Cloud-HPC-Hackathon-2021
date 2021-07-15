@@ -5,7 +5,7 @@ import hackathon as hack
 @rfm.simple_test
 class MiniTriTest(hack.HackathonBase):
     # Where to run the binaries 'aws:c6gn' on Arm or 'aws:c5n' on Intel
-    valid_systems = ['aws:c6gn']
+    valid_systems = ['aws:c6gn','aws:c5n']
 
     # Logging Variables
     log_team_name = 'HPCNepal'
@@ -21,23 +21,25 @@ class MiniTriTest(hack.HackathonBase):
     # Command line options to pass
     executable_opts = ['./ca-GrQc/ca-GrQc.mtx']
     # Where the output is written to
-    #logfile = 'miniTri.out'
+    logfile = 'miniTri.out'
     # Store the output file (used for validation later)
-    #keep_files = [logfile]
+    keep_files = []
 
 
     # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
     spec = parameter([
         'minitri %gcc@10.3.0',     # MiniTri with the GCC compiler
         'minitri %arm@21.0.0.879', # MiniTri with the Arm compiler
-     # 'minitri %nvhpc@21.2'      # MiniTri with the NVIDIA compiler
+        'minitri %nvhpc@21.2'      # MiniTri with the NVIDIA compiler
     ])
 
-    parallelism = parameter([{ 'nodes' : 1, 'mpi' : 1, 'omp' : 1}])
-    keep_files = []
+    parallelism = parameter([
+        { 'nodes' : 1, 'mpi' : 1, 'omp' : 1}
+    ])
 
     @run_before('run')
     def prepare_job(self):
+       self.job.options += ['--exclusive=user']
        self.job.launcher.options = ['time']
 
     # Code validation
@@ -65,5 +67,5 @@ class MiniTriTest(hack.HackathonBase):
 
        pref_regex = r'TIME - Time to compute C = L\*B:\s+(\S+)'
        self.perf_patterns = {
-               'Total Time': sn.extractsingle(pref_regex, self.stdout, 1, float)
+               'Total Time': sn.extractsingle(pref_regex, self.stdout, 1, float, item=-1)
        }

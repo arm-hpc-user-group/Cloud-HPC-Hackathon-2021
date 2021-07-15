@@ -3,11 +3,11 @@ Enumerating triangles .....
 **********************************************************************
 --------------------
 Creating incidence matrix B... done
-TIME - Time to create B: 0.009523
+TIME - Time to create B: 0.009407
 --------------------
 --------------------
 C = A*B: 
-TIME - Time to compute C = L*B: 0.157043
+TIME - Time to compute C = L*B: 0.150996
 --------------------
 NNZ: 144849
 **********************************************************************
@@ -19,10 +19,10 @@ Calculating triangle degrees .....
 **********************************************************************
 --------------------
 Computing triangle vertex degrees ... done
-TIME - Time to compute vertex degrees: 0.000292
+TIME - Time to compute vertex degrees: 0.000231
 --------------------
 Computing triangle edge degrees ... done
-TIME - Time to compute edge degrees: 0.000522
+TIME - Time to compute edge degrees: 0.000491
 **********************************************************************
 Finished calculating triangle degrees
 **********************************************************************
