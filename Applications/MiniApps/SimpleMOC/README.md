@@ -2,7 +2,7 @@
 
 **Description:** Demonstrates the performance characterterics and viability of the Method of Characteristics (MOC) for 3D neutron transport calculations in the context of full scale light water reactor simulation.
 
-**URL:** https://github.com/ANL-CESAR/SimpleMO 
+**URL:** https://github.com/ANL-CESAR/SimpleMOC
 
 **Team:**  
 
@@ -23,11 +23,11 @@ Pull request for Spack recipe changes:
 #### Compiler 1
 
 ```
-spack install <app>%<compiler1>
+$ spack install simplemoc%gcc@10.3.0 ^openmpi
 ```
 
 ```
-$ spack spec -Il <app>%<compiler1>
+$ spack spec -Il simplemoc%gcc@10.3.0 ^openmpi
 
 ```
 

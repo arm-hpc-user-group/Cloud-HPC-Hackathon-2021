@@ -6,7 +6,7 @@ For the more comprehensive tutorial view [CloverLeaf Tutorial](../../Tutorials/C
 
 ## Building CloverLeaf
 
-`spack install cloverleaf@arm`
+`spack install cloverleaf@1.1 %arm@21.0.0.879`
 
 ## ReFrame Example
 

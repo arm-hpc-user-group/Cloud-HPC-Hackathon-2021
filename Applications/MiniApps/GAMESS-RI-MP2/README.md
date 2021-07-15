@@ -4,9 +4,11 @@
 
 **URL:** https://github.com/jkwack/GAMESS_RI-MP2_MiniAp hacckernels
 
-**Team:**  
+**Team:** @neuralmimicry https://github.com/neuralmimicry/GAMESS_RI-MP2_MiniApp 
 
 ## Compilation
+
+Initial setup on x86 required spack reconfig to support an embedded armpl dependency
 
 ### Spack Package Modification
 
