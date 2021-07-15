@@ -12,7 +12,10 @@
 
 ### Spack Package Modification
 
-Details of any changes to the Spack recipe used.
+The default spack configuration works for MPI but won't compile for OMP. The below diff was used to enable OpenMP compilation on the ARM HPC and was used for the scaling test.
+
+```
+```
 
 Git commit hash of checkout for pacakage:
 
@@ -685,6 +688,203 @@ On-node scaling study for two architectures. `gcc@10.3.0` was used in both cases
 |   64  |  344.8     |  391.3         |
 
 
+## Test Case 3
+
+[ReFrame Benchmark 3](#)
+
+```
+reframe -c comd_weak_omp.py -r --performance-report
+```
+
+### Validation
+
+`Test Case 3` is similar to `Test Case 1` using an example of the "weak scaling" study data and based on the steps from the `mpi-weakScaling.sh` script in CoMD's repository. This test relies relies on the potentials from the `pots/Cu_u6.eam` file in the same GitHub repository. The main difference here is that the code was re-compiled with OpenMP so that multiple cores could be used.
+
+See `comd_weak_omp.py` for the steps, data download and copy of the test from CoMD's website.
+
+Spack compiles with openmp and no mpi (they conflict) were done for these tests.
+
+```
+spack install comd %arm@21.0.0.879 +openmp -mpi
+spack install comd %nvhpc@21.2 +openmp -mpi
+spack install comd %gcc@10.3.0 +openmp -mpi
+```
+
+
+### ReFrame Output
+
+ReFrame output from the ARM HPC.
+
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 74.4443 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_2
+   - builtin
+      * num_tasks: 1
+      * Total Time: 37.4329 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_4
+   - builtin
+      * num_tasks: 1
+      * Total Time: 18.9083 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_8
+   - builtin
+      * num_tasks: 1
+      * Total Time: 10.4632 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_16
+   - builtin
+      * num_tasks: 1
+      * Total Time: 5.5645 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_32
+   - builtin
+      * num_tasks: 1
+      * Total Time: 3.1011 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_64
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1.9046 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 64.6219 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_2
+   - builtin
+      * num_tasks: 1
+      * Total Time: 32.4629 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_4
+   - builtin
+      * num_tasks: 1
+      * Total Time: 16.4848 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_8
+   - builtin
+      * num_tasks: 1
+      * Total Time: 9.1019 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_16
+   - builtin
+      * num_tasks: 1
+      * Total Time: 4.8571 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_32
+   - builtin
+      * num_tasks: 1
+      * Total Time: 2.6809 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_64
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1.784 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 56.4211 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_2
+   - builtin
+      * num_tasks: 1
+      * Total Time: 28.4626 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_4
+   - builtin
+      * num_tasks: 1
+      * Total Time: 14.4238 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_8
+   - builtin
+      * num_tasks: 1
+      * Total Time: 7.9631 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_16
+   - builtin
+      * num_tasks: 1
+      * Total Time: 4.2204 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_32
+   - builtin
+      * num_tasks: 1
+      * Total Time: 2.3234 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_64
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1.5922 s
+------------------------------------------------------------------------------
+```
+
+### On-node Compiler Comparison
+
+Performance comparison of two available compilers on the ARM HPC. 
+
+| Cores | gcc@10.3.0 | arm@21.0.0.879 | nvhpc@21.2 |
+|-------|------------|----------------|------------|
+|   1   |  74.44     |  64.62         |  56.42     |
+|   2   |  37.43     |  32.46         |  28.46     |
+|   4   |  18.90     |  16.48         |  14.42     |
+|   8   |  10.46     |  9.10         |  7.96     |
+|   16  |  5.56     |  4.85         |  4.22     |
+|   32  |  3.10     |  2.68         |  2.32     |
+|   64  |  1.90     |  1.78         |  1.59     |
+
+### Serial Hot-spot Profile
+
+This test was not hot-spot profiled.
+
+
+### Full Node Hot-spot Profile
+
+This test was not full node profiled.
+
+### Strong Scaling Study
+
+On-node scaling study for two compilers.
+
+| Cores | gcc@10.3.0 | arm@21.0.0.879 |
+|-------|------------|----------------|
+|   1   |  74.44     |  64.62         |
+|   2   |  37.43     |  32.46         |
+|   4   |  18.90     |  16.48         |
+|   8   |  10.46     |  9.10         |
+|   16  |  5.56     |  4.85         |
+|   32  |  3.10     |  2.68         |
+|   64  |  1.90     |  1.78         |
+
+### Off-Node Scaling Study
+
+Off-node scaling study comparing C6g and C6gn instances was not done. No C6g resources were avavailable.
+
+### On-Node Architecture Comparison
+
+On-node scaling study for two architectures. `gcc@10.3.0` was used in both cases.
+
+
+| Cores | C6gn (ARM) | C5n (x86/Intel)    |
+|-------|------------|----------------|
+|   1   |  319.4     |  369.6         |
+|   2   |  322.8     |  372.4         |
+|   4   |  323.4     |  372.2         |
+|   8   |  325.1     |  375.1         |
+|   16  |  332.2     |  379.3         |
+|   32  |  335.1     |  381.3         |
+|   64  |  344.8     |  391.3         |
+
+
+
 
 ## Optimisation
 
@@ -770,4 +970,4 @@ Overall, the `nvhpc` appear to perform best; however, all three compilers appear
 
 `CoMD` appears to scale workload successfully via MPI; however, the program requires specific combinations of the `-i`, `-j` and `-k` flags to match the given MPI number.
 
-`OpenMP` builds were not able to be done. A scaling run was done with `OMP` incrementing; however, results are identical to no OMP changes since the `+openmp` variant of `CoMD` is not available.
+OpenMP builds showed impressive results, almost halving the time to process for every doubling of processors. The more cores the better. This observation worked up to 64 cores. Using OpenMP instead of MPI seems to make the most sense when using this software package since the performance gains are not limited to CoMD's `-i * -j * -k` CLI equaling the exact number of MPI.
