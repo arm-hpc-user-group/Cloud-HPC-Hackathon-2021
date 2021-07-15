@@ -246,12 +246,12 @@ GATK_gatk_countreads_hiseq_2500_20k_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
 GATK_gatk_countreads_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 6.8 s
+      * Total Time: 408.0 s
 ------------------------------------------------------------------------------
 GATK_gatk_countreads_1000_genomes_low_coverage_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 6.8 s
+      * Total Time: 408.0 s
 ------------------------------------------------------------------------------
 ```
 
@@ -269,7 +269,7 @@ GATK_gatk_countreads_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
 GATK_gatk_countreads_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 6.4 s
+      * Total Time: 390.0 s
 ------------------------------------------------------------------------------
 ```
 
@@ -277,9 +277,9 @@ GATK_gatk_countreads_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1
 
 Performance comparison of two compilers.
 
-| Cores | gcc | arm@ |
+| Cores | gcc        | arm        |
 |-------|------------|------------|
-| All   |            |            |
+| All   |  408.0     |   408.0    |
 
 
 
@@ -310,22 +310,23 @@ GATK_gatk_countreadsspark_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 1
-      * Total Time: 0.495545 s
+      * Total Time: 0.549795 s
 ------------------------------------------------------------------------------
 GATK_gatk_countreadsspark_hiseq_2500_20k_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 0.50508 s
+      * Total Time: 0.501399 s
 ------------------------------------------------------------------------------
 GATK_gatk_countreadsspark_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 272.26074 s
+      * Total Time: 299.037115 s
 ------------------------------------------------------------------------------
 GATK_gatk_countreadsspark_1000_genomes_low_coverage_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 272.77505 s
+      * Total Time: 299.195437 s
+------------------------------------------------------------------------------
 ```
 
 x86 HPC output after `gcc` compile.
@@ -338,12 +339,12 @@ GATK_gatk_countreadsspark_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c5n
    - builtin
       * num_tasks: 1
-      * Total Time: 0.419445 s
+      * Total Time: 0.380283 s
 ------------------------------------------------------------------------------
 GATK_gatk_countreadsspark_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 298.801032 s
+      * Total Time: 301.929988 s
 ------------------------------------------------------------------------------
 ```
 
