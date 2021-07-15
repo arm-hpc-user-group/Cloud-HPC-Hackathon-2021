@@ -421,6 +421,24 @@ GATK_gatk_countbases_1000_genomes_low_coverage_gatk_4_1_8_1_arm_21_0_0_879_N_1_M
 x86 HPC output after `gcc` compile.
 
 ```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+GATK_gatk_countbases_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 0.0 s
+------------------------------------------------------------------------------
+GATK_gatk_countbases_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 486.0 s
+------------------------------------------------------------------------------
+GATK_gatk_countbases_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 4374.0 s
+------------------------------------------------------------------------------
 ```
 
 ## Test Case 4
@@ -439,6 +457,7 @@ Expected base counts were manually collected using samtools.
 
 ### ReFrame Output
 
+Output from the ARM HPC
 ```
 ==============================================================================
 PERFORMANCE REPORT
@@ -463,6 +482,30 @@ GATK_gatk_countbasesspark_1000_genomes_low_coverage_gatk_4_1_8_1_arm_21_0_0_879_
    - builtin
       * num_tasks: 1
       * Total Time: 458.258934 s
+------------------------------------------------------------------------------
+```
+
+Output from the ARM HPC
+
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+GATK_gatk_countbasesspark_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 1
+      * Total Time: 0.544623 s
+------------------------------------------------------------------------------
+GATK_gatk_countbasesspark_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 505.129401 s
+------------------------------------------------------------------------------
+GATK_gatk_countbasesspark_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 78.0 s
 ------------------------------------------------------------------------------
 ```
 
