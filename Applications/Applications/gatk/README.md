@@ -246,12 +246,22 @@ GATK_gatk_countreads_hiseq_2500_20k_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
 GATK_gatk_countreads_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 408.0 s
+      * Total Time: 414.0 s
 ------------------------------------------------------------------------------
 GATK_gatk_countreads_1000_genomes_low_coverage_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
       * Total Time: 408.0 s
+------------------------------------------------------------------------------
+GATK_gatk_countreads_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 4488.0 s
+------------------------------------------------------------------------------
+GATK_gatk_countreads_1000_genomes_high_coverage_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 4488.0 s
 ------------------------------------------------------------------------------
 ```
 
@@ -261,15 +271,21 @@ x86 HPC output
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-GATK_gatk_countreads_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+GATK_gatk_countreadsspark_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c5n
    - builtin
       * num_tasks: 1
-      * Total Time: 0.0 s
+      * Total Time: 0.399857 s
 ------------------------------------------------------------------------------
 GATK_gatk_countreads_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 390.0 s
+      * Total Time: 384.0 s
+------------------------------------------------------------------------------
+GATK_gatk_countreads_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 3630.0 s
 ------------------------------------------------------------------------------
 ```
 
@@ -308,22 +324,32 @@ GATK_gatk_countreadsspark_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 1
-      * Total Time: 0.549795 s
+      * Total Time: 0.545348 s
 ------------------------------------------------------------------------------
 GATK_gatk_countreadsspark_hiseq_2500_20k_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 0.501399 s
+      * Total Time: 0.512613 s
 ------------------------------------------------------------------------------
 GATK_gatk_countreadsspark_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 299.037115 s
+      * Total Time: 302.355639 s
 ------------------------------------------------------------------------------
 GATK_gatk_countreadsspark_1000_genomes_low_coverage_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 299.195437 s
+      * Total Time: 302.264508 s
+------------------------------------------------------------------------------
+GATK_gatk_countreadsspark_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 3231.738226 s
+------------------------------------------------------------------------------
+GATK_gatk_countreadsspark_1000_genomes_high_coverage_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 3234.871644 s
 ------------------------------------------------------------------------------
 ```
 
@@ -337,12 +363,17 @@ GATK_gatk_countreadsspark_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c5n
    - builtin
       * num_tasks: 1
-      * Total Time: 0.380283 s
+      * Total Time: 0.399857 s
 ------------------------------------------------------------------------------
 GATK_gatk_countreadsspark_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 301.929988 s
+      * Total Time: 281.917648 s
+------------------------------------------------------------------------------
+GATK_gatk_countreadsspark_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 2835.658355 s
 ------------------------------------------------------------------------------
 ```
 
