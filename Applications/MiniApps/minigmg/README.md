@@ -155,8 +155,8 @@ On-node scaling study for two architectures.
 X86 script:  
 [ReFrame Benchmark](#)  
 ARM script:  
-[ReFrame Benchmark](#)
-
+[ReFrame Benchmark](#)  
+Time: 
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
 | 1     |            | 19.09 s   |
@@ -167,12 +167,45 @@ ARM script:
 | 32    |            | 30.28 s   |
 | 64    |            | 46.11 s   |
 
+Number of v-cycles:
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            | 17        |
+| 2     |            | 17        |
+| 4     |            | 17        |
+| 8     |            | 17        |
+| 16    |            | 17        |
+| 32    |            | 17        |
+| 64    |            | 17        |
+
+Total time in MGSolve:
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            | 3.763650 s|
+| 2     |            | 4.905664 s|
+| 4     |            | 4.455355 s|
+| 8     |            | 4.296553 s|
+| 16    |            | 4.856182 s|
+| 32    |            | 6.893029 s|
+| 64    |            | 10.553772 s         |
+
+Total time of v-cycles:
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            | 3.757559 s          |
+| 2     |            | 4.900422 s         |
+| 4     |            | 4.451428 s         |
+| 8     |            | 4.289725 s         |
+| 16    |            | 4.844235 s         |
+| 32    |            | 6.862862 s         |
+| 64    |            | 10.490605 s         |
+
 #### Test Case 2
 X86 script:  
 [ReFrame Benchmark](#)  
 ARM script:  
-[ReFrame Benchmark](#)
-
+[ReFrame Benchmark](#)  
+Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
 | 1     |            | 164.75 s  |
@@ -183,12 +216,45 @@ ARM script:
 | 32    |            | 142.46 s  |
 | 64    |            | 252.93 s  |
 
+Number of v-cycles:
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            |           |
+| 2     |            |           |
+| 4     |            |           |
+| 8     |            |           |
+| 16    |            |           |
+| 32    |            |           |
+| 64    |            |           |
+
+Total time in MGSolve:
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            |           |
+| 2     |            |           |
+| 4     |            |           |
+| 8     |            |           |
+| 16    |            |           |
+| 32    |            |           |
+| 64    |            |           |
+
+Total time of v-cycles:
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            |           |
+| 2     |            |           |
+| 4     |            |           |
+| 8     |            |           |
+| 16    |            |           |
+| 32    |            |           |
+| 64    |            |           |
+
 #### Test Case 3
 X86 script:  
 [ReFrame Benchmark](#)  
 ARM script:  
-[ReFrame Benchmark](#)
-
+[ReFrame Benchmark](#)  
+Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
 | 1     |            | 1335.42 s |
@@ -199,12 +265,45 @@ ARM script:
 | 32    |            | 1087.96 s |
 | 64    |            | 2025.36 s |
 
+Number of v-cycles:
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            |           |
+| 2     |            |           |
+| 4     |            |           |
+| 8     |            |           |
+| 16    |            |           |
+| 32    |            |           |
+| 64    |            |           |
+
+Total time in MGSolve:
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            |           |
+| 2     |            |           |
+| 4     |            |           |
+| 8     |            |           |
+| 16    |            |           |
+| 32    |            |           |
+| 64    |            |           |
+
+Total time of v-cycles:
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            |           |
+| 2     |            |           |
+| 4     |            |           |
+| 8     |            |           |
+| 16    |            |           |
+| 32    |            |           |
+| 64    |            |           |
+
 #### Test Case 4
 X86 script:  
 [ReFrame Benchmark](#)  
 ARM script:  
-[ReFrame Benchmark](#)
-
+[ReFrame Benchmark](#)  
+Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
 | 1     |            | 4790.18 s |
@@ -214,6 +313,39 @@ ARM script:
 | 16    |            | 1915.15 s |
 | 32    |            | 3563.73 s |
 | 64    |            | 7220.35 s |
+
+Number of v-cycles:
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            |           |
+| 2     |            |           |
+| 4     |            |           |
+| 8     |            |           |
+| 16    |            |           |
+| 32    |            |           |
+| 64    |            |           |
+
+Total time in MGSolve:
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            |           |
+| 2     |            |           |
+| 4     |            |           |
+| 8     |            |           |
+| 16    |            |           |
+| 32    |            |           |
+| 64    |            |           |
+
+Total time of v-cycles:
+| Cores | C6gn (ARM) | C5n (X86) |
+|-------|------------|-----------|
+| 1     |            |           |
+| 2     |            |           |
+| 4     |            |           |
+| 8     |            |           |
+| 16    |            |           |
+| 32    |            |           |
+| 64    |            |           |
 
 ### Off-Node Architecture Comparison
 
