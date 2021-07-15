@@ -753,13 +753,21 @@ Demonstrate your gains by providing a scaling study for your test case, demonstr
 
 ### Compilation Summary
 
-Details of lessons from compiling the application.
+Compilation of `CoMD` includes MPI and appears to work equally well on the x86 HPC and ARM-based HPC. There were no surprises related to porting it to ARM and getting the code to correctly work with `spack`.
+
+OpenMP builds of `CoMD` do not appear to be supported. Use of `+mpi +openmp` causes conflicts and `-mpi +openmp` end up without a build target in `CoMD`'s source code.
 
 ### Performance Summary
 
-Details of lessons from analysing the performance of the application.
+`CoMD` has notably better performance with the C6gn (ARM) HPC compared to the C5n HPC. The observed difference was that the x86 HPC was measurably slower, approximately 1.16x the time required (369.6s / 319.4s). This observation was consistent across scaled up workloads using MPI in both the "weak" and "strong scaling" tests that were added to this repo via ReFrame code. These tests and example potential data were taken directly from CoMD's repository.
+
+Three different compilers were used on the C6gn (ARM) HPC to compare compiler differences: `gcc`, `arm` and `nvhpc`. The `nvhpc` compiler was observed to perform best, `arm` second and `gcc` last. This was across both the "weak scaling" and "strong scaling" tests. The approximate difference compared to `nvhpc` was that `arm` took 1.38x the time (39.50/28.58) and `gcc` took 1.57x the time (44.91/28.58). Under the heaviest load tested similar differences were also observed. `arm` was 1.37x the time (306.8 / 224.3) and `gcc` was 1.54x the time (344.8 / 224.3).
+
+Overall, the `nvhpc` appear to perform best; however, all three compilers appear to work fine and `CoMD` produces identical results.
 
 
 ### Optimisation Summary
 
-Details of lessons from performance optimising the application.
+`CoMD` appears to scale workload successfully via MPI; however, the program requires specific combinations of the `-i`, `-j` and `-k` flags to match the given MPI number.
+
+`OpenMP` builds were not able to be done. A scaling run was done with `OMP` incrementing; however, results are identical to no OMP changes since the `+openmp` variant of `CoMD` is not available.
