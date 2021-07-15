@@ -27,7 +27,7 @@ class MiniXyceTest(hack.HackathonBase):
     # Command line options to pass executable_opts is parametrised
     # executable_opts = ['-c tests/cir1.net > output']
     exec_opts = parameter([
-        # "-c tests/cir3.net --t_start 0 --pf default_params.txt > output", # This test is failing, why?
+        "-c tests/cir3.net --t_start 0 --pf default_params.txt > output", # This test is failing, why?
         "-c tests/cir1.net --t_start 0 --pf default_params.txt > output",
         "-c tests/cir2.net --t_start 0 --pf default_params.txt > output",
         "-c tests/cir4.net --t_start 0 --pf default_params.txt > output",
