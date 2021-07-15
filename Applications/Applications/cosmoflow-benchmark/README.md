@@ -210,21 +210,21 @@ List of top-10 functions / code locations from a serial profile.
 
 Profiling command used:
 ```
-:
+:map -profile /opt/amazon/openmpi/bin/mpirun -np 1 -bind-to none -map-by slot  -x NCCL_DEBUG=INFO -x LD_LIBRARY_PATH -x PATH     -mca pml ob1 -mca btl ^openib     python train.py -d
 ```
 
 | Position | Routine | Time (s) | Time (%) |
 |----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
+| 1        |   tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,inputs, attrs, num_outputs)      |          |      97.8%    |
+| 2        |  PYTHON_IO_WRITE       |          |    0.5%      |
+| 3        |   pthread_cond_wait      |          |   0.4%       |
+| 4        |  PYTHON_IO_READ       |          |     0.3%     |
+| 5        |   open64      |          |    0.2%      |
+| 6        |   distributions_from_metadata      |          |   0.2%       |
+| 7        |  __xstat64       |          |    0.1%      |
+| 8        |   _fill_cache      |          |    0.1%      |
+| 9        |  malloc       |          |    0.1%      |
+| 10       |    DecodeVarint     |          |   0.1%       |
 
 
 ### Full Node Hot-spot Profile
@@ -233,21 +233,19 @@ List of top-10 functions / code locations from a full node profile.
 
 Profiling command used:
 ```
-:
+:map -profile /opt/amazon/openmpi/bin/mpirun -np 8 -bind-to none -map-by slot  -x NCCL_DEBUG=INFO -x LD_LIBRARY_PATH -x PATH     -mca pml ob1 -mca btl ^openib     python train.py -d
 ```
 
 | Position | Routine | Time (s) | Time (%) | MPI (%) |
 |----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
-| 10       |         |          |          |         |
+| 1        |  MPI_Allreduce       |          |   95.9%       |    95.9%     |
+| 2        |  nanosleep       |          |     4%     |         |
+| 3        |   MPI_Finalize      |          |   <0.1%       |    <0.1%       |
+| 4        |   MPI_Bcast      |          |    <0.1%        |    <0.1%       |
+| 5        |   malloc      |          |    <0.1%        |         |
+| 6        |   thread_start      |          |     <0.1%       |    96%     |
+| 7        |    start_thread     |          |        <0.1%    |     96%    |
+| 8        |   std::execute_native_thread_routine(void*)      |          |     <0.1%     |  96%       |
 
 ### Strong Scaling Study
 
