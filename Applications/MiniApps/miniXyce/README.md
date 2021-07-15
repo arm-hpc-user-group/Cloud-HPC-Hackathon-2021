@@ -297,13 +297,15 @@ MiniXyce_short_test_minixyce__nvhpc_N_1_MPI_1_OMP_1
 Performance comparison of three compilers(in seconds).
 
 | Cores | GCC@10.3.0 | ARM@20.0 | NVHPC   |
-|-1-----|-15.7698----|-16.5698--|-15.6227-|
+|-------|------------|----------|---------|
+| 1     | 15.7698    | 16.5698  | 15.6227 |
 | 2     | 498.911    | 284.202  | 513.17  |
 | 4     | 932.919    | 732.316  | 948.424 |
 | 8     | 476.893    | 386.378  | 523.699 |
 | 16    | 184.024    | 136.656  | 176.202 |
 | 32    | 85.407     | 54.2524  | 80.6583 |
 | 64    | 52.2978    | 39.9701  | 51.5188 |
+
 
 
 ### Serial Hot-spot Profile
@@ -359,14 +361,14 @@ Profiling command used:
 On-node scaling study for three compilers.
 
 | Cores | GCC@10.3.0 | ARM@20.0 | NVHPC   |
-|-1-----|-15.7698----|-16.5698--|-15.6227-|
+|-------|------------|----------|---------|
+| 1     | 15.7698    | 16.5698  | 15.6227 |
 | 2     | 498.911    | 284.202  | 513.17  |
 | 4     | 932.919    | 732.316  | 948.424 |
 | 8     | 476.893    | 386.378  | 523.699 |
 | 16    | 184.024    | 136.656  | 176.202 |
 | 32    | 85.407     | 54.2524  | 80.6583 |
 | 64    | 52.2978    | 39.9701  | 51.5188 |
-
 
 ### Off-Node Scaling Study
 
@@ -412,13 +414,26 @@ FFLAGS=" "
 
 Compiler flags after:
 ```
-CFLAGS=-O3 -march=native -funroll-loops -mtune=cortex-a76
-FFLAGS=-O3 -march=native -funroll-loops -mtune=cortex-a76
+OMP_GNU=-fopenmp
+CFLAGS=-Ofast -march=linux-amzn2-graviton2 -funroll-loops -mtune=cortex-a76
+CXXFLAGS=-Ofast -march=linux-amzn2-graviton2 -funroll-loops -mtune=cortex-a76
+```
+or
+```
+OMP_GNU=-fopenmp
+CFLAGS=-O3 -march=linux-amzn2-graviton2 -funroll-loops -mtune=cortex-a76
+CXXFLAGS=-O3 -march=linux-amzn2-graviton2 -funroll-loops -mtune=cortex-a76
+```
+or for nvhpc:
+```
+OMP_NVHPC=-mp=multicore
+FLAGS_NVHPC=-O3 -fast
+CFLAGS_NVHPC=-O3 -fast
 ```
 
 #### Compiler Flag Performance
 
-We didn't observe any significant performance improvement by adding the new flags.
+We didn't observe any significant performance improvement by adding the new flags. Skip this part
 
 | Cores | Original Flags | New Flags |
 |-------|----------------|-----------|
@@ -441,6 +456,7 @@ Please attach the corresponding apl files.
 
 Performance analysis of the use of different maths libraries.
 
+minixyce does not depend on any math libraries. Skip this part.
 
 | Cores | OpenBLAS | ArmPL | BLIS | 
 |-------|----------|-------| ---- |
@@ -459,7 +475,6 @@ How fast can you make the code?
 
 Use all of the above aproaches and any others to make the code as fast as possible.
 Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
-
 
 
 ## Report
