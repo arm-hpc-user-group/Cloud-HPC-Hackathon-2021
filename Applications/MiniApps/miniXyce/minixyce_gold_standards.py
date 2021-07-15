@@ -27,12 +27,10 @@ class MiniXyceTest(hack.HackathonBase):
     # Command line options to pass executable_opts is parametrised
     # executable_opts = ['-c tests/cir1.net > output']
     exec_opts = parameter([
-        #"-c tests/cir1.net --t_start 0 --pf default_params.txt > output",
-        #"-c tests/cir2.net > output",
-        #"-c tests/cir3.net > output",
-        #"-c tests/cir4.net > output",
-        #"-c tests/cir5.net > output"
-        "-c tests/cir6.net --t_start 0 --pf default_params.txt > output",
+        # "-c tests/cir3.net --t_start 0 --pf default_params.txt > output", # This test is failing, why?
+        "-c tests/cir1.net --t_start 0 --pf default_params.txt > output",
+        "-c tests/cir2.net --t_start 0 --pf default_params.txt > output",
+        "-c tests/cir4.net --t_start 0 --pf default_params.txt > output",
         ])
 
     # Where the output is written to
@@ -44,9 +42,8 @@ class MiniXyceTest(hack.HackathonBase):
     # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
     spec = parameter([
         'minixyce %gcc@10.3.0',     # CloverLeaf with the GCC compiler
-
-#        'cloverleaf@1.1 %arm@21.0.0.879', # CloverLeaf with the Arm compiler
-#        'cloverleaf@1.1 %nvhpc@21.2'      # CloverLeaf with the NVIDIA compiler
+         'minixyce %arm@21.0.0.879', # CloverLeaf with the Arm compiler
+         'minixyce %nvhpc@21.2'      # CloverLeaf with the NVIDIA compiler
     ])
 
     # Parameters - MPI / Threads - Used for scaling studies
@@ -68,32 +65,40 @@ class MiniXyceTest(hack.HackathonBase):
     @run_before('sanity')
     def set_sanity_patterns(self):
 
-       # Use the logfile for validation testing and performance
-
-       # Validation at step 87 (BM_short)
-       # Regex - Volume   Mass   Density   Pressure   Internal Energy   Kinetic Energy   Total Energy
-       # sol_regex = r'\s+step:\s+87\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)'
-       # Validate for kinetic energy (6)
-       # result = sn.extractsingle(sol_regex, self.logfile, 6, float)
-
-       expected = 0.3075
-       expected_lower = 0.30745
-       expected_upper = 0.30755
-
-       # Perform a bounded assert
-       self.sanity_patterns = sn.assert_bounded(expected, expected_lower, expected_upper)
-
-       # Performance Testing - FOM Total Time units 's'
-       # We dont set an expected value
-       self.reference = {
-          '*': {'Total Time': (0, None, None, 's'),}
-       }
-
-
-       # CloverLeaf prints the 'Wall clock' every timestep - so extract all lines matching the regex
+       # Log performance
        pref_regex = r'\s+Total Simulation Time:\s+(\S+)'
        self.perf_patterns = {
             'Total Time': sn.extractsingle(pref_regex, self.logfile, 1, float, item=-1)
        }
+
+       # Gold standard validation
+       filename = self.exec_opts.split(" ")[1]
+       filename = filename[filename.index('/')+1:]
+       cirname = filename[:filename.index('.')]
+       gold_standard_filename = "tests/goldStandards/"+filename+".prn"
+       output_filename = "tests/"+cirname+"_tran_results.prn" #cir1_tran_results.prn  
+       line = 0
+       with open(output_filename,"r") as f1, open(gold_standard_filename,"r") as f2:
+           for i,j in zip(f1,f2):
+               if (line != 501):
+                   line += 1
+                   continue
+               else:
+                   # compare line 501(final state)
+                   i = [float(val) for val in i.strip('\n').split()]
+                   j = [float(val) for val in j.strip('\n').split()][1:]
+                   for ind in range(len(j)):
+                       print ("Output: ", abs(i[ind]) , " Goldstandard: ", abs(j[ind]))
+                       self.sanity_patterns = sn.assert_bounded(abs(i[ind]), abs(j[ind])-1e-5, abs(j[ind])+1e-5)
+                   break;
+
+       '''
+       pref_regex = r'\s+TIME\s+(\S+)'
+       self.perf_patterns = {
+            'Found': sn.extractsingle(pref_regex, "tests/cir2_tran_results.prn", 1, str, item=-1)
+       }
+       '''
+
+
 
 
