@@ -4,7 +4,9 @@
 
 **URL:** https://computing.llnl.gov/projects/co-design/laghos
 
-**Team:**  
+**Team:**  Iman
+
+##### notice: the output folders are dumped into /data for verification/further analysis
 
 ## Compilation
 
@@ -178,18 +180,16 @@ Concretized
 [+]  m7325ee              ^cmake@3.20.5%gcc@10.3.0~doc+ncurses+openssl+ownlibs~qt build_type=Release arch=linux-amzn2-graviton2
 ```
 
+## Validation
+Laghos conveniently has specific run configurations and results for verification here: https://github.com/CEED/Laghos#verification-of-results Those verification tables are used to make the 4 test cases that follow, which checks the final iterations (step), time steps (dt) and the energy absolute values (|e|). 
+
 ## Test Case 1
 
 [ReFrame Benchmark 1](#)
 
 ```
-../bin/reframe -c benchmark.py -r --performance-report
+reframe --stage /scratch/home/${USER} -c t0.py -r --performance-report
 ```
-
-### Validation
-
-Details of the validation for `Test Case 1`.
-
 
 ### ReFrame Output
 
@@ -197,77 +197,156 @@ Details of the validation for `Test Case 1`.
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-     **** 
+laghos_test0_laghos_3_1__arm_N_1_MPI_32_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 32
+      * Major kernels total time: 2.585816651 s
+      * Major kernels total rate: 20.8506446036 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test0_laghos_3_1__arm_N_2_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Major kernels total time: 6.400724779 s
+      * Major kernels total rate: 8.4234123262 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test0_laghos_3_1__arm_N_2_MPI_128_OMP_1
+   - builtin
+      * num_tasks: 128
+      * Major kernels total time: 10.900726409 s
+      * Major kernels total rate: 4.9460872585 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test0_laghos_3_1__arm_N_4_MPI_256_OMP_1
+   - builtin
+      * num_tasks: 256
+      * Major kernels total time: 14.234962723 s
+      * Major kernels total rate: 3.7875718433 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test0_laghos_3_1__gcc_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Major kernels total time: 2.676560093 s
+      * Major kernels total rate: 20.1437450035 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test0_laghos_3_1__gcc_N_2_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Major kernels total time: 6.41461884 s
+      * Major kernels total rate: 8.4051672196 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test0_laghos_3_1__gcc_N_2_MPI_128_OMP_1
+   - builtin
+      * num_tasks: 128
+      * Major kernels total time: 10.80813928 s
+      * Major kernels total rate: 4.9884575507 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test0_laghos_3_1__gcc_N_4_MPI_256_OMP_1
+   - builtin
+      * num_tasks: 256
+      * Major kernels total time: 13.939522901 s
+      * Major kernels total rate: 3.8678471554 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test0_laghos_3_1__nvhpc_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Major kernels total time: 2.707359012 s
+      * Major kernels total rate: 19.9145897389 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test0_laghos_3_1__nvhpc_N_2_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Major kernels total time: 6.440125839 s
+      * Major kernels total rate: 8.3718774055 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test0_laghos_3_1__nvhpc_N_2_MPI_128_OMP_1
+   - builtin
+      * num_tasks: 128
+      * Major kernels total time: 10.287958023 s
+      * Major kernels total rate: 5.24068468 Mdofs x steps / s
+------------------------------------------------------------------------------
+laghos_test0_laghos_3_1__nvhpc_N_4_MPI_256_OMP_1
+   - builtin
+      * num_tasks: 256
+      * Major kernels total time: 13.354695338 s
+      * Major kernels total rate: 4.0372275545 Mdofs x steps / s
 ------------------------------------------------------------------------------
 ```
 
 ### On-node Compiler Comparison
 
-Performance comparison of two compilers.
+Performance comparison of two compilers. Measure is Major kernels total rate in megadorf x steps / seconds.
 
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-|       |            |            |
-
+| Cores | arm        | gcc        | nvhpc      | 
+|-------|------------|------------|------------|
+|   32  | 20.85      |  20.14     | 19.91      |
 
 ### Serial Hot-spot Profile
 
 List of top-10 functions / code locations from a serial profile.
 
-Profiling command used:
+Profiling command used: I actually used the normal reframe test case run, but the script includes flags for _PROFILE\_RUN_ and _DEBUG\_RUN_ which I use to set it up for profiling or a short run for debug. 
 ```
-:
+reframe --stage /scratch/home/${USER} -c t0.py -r --performance-report
 ```
 
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
+The profiling is done on arm compiler, by using the ReFrame's _LaunchWrapper_ call map like this:
+```
+self.job.launcher = LauncherWrapper(self.job.launcher,'map',['--profile', '--export-functions='+self.proffile])
+```
 
+The resulting top 10:
+
+|depth|Self |Total|Child|MPI|Overhead|Regions|Function                                                                                                                                                                                                                                                                                                            |
+|-----|-----|-----|-----|---|--------|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|0    |17.0%|17.0%|     |   |        |       |mfem::PAMassApply(int, int, int, int, mfem::Array<double                                                                                                                                                                                                                                                            |
+|0    |11.6%|11.6%|     |   |        |       |cos                                                                                                                                                                                                                                                                                                                 |
+|0    |9.0% |9.7% |0.7% |   |        |       |void mfem::hydrodynamics::QUpdateBody<2>(int, int, int, int, bool, bool, double, double, double, double, double*, double*, double*, double*, double*, double*, double*, double*, double*, double const*, double const*, double const*, double const*, double const*, double const*, double const*, double*, double*)|
+|0    |7.2% |7.2% |     |   |        |       |mfem::add(mfem::Vector const&, double, mfem::Vector const&, mfem::Vector&)                                                                                                                                                                                                                                          |
+|0    |6.5% |6.5% |     |   |        |       |mfem::ElementRestriction::Mult(mfem::Vector const&, mfem::Vector&) const                                                                                                                                                                                                                                            |
+|0    |6.5% |6.5% |     |   |        |       |mfem::ElementRestriction::MultTranspose(mfem::Vector const&, mfem::Vector&) const                                                                                                                                                                                                                                   |
+|0    |6.1% |6.1% |     |   |        |       |mfem::Mult(mfem::DenseMatrix const&, mfem::DenseMatrix const&, mfem::DenseMatrix&)                                                                                                                                                                                                                                  |
+|0    |4.0% |4.0% |     |   |        |       |mfem::Poly_1D::Basis::Eval(double, mfem::Vector&) const                                                                                                                                                                                                                                                             |
+|0    |3.2% |3.2% |     |   |        |       |mfem::Poly_1D::Basis::Eval(double, mfem::Vector&, mfem::Vector&) const                                                                                                                                                                                                                                              |
+|0    |3.2% |8.3% |5.1% |   |        |       |mfem::IsoparametricTransformation::Transform(mfem::IntegrationPoint const&, mfem::Vector&)                                                                                                                                                                                                                          |
 
 ### Full Node Hot-spot Profile
 
 List of top-10 functions / code locations from a full node profile.
 
-Profiling command used:
+Profiling command used: I actually used the normal reframe test case run, but the script includes flags for _PROFILE\_RUN_ and _DEBUG\_RUN_ which I use to set it up for profiling or a short run for debug. 
 ```
-:
+reframe --stage /scratch/home/${USER} -c t0.py -r --performance-report
 ```
 
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
-| 10       |         |          |          |         |
+The profiling is done on arm compiler, by using the ReFrame's _LaunchWrapper_ call map like this:
+```
+self.job.launcher = LauncherWrapper(self.job.launcher,'map',['--profile', '--export-functions='+self.proffile])
+```
+
+|depth|Self |Total|Child|MPI  |Overhead|Regions|Function                                                |
+|-----|-----|-----|-----|-----|--------|-------|--------------------------------------------------------|
+|0    |80.1%|80.1%|     |80.1%|        |       |MPI_Allreduce                                           |
+|0    |6.1% |6.1% |     |6.1% |        |       |MPI_Waitall                                             |
+|0    |5.9% |5.9% |     |5.9% |        |       |MPI_Waitany                                             |
+|0    |3.0% |3.0% |     |3.0% |        |       |MPI_Isend                                               |
+|0    |1.9% |1.9% |     |1.9% |        |       |MPI_Irecv                                               |
+|0    |0.5% |0.5% |     |0.5% |        |       |MPI_Barrier                                             |
+|0    |0.4% |0.4% |     |0.4% |        |       |MPI_Finalize                                            |
+|0    |0.3% |0.3% |     |0.3% |        |       |MPI_Scan                                                |
+|0    |0.2% |0.2% |     |     |        |       |mfem::PAMassApply(int, int, int, int, mfem::Array<double|
+|0    |0.1% |0.1% |     |     |        |       |cos                                                     |
+
 
 ### Strong Scaling Study
 
-On-node scaling study for two compilers.
+On-node scaling study for two compilers. Here 'major kernels total time' in seconds, is reported. 
 
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
+| Cores | arm  | gcc  | nvhpc |
+|-------|------|------|-------|
+| 1     | 2.66 | 2.31 | 2.86  |
+| 4     | 1.47 | 1.40 | 1.56  |
+| 16    | 2.13 | 2.17 | 2.20  |
+| 64    | 3.58 | 3.83 | 3.71  |
 
 
 ### Off-Node Scaling Study
@@ -283,22 +362,6 @@ Off-node scaling study comparing C6g and C6gn instances.
 | 2     | 128   |     |      |
 | 4     | 256   |     |      |
 | 8     | 512   |     |      |
-
-
-### On-Node Architecture Comparison
-
-On-node scaling study for two architectures.
-
-| Cores | C6gn (Aarch64) | C5n (X86) |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
-
 
 ## Optimisation
 
