@@ -223,7 +223,7 @@ samtools view -c HG00096.mapped.ILLUMINA.bwa.GBR.low_coverage.20120522.bam
 
 # reads in the "large" BAM
 samtools view -c HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam
-
+652944493
 ```
 
 ### ReFrame Output
