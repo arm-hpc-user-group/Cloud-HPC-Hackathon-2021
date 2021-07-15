@@ -168,8 +168,48 @@ gatk@4.1.8.1%gcc@10.3.0~r arch=linux-amzn2-skylake_avx512
         ^util-linux-uuid@2.36.2%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
 ```
 
-
 ## Test Case 1
+
+This confirms that GATK is working by doing a common read analysis of a BAM file using the `ReadCounts` tool that has always been available in GATK. This is run against the small, medium and large sequencing runs noted in the description. This is run on both the ARM and x86 HPC.
+
+```
+reframe -c gatk_countreads.py -r --performance-report
+```
+
+### Validation
+
+This is a public BAM file from an Illumina HiSeq 2500 and is known to have 20K reads and 5000000 bases in it.
+
+Running GATK by hand (same commands) lets you inspect stats and work with this file. It is small enough that it should always process in a fraction of a second.
+
+### ReFrame Output
+
+ARM HPC output 
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+GATK_gatk_countreads_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 0.0 s
+------------------------------------------------------------------------------
+GATK_gatk_countreads_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 6.8 s
+------------------------------------------------------------------------------
+```
+
+x86 HPC output after `gcc` compile.
+
+```
+
+```
+
+## Test Case 2
+
+ReadCountsSpark
 
 This confirms that GATK is working by doing a basic analysis of a BAM file. The BAM file will be downloaded, if it doesn't already exist.
 
@@ -190,39 +230,31 @@ ARM HPC output after `gcc` compile.
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-GATK_gatk_countbases_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+GATK_gatk_countreadsspark_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 1
-      * Total Time: 0.0 s
+      * Total Time: 0.499092 s
 ------------------------------------------------------------------------------
-GATK_gatk_countbases_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+GATK_gatk_countreadsspark_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 0.0 s
+      * Total Time: 289.185667 s
 ------------------------------------------------------------------------------
 ```
 
 x86 HPC output after `gcc` compile.
 
 ```
-==============================================================================
-PERFORMANCE REPORT
-------------------------------------------------------------------------------
-GATK_gatk_countbases_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
-- aws:c5n
-   - builtin
-      * num_tasks: 1
-      * Total Time: 0.0 s
-------------------------------------------------------------------------------
-```
-
-## Test Case 2
-
-Similar to the first test but using the Spark verion of base counting. This exercises different code but is expected to have identical read and base counts. The output format is different.
 
 ```
-reframe -c gatk_countbases_spark.py -r --performance-report
+
+## Test Case 3
+
+BasesCount
+
+```
+reframe -c gatk_countbases.py -r --performance-report
 ```
 
 ### Validation
@@ -254,36 +286,32 @@ x86 HPC output after `gcc` compile.
 ```
 ```
 
-## Test Case 1
+## Test Case 4
 
 [ReFrame Benchmark 1](#)
 
 ```
-../bin/reframe -c benchmark.py -r --performance-report
+reframe -c gatk_countbases.py -r --performance-report
 ```
 
 ### Validation
 
-Details of the validation for `Test Case 1`.
+samtools showing count
 
 
 ### ReFrame Output
 
 ```
-==============================================================================
-PERFORMANCE REPORT
------------------------------------------------------------------------------
-     **** 
-------------------------------------------------------------------------------
+...
 ```
 
 ### On-node Compiler Comparison
 
 Performance comparison of two compilers.
 
-| Cores | Compiler 1 | Compiler 2 |
+| Cores | gcc@10.3.0 | arm@ |
 |-------|------------|------------|
-|       |            |            |
+| All   |            |            |
 
 
 ### Serial Hot-spot Profile
