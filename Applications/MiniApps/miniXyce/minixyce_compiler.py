@@ -44,7 +44,8 @@ class MiniXyceTest(hack.HackathonBase):
     # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
     spec = parameter([
         'minixyce %gcc@10.3.0',     # CloverLeaf with the GCC compiler
-        'minixyce %arm'     # CloverLeaf with the GCC compiler
+        'minixyce %arm',     # CloverLeaf with the GCC compiler
+        'minixyce %nvhpc',     # CloverLeaf with the GCC compiler
 #        'cloverleaf@1.1 %arm@21.0.0.879', # CloverLeaf with the Arm compiler
 #        'cloverleaf@1.1 %nvhpc@21.2'      # CloverLeaf with the NVIDIA compiler
     ])
@@ -82,6 +83,32 @@ class MiniXyceTest(hack.HackathonBase):
 
        # Perform a bounded assert
        self.sanity_patterns = sn.assert_bounded(expected, expected_lower, expected_upper)
+
+       # Basic sanity checks
+       '''
+         5 Circuit_attributes:
+     Number_of_devices: 6
+     Resistors_(R): 2
+     Inductors_(L): 1
+     Capacitors_(C): 1
+     '''
+
+       sol_regex = r'\s+Number_of_devices:\s+(\S+)'
+       result = sn.extractsingle(sol_regex, self.logfile, 1, int)
+       self.sanity_patterns = sn.assert_bounded(result, 15001, 15001)
+
+       sol_regex = r'\s+Resistors_\(R\):\s+(\S+)'
+       result = sn.extractsingle(sol_regex, self.logfile, 1, int)
+       self.sanity_patterns = sn.assert_bounded(result, 5000, 5000)
+       
+       sol_regex = r'\s+Inductors_\(L\):\s+(\S+)'
+       result = sn.extractsingle(sol_regex, self.logfile, 1, int)
+       self.sanity_patterns = sn.assert_bounded(result, 5000, 5000)
+
+       sol_regex = r'\s+Capacitors_\(C\):\s+(\S+)'
+       result = sn.extractsingle(sol_regex, self.logfile, 1, int)
+       self.sanity_patterns = sn.assert_bounded(result, 5000, 5000)
+
 
        # Performance Testing - FOM Total Time units 's'
        # We dont set an expected value
