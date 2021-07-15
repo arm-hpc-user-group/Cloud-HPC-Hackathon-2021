@@ -81,7 +81,7 @@ class GATKCountBasesSpark20kTest(GATKTest):
                 bam_file="/scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam",
                 gatk_tool="CountBasesSpark", 
                 expected_bases=5000000,
-                perf_regex=r'Job 2 finished: .* took (\S+) s',
+                perf_regex=r'Job .* finished: .* took (\S+) s',
             )
 
 @rfm.simple_test
@@ -103,7 +103,7 @@ class GATKCountBasesSpark1000GenomesLowCoverageTest(GATKTest):
                 bam_file="/scratch/home/jayson/gatk-data/HG00096.mapped.ILLUMINA.bwa.GBR.low_coverage.20120522.bam",
                 gatk_tool="CountBasesSpark", 
                 expected_bases=14506358900,
-                perf_regex=r'Job 2 finished: .* took (\S+) s',
+                perf_regex=r'Job .* finished: .* took (\S+) s',
             )
 
 @rfm.simple_test
