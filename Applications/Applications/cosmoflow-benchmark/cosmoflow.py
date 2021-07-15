@@ -15,12 +15,12 @@ class CosmoFlowTest(hack.HackathonBase):
     # Define test case
     # In this case we download the file from GitHub and write as clover.in - the expected input file
     
-    prerun_cmds = ['cp -rf /home/malaithannir/Cloud-HPC-Hackathon-2021/Applications/Applications/cosmoflow-benchmark ./' ]
+    prerun_cmds = ['cp -r /home/malaithannir/Cloud-HPC-Hackathon-2021/Applications/Applications/cosmoflow-benchmark/src src', 'spack load py-tensorflow-estimator%gcc@10.3.0', 'spack load py-wandb%gcc@10.3.0', 'spack load py-promise%gcc@10.3.0', 'spack load py-setuptools%gcc@10.3.0', 'spack load py-pathtools', 'spack load cosmoflow-benchmark%gcc@10.3.0/oz44zmc']
     
 
     # Define Execution
     # Binary to run
-    executable = 'python train.py > output'
+    executable = f'time python3 src/train.py > output'
     # Command line options to pass executable_opts is parametrised
     #executable_opts = ['configs/cosmo.yaml']
 
@@ -29,11 +29,11 @@ class CosmoFlowTest(hack.HackathonBase):
     # Store the output file (used for validation later)
     keep_files = [logfile]
 
-    exec_opts = parameter(["config/cosmo.yaml",])
+    exec_opts = parameter(["src/cosmo.yaml",])
 
     # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
     spec = parameter([
-        'cosmoflow-benchmark %gcc@10.3.0'     # CloverLeaf with the GCC compiler
+        '^cosmoflow-benchmark/oz44zmc %gcc@10.3.0'     # CloverLeaf with the GCC compiler
      #   'minixyce %arm'     # CloverLeaf with the GCC compiler
 #        'cloverleaf@1.1 %arm@21.0.0.879', # CloverLeaf with the Arm compiler
 #        'cloverleaf@1.1 %nvhpc@21.2'      # CloverLeaf with the NVIDIA compiler
@@ -44,7 +44,7 @@ class CosmoFlowTest(hack.HackathonBase):
         #{ 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
         # { 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
         # { 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
-         { 'nodes' : 1, 'mpi' : 1, 'omp' : 1},
+         { 'nodes' : 1, 'mpi' : 4, 'omp' : 8},
         # { 'nodes' : 2, 'mpi' : 128, 'omp' : 1},
         # { 'nodes' : 4, 'mpi' : 256, 'omp' : 1},
         # { 'nodes' : 8, 'mpi' : 512, 'omp' : 1},
