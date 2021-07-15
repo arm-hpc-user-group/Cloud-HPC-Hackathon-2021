@@ -939,8 +939,208 @@ Compiler optimization not tested.
 
 Optimized compiler flag testing on the ARM HPC with `gcc`, `nvhpc` and `arm` compilers.
 
-...
+```
+reframe -c comd_weak_omp_optimized.py -r --performance-report
+```
 
+### Validation
+
+See `Test Case 3`'s description. This test is split out because it focuses on trying compiler optimizations, mainly on the ARM HPC with all available compilers. See the "Optimisation" second for a summary of results and compilers and respective flags used.
+
+See `comd_weak_omp_optimized.py` for the steps, data download and copy of the test from CoMD's website.
+
+
+### ReFrame Output
+
+ReFrame output from the ARM HPC.
+
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 74.1731 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_2
+   - builtin
+      * num_tasks: 1
+      * Total Time: 37.4698 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_4
+   - builtin
+      * num_tasks: 1
+      * Total Time: 18.9969 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_8
+   - builtin
+      * num_tasks: 1
+      * Total Time: 10.4386 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_16
+   - builtin
+      * num_tasks: 1
+      * Total Time: 5.5555 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_32
+   - builtin
+      * num_tasks: 1
+      * Total Time: 3.0709 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_36
+   - builtin
+      * num_tasks: 1
+      * Total Time: 2.8487 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_64
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1.935 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 64.3581 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_2
+   - builtin
+      * num_tasks: 1
+      * Total Time: 32.4968 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_4
+   - builtin
+      * num_tasks: 1
+      * Total Time: 16.4493 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_8
+   - builtin
+      * num_tasks: 1
+      * Total Time: 9.0953 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_16
+   - builtin
+      * num_tasks: 1
+      * Total Time: 4.8372 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_32
+   - builtin
+      * num_tasks: 1
+      * Total Time: 2.6707 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_36
+   - builtin
+      * num_tasks: 1
+      * Total Time: 2.4786 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_64
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1.7449 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 56.4017 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_2
+   - builtin
+      * num_tasks: 1
+      * Total Time: 28.4105 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_4
+   - builtin
+      * num_tasks: 1
+      * Total Time: 14.587 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_8
+   - builtin
+      * num_tasks: 1
+      * Total Time: 7.999 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_16
+   - builtin
+      * num_tasks: 1
+      * Total Time: 4.2243 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_32
+   - builtin
+      * num_tasks: 1
+      * Total Time: 2.3321 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_36
+   - builtin
+      * num_tasks: 1
+      * Total Time: 2.1806 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_64
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1.5382 s
+------------------------------------------------------------------------------
+```
+
+ReFrame report output from the x86 HPC.
+
+```
+
+```
+
+## Optimisation
+
+Details of steps taken to optimise performance of the application.
+Please document work with compiler flags, maths libraries, system libraries, code optimisations, etc.
+
+
+
+### Compiler Flag Tuning
+
+Same OpenMP compiling was done as in `Test Case 3`. Just different flags via `spack edit comd`. Here is a diff of the flags tried per-architecture.
+
+```
+     @property
+     def build_targets(self):
+         targets = []
+```
+Compiler flas before:
+```
+-        cflags = ' -std=c99 '
+-        optflags = ' -g -O5 '
+```
+
+Compiler flags after:
+```
++        # ARM HPC w/armclang
++        #cflags = ' -mcpu=native -std=c99 '
++        #optflags = ' -g -O5 -Ofast'
++
++        # ARM HPC w/gcc
++        cflags = ' -mcpu=native -std=c99 '
++        optflags = ' -g -Ofast -ffast-math'
++
++        # ARM HPC w/nvc
++        cflags = ' -std=c99 -mp=multicore'
++        optflags = ' -g -O4 -fast'
+```
+
+#### Compiler Flag Performance
+
+`nvhpc` on C6gn (ARM), which was the best, previously observed performance before optimization.
+
+No large difference observed. 
+
+| Cores | Original Flags | New Flags |
+|-------|------------|----------------|
+|   1   |  56.42     |  56.40         |
+|   2   |  28.46     |  28.41         |
+|   4   |  14.42     |  14.587         |
+|   8   |  7.96     |  7.99         |
+|   16  |  4.22     |  4.22         |
+|   32  |  2.32     |  2.33         |
+|   64  |  1.59     |  2.18         |
+
+Both `gcc` and `nvhpcc` also have very similar results. The spack config was double-checked to confirm it has the updated flags.
 
 ### Maths Library Report
 
@@ -972,6 +1172,8 @@ Overall, the `nvhpc` appear to perform best; however, all three compilers appear
 
 
 ### Optimisation Summary
+
+Compiler optimization did not appear to notably change the performance of the three compilers on the ARM HPC. The spack package for `comd` appears to compile efficiently with its existing flags.
 
 `CoMD` appears to scale workload successfully via MPI; however, the program requires specific combinations of the `-i`, `-j` and `-k` flags to match the given MPI number.
 
