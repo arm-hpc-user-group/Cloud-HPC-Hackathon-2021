@@ -1081,11 +1081,7 @@ CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_64
 ------------------------------------------------------------------------------
 ```
 
-ReFrame report output from the x86 HPC.
-
-```
-
-```
+Compiler optimization not run on the c5n (x86) HPC.
 
 ## Optimisation
 
