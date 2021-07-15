@@ -12,11 +12,11 @@ data:
     compression: NONE
     #n_train: 524288
     #n_valid: 65536
-    n_train: 4
+    n_train: 32
     n_valid: 32
     sample_shape: [128, 128, 128, 4]
     batch_size: 1
-    n_epochs: 4
+    n_epochs: 32
     shard: True
     apply_log: True
     prefetch: 4

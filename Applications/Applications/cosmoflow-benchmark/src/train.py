@@ -387,7 +387,7 @@ def main():
     
     duration = time.perf_counter() - start_time
 
-    print('Total time: %.4f s' % duration)
+    print('Total time: %.4f' % duration)
     if dist.rank == 0:
         logging.info('All done!')
 
