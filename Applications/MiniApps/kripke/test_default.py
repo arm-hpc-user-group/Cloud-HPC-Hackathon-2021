@@ -5,7 +5,7 @@ import hackathon as hack
 @rfm.simple_test
 class KripkeTest(hack.HackathonBase):
     # Where to run the binaries 'aws:c6gn' on Arm or 'aws:c5n' on Intel
-    valid_systems = ['aws:c6gn']
+    valid_systems = ['aws:c5n', 'awsc6gn']
 
     # Logging Variables
     log_team_name = 'Dogecointothemoon'
@@ -25,8 +25,8 @@ class KripkeTest(hack.HackathonBase):
     # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
     spec = parameter([
         'kripke@1.2.4%gcc@10.3.0',
-        'kripke@1.2.4%arm@21.0.0.879',     # Kripke with the ARM compiler
-        'kripke@1.2.4%nvhpc@21.2',
+        #'kripke@1.2.4%arm@21.0.0.879',     # Kripke with the ARM compiler
+        #'kripke@1.2.4%nvhpc@21.2',
     ])
 
     # Parameters - MPI / Threads - Used for scaling studies
