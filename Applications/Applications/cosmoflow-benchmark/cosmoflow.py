@@ -41,12 +41,12 @@ class CosmoFlowTest(hack.HackathonBase):
 
     # Parameters - MPI / Threads - Used for scaling studies
     parallelism = parameter([
-        #{ 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
-        # { 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
-        # { 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
-         { 'nodes' : 1, 'mpi' : 4, 'omp' : 8},
-        # { 'nodes' : 2, 'mpi' : 128, 'omp' : 1},
-        # { 'nodes' : 4, 'mpi' : 256, 'omp' : 1},
+        { 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
+        { 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
+        { 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
+         { 'nodes' : 1, 'mpi' : 4, 'omp' : 1},
+        #{ 'nodes' : 2, 'mpi' : 128, 'omp' : 1},
+        #{ 'nodes' : 4, 'mpi' : 256, 'omp' : 1},
         # { 'nodes' : 8, 'mpi' : 512, 'omp' : 1},
     ])
  
@@ -77,14 +77,16 @@ class CosmoFlowTest(hack.HackathonBase):
        # Performance Testing - FOM Total Time units 's'
        # We dont set an expected value
        self.reference = {
-          '*': {'Total Time': (1.2, None, None, 's'),}
+          '*': {'Total Time': (1, None, None, 's'),}
        }
 
 
        # CloverLeaf prints the 'Wall clock' every timestep - so extract all lines matching the regex
-       #pref_regex = r'\s+Total Simulation Time:\s+(\S+)'
-       #self.perf_patterns = {
-       #     'Total Time': sn.extractsingle(pref_regex, self.logfile, 1, float, item=-1)
-       #}
+       pref_regex = r'\s+Total time:\s+(\S+)'
+       #performance = sn.extractall(pref_regex, self.logfile, 1, float)
+       #print(performance)
+       self.perf_patterns = {
+            'Total Time': sn.max(sn.extractall(pref_regex, self.logfile, 1, float))
+       }
 
 
