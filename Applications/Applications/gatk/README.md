@@ -16,15 +16,20 @@ The above files represent real, large genomics files and have been saved to `/sc
 
 ## Compilation
 
-GATK has two requirements:
+GATK has three requirements:
+* JDK 1.8+
 * [BWA](http://bio-bwa.sourceforge.net/)
 * [SAMTools](http://samtools.sourceforge.net/)
 
-It also relies on JDK 1.8+ to be installed.
+BWA and SAMTools are not strictly required for some of the GATK tools; however, GATK's documentation says they should be installed.
 
 ### Spack Package Modification
 
-The default spack package will work; however, GATK has several Java-based tools. Upgrading to the latest JVM was done to use the latest updated. The default spack package has OpenJDK11 and the changes below will use OpenJDK16, which is several years worth of improvements.
+The default spack package will mostly work; however, GATK has several Java-based tools and it needs `bwa` and `samtools`.
+
+##### Add OpenJDK to spack
+
+Upgrading to the latest JVM was done to use the latest updated. The default spack package has OpenJDK11 and the changes below will use OpenJDK16, which is several years worth of improvements.
 
 Diff of interest is shown below.
 
@@ -52,6 +57,31 @@ Diff of interest is shown below.
 Git commit hash of checkout for pacakage: `667ab501996058b1f89f1763d1791befa455b1f8`
 
 Pull request for Spack recipe changes: https://github.com/spack/spack/pull/24870
+
+##### Require `bwa` and `samtools` via spack package
+
+`bwa` and `samtools` are also needed for some GATK functionality and according to [GATK's best practices](https://gatk.broadinstitute.org/hc/en-us/articles/360041320571--How-to-Install-all-software-packages-required-to-follow-the-GATK-Best-Practices). Below is a diff that adds them to the `spack` package for GATK.
+
+```
+diff --git a/var/spack/repos/builtin/packages/gatk/package.py b/var/spack/repos/builtin/packages/gatk/package.py
+index f83ead3d2d..6a5348ff49 100644
+--- a/var/spack/repos/builtin/packages/gatk/package.py
++++ b/var/spack/repos/builtin/packages/gatk/package.py
+@@ -100,6 +100,8 @@ class Gatk(Package):
+     # output.
+     variant('r', default=False, description='Use R for plotting')
+
++    depends_on("samtools", type="run")
++    depends_on("bwa", type="run")
+     depends_on("java@8", type="run")
+     depends_on("python@2.6:2.8,3.6:", type="run", when="@4.0:")
+     depends_on("r@3.2:", type="run", when="@4.0: +r")
+```
+
+Git commit hash of checkout for pacakage: `667ab501996058b1f89f1763d1791befa455b1f8`
+
+Pull request for Spack recipe changes: https://github.com/spack/spack/pull/24902
+
 
 ### Building GATK
 
@@ -178,9 +208,23 @@ reframe -c gatk_countreads.py -r --performance-report
 
 ### Validation
 
-This is a public BAM file from an Illumina HiSeq 2500 and is known to have 20K reads and 5000000 bases in it.
+Generally, an existing sequencing analysis tool was used to count reads. One of the BAM files is advertised as 20K reads, which will also be 5000000 bases for that sequencing run.
 
-Running GATK by hand (same commands) lets you inspect stats and work with this file. It is small enough that it should always process in a fraction of a second.
+```
+spack load samtools
+
+# reads in the "small" BAM
+samtools view -c H06HDADXX130110.1.ATCACGAT.20k_reads.bam
+20000
+
+# reads in the "medium" BAM
+samtools view -c HG00096.mapped.ILLUMINA.bwa.GBR.low_coverage.20120522.bam
+145063589
+
+# reads in the "large" BAM
+samtools view -c HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam
+
+```
 
 ### ReFrame Output
 
@@ -194,18 +238,50 @@ GATK_gatk_countreads_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
       * num_tasks: 1
       * Total Time: 0.0 s
 ------------------------------------------------------------------------------
+GATK_gatk_countreads_hiseq_2500_20k_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 0.0 s
+------------------------------------------------------------------------------
 GATK_gatk_countreads_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 6.8 s
+------------------------------------------------------------------------------
+GATK_gatk_countreads_1000_genomes_low_coverage_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
       * Total Time: 6.8 s
 ------------------------------------------------------------------------------
 ```
 
-x86 HPC output after `gcc` compile.
+x86 HPC output
 
 ```
-
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+GATK_gatk_countreads_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 0.0 s
+------------------------------------------------------------------------------
+GATK_gatk_countreads_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 6.4 s
+------------------------------------------------------------------------------
 ```
+
+### On-node Compiler Comparison
+
+Performance comparison of two compilers.
+
+| Cores | gcc | arm@ |
+|-------|------------|------------|
+| All   |            |            |
+
+
 
 ## Test Case 2
 
@@ -234,19 +310,41 @@ GATK_gatk_countreadsspark_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 1
-      * Total Time: 0.499092 s
+      * Total Time: 0.495545 s
+------------------------------------------------------------------------------
+GATK_gatk_countreadsspark_hiseq_2500_20k_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 0.50508 s
 ------------------------------------------------------------------------------
 GATK_gatk_countreadsspark_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 289.185667 s
+      * Total Time: 272.26074 s
 ------------------------------------------------------------------------------
+GATK_gatk_countreadsspark_1000_genomes_low_coverage_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 272.77505 s
 ```
 
 x86 HPC output after `gcc` compile.
 
 ```
-
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+GATK_gatk_countreadsspark_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 1
+      * Total Time: 0.419445 s
+------------------------------------------------------------------------------
+GATK_gatk_countreadsspark_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 298.801032 s
+------------------------------------------------------------------------------
 ```
 
 ## Test Case 3
