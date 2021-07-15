@@ -32,6 +32,11 @@ my_prerun_cmds = [
 
 # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
 my_spec = [
+    # Intel
+    'meme/ylex6xs',  # Meme with the Gnu compiler
+    'meme/ucxv6oz',  # Meme with the Nvidia compiler
+] if 'aws:c5n' in my_valid_systems else [
+    # Arm
     'meme/csigtg7',  # Meme with the Arm compiler
     'meme/xzjirlu',  # Meme with the Gnu compiler
     'meme/fifpy6p',  # Meme with the Nvidia compiler
@@ -39,13 +44,13 @@ my_spec = [
 
 # Parameters - MPI / Threads - Used for scaling studies
 my_parallelism = [
-    { 'nodes' : 1, 'mpi' : 1, 'omp' : 1},
-    { 'nodes' : 1, 'mpi' : 2, 'omp' : 1},
-    #{ 'nodes' : 1, 'mpi' : 4, 'omp' : 1},
-    #{ 'nodes' : 1, 'mpi' : 8, 'omp' : 1},
-    #{ 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
-    #{ 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
-    #{ 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' :  1, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' :  2, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' :  4, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' :  8, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
 ]
 
 my_postrun_cmds = lambda my_test: [ f'bash motif-in.test.sh {my_test}' ]
