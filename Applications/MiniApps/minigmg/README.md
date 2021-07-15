@@ -39,9 +39,33 @@ $ spack spec -Il <app>%<compiler1>
 ../bin/reframe -c benchmark.py -r --performance-report
 ```
 
+## Test Case 2
+
+[ReFrame Benchmark 2](#)
+
+```
+../bin/reframe -c benchmark.py -r --performance-report
+```
+
+## Test Case 3
+
+[ReFrame Benchmark 3](#)
+
+```
+../bin/reframe -c benchmark.py -r --performance-report
+```
+
+## Test Case 4
+
+[ReFrame Benchmark 4](#)
+
+```
+../bin/reframe -c benchmark.py -r --performance-report
+```
+
 ### Validation
 
-miniGMG reduces the norm until it is less than 1e-15. If the norm is still greater than 1e-15 after `maxVCycles` v-cycles, the program will ends. So we check if all the norms produced by last v-cycles are less than 1e-15.
+miniGMG reduces the norm until it is less than 1e-15. If the norm is still greater than 1e-15 after `maxVCycles` v-cycles, the program will ends with incorrect results. So we check if all the norms produced by last v-cycles are less than 1e-15.
 
 
 ### ReFrame Output
@@ -60,53 +84,54 @@ Performance comparison of two compilers.
 
 | Cores | Compiler 1 | Compiler 2 |
 |-------|------------|------------|
-|       |            |            |
+| 1     |            |            |
+| 2     |            |            |
+| 4     |            |            |
+| 8     |            |            |
+| 16    |            |            |
+| 32    |            |            |
+| 64    |            |            |
 
 
 ### Serial Hot-spot Profile
 
 List of top-10 functions / code locations from a serial profile.
 
-Profiling command used:
-```
-:
-```
+#### Test Case 1  
+Profiling script:  
+[ReFrame Benchmark](#)
 
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
+#### Test Case 2
+Profiling script:  
+[ReFrame Benchmark](#)
 
+#### Test Case 3
+Profiling script:  
+[ReFrame Benchmark](#)
+
+#### Test Case 4
+Profiling script:  
+[ReFrame Benchmark](#)
 
 ### Full Node Hot-spot Profile
 
 List of top-10 functions / code locations from a full node profile.
 
-Profiling command used:
-```
-:
-```
+#### Test Case 1  
+Profiling script:  
+[ReFrame Benchmark](#)
 
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
-| 10       |         |          |          |         |
+#### Test Case 2
+Profiling script:  
+[ReFrame Benchmark](#)
+
+#### Test Case 3
+Profiling script:  
+[ReFrame Benchmark](#)
+
+#### Test Case 4
+Profiling script:  
+[ReFrame Benchmark](#)
 
 ### Strong Scaling Study
 
@@ -122,22 +147,6 @@ On-node scaling study for two compilers.
 | 32    |            |            |
 | 64    |            |            |
 
-
-### Off-Node Scaling Study
-
-Off-node scaling study comparing C6g and C6gn instances.
-
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
-
-
 ### On-Node Architecture Comparison
 
 On-node scaling study for two architectures.
@@ -152,6 +161,18 @@ On-node scaling study for two architectures.
 | 32    |                |           |
 | 64    |                |           |
 
+### Off-Node Architecture Comparison
+
+Off-node scaling study for two architectures.
+
+| Nodes | Cores | C5n (X86) | C6gn (Aarch64) |
+|-------|-------|-----------|----------------|
+| 1     | 8     |           |                |
+| 1     | 16    |           |                |
+| 1     | 32    |           |                |
+| 1     | 64    |           |                |
+| 2     | 128   |           |                |
+| 4     | 256   |           |                |
 
 ## Optimisation
 
