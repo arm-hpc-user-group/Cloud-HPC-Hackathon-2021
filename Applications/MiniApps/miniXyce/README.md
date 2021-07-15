@@ -339,18 +339,19 @@ Profiling command used:
 :map -profile /opt/amazon/openmpi/bin/mpiexec --np 64 miniXyce.x --circuit tests/cir6.net --t_start 0 --pf tests/default_params.txt
 ```
 
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |  MPI_Allreduce       |          |    94.7%      |   94.7%      |
-| 2        | MPI_Recv        |          |    4.1%      |   4.1%      |
-| 3        | MPI_Send        |          |   0.7%       |    0.7%     |
-| 4        |  std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double       |          |    <0.1%      |   0    |
-| 5        |    std::vector<double, std::allocator<double..     |          |   <0.1%       |    0   |
-| 6        |   __gnu_cxx::__aligned_membuf<std::pair<int const, double      |          |   <0.1%       |  0   |
-| 7        |  mX_matrix_utils::gmres(mX_matrix_utils::distributed_sparse_matrix*, std::vector<double, std::allocator<double       |          |   <0.1%       |   99.5%  |
-| 8        |  std::less<int>::operator()(int const&, int const&) const       |          |      <0.1%   |        |
-| 9        |   mX_matrix_utils::sparse_matrix_vector_product(mX_matrix_utils::distributed_sparse_matrix*, std::vector<double, std::allocator<double      |             |       <0.1%  |   4.8%   |
-| 10       |  std::_Select1st<std::pair<int const, double       |          |   <0.1%      |        <0.1% |
+| Position | Routine                                                                                                                              | Time (s) | Time (%) | MPI (%) |
+|----------|--------------------------------------------------------------------------------------------------------------------------------------|----------|----------|---------|
+| 1        | MPI_Allreduce                                                                                                                        |          | 94.7%    | 94.7%   |
+| 2        | MPI_Recv                                                                                                                             |          | 4.1%     | 4.1%    |
+| 3        | MPI_Send                                                                                                                             |          | 0.7%     | 0.7%    |
+| 4        | std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double                                         |          | <0.1%    | 0       |
+| 5        | std::vector<double, std::allocator<double..                                                                                          |          | <0.1%    | 0       |
+| 6        | __gnu_cxx::__aligned_membuf<std::pair<int const, double                                                                              |          | <0.1%    | 0       |
+| 7        | mX_matrix_utils::gmres(mX_matrix_utils::distributed_sparse_matrix*, std::vector<double, std::allocator<double                        |          | <0.1%    | 99.5%   |
+| 8        | std::less<int>::operator()(int const&, int const&) const                                                                             |          | <0.1%    |         |
+| 9        | mX_matrix_utils::sparse_matrix_vector_product(mX_matrix_utils::distributed_sparse_matrix*, std::vector<double, std::allocator<double |          | <0.1%    | 4.8%    |
+| 10       | std::_Select1st<std::pair<int const, double                                                                                          |          | <0.1%    | <0.1%   |
+
 
 ### Strong Scaling Study
 
