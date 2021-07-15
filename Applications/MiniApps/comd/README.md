@@ -933,6 +933,15 @@ Results from `nvhpc` on the different instance types.
 
 Compiler optimization not tested.
 
+## Test Case 4
+
+[ReFrame Benchmark 4](#)
+
+Optimized compiler flag testing on the ARM HPC with `gcc`, `nvhpc` and `arm` compilers.
+
+...
+
+
 ### Maths Library Report
 
 Maths library report not generated.
