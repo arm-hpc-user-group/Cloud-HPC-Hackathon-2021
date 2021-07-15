@@ -536,5 +536,18 @@ We have only tried to improve the performance of the app by tunning the compiler
 
 ### Compilation Summary
 
-We have very liked Spack to fast installing an app along with its dependencies. It also makes it very easy to install different versions of the app with different compilers. Furthemore, combining it with reFrame make them a fast way of testing applications with different compilers and architectures, without 
-forgetting to check the correctness of the results. 
+We haven't had any problem in the compilation part realtives to the architecture or the compilers. We had to add some flags in the compilation relatives to the application
+in order to get the minimun output for validation with reFrame.
+
+### Performance summary
+
+In the obtained results, we see that the on-node scalability is good until 32 cores (included), with more, the performance obtained is hardly noticable. In addition,
+with multiple nodes and more cores, the arm compilator seems to be slightly better than the others. Also, in the architecture comparision, ARM offers better performance in almost every scenario, with variable differences. However the comparison is not totally fair, as an x86 node is very different to an ARM one.
+
+In conlusion, the best enviroment to run the application performance-wise is in ARM architecture compiled with the arm compiler running in multi-node.
+
+### Optimization summary
+
+We tried to improve the performance by tunning the compilation flags. However, we did not get any improvements in the performance with the flags tested, 
+the application even performs worse in some cases with the new flags. The increments or decrements in
+execution time are small enough to consider that the flags tried do not have any effect in the performance.
