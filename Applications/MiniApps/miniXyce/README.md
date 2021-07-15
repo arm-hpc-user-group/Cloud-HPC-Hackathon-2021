@@ -296,14 +296,14 @@ MiniXyce_short_test_minixyce__nvhpc_N_1_MPI_1_OMP_1
 
 Performance comparison of three compilers(in seconds).
 
-| Cores | GCC@10.3.0 |  ARM@20.0  |  NVHPC
-|   1   |  15.7698  |  16.5698  | 15.6227
-|   2   |  498.911  | 284.202   | 513.17 
-|   4   |  932.919  |  732.316   | 948.424
-|   8   |  476.893  |  386.378  | 523.699
-|  16   |  184.024  |  136.656   | 176.202
-|  32   |  85.407  |  54.2524  | 80.6583
-|  64   |  52.2978  |  39.9701  | 51.5188
+| Cores | GCC@10.3.0 | ARM@20.0 | NVHPC   |
+|-1-----|-15.7698----|-16.5698--|-15.6227-|
+| 2     | 498.911    | 284.202  | 513.17  |
+| 4     | 932.919    | 732.316  | 948.424 |
+| 8     | 476.893    | 386.378  | 523.699 |
+| 16    | 184.024    | 136.656  | 176.202 |
+| 32    | 85.407     | 54.2524  | 80.6583 |
+| 64    | 52.2978    | 39.9701  | 51.5188 |
 
 
 ### Serial Hot-spot Profile
@@ -316,18 +316,19 @@ Profiling command used:
 
 ```
 
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |  mX_matrix_utils::gmres(mX_matrix_utils::distributed_sparse_matrix*, std::vector<double, std::allocator<double       |          |     33.8%     |
-| 2        |   mX_matrix_utils::sparse_matrix_vector_product(mX_matrix_utils::distributed_sparse_matrix*, std::vector<double, std::allocator<double      |          |   12.1%       |
-| 3        |  __aarch64_swp4_rel       |          |   8.2%       |
-| 4        |  __printf_fp_l       |          |   4.9"%       |
-| 5        |  hack_digit       |          |    4.5%      |
-| 6        |    malloc     |          |     3.9%     |
-| 7        |    _int_malloc     |          |  3.6%        |
-| 8        |  _int_free       |          |   3.5%       |
-| 9        |  malloc_consolidate       |          |  3.1%        |
-| 10       |  __aarch64_cas4_acq       |          |   3.1%       |
+| Position | Routine                                                                                                                              | Time (s) | Time (%) |
+|----------|--------------------------------------------------------------------------------------------------------------------------------------|----------|----------|
+| 1        | mX_matrix_utils::gmres(mX_matrix_utils::distributed_sparse_matrix*, std::vector<double, std::allocator<double                        |          | 33.8%    |
+| 2        | mX_matrix_utils::sparse_matrix_vector_product(mX_matrix_utils::distributed_sparse_matrix*, std::vector<double, std::allocator<double |          | 12.1%    |
+| 3        | __aarch64_swp4_rel                                                                                                                   |          | 8.2%     |
+| 4        | __printf_fp_l                                                                                                                        |          | 4.9"%    |
+| 5        | hack_digit                                                                                                                           |          | 4.5%     |
+| 6        | malloc                                                                                                                               |          | 3.9%     |
+| 7        | _int_malloc                                                                                                                          |          | 3.6%     |
+| 8        | _int_free                                                                                                                            |          | 3.5%     |
+| 9        | malloc_consolidate                                                                                                                   |          | 3.1%     |
+| 10       | __aarch64_cas4_acq                                                                                                                   |          | 3.1%     |
+
 
 
 ### Full Node Hot-spot Profile
@@ -355,17 +356,16 @@ Profiling command used:
 
 ### Strong Scaling Study
 
-On-node scaling study for two compilers.
+On-node scaling study for three compilers.
 
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
+| Cores | GCC@10.3.0 | ARM@20.0 | NVHPC   |
+|-1-----|-15.7698----|-16.5698--|-15.6227-|
+| 2     | 498.911    | 284.202  | 513.17  |
+| 4     | 932.919    | 732.316  | 948.424 |
+| 8     | 476.893    | 386.378  | 523.699 |
+| 16    | 184.024    | 136.656  | 176.202 |
+| 32    | 85.407     | 54.2524  | 80.6583 |
+| 64    | 52.2978    | 39.9701  | 51.5188 |
 
 
 ### Off-Node Scaling Study
@@ -389,14 +389,13 @@ On-node scaling study for two architectures.
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
 |-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
-
+| 1     | 15.7689        | 13.9867   |
+| 2     | 498.911        | 407.504   |
+| 4     | 932.919        | 951.857   |
+| 8     | 476.893        | 544.264   |
+| 16    | 184.024        | 204.829   |
+| 32    | 85.407         | 86.7813   |
+| 64    | 52.2978        | 54.0766   |
 
 ## Optimisation
 
