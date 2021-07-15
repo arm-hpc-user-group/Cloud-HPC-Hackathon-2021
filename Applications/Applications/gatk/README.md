@@ -131,7 +131,7 @@ gatk@4.1.8.1%gcc@10.3.0~r arch=linux-amzn2-skylake_avx512
 ```
 
 
-## Test Case 0
+## Test Case 1
 
 This confirms that GATK is working by doing a basic analysis of a BAM file. The BAM file will be downloaded, if it doesn't already exist.
 
@@ -158,6 +158,11 @@ GATK_gatk_countbases_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
       * num_tasks: 1
       * Total Time: 0.0 s
 ------------------------------------------------------------------------------
+GATK_gatk_countbases_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 0.0 s
+------------------------------------------------------------------------------
 ```
 
 x86 HPC output after `gcc` compile.
@@ -174,6 +179,42 @@ GATK_gatk_countbases_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
 ------------------------------------------------------------------------------
 ```
 
+## Test Case 2
+
+Similar to the first test but using the Spark verion of base counting. This exercises different code but is expected to have identical read and base counts. The output format is different.
+
+```
+reframe -c gatk_countbases_spark.py -r --performance-report
+```
+
+### Validation
+
+Same as the validation done for the first test. Same BAM file is used.
+
+### ReFrame Output
+
+ARM HPC output after `gcc` compile.
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+GATK_gatk_countbases_spark_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 0.649437 s
+------------------------------------------------------------------------------
+GATK_gatk_countbases_spark_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 0.665504 s
+------------------------------------------------------------------------------
+```
+
+x86 HPC output after `gcc` compile.
+
+```
+```
 
 ## Test Case 1
 
