@@ -20,7 +20,7 @@ class CosmoFlowTest(hack.HackathonBase):
 
     # Define Execution
     # Binary to run
-    executable = 'python train.py'
+    executable = 'python train.py > output'
     # Command line options to pass executable_opts is parametrised
     #executable_opts = ['configs/cosmo.yaml']
 
