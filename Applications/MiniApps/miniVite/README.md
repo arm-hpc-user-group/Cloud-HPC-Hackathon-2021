@@ -194,7 +194,7 @@ Concretized
 [+]  m6zajlb              ^libedit@3.1-20210216%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
 [+]  3dfoict          ^slurm@20-02-4-1%nvhpc@21.2~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-skylake_avx512
 ```
-#####ARM
+##### ARM
 ```
 spack install minivte%nvhpc@21.2
 ```
