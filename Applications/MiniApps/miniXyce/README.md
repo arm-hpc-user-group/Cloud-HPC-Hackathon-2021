@@ -318,6 +318,9 @@ Performance comparison of three compilers(in seconds).
 
 List of top-10 functions / code locations from a serial profile.
 
+
+We used the arm-forge tool-chain to profile our applications.
+
 Profiling command used:
 ```
 :map -profile /opt/amazon/openmpi/bin/mpiexec --np 1 miniXyce.x --circuit tests/cir6.net --t_start 0 --pf tests/default_params.txt
@@ -504,11 +507,6 @@ minixyce does not depend on any math libraries. Skip this part.
 
 ### Performance Regression
 
-How fast can you make the code?
-
-Use all of the above aproaches and any others to make the code as fast as possible.
-Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
-
 We would really like to get SIMD instruction working with the code base, as there are some matrix operations that can be replaced using compiler intrinsics.
 However, due to time constraint we could not get a bug-free version soon enough.
 
@@ -521,11 +519,39 @@ to install.
 
 ### Compilation Summary
 
-Details of lessons from compiling the application.
+spack allows a fine granularity of managing packages by allowing mix and match of different dependency versions and built by different versions of compilers.
+
+Each package file has a set of constraints and the concretizer perform algorithms to find a valid set of combinations that satisft all the constraints.
+
+This definitely has it pros and cons. We appreciate the fact that spack tries to hide all the gruesome work of figuring out dependencies,
+
+and leave us a fool-proof way to install packages with a few lines of commands. However, there are definitely some catches:
+
+
+1. As spack tries to hide all the details, it could be sometimes less flexible (at least for inexperience users) to make easy fixes to the build scripts directly.
+
+2. When writing package files, the developer may not be able to take into account of all constraints, leading to incomplete builds that goes unreported.
+
+3. spack tries to load packages by appending to the environment variable, it could lead to a second package environment overriding the path of the former package 
+
+(such as 2 python paths). 
+
+4. The clingo concretizer is undoubtly magical, but our experience is that it could sometimes introduce unnecessary and over-complicated builds, leading to 
+
+an explosion of cached dependencies. In these cases the default concretizer that follows the greedy solution could be more favourable.
+
 
 ### Performance Summary
 
-Details of lessons from analysing the performance of the application.
+The empirical observation we have is that the performance trend follows a parabolic trend, with 8-core configuration having the higher overhead, which single-core 
+
+and multi-core higher than 8 performs increasingly better. This lead us to suspect that mpi introduces more overhead than benefits. As the nature of the application
+
+performs small but numerous tasks, the overhead of message passing dominates and lead to worsening performance than single-core.
+
+By using arm-forge toolchain, we profiled the application and observed that MPI synchronization contribute to 94% of the total computation time. This 
+
+suggests that this application is not suitable for mpi application, or can be much better optimized. (In fact, we suspect GPU could be a much better fit for this workload)
 
 
 ### Optimisation Summary
