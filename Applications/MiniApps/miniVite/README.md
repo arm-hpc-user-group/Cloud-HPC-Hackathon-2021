@@ -108,6 +108,14 @@ Concretized
 ```
 #### Compiler 2
 ```
+spack install minivite%arm@21.0.0.879
+```
+```
+spack spec -Il minivite%arm@21.0.0.879
+Input spec
+--------------------------------
+  -   minivite%arm@21.0.0.879
+
 Concretized
 --------------------------------
 ==> Warning: arm@21.0.0.879 cannot build optimized binaries for "graviton2". Using best target possible: "aarch64"
