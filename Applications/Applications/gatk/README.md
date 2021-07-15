@@ -269,7 +269,7 @@ GATK_gatk_countreads_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
 GATK_gatk_countreads_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 6.4 s  <-- in minutes TODO
+      * Total Time: 390.0 s
 ------------------------------------------------------------------------------
 ```
 
@@ -339,12 +339,12 @@ GATK_gatk_countreadsspark_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c5n
    - builtin
       * num_tasks: 1
-      * Total Time: 0.419445 s
+      * Total Time: 0.380283 s
 ------------------------------------------------------------------------------
 GATK_gatk_countreadsspark_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 298.801032 s
+      * Total Time: 301.929988 s
 ------------------------------------------------------------------------------
 ```
 
