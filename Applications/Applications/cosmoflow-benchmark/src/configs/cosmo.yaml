@@ -1,0 +1,58 @@
+output_dir: results/cosmo-002
+
+mlperf:
+    org: LBNL
+    division: closed
+    status: onprem
+    platform: SUBMISSION_PLATFORM_PLACEHOLDER
+
+data:
+    name: cosmo
+    data_dir: data/cosmoUniverse_2019_05_4parE_tf_small 
+    compression: NONE
+    #n_train: 524288
+    #n_valid: 65536
+    n_train: 8
+    n_valid: 32
+    sample_shape: [128, 128, 128, 4]
+    batch_size: 1
+    n_epochs: 4
+    shard: True
+    apply_log: True
+    prefetch: 4
+
+model:
+    name: cosmoflow
+    input_shape: [128, 128, 128, 4]
+    kernel_size: 3
+    target_size: 4
+    conv_size: 32
+    fc1_size: 128
+    fc2_size: 64
+    hidden_activation: LeakyReLU
+    pooling_type: MaxPool3D
+    dropout: 0.5
+
+optimizer:
+    name: SGD
+    momentum: 0.9
+
+lr_schedule:
+    # Standard linear LR scaling configuration
+    base_lr: 0.001
+    scaling: linear
+    base_batch_size: 64
+    n_warmup_epochs: 4
+
+    # Learning rate decay epochs and decay factors
+    decay_schedule:
+        32: 0.25
+        64: 0.125
+
+train:
+    loss: mse
+    metrics: ['mean_absolute_error']
+    #early_stopping_patience: 8
+
+    # Uncomment to stop at target quality
+    #target_mae: 0.124
