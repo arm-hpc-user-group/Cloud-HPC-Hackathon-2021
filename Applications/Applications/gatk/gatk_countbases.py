@@ -124,8 +124,8 @@ class GATKCountBasesSpark1000GenomesHighCoverageTest(GATKTest):
                 log_test_name="gatk_countbasesspark_1000_genomes_high_coverage",
                 bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
                 gatk_tool="CountBasesSpark", 
-                expected_bases=652944493,
-                perf_regex=r'Job .* finished: .* took (\S+) s',
+                expected_bases=161506906064,
+                perf_regex=r'.*CountBasesSpark done. Elapsed time: (\S+) minutes.',
             )
 
 @rfm.simple_test
@@ -135,6 +135,6 @@ class GATKCountBases1000GenomesHighCoverageTest(GATKTest):
                 log_test_name="gatk_countbases_1000_genomes_high_coverage",
                 bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
                 gatk_tool="CountBases",
-                expected_bases=652944493,
+                expected_bases=161506906064,
                 perf_regex=r'Processed 652944493 total reads in (\S+) minutes',
             )
