@@ -14,12 +14,43 @@
 
 The default spack configuration works for MPI but won't compile for OMP. The below diff was used to enable OpenMP compilation on the ARM HPC and was used for the scaling test.
 
+Two issues below:
+* A copy of `Make.vanilla` would not happen in the `with ... or ...:` for the second thing, namely OpenMP
+* `spack_cc` wasn't recognized; however, manually loading and specifying the compile works fine
+
 ```
+diff --git a/var/spack/repos/builtin/packages/comd/package.py b/var/spack/repos/builtin/packages/comd/package.py
+index 5ab3600f1f..9214ff4ec3 100644
+--- a/var/spack/repos/builtin/packages/comd/package.py
++++ b/var/spack/repos/builtin/packages/comd/package.py
+@@ -36,7 +36,9 @@ class Comd(MakefilePackage):
+     conflicts('+openmp', when='+mpi')
+
+     def edit(self, spec, prefix):
+-        with working_dir('src-mpi') or working_dir('src-openmp'):
++        with working_dir('src-openmp'):
++            copy('Makefile.vanilla', 'Makefile')
++        with working_dir('src-mpi'):
+             copy('Makefile.vanilla', 'Makefile')
+
+     @property
+@@ -56,7 +58,10 @@ def build_targets(self):
+                 comd_variant += '-mpi'
+                 targets.append('CC = {0}'.format(self.spec['mpi'].mpicc))
+             else:
+-                targets.append('CC = {0}'.format('spack_cc'))
++                #targets.append('CC = {0}'.format('spack_cc'))
++                #targets.append('CC = {0}'.format('armclang'))
++                #targets.append('CC = {0}'.format('gcc'))
++                targets.append('CC = {0}'.format('nvc'))
+
+         else:
+             targets.append('--directory=src-mpi')
 ```
 
-Git commit hash of checkout for pacakage:
+Git commit hash of checkout for pacakage: `667ab501996058b1f89f1763d1791befa455b1f8`
 
-Pull request for Spack recipe changes:
+Pull request for Spack recipe changes: the full change as-is isn't appropriate for a PR
 
 ### Building COMD
 
@@ -827,6 +858,85 @@ CoMD_CoMD_weak_omp_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_64
 ------------------------------------------------------------------------------
 ```
 
+ReFrame report output from the x86 HPC.
+
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 1
+      * Total Time: 67.7362 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_2
+   - builtin
+      * num_tasks: 1
+      * Total Time: 42.1041 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_4
+   - builtin
+      * num_tasks: 1
+      * Total Time: 20.9839 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_8
+   - builtin
+      * num_tasks: 1
+      * Total Time: 11.6725 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_16
+   - builtin
+      * num_tasks: 1
+      * Total Time: 6.205 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_32
+   - builtin
+      * num_tasks: 1
+      * Total Time: 3.6328 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_64
+   - builtin
+      * num_tasks: 1
+      * Total Time: 2.2041 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 37.1681 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_2
+   - builtin
+      * num_tasks: 1
+      * Total Time: 25.9963 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_4
+   - builtin
+      * num_tasks: 1
+      * Total Time: 25.3826 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_8
+   - builtin
+      * num_tasks: 1
+      * Total Time: 12.6117 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_16
+   - builtin
+      * num_tasks: 1
+      * Total Time: 8.5052 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_32
+   - builtin
+      * num_tasks: 1
+      * Total Time: 3.6825 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_64
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1.6399 s
+------------------------------------------------------------------------------
+```
+
 ### On-node Compiler Comparison
 
 Performance comparison of two available compilers on the ARM HPC. 
@@ -866,24 +976,35 @@ On-node scaling study for two compilers.
 
 ### Off-Node Scaling Study
 
-Off-node scaling study comparing C6g and C6gn instances was not done. No C6g resources were avavailable.
+Off-node scaling was not done.
 
 ### On-Node Architecture Comparison
 
-On-node scaling study for two architectures. `gcc@10.3.0` was used in both cases.
+On-node scaling study comparing C5n and C6gn instances was done with `gcc` and `nvhpc`
 
+Results from `gcc` on the different instance types.
 
-| Cores | C6gn (ARM) | C5n (x86/Intel)    |
+| Cores | C6gn (ARM) | C5n (x86/Intel) |
 |-------|------------|----------------|
-|   1   |  319.4     |  369.6         |
-|   2   |  322.8     |  372.4         |
-|   4   |  323.4     |  372.2         |
-|   8   |  325.1     |  375.1         |
-|   16  |  332.2     |  379.3         |
-|   32  |  335.1     |  381.3         |
-|   64  |  344.8     |  391.3         |
+|   1   |  74.44     |  67.73         |
+|   2   |  37.43     |  42.10         |
+|   4   |  18.90     |  20.98         |
+|   8   |  10.46     |  11.67         |
+|   16  |  5.56     |  6.20         |
+|   32  |  3.10     |  3.63         |
+|   64  |  1.90     |  2.20         |
 
+Results from `nvhpc` on the different instance types.
 
+| Cores | C6gn (ARM) | C5n (x86/Intel) |
+|-------|------------|----------------|
+|   1   |  56.42     |  37.16         |
+|   2   |  28.46     |  25.99         |
+|   4   |  14.42     |  25.38         |
+|   8   |  7.96     |  12.61         |
+|   16  |  4.22     |  8.50         |
+|   32  |  2.32     |  3.68         |
+|   64  |  1.59     |  1.63         |
 
 
 ## Optimisation
