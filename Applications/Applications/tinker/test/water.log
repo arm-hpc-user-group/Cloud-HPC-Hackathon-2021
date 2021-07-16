@@ -1,0 +1,118 @@
+
+     ######################################################################
+   ##########################################################################
+  ###                                                                      ###
+ ###            Tinker  ---  Software Tools for Molecular Design            ###
+ ##                                                                          ##
+ ##                         Version 8.9.1  June 2021                         ##
+ ##                                                                          ##
+ ##               Copyright (c)  Jay William Ponder  1990-2021               ##
+ ###                           All Rights Reserved                          ###
+  ###                                                                      ###
+   ##########################################################################
+     ######################################################################
+
+
+ Electrostatic Potential Grid Points :                  4357
+
+ Electrostatic Parameter Restraint Value :            1.0000
+
+ Average Electrostatic Potential over Atoms :
+      (Kcal/mole per unit charge)
+
+   Structure   Atom      Points      Potential        Target        RMS Diff
+
+        1        1        1887        -9.1098        -9.1967         0.5955
+        1        2        1237         6.7817         7.0521         0.4771
+        1        3        1233         6.7773         7.0503         0.4862
+
+ Electrostatic Potential over all Grid Points :
+
+ Average Potential Value for Model :                 -0.1021
+ Average Potential Magnitude for Model :              8.0334
+ Average Potential Value for Target :                 0.0143
+ Average Potential Magnitude for Target :             8.1777
+
+ Average Signed Potential Difference :               -0.1164
+ Average Unsigned Potential Difference :              0.3799
+ Root Mean Square Potential Difference :              0.5340
+
+ Potential Fitting of Electrostatic Parameters :
+
+ Parameter      Atom Type         Category            Value         Fixed
+
+    --              1             Monopole          -0.51966          X
+    --              1             X-Dipole           0.00000          X
+    --              1             Y-Dipole           0.00000          X
+     1              1             Z-Dipole           0.14279
+     2              1             XX-Quad            0.37928
+    --              1             XY-Quad            0.00000          X
+    --              1             XZ-Quad            0.00000          X
+     3              1             YY-Quad           -0.41809
+    --              1             YZ-Quad            0.00000          X
+    --              1             ZZ-Quad            0.03881
+    --              2             Monopole           0.25983          X
+     4              2             X-Dipole          -0.03859
+    --              2             Y-Dipole           0.00000          X
+     5              2             Z-Dipole          -0.05818
+     6              2             XX-Quad           -0.03673
+    --              2             XY-Quad            0.00000          X
+     7              2             XZ-Quad           -0.00203
+     8              2             YY-Quad           -0.10739
+    --              2             YZ-Quad            0.00000          X
+    --              2             ZZ-Quad            0.14412
+
+ Levenberg-Marquardt Nonlinear Least Squares :
+
+ LS Iter     F Value      Total G     Active G    N Active   F Calls
+
+     0      621.1492     573.4084     573.4084         8         9
+     1      294.7746     205.5944     205.5944         8        18
+     2      213.6779       0.0000       0.0000         8        27
+
+ SQUARE  --  Normal Termination of Least Squares
+
+ Potential Fitting of Electrostatic Parameters :
+
+ Parameter      Atom Type         Category            Value         Fixed
+
+    --              1             Monopole          -0.51966          X
+    --              1             X-Dipole           0.00000          X
+    --              1             Y-Dipole           0.00000          X
+     1              1             Z-Dipole           0.12828
+     2              1             XX-Quad            0.38372
+    --              1             XY-Quad            0.00000          X
+    --              1             XZ-Quad            0.00000          X
+     3              1             YY-Quad           -0.49549
+    --              1             YZ-Quad            0.00000          X
+    --              1             ZZ-Quad            0.11177
+    --              2             Monopole           0.25983          X
+     4              2             X-Dipole          -0.05974
+    --              2             Y-Dipole           0.00000          X
+     5              2             Z-Dipole          -0.09653
+     6              2             XX-Quad            0.03632
+    --              2             XY-Quad            0.00000          X
+     7              2             XZ-Quad           -0.01707
+     8              2             YY-Quad           -0.08020
+    --              2             YZ-Quad            0.00000          X
+    --              2             ZZ-Quad            0.04388
+
+ Average Electrostatic Potential over Atoms :
+      (Kcal/mole per unit charge)
+
+   Structure   Atom      Points      Potential        Target        RMS Diff
+
+        1        1        1887        -9.2779        -9.1967         0.2961
+        1        2        1237         6.9058         7.0521         0.2616
+        1        3        1233         6.8984         7.0503         0.2750
+
+ Electrostatic Potential over all Grid Points :
+
+ Average Potential Value for Model :                 -0.1054
+ Average Potential Magnitude for Model :              8.1413
+ Average Potential Value for Target :                 0.0143
+ Average Potential Magnitude for Target :             8.1777
+
+ Average Signed Potential Difference :               -0.1197
+ Average Unsigned Potential Difference :              0.1708
+ Root Mean Square Potential Difference :              0.2807
