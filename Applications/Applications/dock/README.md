@@ -12,7 +12,7 @@
 
 Details of any changes to the Spack recipe used.
 
-We add jemalloc as the optimization, and the corresponding variant to control the switch of it. We also add the support for arm and nvhpc compilers.
+We replace the original memory malloc library with jemalloc, so we add dependency `jemalloc` to its spack package file. We also add the corresponding variant to make this optimization as a choice. Since this application doesn't suppport arm/nvhpc compilers, we add such options in its spack package, and attach the compilation files with this report.
 
 Git commit hash of checkout for pacakage:
 
@@ -24,7 +24,8 @@ https://github.com/spack/spack/pull/24933
 
 
 
-There are some compilation errors when we use gcc/arm/nvhpc to compile it on arm platform. For gcc compiler, because we use gcc@10.3.0, there is a type mismatch error in fortran code. We add `-fallow-argument-mismatch` to solve it. For arm/nvhpc compilers, there is a multiple definition error when compile mixed fortran and c code for unknown reason. To solve this problem, we use c/cxx compiler with the main fortran library to compile such code.
+There are some compilation errors when we use gcc/arm/nvhpc to compile it on arm platform. For gcc compiler, because we use gcc@10.3.0, there is a type mismatch error in fortran code. We add `-fallow-argument-mismatch` to its fortran compilation flag to solve it. For arm/nvhpc compilers, there is a multiple definition error when compile mixed fortran and c code. To solve this problem, we use c/cxx compiler with the main fortran library to compile such code. 
+The [attached patches](modification_patch/) and [compilation configurations](config_files/) show how we do this.
 
 
 
@@ -152,6 +153,8 @@ $ spack spec -Il dock@6.9%nvhpc@21.2+mpi
 [+]  yvqpq74              ^libedit@3.1-20210216%nvhpc@21.2 arch=linux-amzn2-graviton2
 [+]  zehhooy          ^slurm@20-02-4-1%nvhpc@21.2~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-graviton2
 ```
+
+For X86 platform, we have to use `spack install dock@6.9%nvhpc@21.2+mpi ^openssl%gcc ^openssh%gcc`  according to discussions in the slack channel.
 
 ## Test Case 1
 
@@ -621,4 +624,4 @@ de scaling is generally good for all compilers. However, the off-node scaling is
 
 ### Optimisation Summary
 
-We have tested compiler option tuning, e.g., -Ofast. Unfortunately, we do not get any speedups. With the profile, we find that many cpu cycles are consumed in malloc and free functions. Thus, we have jemalloc linked with the application, which yield a maxmum 15.33% reduction runtime when using gcc10 running with 8 and 32 cores.
+We have tested compiler option tuning, e.g., -Ofast. Unfortunately, we do not get any speedups. With the profile, we find that many cpu cycles are consumed in malloc and free functions. Thus, we have `jemalloc` linked with the application, which yield a maxmum 15.33% reduction runtime when using gcc10 running with 8 and 32 cores.
