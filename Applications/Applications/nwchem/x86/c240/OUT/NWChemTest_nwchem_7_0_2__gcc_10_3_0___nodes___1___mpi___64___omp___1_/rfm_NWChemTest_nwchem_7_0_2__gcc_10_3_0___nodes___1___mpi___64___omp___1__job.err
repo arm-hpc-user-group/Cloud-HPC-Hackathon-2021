@@ -1,0 +1,11 @@
+--2021-07-15 09:04:22--  https://nwchemgit.github.io/c240_631gs.nw
+Resolving nwchemgit.github.io (nwchemgit.github.io)... 185.199.109.153, 185.199.110.153, 185.199.111.153, ...
+Connecting to nwchemgit.github.io (nwchemgit.github.io)|185.199.109.153|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 10329 (10K) [application/octet-stream]
+Saving to: ‘nwchem.nw’
+
+     0K ..........                                            100% 46.1M=0s
+
+2021-07-15 09:04:22 (46.1 MB/s) - ‘nwchem.nw’ saved [10329/10329]
+
