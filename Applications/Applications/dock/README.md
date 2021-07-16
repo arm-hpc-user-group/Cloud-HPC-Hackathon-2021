@@ -625,6 +625,4 @@ de scaling is generally good for all compilers. However, the off-node scaling is
 
 ### Optimisation Summary
 
-We have tested compiler option tuning, e.g., -Ofast. Unfortunately, we do not get any speedups. With the profile, we find that many cpu cyc
-les are consumed in malloc and free functions. Thus, we have jemalloc linked with the application, which yield a maxmum 14% speedup when us
-ing gcc10 running with 8 cores.
+We have tested compiler option tuning, e.g., -Ofast. Unfortunately, we do not get any speedups. With the profile, we find that many cpu cycles are consumed in malloc and free functions. Thus, we have jemalloc linked with the application, which yield a maxmum 15.33% reduction runtime when using gcc10 running with 8 and 32 cores.
