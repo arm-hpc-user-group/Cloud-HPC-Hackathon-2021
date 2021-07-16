@@ -289,7 +289,6 @@ miniGMG_minigmg_on_node_test2_arm_minigmg_local_arm_21_0_0_879_N_1_MPI_1_OMP_64
 ### On-node Compiler Comparison
 arm: arm@21.0.0.879  
 gcc: gcc@10.3.0  
-nvhpc: nvhpc@21.2  
 
 Performance comparison of two compilers.
 #### Test Case 1
