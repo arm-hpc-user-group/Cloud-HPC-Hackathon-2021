@@ -311,7 +311,7 @@ On-node scaling study for two architectures.
 #### Test Case 3
 | Cores | ARM | X86 |X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
-| 8     |                | 189.52 s          |                |
+| 8     |                | 189.52 s          | 232.3 s               |
 | 16    |                | 93.0 s          |                |
 | 32    |                | 47.77 s          |                |
 | 64    |                | 28.26 s          |                |
