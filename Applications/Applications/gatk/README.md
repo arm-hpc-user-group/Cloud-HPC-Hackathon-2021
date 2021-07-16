@@ -327,6 +327,7 @@ Profiling command used:
 
 ### Full Node Hot-spot Profile
 
+TODO
 List of top-10 functions / code locations from a full node profile.
 
 Profiling command used:
