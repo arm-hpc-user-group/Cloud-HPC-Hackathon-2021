@@ -375,16 +375,87 @@ Performance comparison of two compilers. Note: each step increases in complexity
 
 ### Serial Hot-spot Profile
 
-Serial hot-spot was done using perf.
+Serial hot-spot profiling was done with perf for the "weak scaling" test CoMD includes in the GitHub repo. `OMP_THREAD_LIMIT=1` was used to limit OMP and timing was confirmed to match expected single-thread timing.
+
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `gcc`
+
+```
+SPACK_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens"
+env OMP_THREAD_LIMIT=1 LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_gcc_weak_serial.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
+
+COMD_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/comd-1.1-6sifbzehxhqkgkerdq24qnzb4xegipyh"
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_gcc_weak_serial.profile
+
+Total: 5041 samples
+    1947  38.6%  38.6%     2370  47.0% eamForce._omp_fn.3
+    1932  38.3%  76.9%     2596  51.5% eamForce._omp_fn.1
+     859  17.0%  94.0%      957  19.0% interpolate
+     125   2.5%  96.5%      125   2.5% __sqrt
+      84   1.7%  98.1%       84   1.7% __floor_sse41
+      26   0.5%  98.7%       26   0.5% _init
+      18   0.4%  99.0%       18   0.4% advanceVelocity._omp_fn.0
+       7   0.1%  99.1%       11   0.2% getBoxFromCoord
+       7   0.1%  99.3%       11   0.2% sortAtomsInCell
+       6   0.1%  99.4%       10   0.2% eamForce._omp_fn.0
+```
+
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `nvhpc`
+
+```
+SPACK_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens"
+env OMP_THREAD_LIMIT=1 LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_nvhpc_weak_serial.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
+
+COMD_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/nvhpc-21.2/comd-1.1-chfwr76qbks5xpqlnuhuzjmc3zsxld5x"
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_nvhpc_weak_serial.profile
+
+Total: 3569 samples
+    1486  41.6%  41.6%     1731  48.5% __nv_eamForce_F1L328_4
+    1421  39.8%  81.5%     1771  49.6% __nv_eamForce_F1L250_2
+     597  16.7%  98.2%      597  16.7% interpolate
+      10   0.3%  98.5%       12   0.3% __nv_eamForce_F1L239_1
+       9   0.3%  98.7%        9   0.3% __nv_advanceVelocity_F1L72_1
+       7   0.2%  98.9%        7   0.2% __memmove_avx_unaligned_erms
+       7   0.2%  99.1%       15   0.4% sortAtomsInCell
+       6   0.2%  99.3%        6   0.2% __nv_advancePosition_F1L86_2
+       4   0.1%  99.4%        4   0.1% getBoxFromTuple
+       3   0.1%  99.5%        5   0.1% __nv_eamForce_F1L305_3
+```
+
+For the C6gn (ARM) here are the top ten application routines, with associated % of runtime for `arm`
+
+```
+SPACK_DIR=/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gperftools-2.8.1-nlcrjyzchw37gafuffie7h5vapyl5uhg
+[jayson@ip-10-0-0-176 gatk]$ env OMP_THREAD_LIMIT=1 LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_weak_arm_serial.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
+
+COMD_DIR=/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/comd-1.1-phpsqbdm2lucpiarf7j5rd2m22owszc5
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_weak_arm_serial.profile  Using local file /scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/comd-1.1-phpsqbdm2lucpiarf7j5rd2m22owszc5/bin/CoMD-openmp.
+Using local file comd_weak_arm_serial.profile.
+Total: 6495 samples
+    2754  42.4%  42.4%     3306  50.9% .omp_outlined..5
+    2750  42.3%  84.7%     3039  46.8% .omp_outlined..8
+     834  12.8%  97.6%      834  12.8% interpolate
+      28   0.4%  98.0%       53   0.8% .omp_outlined.@40beb4
+      25   0.4%  98.4%       25   0.4% zeroReal3
+      15   0.2%  98.6%       26   0.4% sortAtomsInCell
+      13   0.2%  98.8%       13   0.2% __sqrt
+      12   0.2%  99.0%       12   0.2% __brk
+       9   0.1%  99.2%       13   0.2% getBoxFromCoord
+       8   0.1%  99.3%        8   0.1% .omp_outlined..2
+```
+
+
+### Full Node Hot-spot Profile
+
+Full node hot-spot profiling was done using gperf. CoMD reported OMP threads and timing was also used to confirm full node utilization.
 
 For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `gcc`
 
 ```
 SPACK_DIR='/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens/'
-env LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_gcc.profile CoMD-openmp
+env LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_weak_gcc_full.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
 
 COMD_DIR='/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/comd-1.1-6sifbzehxhqkgkerdq24qnzb4xegipyh/bin/'
-pprof --text $COMD_DIR/bin/CoMD-openmp comd_gcc.profile
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_weak_gcc_full.profile
 
 Total: 1108 samples
      574  51.8%  51.8%      581  52.4% do_spin (inline)
@@ -403,10 +474,10 @@ For the C5n (Intel) here are the top ten application routines, with associated %
 
 ```
 SPACK_DIR='/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens/'
-env LD_PRELOAD={SPACK_DIR}/lib/libprofiler.so CPUPROFILE=comd_nvhpc.profile CoMD-openmp
+env LD_PRELOAD={SPACK_DIR}/lib/libprofiler.so CPUPROFILE=comd_weak_nvhpc_full.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
 
 COMD_DIR='/scratch/opt/spack/linux-amzn2-skylake_avx512/nvhpc-21.2/comd-1.1-chfwr76qbks5xpqlnuhuzjmc3zsxld5x'
-pprof --text $COMD_DIR/bin/CoMD-openmp comd_nvhpc.profile
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_weak_nvhpc_full.profile
 
 Total: 1108 samples
      574  51.8%  51.8%      581  52.4% do_spin (inline)
@@ -430,7 +501,7 @@ For the C6gn (ARM) here are the top ten application routines, with associated % 
 
 ```
 SPACK_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gperftools-2.8.1-nlcrjyzchw37gafuffie7h5vapyl5uhg"
-env LD_PRELOAD={SPACK_DIR}/lib/libprofiler.so CPUPROFILE=comd_arm.profile CoMD-openmp
+env LD_PRELOAD={SPACK_DIR}/lib/libprofiler.so CPUPROFILE=comd_arm.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
 
 COMD_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/comd-
 1.1-phpsqbdm2lucpiarf7j5rd2m22owszc5"
@@ -448,10 +519,6 @@ Total: 170 samples
        0   0.0% 100.0%       29  17.1% __kmp_barrier
        0   0.0% 100.0%       55  32.4% __kmp_fork_barrier
 ```
-
-### Full Node Hot-spot Profile
-
-Node hot-spot profile not done for this test.
 
 ### Strong Scaling Study
 
@@ -679,12 +746,103 @@ Performance comparison of three available compilers on the ARM HPC. Note: each s
 
 ### Serial Hot-spot Profile
 
-Serial hot-spot profile not done for this test.
+Serial hot-spot profiling was done with perf for the "strong scaling" test CoMD includes in the GitHub repo. `OMP_THREAD_LIMIT=1` was used to limit OMP and timing was confirmed to match expected single-thread timing.
 
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `gcc`
+
+```
+SPACK_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens"
+env OMP_THREAD_LIMIT=1 LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_gcc_strong_serial.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 40 -y 40 -z 40
+
+COMD_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/comd-1.1-6sifbzehxhqkgkerdq24qnzb4xegipyh"
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_gcc_strong_serial.profile
+
+Total: 37996 samples
+    6709  17.7%  17.7%     7472  19.7% _fini
+    4292  11.3%  29.0%     4292  11.3% .S01798
+    3274   8.6%  37.6%     3274   8.6% .S01764
+    2850   7.5%  45.1%     2850   7.5% .S01376
+    2688   7.1%  52.1%     2688   7.1% .S01382
+    2607   6.9%  59.0%     2607   6.9% .S01814
+    1796   4.7%  63.7%     1796   4.7% .S01768
+    1504   4.0%  67.7%     1504   4.0% .S01278
+    1295   3.4%  71.1%     1295   3.4% .S01770
+    1286   3.4%  74.5%     1286   3.4% .S01379
+    1192   3.1%  77.6%     1192   3.1% .S01373
+     938   2.5%  80.1%      938   2.5% __sqrt
+     868   2.3%  82.4%      868   2.3% .S01284
+     669   1.8%  84.1%      669   1.8% .S01816
+```
+
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `nvhpc`
+
+```
+SPACK_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens"
+env OMP_THREAD_LIMIT=1 LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_nvhpc_strong.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 40 -y 40 -z 40
+
+COMD_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/nvhpc-21.2/comd-1.1-chfwr76qbks5xpqlnuhuzjmc3zsxld5x"
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_nvhpc_strong_serial.profile
+
+Total: 27307 samples
+   11268  41.3%  41.3%    13193  48.3% __nv_eamForce_F1L328_4
+   10714  39.2%  80.5%    13467  49.3% __nv_eamForce_F1L250_2
+    4714  17.3%  97.8%     4714  17.3% interpolate
+     101   0.4%  98.1%      134   0.5% __nv_eamForce_F1L239_1
+      97   0.4%  98.5%       97   0.4% __nv_advanceVelocity_F1L72_1
+      74   0.3%  98.8%      118   0.4% sortAtomsInCell
+      58   0.2%  99.0%       58   0.2% __nv_advancePosition_F1L86_2
+      48   0.2%  99.1%       61   0.2% getBoxFromCoord
+      33   0.1%  99.3%       33   0.1% zeroReal3@40b210
+      26   0.1%  99.4%       26   0.1% loadAtomsBuffer
+```
 
 ### Full Node Hot-spot Profile
 
-Full node hot-spot profile not done for this test.
+Full node hot-spot profiling was done using gperf. CoMD reported OMP threads and timing was also used to confirm full node utilization.
+
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `nvhpc`
+
+```
+SPACK_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens"
+env LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_nvhpc_strong_full.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 40 -y 40 -z 40
+
+COMD_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/nvhpc-21.2/comd-1.1-chfwr76qbks5xpqlnuhuzjmc3zsxld5x"
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_nvhpc_strong_full.profile
+
+Total: 5552 samples
+    1672  30.1%  30.1%     1958  35.3% __nv_eamForce_F1L250_2
+    1656  29.8%  59.9%     1837  33.1% __nv_eamForce_F1L328_4
+     820  14.8%  74.7%     1221  22.0% waitForNeighborThreads (inline)
+     474   8.5%  83.2%      474   8.5% interpolate
+     396   7.1%  90.4%      396   7.1% __GI___sched_yield
+     106   1.9%  92.3%      123   2.2% __nv_eamForce_F1L239_1
+      81   1.5%  93.8%       98   1.8% getBoxFromCoord
+      51   0.9%  94.7%       79   1.4% unloadAtomsBuffer
+      46   0.8%  95.5%       46   0.8% __nv_advancePosition_F1L86_2
+      46   0.8%  96.3%       46   0.8% loadAtomsBuffer
+```
+
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `gcc`
+
+```
+SPACK_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens"
+env LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_gcc_strong_full.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 40 -y 40 -z 40
+
+COMD_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/nvhpc-21.2/comd-1.1-chfwr76qbks5xpqlnuhuzjmc3zsxld5x"
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_gcc_strong_full.profile
+
+Total: 8240 samples
+    2175  26.4%  26.4%     2199  26.7% do_spin (inline)
+     797   9.7%  36.1%      797   9.7% .S01764
+     779   9.5%  45.5%      779   9.5% .S01376
+     727   8.8%  54.3%      823  10.0% _fini
+     594   7.2%  61.6%      594   7.2% .S01798
+     327   4.0%  65.5%      327   4.0% .S01814
+     315   3.8%  69.3%      315   3.8% .S01768
+     297   3.6%  72.9%      297   3.6% .S01382
+     233   2.8%  75.8%      233   2.8% .S01373
+     159   1.9%  77.7%      159   1.9% .S01278
+```
 
 ### Strong Scaling Study
 
