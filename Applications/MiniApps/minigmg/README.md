@@ -140,34 +140,34 @@ $ spack spec -Il minigmg@local%nvhpc
 
 ## Test Case 1
 
-[ReFrame Benchmark 1](#)
+[ReFrame Benchmark 1](reframe_scripts/benchmark_v_test1_gcc.py)
 
 ```
-../bin/reframe -c benchmark.py -r --performance-report
+reframe -c benchmark_v_test1_gcc.py -v -r --performance-report --keep-stage-files
 ```
 
 ## Test Case 2
 
-[ReFrame Benchmark 2](#)
+[ReFrame Benchmark 2](reframe_scripts/benchmark_v_test2_gcc.py)
 
 ```
-../bin/reframe -c benchmark.py -r --performance-report
+reframe -c benchmark_v_test2_gcc.py -v -r --performance-report --keep-stage-files
 ```
 
 ## Test Case 3
 
-[ReFrame Benchmark 3](#)
+[ReFrame Benchmark 3](reframe_scripts/benchmark_v_test3_gcc.py)
 
 ```
-../bin/reframe -c benchmark.py -r --performance-report
+reframe -c benchmark_v_test3_gcc.py -v -r --performance-report --keep-stage-files
 ```
 
 ## Test Case 4
 
-[ReFrame Benchmark 4](#)
+[ReFrame Benchmark 4](reframe_scripts/benchmark_v_test4_gcc.py)
 
 ```
-../bin/reframe -c benchmark.py -r --performance-report
+reframe -c benchmark_v_test4_gcc.py -v -r --performance-report --keep-stage-files
 ```
 
 ### Validation
@@ -181,23 +181,114 @@ miniGMG reduces the norm until it is less than 1e-15. If the norm is still great
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-     **** 
+miniGMG_minigmg_on_node_test2_gcc_minigmg_local_gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 127.3 s
+------------------------------------------------------------------------------
+miniGMG_minigmg_on_node_test2_gcc_minigmg_local_gcc_10_3_0_N_1_MPI_1_OMP_2
+   - builtin
+      * num_tasks: 1
+      * Total Time: 84.14 s
+------------------------------------------------------------------------------
+miniGMG_minigmg_on_node_test2_gcc_minigmg_local_gcc_10_3_0_N_1_MPI_1_OMP_4
+   - builtin
+      * num_tasks: 1
+      * Total Time: 52.06 s
+------------------------------------------------------------------------------
+miniGMG_minigmg_on_node_test2_gcc_minigmg_local_gcc_10_3_0_N_1_MPI_1_OMP_8
+   - builtin
+      * num_tasks: 1
+      * Total Time: 41.18 s
+------------------------------------------------------------------------------
+miniGMG_minigmg_on_node_test2_gcc_minigmg_local_gcc_10_3_0_N_1_MPI_1_OMP_16
+   - builtin
+      * num_tasks: 1
+      * Total Time: 51.58 s
+------------------------------------------------------------------------------
+miniGMG_minigmg_on_node_test2_gcc_minigmg_local_gcc_10_3_0_N_1_MPI_1_OMP_32
+   - builtin
+      * num_tasks: 1
+      * Total Time: 82.87 s
+------------------------------------------------------------------------------
+miniGMG_minigmg_on_node_test2_gcc_minigmg_local_gcc_10_3_0_N_1_MPI_1_OMP_64
+   - builtin
+      * num_tasks: 1
+      * Total Time: 131.02 s
+------------------------------------------------------------------------------
+miniGMG_minigmg_on_node_test2_arm_minigmg_local_arm_21_0_0_879_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 124.5 s
+------------------------------------------------------------------------------
+miniGMG_minigmg_on_node_test2_arm_minigmg_local_arm_21_0_0_879_N_1_MPI_1_OMP_2
+   - builtin
+      * num_tasks: 1
+      * Total Time: 83.3 s
+------------------------------------------------------------------------------
+miniGMG_minigmg_on_node_test2_arm_minigmg_local_arm_21_0_0_879_N_1_MPI_1_OMP_4
+   - builtin
+      * num_tasks: 1
+      * Total Time: 52.5 s
+------------------------------------------------------------------------------
+miniGMG_minigmg_on_node_test2_arm_minigmg_local_arm_21_0_0_879_N_1_MPI_1_OMP_8
+   - builtin
+      * num_tasks: 1
+      * Total Time: 35.18 s
+------------------------------------------------------------------------------
+miniGMG_minigmg_on_node_test2_arm_minigmg_local_arm_21_0_0_879_N_1_MPI_1_OMP_16
+   - builtin
+      * num_tasks: 1
+      * Total Time: 25.2 s
+------------------------------------------------------------------------------
+miniGMG_minigmg_on_node_test2_arm_minigmg_local_arm_21_0_0_879_N_1_MPI_1_OMP_32
+   - builtin
+      * num_tasks: 1
+      * Total Time: 18.27 s
+------------------------------------------------------------------------------
+miniGMG_minigmg_on_node_test2_arm_minigmg_local_arm_21_0_0_879_N_1_MPI_1_OMP_64
+   - builtin
+      * num_tasks: 1
+      * Total Time: 11.56 s
 ------------------------------------------------------------------------------
 ```
 
 ### On-node Compiler Comparison
 
 Performance comparison of two compilers.
-
-| Cores | Compiler 1 | Compiler 2 |
+#### Test Case 1
+| Cores | arm | gcc |
 |-------|------------|------------|
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
+| 8     | 4.35 s           | 6.31 s           |
+| 16    | 3.58 s           | 7.81 s           |
+| 32    | 3.71 s           | 11.39 s           |
+| 64    | 3.91 s           | 18.33 s           |
+
+#### Test Case 3
+| Cores | arm | gcc |
+|-------|------------|------------|
+| 8     | 35.18 s           | 41.18 s           |
+| 16    | 25.2 s           | 51.58 s           |
+| 32    | 18.27 s           | 82.87 s           |
+| 64    | 11.56 s           | 131.02 s           |
+
+#### Test Case 3
+| Cores | arm | gcc |
+|-------|------------|------------|
+| 8     | 273.77 s           | 314.23 s           |
+| 16    | 199.31 s           | 418.16 s           |
+| 32    | 134.02 s           | 686.54 s           |
+| 64    | 81.45 s           | 1097.58 s           |
+
+#### Test Case 4
+| Cores | arm | gcc |
+|-------|------------|------------|
+| 8     | 535.99 s           | 789.04 s           |
+| 16    | 520.7 s           | 1048.72 s           |
+| 32    | 375.39 s           | 1906.81 s           |
+| 64    | 269.4 s           | 2499.68 s           |
 
 
 ### Serial Hot-spot Profile
@@ -271,7 +362,7 @@ Profiling script:
 ![w4a](pictures/w4a.png)
 
 ### Strong Scaling Study
-On-node scaling study for two compilers.
+On-node scaling study for two compilers:
 
 #### Test Case 1
 arm script:   
@@ -280,9 +371,6 @@ gcc script:
 [ReFrame Benchmark](#)    
 | Cores | arm | gcc |
 |-------|------------|------------|
-| 1     | 17.19 s           | 17.18 s           |
-| 2     | 9.95 s           | 11.57 s           |
-| 4     | 5.98 s           | 7.33 s           |
 | 8     | 4.35 s           | 6.31 s           |
 | 16    | 3.58 s           | 7.81 s           |
 | 32    | 3.71 s           | 11.39 s           |
@@ -295,9 +383,6 @@ gcc script:
 [ReFrame Benchmark](#)    
 | Cores | arm | gcc |
 |-------|------------|------------|
-| 1     | 124.5 s           | 127.3 s           |
-| 2     | 83.3 s           | 84.14 s           |
-| 4     | 52.5 s            | 52.06 s           |
 | 8     | 35.18 s           | 41.18 s           |
 | 16    | 25.2 s           | 51.58 s           |
 | 32    | 18.27 s           | 82.87 s           |
@@ -310,9 +395,6 @@ gcc script:
 [ReFrame Benchmark](#)    
 | Cores | arm | gcc |
 |-------|------------|------------|
-| 1     | 1011.12 s           | 1060.55 s           |
-| 2     | 625.56 s           | 643.84 s           |
-| 4     | 397.64 s           | 401.97 s           |
 | 8     | 273.77 s           | 314.23 s           |
 | 16    | 199.31 s           | 418.16 s           |
 | 32    | 134.02 s           | 686.54 s           |
@@ -325,13 +407,63 @@ gcc script:
 [ReFrame Benchmark](#)    
 | Cores | arm | gcc |
 |-------|------------|------------|
-| 1     |            |         |
-| 2     |            | 1733.35 s             |
-| 4     | 952.02 s           | 990.99 s           |
 | 8     | 535.99 s           | 789.04 s            |
 | 16    | 520.7 s           | 1048.72 s          |
 | 32    | 375.39 s           | 1906.81 s           |
 | 64    | 269.4 s           | 2499.68 s           |
+
+Off-node scaling study for two compilers:
+#### Test Case 1
+arm script:  
+[ReFrame Benchmark](#)  
+gcc script:  
+[ReFrame Benchmark](#)  
+
+| Nodes | Cores | arm |  gcc |
+|-------|-------|------------|------------|
+| 1     | 32    | 4.35 s	           |  11.39 s   |
+| 1     | 64    | 3.58 s           | 19.33 s    |
+| 2     | 128   | 60.24 s           | 11.34 s    |
+| 4     | 256   | 63.33 s           | 7.67 s    |
+
+#### Test Case 2
+arm script:  
+[ReFrame Benchmark](#)  
+gcc script:  
+[ReFrame Benchmark](#)  
+
+| Nodes | Cores | arm |  gcc |
+|-------|-------|------------|------------|
+| 1     | 32    | 35.18 s	           | 41.18 s    |
+| 1     | 64    | 25.2 s           | 51.58 s    |
+| 2     | 128   | 7.67 s           | 68.77 s    |
+| 4     | 256   | 66.17 s           | 37.38 s     |
+
+#### Test Case 3
+arm script:  
+[ReFrame Benchmark](#)  
+gcc script:  
+[ReFrame Benchmark](#)  
+
+| Nodes | Cores | arm |  gcc |
+|-------|-------|------------|------------|
+| 1     | 32    | 273.77 s	           | 314.23 s    |
+| 1     | 64    | 199.31 s           | 418.16 s    |
+| 2     | 128   | 46.77 s           | 559.38 s    |
+| 4     | 256   | 29.05 s          | 283.53 s     |
+
+#### Test Case 4
+arm script:  
+[ReFrame Benchmark](#)  
+gcc script:  
+[ReFrame Benchmark](#)  
+
+| Nodes | Cores | arm |  gcc |
+|-------|-------|------------|------------|
+| 1     | 32    | 535.99 s 	           | 789.04 s    |
+| 1     | 64    | 520.7 s           | 1048.72 s   |
+| 2     | 128   | 147.97 s          | 1879.59 s    |
+| 4     | 256   | 82.66 s           | 942.39 s     |
 
 ### On-Node Architecture Comparison
 
@@ -345,9 +477,6 @@ ARM script:
 Time: 
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
-| 1     | 17.18 s           | 19.09 s   |
-| 2     | 11.57 s           | 23.29 s   |
-| 4     | 7.33 s           | 20.83 s   |
 | 8     | 6.31 s           | 19.91 s   |
 | 16    | 7.81 s           | 22.06 s   |
 | 32    | 11.39 s           | 30.28 s   |
@@ -361,9 +490,6 @@ ARM script:
 Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
-| 1     | 127.3 s           | 164.75 s  |
-| 2     | 84.14 s           | 128.39 s  |
-| 4     | 52.06 s           | 85.88 s   |
 | 8     | 41.18 s           | 72.85 s   |
 | 16    | 51.58 s           | 84.45 s   |
 | 32    | 82.87 s           | 142.46 s  |
@@ -377,9 +503,6 @@ ARM script:
 Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
-| 1     | 1060.55 s           | 1335.42 s |
-| 2     | 643.84 s           | 981.23 s  |
-| 4     | 401.97 s           | 627.84 s  |
 | 8     | 314.23 s           | 543.84 s  |
 | 16    | 418.16 s           | 640.72 s  |
 | 32    | 686.54 s           | 1087.96 s |
@@ -393,9 +516,6 @@ ARM script:
 Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
-| 1     |            | 4790.18 s |
-| 2     | 1733.35 s           | 3343.18 s |
-| 4     | 990.99 s           | 1994.46 s |
 | 8     | 789.04 s           | 1305.74 s |
 | 16    | 1048.72 s           | 1915.15 s |
 | 32    | 1906.81 s           | 3563.73 s |
@@ -404,13 +524,12 @@ Time:
 ### Off-Node Architecture Comparison
 
 Off-node scaling study for two architectures.
-
+Compiler: gcc
 #### Test Case 1
 X86 script:  
 [ReFrame Benchmark](#)  
 ARM script:  
 [ReFrame Benchmark](#)  
-Time:
 
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
