@@ -798,18 +798,18 @@ List of top-10 functions/code locations from a serial profile. Collected with
 `reframe` by prepending `map --profile --export-functions=prof.csv` to the job
 specification.
 
-| Position | Routine                 | Time (%) | MPI (%) |
-|----------|-------------------------|----------|---------|
-|  1       |  next_pY                |  34.6%   |         |
-|  2       |  global_max             |  34.1%   |         |
-|  3       |  align_top_subsequences |   8.8%   |         |
-|  4       |  m_step                 |   5.1%   |         |
-|  5       |  __log_finite           |   4.3%   |         |
-|  6       |  e_step                 |  12.0%   |         |
-|  7       |  exp                    |   5.4%   |         |
-|  8       |  __exp_finite           |   1.8%   |         |
-|  9       |  pY_compare             |   1.6%   |         |
-| 10       |  msort_with_tmp.part    |   3.0%   |         |
+| Position | Routine                 | Time (%) |
+|----------|-------------------------|----------|
+|  1       |  next_pY                |  34.6%   |
+|  2       |  global_max             |  34.1%   |
+|  3       |  align_top_subsequences |   8.8%   |
+|  4       |  m_step                 |   5.1%   |
+|  5       |  __log_finite           |   4.3%   |
+|  6       |  e_step                 |  12.0%   |
+|  7       |  exp                    |   5.4%   |
+|  8       |  __exp_finite           |   1.8%   |
+|  9       |  pY_compare             |   1.6%   |
+| 10       |  msort_with_tmp.part    |   3.0%   |
 
 ### Full Node Hot-spot Profile
 
