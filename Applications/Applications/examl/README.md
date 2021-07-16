@@ -4,7 +4,7 @@
 
 **URL:** https://github.com/stamatak/ExaML
 
-**Team:**  
+**Team:**  dogecointothemoon
 
 ## Compilation
 
