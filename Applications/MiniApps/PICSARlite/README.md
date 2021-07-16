@@ -539,7 +539,7 @@ PICSARlite_test_picsarlite_0_1_nvhpc_21_2_N_8_MPI_128_OMP_4
 Performance comparison on c6gn:
 
 | Cores | MPI proc | OMP threads | GCC 10.3  | arm 21.0   | nvhpc 21.2 |
-|-------|----|----|-----------|------------|------------|
+|-------|----------|-------------|-----------|------------|------------|
 | 1     |  1 |  1 | 51.56     | 56.92      | 60.12   |
 | 2     |  2 |  1 | 166.60    | 164.00     | 166.34  |
 | 4     |  4 |  1 | 355.80    | 344.03     | 366.55  |
@@ -550,25 +550,25 @@ Performance comparison on c6gn:
 
 
 | Cores | MPI proc | OMP threads | GCC 10.3  | arm 21.0   | nvhpc 21.2 |
-|-------|----|----|-----------|------------|------------|
-| 1     |  1 |  1 | 52.53    |       |    |
-| 2     |  1 |  2 | 48.37    |      |   |
-| 4     |  1 |  4 | 49.78    |      |  |
-| 8     |  1 |  8 | 50.70   |     |  |
-| 16    |  1 | 16 | 49.39   |     |  |
-| 32    |  1 | 32 | 50.72   |     |  |
-| 64    |  1 | 64 | 51.96   |       |   |
+|-------|----------|-------------|-----------|------------|------------|
+| 1     |  1       |  1 | 52.53    | 57.15       | 60.41   | 52.53
+| 2     |  1       |  2 | 48.37    | 52.15       | 54.93   | 48.37
+| 4     |  1       |  4 | 49.78    | 52.55       | 55.67   | 49.78
+| 8     |  1       |  8 | 50.70    | 52.52       | 56.28   | 50.70
+| 16    |  1       | 16 | 49.39    | 52.67       | 58.65   | 49.39
+| 32    |  1       | 32 | 50.72    | 51.13       | 57.08   | 50.72
+| 64    |  1       | 64 | 51.96    | 51.28       | 59.41   | 51.96
 
 
 | Cores | MPI proc | OMP threads | GCC 10.3  | arm 21.0   | nvhpc 21.2 |
-|-------|----|----|-----------|------------|------------|
-| 1     |  1 | 64 |    |  51.89     |   |
-| 2     |  2 | 32 | 30.16  |  29.22     |   |
-| 4     |  4 | 16 | 15.69   |  15.90     |   |
-| 8     |  8 |  8 | 11.05   |  11.21     |  |
-| 16    | 16 |  4 | 10.75   |  10.38     |  |
-| 32    | 32 |  2 |    |  11.88     |  |
-| 64    | 64 |  1 |    |  17.97     |  |
+|-------|----------|-------------|-----------|------------|------------|
+| 1     |  1       | 64 	| 51.96	        |  51.89     |       |
+| 2     |  2 	   | 32 	| 30.16         |  29.22     |  32.70|
+| 4     |  4 	   | 16 	| 15.69         |  15.90     |  19.87|
+| 8     |  8 	   |  8 	| 11.05         |  11.21     |  13.66|
+| 16    | 16 	   |  4 	| 10.75	        |  10.38     |  12.42|
+| 32    | 32 	   |  2 	| 30.16   	|  11.88     |  14.2 |
+| 64    | 64 	   |  1 	| 16.63  	|  17.97     |       |
 
 ### Serial Hot-spot Profile
 
@@ -579,7 +579,7 @@ Profiling command used:
 reframe -c picsarlite_test_hotspot_serial.py -r --performance-report
 ```
 
-The `map` profile does not show runtime in seconds:
+The `map` profile:
 
 | Position | depth | Self | Total | Child | MPI | Overhead | Regions | Function |
 |----------|-------|------|-------|-------|-----|----------|---------|----------|
@@ -618,125 +618,3 @@ MPI processes  = 64
 |  9       | 0     |  0.8% |  0.8% |       | 0.8% |          |         | mpi_barrier_                                                                |
 | 10       | 0     |  0.4% |  0.4% |       | 0.4% |          |         | mpi_routines::mpi_minimal_init                                              |
 
-### Strong Scaling Study
-
-On-node scaling study for two compilers.
-
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    | 12.52           |            |
-| 64    |            |            |
-
-
-### Off-Node Scaling Study
-
-Off-node scaling study comparing C6g and C6gn  instances.
-
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     | 12.70     |
-| 2     | 128   |     | 12.72     |
-| 4     | 256   |     | 17.35     |
-| 8     | 512   |     | 23.19     |
-
-
-### On-Node Architecture Comparison
-
-On-node scaling study for two architectures.
-
-| Cores | C6gn (Aarch64) | C5n (X86) |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
-
-
-## Optimisation
-
-Details of steps taken to optimise performance of the application.
-Please document work with compiler flags, maths libraries, system libraries, code optimisations, etc.
-
-### Compiler Flag Tuning
-
-Compiler flags before:
-```
-CFLAGS=
-FFLAGS=
-```
-
-Compiler flags after:
-```
-CFLAGS=
-FFLAGS=
-```
-
-#### Compiler Flag Performance
-
-| Cores | Original Flags | New Flags |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
-
-
-### Maths Library Report
-
-Report on use of maths library calls generated by (Perf Lib Tools)[https://github.com/ARM-software/perf-libs-tools].
-Please attach the corresponding apl files.
-
-
-### Maths Library Optimisation
-
-Performance analysis of the use of different maths libraries.
-
-
-| Cores | OpenBLAS | ArmPL | BLIS | 
-|-------|----------|-------| ---- |
-| 1     |          |       |      |
-| 2     |          |       |      |
-| 4     |          |       |      |
-| 8     |          |       |      |
-| 16    |          |       |      |
-| 32    |          |       |      |
-| 64    |          |       |      |
-
-
-### Performance Regression
-
-How fast can you make the code?
-
-Use all of the above aproaches and any others to make the code as fast as possible.
-Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
-
-
-
-## Report
-
-### Compilation Summary
-
-Details of lessons from compiling the application.
-
-### Performance Summary
-
-Details of lessons from analysing the performance of the application.
-
-
-### Optimisation Summary
-
-Details of lessons from performance optimising the application.
