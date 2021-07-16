@@ -99,6 +99,10 @@ spack install examl%arm
 
 We haven't yet successfully build ExaML on nvhpc.
 
+Reason:
+
+ExaML uses a lot of Intel intrinsics. To build it on ARM, we need to use sse2neon. However, this technique is not supported by nvhpc.
+
 ## Test Case 1
 
 > examl -t /home/peize/examl-test/case1/49.tree -m PSR -s /home/peize/examl-test/case1/49.unpartitioned.binary -n T1
@@ -284,15 +288,15 @@ This includes results of tasks: P1, P3, P6
 
 | Cores(MPI rank) | GCC | ARM |
 |-------|------------|------------|
-|  1     |  105.85   | 81.40|
-|  2     |  53.06    | 41.17|
-|  4     |  28.32    | 21.54|
-|  8     |  16.53    | 10.19|
-|  16    |  9.93     | 7.41 |
-|  32    |  4.71     | 3.73 |
-|  64    |  1.99     | 1.94 |
-|  128   |  0.96     | 0.91	|
-|  256   |  0.76	 | 0.69	|
+|  1     |  8.21   | 8.35|
+|  2     |  6.27    | 6.21|
+|  4     |  6.53    | 6.31|
+|  8     |  7.70    | 7.81|
+|  16    |  9.43     | 9.90 |
+|  32    |  11.15     | 13.14 |
+|  64    |  14.79     | 16.19 |
+|  128   |  38.99     | 48.72	|
+|  256   |  55.73	 | 70.33	|
 
 
 ### Serial Hot-spot Profile
@@ -341,19 +345,21 @@ map --profile srun -N 1 -n 64 examl -t /home/peize/examl-test/case1/49.tree -m P
 | 10       | saveSubtree      | <0.1%    |         |
 
 
-### On-Node Architecture Comparison
+### On-Node & Off-Node Architecture Comparison
 
-On-node scaling study for two architectures.
+On-Node & Off-Node scaling study for two architectures.
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
 |-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+| 1     |       8.21         |      10.30     |
+| 2     |       6.27         |         8.70  |
+| 4     |       6.53         |      8.31     |
+| 8     |       7.70         |      9.34     |
+| 16    |       9.43         |      11.23     |
+| 32    |       11.15         |      15.25     |
+| 64    |       14.79         |      19.56     |
+| 128    |      38.99          |     51.81      |
+| 256    |      55.73          |     66.53      |
 
 ## Test Case 2
 
@@ -538,9 +544,17 @@ ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_4_MPI_256_OMP_1
 
 This includes results of tasks: P2, P3, P6
 
-| Cores | Compiler 1 | Compiler 2 |
+| Cores(MPI rank) | GCC | ARM |
 |-------|------------|------------|
-|       |            |            |
+|  1     |  18.71   | 19.33|
+|  2     |  11.11    | 11.34|
+|  4     |  8.82    | 8.71|
+|  8     |  9.00    | 8.85|
+|  16    |  10.47     | 10.63 |
+|  32    |  12.44     | 11.91 |
+|  64    |  17.29     | 16.40 |
+|  128   |  49.66     | 50.08	|
+|  256   |  73.43	 | 71.16	|
 
 
 ### Serial Hot-spot Profile
@@ -591,19 +605,21 @@ map --profile srun -N 1 -n 64 examl -t /home/peize/examl-test/case1/49.tree -m G
 | 10       | \_\_GI\_\_IO_file_fopen | 0.3%     |         |
 
 
-### On-Node Architecture Comparison
+### On-Node & Off-Node Architecture Comparison
 
-On-node scaling study for two architectures.
+On-Node & Off-Node scaling study for two architectures.
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
 | ----- | -------------- | --------- |
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+| 1     |       18.71         |    20.77       |
+| 2     |       11.11         |    15.58       |
+| 4     |       8.82         |    10.88       |
+| 8     |       9.00         |    10.72       |
+| 16    |       10.47         |    12.78       |
+| 32    |       12.44         |    16.82       |
+| 64    |       17.29         |    22.25       |
+| 128    |      49.66          |   51.58        |
+| 256    |      73.43          |   81.92        |
 
 ## Test Case 3
 
@@ -788,9 +804,17 @@ ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_4_MPI_256_OMP_1
 
 This includes results of tasks: P2, P3, P6
 
-| Cores | Compiler 1 | Compiler 2 |
+| Cores(MPI rank) | GCC | ARM |
 |-------|------------|------------|
-|       |            |            |
+|  1     |  852.06   | 1031.86|
+|  2     |  460.39    | 538.28|
+|  4     |  273.47    | 301.01|
+|  8     |  188.46    | 189.69|
+|  16    |  153.16     | 141.05 |
+|  32    |  144.64     | 122.59 |
+|  64    |  164.99     | 140.63 |
+|  128   |  348.73     | 329.23	|
+|  256   |  469.44	 | 453.20	|
 
 
 ### Serial Hot-spot Profile
@@ -847,13 +871,15 @@ On-node scaling study for two architectures.
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
 | ----- | -------------- | --------- |
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+| 1     |        852.06        |    1108.00       |
+| 2     |        460.39        |    580.10       |
+| 4     |        273.47        |    348.78       |
+| 8     |        188.46        |    240.92       |
+| 16    |        153.16        |    195.84       |
+| 32    |        144.64        |    188.02       |
+| 64    |        164.99        |    204.53       |
+| 128    |       348.73         |   380.17        |
+| 256    |       469.44         |   383.98        |
 
 ## Test Case 4
 
@@ -1038,9 +1064,17 @@ ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_4_MPI_256_OMP_1
 
 This includes results of tasks: P2, P3, P6
 
-| Cores | Compiler 1 | Compiler 2 |
+| Cores(MPI rank) | GCC | ARM |
 |-------|------------|------------|
-|       |            |            |
+|  1     |  1675.12   | 2047.36|
+|  2     |  856.52    | 1039.04|
+|  4     |  444.69    | 538.27|
+|  8     |  248.17    | 293.50|
+|  16    |  156.18     | 177.61 |
+|  32    |  116.13     | 124.45 |
+|  64    |  117.51     | 121.94 |
+|  128   |  255.33     | 235.26	|
+|  256   |  337.60	 | 307.64	|
 
 
 ### Serial Hot-spot Profile
@@ -1098,13 +1132,15 @@ On-node scaling study for two architectures.
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
 | ----- | -------------- | --------- |
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+|  1     |  1675.12   | 1679.38  |
+|  2     |  856.52    | 1077.73  |
+|  4     |  444.69    | 565.52   |
+|  8     |  248.17    | 307.25 |
+|  16    |  156.18     | 194.58        |
+|  32    |  116.13     |  143.08 |
+|  64    |  117.51     | 143.57  |
+|  128   |  255.33     | 291.44	|
+|  256   |  337.60	 | 354.19 	|
 
 
 ## 
