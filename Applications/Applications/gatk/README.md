@@ -1034,7 +1034,21 @@ GATK_gatk_dedup_small_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
       * Total Time: 0.22 m
 ------------------------------------------------------------------------------
 
-# "medium data set did not finsh on time
+# from "medium"
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+GATK_gatk_dedup_medium_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 12.29 m
+------------------------------------------------------------------------------
+GATK_gatk_dedup_medium_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 12.28 m
+------------------------------------------------------------------------------
 
 # from "large" dataset
 ==============================================================================
@@ -1056,6 +1070,17 @@ GATK_gatk_dedup_large_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
 x86 HPC output
 
 ```
+# from "small" dataset
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+GATK_gatk_dedup_small_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 1
+      * Total Time: 0.18 m
+------------------------------------------------------------------------------
+
 # from "medium" dataset
 ==============================================================================
 PERFORMANCE REPORT
@@ -1087,7 +1112,7 @@ TODO
 | BAM | gcc        | arm        |
 |-------|------------|------------|
 | small   | 0.2 m      |  0.22 m     |
-| medium   |      |      |
+| medium   |  12.29 m    |  12.28 m     |
 | large   |   59.54 m     |  59.55 m  |
 
 
@@ -1183,8 +1208,8 @@ On-node scaling study for two architectures with `gcc` as the compiler.
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
 |-------|------------|------------|
-| small   | 0.2 m      |       |
-| medium   |      |   18.97 m   |
+| small   | 0.2 m      |  0.18 m     |
+| medium   | 18.97 m     |   12.28 m   |
 | large   |   59.54 m     |  45.81 m  |
 
 
@@ -1235,6 +1260,8 @@ The best strategy for replicating large-scale genomics work such as 1000 Genomes
 
 
 ## Report
+
+Below reports on the GATK tools tested above. Many more GATK tools were also tested including generally samtools, bwa, BwaSpark (aka alignment) and HaplotypeCaller/HaplotypeCallerSpark. They all worked as expected; however, required much more processing/setup and ended up taking too long to fully write-up as part of this 1-week event.
 
 ### Compilation Summary
 
