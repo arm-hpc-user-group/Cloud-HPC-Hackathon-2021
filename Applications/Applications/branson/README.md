@@ -348,6 +348,12 @@ No hitches here.
 
 ### Performance Summary
 
+![alt text](https://raw.githubusercontent.com/ImanHosseini/Cloud-HPC-Hackathon-2021/app/branson/Applications/Applications/branson/brans1.PNG)
+
 Branson test case was long running, and so good for a performance review. I ran the map profiler (not the one for functions) for 32 cores. First stop: the app is compute bound, at 98.8 in compute. Well let's get back to what BRANSON does: first, no I/O obviously, but why so little MPI? Well for 1, it is shamefully a parallel thing to do: there is only two barriers after all is done, and with good load balancing everything would just do in parallel.
+
+![alt text](https://raw.githubusercontent.com/ImanHosseini/Cloud-HPC-Hackathon-2021/app/branson/Applications/Applications/branson/brans2.PNG)
+![alt text](https://raw.githubusercontent.com/ImanHosseini/Cloud-HPC-Hackathon-2021/app/branson/Applications/Applications/branson/brans4.PNG)
+
 
 CPU metrics is reasonable, CPI could be less (more SIMD, probably would be less CPI on an x86 machine I guess?). What we described about two barriers first and last, shows in MPI breakdown: collective calls trump p2p. Thread breakdown also shows system load at 50% (remember we picked 32) so great.
