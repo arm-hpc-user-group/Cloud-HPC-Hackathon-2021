@@ -4,7 +4,7 @@
 
 **URL:** http://dock.compbio.ucsf.edu/DOCK_6/index.htm
 
-**Team:**  
+**Team:**  Wolfpack
 
 ## Compilation
 
@@ -12,9 +12,21 @@
 
 Details of any changes to the Spack recipe used.
 
+We add jemalloc as the optimization, and the corresponding variant to control the switch of it. We also add the support for arm and nvhpc compilers.
+
 Git commit hash of checkout for pacakage:
 
+https://github.com/spack/spack/pull/24933/commits/1c5fd8a20033a4d785f4ad8f0cf33160ef637790
+
 Pull request for Spack recipe changes:
+
+https://github.com/spack/spack/pull/24933
+
+
+
+There are some compilation errors when we use gcc/arm/nvhpc to compile it on arm platform. For gcc compiler, because we use gcc@10.3.0, there is a type mismatch error in fortran code. We add `-fallow-argument-mismatch` to solve it. For arm/nvhpc compilers, there is a multiple definition error when compile mixed fortran and c code for unknown reason. To solve this problem, we use c/cxx compiler with the main fortran library to compile such code.
+
+
 
 ### Building DOCK
 
@@ -257,7 +269,7 @@ On-node scaling study for two compilers.
 ### Off-Node Scaling Study
 
 #### Test Case 1
-| Nodes | Cores | arm | gcc | nvhpc
+| Nodes | Cores | arm | gcc | nvhpc|
 |-------|-------|-----|------|------|
 | 1     | 32    |     |      |      |
 | 1     | 64    |     |      |      |
@@ -265,15 +277,20 @@ On-node scaling study for two compilers.
 | 4     | 256   | 242.98    | 243.27 s     | 122.88 s     |
 
 #### Test Case 2
-| Nodes | Cores | arm | gcc | nvhpc
+
+
+| Nodes | Cores | arm | gcc | nvhpc|
 |-------|-------|-----|------|------|
 | 1     | 32    |     |      |      |
 | 1     | 64    |     |      |      |
 | 2     | 128   | 46.72 s    | 47.87 s     | 54.99 s     |
 | 4     | 256   | 285.34 s    | 165.37 s     | 53.39 s     |
 
+
+
 #### Test Case 3
-| Nodes | Cores | arm | gcc | nvhpc
+
+| Nodes | Cores | arm | gcc | nvhpc|
 |-------|-------|-----|------|------|
 | 1     | 32    |     |      |      |
 | 1     | 64    |     |      |      |
@@ -281,7 +298,7 @@ On-node scaling study for two compilers.
 | 4     | 256   | 259.71 s    | 262.33 s     | 26.78 s     |
 
 #### Test Case 4
-| Nodes | Cores | arm | gcc | nvhpc
+| Nodes | Cores | arm | gcc | nvhpc|
 |-------|-------|-----|------|------|
 | 1     | 32    |     |      |      |
 | 1     | 64    |     |      |      |
@@ -367,27 +384,26 @@ Please document work with compiler flags, maths libraries, system libraries, cod
 
 Compiler flags before:
 ```
-CFLAGS=
-FFLAGS=
+CFLAGS=-DBUILD_DOCK_WITH_MPI -DMPICH_IGNORE_CXX_SEEK -DMPICH_SKIP_MPICXX -I$(MPICH_HOME)/include -O2 
+FFLAGS=-O2 -fno-automatic -fno-second-underscore -fallow-argument-mismatch 
 ```
 
 Compiler flags after:
 ```
-CFLAGS=
-FFLAGS=
+CFLAGS=-DBUILD_DOCK_WITH_MPI -DMPICH_IGNORE_CXX_SEEK -DMPICH_SKIP_MPICXX -I$(MPICH_HOME)/include -O2 -Ofast
+FFLAGS=-O2 -fno-automatic -fno-second-underscore -fallow-argument-mismatch -Ofast
 ```
 
 #### Compiler Flag Performance
 
-| Cores | Original Flags | New Flags |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+The following table is based on gcc@10.3.0 with test case 4.
+
+| Cores | Original Flags | New Flags | Speedup |
+| ----- | -------------- | --------- | ------- |
+| 8     | 624.82         | 634.28    | 0.99    |
+| 16    | 298.95         | 303.3     | 0.99    |
+| 32    | 149.42         | 151.57    | 0.99    |
+| 64    | 84.8           | 84.51     | 1.00    |
 
 
 ### Maths Library Report
@@ -401,7 +417,7 @@ Please attach the corresponding apl files.
 Performance analysis of the use of different maths libraries.
 
 
-| Cores | OpenBLAS | ArmPL | BLIS | 
+| Cores | OpenBLAS | ArmPL | BLIS |
 |-------|----------|-------| ---- |
 | 1     |          |       |      |
 | 2     |          |       |      |
@@ -419,7 +435,30 @@ How fast can you make the code?
 Use all of the above aproaches and any others to make the code as fast as possible.
 Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
 
+The following table is based on gcc@10.3.0 with test case 4. The speedup is up to 1.18X. The percentage of reduction runtime is up to **15.33%**.
 
+| Cores | gcc    | Optimization | Speedup |
+| ----- | ------ | ------------ | ------- |
+| 8     | 624.82 | 529.05       | 1.18    |
+| 16    | 298.95 | 254.74       | 1.17    |
+| 32    | 149.42 | 126.82       | 1.18    |
+| 64    | 84.8   | 72.32        | 1.17    |
+
+#### Code modifications
+
+We add the arm/nvhpc compilers support following their coding rules. The [attached files](config_files/) are those configuration files. We use `jemalloc` to replace the original system malloc library by installing `jemalloc` and adding `-ljemalloc` to the configuration files.
+
+#### Compiler flags
+
+The `-ljemalloc` in configuration files will be passed as compilation flags.
+
+#### Spack recipe and build line
+
+Our [spack recipe](package.py) is attached.
+
+#### ReFrame script
+
+Our [reframe script] for optimization is attached.
 
 ## Report
 
