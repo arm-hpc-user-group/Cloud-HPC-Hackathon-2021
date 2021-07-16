@@ -47,9 +47,7 @@ class CloverLeafTest(hack.HackathonBase):
             {"nodes": 1, "mpi": 8, "omp": 1},
             {"nodes": 1, "mpi": 16, "omp": 1},
             {"nodes": 1, "mpi": 32, "omp": 1},
-            {"nodes": 2, "mpi": 64, "omp": 1},
-            {"nodes": 4, "mpi": 128, "omp": 1},
-            {"nodes": 8, "mpi": 256, "omp": 1},
+            {"nodes": 1, "mpi": 64, "omp": 1},
         ]
     )
 
