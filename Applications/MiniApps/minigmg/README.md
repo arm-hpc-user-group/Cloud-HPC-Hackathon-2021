@@ -362,7 +362,7 @@ Profiling script:
 ![w4a](pictures/w4a.png)
 
 ### Strong Scaling Study
-On-node scaling study for two compilers:
+#### On-node scaling study for two compilers:
 
 #### Test Case 1
 arm script:   
@@ -412,7 +412,7 @@ gcc script:
 | 32    | 375.39 s           | 1906.81 s           |
 | 64    | 269.4 s           | 2499.68 s           |
 
-Off-node scaling study for two compilers:
+#### Off-node scaling study for two compilers:
 #### Test Case 1
 arm script:  
 [ReFrame Benchmark](#)  
