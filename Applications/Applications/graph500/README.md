@@ -37,7 +37,7 @@ $ spack spec -Il graph500@3.0.0%gcc@10.3.0
 [ReFrame Benchmark 1](benchmark.py)
 
 ```
-../bin/reframe -c benchmark.py -r --performance-report
+reframe -c benchmark.py -r --performance-report
 ```
 
 ### Validation
