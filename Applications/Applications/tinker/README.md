@@ -6,13 +6,13 @@
 
 **Team:** dogecointothemoon
 
-Tinker combines lost of some executable file, due to time limit, we only gave one test case of the `dynamic ice`. The Tinker is supported by the OpenMP, but the default version in Spack doesn't support that. So, we spent a lot of time on finding how to add the OpenMP to the spack package, and we made it finally! The program will run about **4 time faster with 8 threads**. We think it is a very impressive result, and maybe can be merged into the spack.
+Tinker combines lost of some executable file, due to time limit, we only gave one test case of the `dynamic ice`. The Tinker is supported by the OpenMP, but the default version in Spack doesn't support that. So, we spent a lot of time on finding how to add the OpenMP to the spack package, and we made it finally! The program will run about **4 time faster with 8 threads**. We think this is a very impressive result, and maybe it can be merged into the spack.
 
 ## Compilation
 
 ### Spack Package Modification
 
-Adding OpenMP support to tinker is tricky, as what the original package did is using a patch file of cmake. And we patched the patch file to add the openmp support.
+Adding OpenMP support to tinker is tricky, as what the original package did is using a patch file of cmake. And we patched the patch file to add the OpenMP support.
 ```
 +
 diff --git a/var/spack/repos/builtin/packages/tinker/tinker-8.7.1-cmake.patch b/var/spack/repos/builtin/packages/tinker/tinker-8.7.1-cmake.patch
@@ -252,9 +252,9 @@ Concretized
 
 nvhpc doens't has the variant openmpi, so we used gcc(enabled openmp) version of the fftw.
 
-``` spack install tinker%nvhpc ^cmake%gcc ^fftw/edegbs3 ```
+``` spack install tinker%nvhpc ^cmake%gcc ^fftw/edegbs3```
 
-``` spack spec -Il tinker/qszz7b5 ```
+``` spack spec -Il tinker/qszz7b5 
 
 [+]  tinker@8.7.1%nvhpc@21.2~ipo build_type=RelWithDebInfo patches=9121550598380fcac2929b9e0530c52ffd3466ff05654e80dbaa46b92566ac86 arch=linux-amzn2-graviton2
 [+]      ^fftw@3.3.9%gcc@10.3.0+mpi+openmp~pfft_patches precision=double,float arch=linux-amzn2-graviton2
@@ -406,7 +406,7 @@ Please document work with compiler flags, maths libraries, system libraries, cod
 
 #### Performance Regression(4 times faster with 8 threads!!!)
 
-I can't tell the exact the compiler as the package using cmake, but what I did is 1. Add the OpenMP support 2. Add other linker like -lm and -lfftw3_omp. You can see this in the first section "package modification"
+I can't tell the exact compiler option as the package using cmake, but what I did is 1. Add the OpenMP support 2. Add other linker like -lm and -lfftw3_omp. You can see this in the first section "package modification"
 
 | Cores | Original | Enabled with openmp|
 |-------|----------------|-----------|
@@ -430,7 +430,7 @@ We have tried the 16 cores and more, but we figured out that with 8 threads the 
 
 As you can see in the Peformance Regression part, the program runs faster when threads below 8, but when adding more threads, the program doesn't become faster(or even slower), We guess the reason is the overhead between the threads. 
 
-We use the pre command in the reframe to copy some input data ; otherwise the input data can't be found. 
+We use the pre command in the reframe to copy some input data ; otherwise the input data can't be found. It is not a good way in my view, but we don't very familiar with spack and didn't find a better one.
 
 ### Optimisation Summary
 
