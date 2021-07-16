@@ -324,6 +324,6 @@ Details of lessons from analysing the performance of the application.
 
 Details of lessons from performance optimising the application.
 
-We just followed the guide and with `spack edit graph500` we added the property build targets
+We just followed the guide and with `spack edit graph500` we added the property `build_targets`
 and added the new `CFLAGS`.
 It was pretty easy.
