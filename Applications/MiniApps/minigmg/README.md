@@ -99,22 +99,22 @@ List of top-10 functions / code locations from a serial profile.
 
 #### Test Case 1  
 Profiling script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark](reframe_scripts/benchmark_p4_test1_gcc.py)  
 ![st1](pictures/st1.png)
 
 #### Test Case 2
 Profiling script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark](reframe_scripts/benchmark_p4_test2_gcc.py)  
 ![st2](pictures/st2.png)
 
 #### Test Case 3
 Profiling script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark](reframe_scripts/benchmark_p4_test3_gcc.py)  
 ![st3](pictures/st3.png)
 
 #### Test Case 4
 Profiling script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark](reframe_scripts/benchmark_p4_test4_gcc.py)  
 ![st4](pictures/st4.png)
 
 ### Full Node Hot-spot Profile
@@ -124,42 +124,42 @@ List of top-10 functions / code locations from a full node profile.
 #### gcc
 #### Test Case 1  
 Profiling script:  
-[ReFrame Benchmark](#)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test1_gcc.py)
 ![w1g](pictures/w1g.png)
 
 #### Test Case 2
 Profiling script:  
-[ReFrame Benchmark](#)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test2_gcc.py)
 ![w2g](pictures/w2g.png)
 
 #### Test Case 3
 Profiling script:  
-[ReFrame Benchmark](#)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test3_gcc.py)
 ![w3g](pictures/w3g.png)
 
 #### Test Case 4
 Profiling script:  
-[ReFrame Benchmark](#)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test4_gcc.py)
 
 #### arm
 #### Test Case 1  
 Profiling script:  
-[ReFrame Benchmark](#)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test1_arm.py)
 ![w1a](pictures/w1a.png)
 
 #### Test Case 2
 Profiling script:  
-[ReFrame Benchmark](#)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test2_arm.py)
 ![w2a](pictures/w2a.png)
 
 #### Test Case 3
 Profiling script:  
-[ReFrame Benchmark](#)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test3_arm.py)
 ![w3a](pictures/w3a.png)
 
 #### Test Case 4
 Profiling script:  
-[ReFrame Benchmark](#)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test4_arm.py)
 ![w4a](pictures/w4a.png)
 
 ### Strong Scaling Study
@@ -335,7 +335,7 @@ ARM script:
 Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
-| 1     |            | 4790.18 s |
+| 1     | 3240.42           | 4790.18 s |
 | 2     |            | 3343.18 s |
 | 4     |            | 1994.46 s |
 | 8     |            | 1305.74 s |
@@ -346,7 +346,7 @@ Time:
 Number of v-cycles:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
-| 1     |            | 18          |
+| 1     | 18           | 18          |
 | 2     |            | 18          |
 | 4     |            | 18          |
 | 8     |            | 18          |
@@ -357,7 +357,7 @@ Number of v-cycles:
 Total time in MGSolve:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
-| 1     |            | 1051.882945 s          |
+| 1     | 709.073466           | 1051.882945 s          |
 | 2     |            | 755.768008 s          |
 | 4     |            | 452.718762 s          |
 | 8     |            | 298.740681 s          |
@@ -368,7 +368,7 @@ Total time in MGSolve:
 Total time of v-cycles:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
-| 1     |            | 1050.009506 s          |
+| 1     | 707.978497           | 1050.009506 s          |
 | 2     |            | 754.524528 s          |
 | 4     |            | 451.749684 s          |
 | 8     |            | 297.413569 s          |
