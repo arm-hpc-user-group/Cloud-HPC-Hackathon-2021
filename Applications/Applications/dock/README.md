@@ -295,7 +295,7 @@ On-node scaling study for two architectures.
 #### Test Case 1
 | Cores | ARM | X86(gcc) | X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
-| 8     |                | 5.09 s          |                |                
+| 8     |                | 5.09 s          | 4.93 s               |                
 | 16    |                | 3.81 s          |                 |               
 | 32    |                | 4.32 s          |                  |              
 | 64    |                | 6.79 s          |                  |              
@@ -303,7 +303,7 @@ On-node scaling study for two architectures.
 #### Test Case 2
 | Cores | ARM | X86 |X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
-| 8     |                | 493.54 s          |                |
+| 8     |                | 493.54 s          | 601.18 s               |
 | 16    |                | 237.41 s          |                |
 | 32    |                | 119.79 s          |                |
 | 64    |                | 62.11 s          |                |
@@ -332,7 +332,7 @@ On-node scaling study for two architectures.
 | 1     | 32     |                |           |                |                
 | 1     | 64    |                |           |                 |               
 | 2     | 128    |                | 5.72 s          |                  |              
-| 4     | 256    |                |           |                  |     
+| 4     | 256    |                | 5.29 s          |                  |     
 
 #### Test Case 2
 | Nodes | Cores | ARM            | X86(gcc)    | X86(nvhpc)               |
@@ -340,7 +340,7 @@ On-node scaling study for two architectures.
 | 1     | 32     |                |           |                |                
 | 1     | 64    |                |           |                 |               
 | 2     | 128    |                | 60.91 s          |                  |              
-| 4     | 256    |                |           |                  |     
+| 4     | 256    |                | 59.27 s          |                  |     
 
 #### Test Case 3
 | Nodes | Cores | ARM            | X86(gcc)    | X86(nvhpc)               |
@@ -348,7 +348,7 @@ On-node scaling study for two architectures.
 | 1     | 32     |                |           |                |                
 | 1     | 64    |                |           |                 |               
 | 2     | 128    |                | 26.13 s          |                  |              
-| 4     | 256    |                |           |                  |     
+| 4     | 256    |                | 26.26 s          |                  |     
 
 #### Test Case 4
 | Nodes | Cores | ARM            | X86(gcc)    | X86(nvhpc)               |
@@ -356,7 +356,7 @@ On-node scaling study for two architectures.
 | 1     | 32     |                |           |                |                
 | 1     | 64    |                |           |                 |               
 | 2     | 128    |                | 101.48 s          |                  |              
-| 4     | 256    |                |           |                  |     
+| 4     | 256    |                | 101.6 s          |                  |     
 
 ## Optimisation
 
