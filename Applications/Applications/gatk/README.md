@@ -1054,7 +1054,6 @@ GATK_gatk_dedup_large_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
 
 Performance comparison of two compilers. 
 
-TODO
 | BAM | gcc        | arm        |
 |-------|------------|------------|
 | small   | 0.2 m      |  0.22 m     |
