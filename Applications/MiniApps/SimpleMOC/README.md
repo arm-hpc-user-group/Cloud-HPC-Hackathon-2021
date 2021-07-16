@@ -4,7 +4,7 @@
 
 **URL:** https://github.com/ANL-CESAR/SimpleMOC
 
-**Team:**  
+**Team:**  BlueHPCHens
 
 ## Compilation
 
@@ -18,17 +18,41 @@ Pull request for Spack recipe changes:
 
 ### Building SimpleMOC
 
+```
+$ mkdir simplemoc
+$ cd simplemoc
+$ spack env create -d .
+$ spack env activate .
+$ spack develop simplemoc@4
+$ EDITOR simplemoc@4/src/Makefile
+```
 
-
-#### Compiler 1
+Edit MAKEFILE and set mpi = yes
 
 ```
-$ spack install simplemoc%gcc@10.3.0 ^openmpi
+$ spack concretize -f
 ```
 
-```
-$ spack spec -Il simplemoc%gcc@10.3.0 ^openmpi
 
+#### Compiler 1: GCC
+
+```
+$ spack install simplemoc@4%gcc@10.3.0
+$ spack load simplemoc@4%gcc@10.3.0
+```
+
+#### Compiler 2: NVPHC
+
+```
+$ spack install simplemoc@4%nvhpc
+$ spack load simplemoc@4
+```
+
+#### Compiler 3: ARM
+
+```
+$ spack install simplemoc@4%arm
+$ spack load simplemoc@4%arm
 ```
 
 ## Test Case 1
@@ -50,7 +74,26 @@ Details of the validation for `Test Case 1`.
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-     **** 
+SimpleMOC_SimpleMOC_Test_Run_3_simplemoc_4_arm_N_1_MPI_1_OMP_32
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1654.15 s
+------------------------------------------------------------------------------
+SimpleMOC_SimpleMOC_Test_Run_3_simplemoc_4_arm_N_1_MPI_1_OMP_64
+   - builtin
+      * num_tasks: 1
+      * Total Time: 3098.81 s
+------------------------------------------------------------------------------
+SimpleMOC_SimpleMOC_Test_Run_3_simplemoc_4_nvhpc_N_1_MPI_1_OMP_32
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1671.63 s
+------------------------------------------------------------------------------
+SimpleMOC_SimpleMOC_Test_Run_3_simplemoc_4_nvhpc_N_1_MPI_1_OMP_64
+   - builtin
+      * num_tasks: 1
+      * Total Time: 3138.95 s
 ------------------------------------------------------------------------------
 ```
 
