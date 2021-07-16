@@ -637,13 +637,12 @@ Demonstrate your gains by providing a scaling study for your test case, demonstr
 
 ### Compilation Summary
 
-Details of lessons from compiling the application.
+Compiling this application is also tricky because some dependencies just cannot fit for a specific compiler (most only compiler-related, instead of architecture-related). We need to mix-up some binaries in order for the project to work properly. From our experience, gcc & arm can mostly work out of the box, while nvhpc suffers a lot compiling errors.
 
 ### Performance Summary
 
-Details of lessons from analysing the performance of the application.
-
+The performance matches with our expectations. 
 
 ### Optimisation Summary
 
-Details of lessons from performance optimising the application.
+Not too many optimisations are applied here. 

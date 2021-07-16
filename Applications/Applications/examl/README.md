@@ -1212,13 +1212,13 @@ Demonstrate your gains by providing a scaling study for your test case, demonstr
 
 ### Compilation Summary
 
-Details of lessons from compiling the application.
+Building this application can be a little bit tricky, as we need the sse2neon library to support the arm architecture. 
 
 ### Performance Summary
 
-Details of lessons from analysing the performance of the application.
+The performance is inline with our expectations. 
 
 
 ### Optimisation Summary
 
-Details of lessons from performance optimising the application.
+We didn't optimise it in a lot depth, as it can work.
