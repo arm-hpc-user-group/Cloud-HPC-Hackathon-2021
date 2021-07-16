@@ -37,7 +37,7 @@ $ spack spec -Il graph500@3.0.0%gcc@10.3.0
 [ReFrame Benchmark 1](benchmark.py)
 
 ```
-../bin/reframe -c benchmark.py -r --performance-report
+reframe -c benchmark.py -r --performance-report
 ```
 
 ### Validation
@@ -240,27 +240,30 @@ Please document work with compiler flags, maths libraries, system libraries, cod
 
 Compiler flags before:
 ```
-CFLAGS=-Drestrict=__restrict__ -O3 -DGRAPH_GENERATOR_MPI -DREUSE_CSR_FOR_VALIDATION -I../aml
+CFLAGS=-Drestrict=__restrict__ -O3 -DGRAPH_GENERATOR_MPI -DREUSE_CSR_FOR_VALIDATION -I../aml -fcommon
 FFLAGS=
 ```
 
 Compiler flags after:
 ```
-CFLAGS=
+CFLAGS=-Drestrict=__restrict__ -O3 -DGRAPH_GENERATOR_MPI -DREUSE_CSR_FOR_VALIDATION -I../aml -march=native -mtune=native -funroll-loops -fcommon
 FFLAGS=
 ```
 
 #### Compiler Flag Performance
 
-| Cores | Original Flags | New Flags |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+| Cores | Compiler 1  | Compiler 2  |
+|-------|-------------|-------------|
+| 1     | 6.43763e+07 |             |
+| 2     | 5.97041e+07 |             |
+| 4     | 1.107e+08   |             |
+| 8     | 2.05556e+08 |             |
+| 16    | 3.61364e+08 |             |
+| 32    | 3.42793e+08 |             |
+| 64    | 3.45909e+08 |             |
+| 128   | 3.99087e+08 |             |
+| 256   | 5.83785e+08 |             |
+| 512   | 5.54875e+08 |             |
 
 
 ### Maths Library Report
@@ -302,6 +305,16 @@ Demonstrate your gains by providing a scaling study for your test case, demonstr
 
 Details of lessons from compiling the application.
 
+We had a huge headache using spack+reframe.
+For us were easier to download the code from github, compile it by ourselves and then
+create our own jobscript, but also we wanted to learn spack and reframe and stick
+to the guides given to us.
+At the very end we could compile graph500 at least in the x86 and optimize it.
+Since the instalation of openmpi at arm had no compatibility with slurm and we
+were not able to add it, also with the fact that graph500 did not compile on both
+gcc nor arm compilers, made our jorney kind of difficult.
+At least we learnt a few things.
+
 ### Performance Summary
 
 Details of lessons from analysing the performance of the application.
@@ -310,3 +323,7 @@ Details of lessons from analysing the performance of the application.
 ### Optimisation Summary
 
 Details of lessons from performance optimising the application.
+
+We just followed the guide and with `spack edit graph500` we added the property `build_targets`
+and added the new `CFLAGS`.
+It was pretty easy.
