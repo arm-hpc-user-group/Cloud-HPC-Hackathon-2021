@@ -18,7 +18,7 @@ Pull request for Spack recipe changes:
 
 ### Building miniVite
 
-#### Compiler 1
+#### Compiler 1: GCC 10.3.0
 
 ##### x86
 
@@ -106,7 +106,7 @@ Concretized
 [+]  ivotdt7              ^libedit@3.1-20210216%gcc@10.3.0 arch=linux-amzn2-graviton2
 [+]  wqpuvmh          ^slurm@20-02-4-1%gcc@10.3.0~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-graviton2
 ```
-#### Compiler 2
+#### Compiler 2: ARM 21.0.0.879
 ```
 spack install minivite%arm@21.0.0.879
 ```
@@ -149,7 +149,7 @@ Concretized
 [+]  xe4evc4              ^libedit@3.1-20210216%arm@21.0.0.879 arch=linux-amzn2-aarch64
 [+]  x5xehti          ^slurm@20-02-4-1%arm@21.0.0.879~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-aarch64
 ```
-#### Compiler 3
+#### Compiler 3: NVHPC 21.2
 ##### x86
 
 ```
@@ -384,7 +384,6 @@ List of top-10 functions / code locations from a serial profile.
 
 Profiling command used:
 ```
-:
 ```
 
 | Position | Routine | Time (s) | Time (%) |
@@ -407,7 +406,6 @@ List of top-10 functions / code locations from a full node profile.
 
 Profiling command used:
 ```
-:
 ```
 
 | Position | Routine | Time (s) | Time (%) | MPI (%) |
@@ -427,35 +425,36 @@ Profiling command used:
 
 On-node scaling study for two compilers.
 
-| Cores | Compiler 1 | Compiler 2 | Compiler 3 |
-|-------|------------|------------|------------|
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
+
+| Cores | Compiler 1 | Compiler 2 | 
+|-------|------------|------------|
+|   1   |  17.3677 s |  19.261  s |
+|   2   |  11.0794 s |  11.2518 s |
+|   4   |  4.83797 s |  5.68812 s |
+|   8   |  2.47868 s |  2.85111 s |
+|   16  |   1.0096 s |  1.25349 s |
+|   32  |  0.47624 s | 0.553428 s |
+|   64  | 0.231478 s | 0.362229 s | 
 
 
 ### Off-Node Scaling Study
 
-Off-node scaling study comparing C6g and C6gn instances.
+Off-node scaling study in C6gn instances using GCC 10.3.0 compiler.
 
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
+| Nodes | Cores | C6g |    C6gn    |
+|-------|-------|-----|------------|
+| 1     | 8     | --- | 2.47868  s |
+| 1     | 16    | --- | 1.0096   s |
+| 1     | 32    | --- | 0.47624  s |
+| 1     | 64    | --- | 0.231478 s |
+| 2     | 128   | --- |            |
+| 4     | 256   | --- |            |
+| 8     | 512   | --- |            |
 
 
 ### On-Node Architecture Comparison
 
-On-node scaling study for two architectures.
+On-node scaling study for two architectures using GCC 10.3.0 compiler.
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
 |-------|----------------|-----------|
