@@ -12,9 +12,17 @@
 
 Details of any changes to the Spack recipe used.
 
+We add a new dependent package since we apply our arm/simde optimizations to this application, and add the corresponding `simde` variant. For other compiler optimization flags, we add a variant `opt` to enable all of them.
+
 Git commit hash of checkout for pacakage:
 
+https://github.com/spack/spack/pull/24926/commits/949b7a644c6677fa6ccf824099b2ec32688000ba
+
+https://github.com/spack/spack/commit/2f3d651b1967050523919a881b883982d2351eeb
+
 Pull request for Spack recipe changes:
+
+https://github.com/spack/spack/pull/24926
 
 ### Building miniGMG
 
@@ -517,7 +525,9 @@ On-node scaling study for two architectures.
 Compiler: gcc
 #### Test Case 1
 X86 script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test1_gcc_x86.py)  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)  
 Time: 
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
@@ -528,7 +538,9 @@ Time:
 
 #### Test Case 2
 X86 script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test2_gcc_x86.py)  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)  
 Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
@@ -539,7 +551,9 @@ Time:
 
 #### Test Case 3
 X86 script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test3_gcc_x86.py)  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)  
 Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
@@ -550,7 +564,9 @@ Time:
 
 #### Test Case 4
 X86 script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test4_gcc_x86.py)  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)  
 Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
@@ -565,8 +581,10 @@ Off-node scaling study for two architectures.
 Compiler: gcc
 #### Test Case 1
 X86 script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_offnode1_test1_gcc_x86.py)  
-[ReFrame Benchmark](reframe_scripts/benchmark_offnode2_test1_gcc_x86.py)  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)  
+
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 11.39 s	           | 30.28 s    |
@@ -576,8 +594,9 @@ X86 script:
 
 #### Test Case 2
 X86 script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_offnode1_test2_gcc_x86.py)  
-[ReFrame Benchmark](reframe_scripts/benchmark_offnode2_test2_gcc_x86.py)  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 82.87 s           | 142.46 s   |
@@ -587,8 +606,9 @@ X86 script:
 
 #### Test Case 3
 X86 script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_offnode1_test3_gcc_x86.py)  
-[ReFrame Benchmark](reframe_scripts/benchmark_offnode2_test3_gcc_x86.py)  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)  
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 686.54 s           | 1087.96 s  |
@@ -598,8 +618,9 @@ X86 script:
 
 #### Test Case 4
 X86 script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_offnode1_test4_gcc_x86.py)  
-[ReFrame Benchmark](reframe_scripts/benchmark_offnode2_test4_gcc_x86.py)  
+[ReFrame Benchmark](#)  
+ARM script:  
+[ReFrame Benchmark](#)  
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 1906.81 s           | 3563.73 s  |
