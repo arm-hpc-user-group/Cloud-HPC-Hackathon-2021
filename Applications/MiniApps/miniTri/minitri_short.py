@@ -34,7 +34,15 @@ class MiniTriTest(hack.HackathonBase):
     ])
 
     parallelism = parameter([
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 1}
+        { 'nodes' : 1, 'mpi' : 1, 'omp' : 1, 'extra-cmd': '1,1,1'},
+        { 'nodes' : 1, 'mpi' : 2, 'omp' : 1, 'extra-cmd': '1,1,2'},
+        { 'nodes' : 1, 'mpi' : 4, 'omp' : 1, 'extra-cmd': '1,1,4'},
+        { 'nodes' : 1, 'mpi' : 8, 'omp' : 1, 'extra-cmd': '1,2,4'},
+        { 'nodes' : 1, 'mpi' : 16, 'omp' : 1, 'extra-cmd': '1,4,4'},
+        { 'nodes' : 1, 'mpi' : 32, 'omp' : 1, 'extra-cmd': '2,4,4'},
+        { 'nodes' : 1, 'mpi' : 64, 'omp' : 1, 'extra-cmd': '4,4,4'},
+        { 'nodes' : 2, 'mpi' : 128, 'omp' : 1, 'extra-cmd': '4,4,8'},
+        { 'nodes' : 4, 'mpi' : 256, 'omp' : 1, 'extra-cmd': '4,8,8'},
     ])
 
     @run_before('run')
