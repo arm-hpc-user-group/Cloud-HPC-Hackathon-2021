@@ -712,27 +712,29 @@ Please document work with compiler flags, maths libraries, system libraries, cod
 
 Compiler flags before:
 ```
-CFLAGS=
-FFLAGS=
+N/A
 ```
 
 Compiler flags after:
 ```
-CFLAGS=
-FFLAGS=
+CPPFLAGS="-Ofast -mcpu=native -ffast-math"
 ```
 
 #### Compiler Flag Performance
 
 | Cores | Original Flags | New Flags |
 |-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+| 1     |   105.85       | 96.48327  |
+| 2     |   53.06        | 48.31512  |
+| 4     |   28.32        | 26.40836  |
+| 8     |   16.53        | 14.8952   |
+| 16    |   9.93         | 9.56009   |
+| 32    |   4.71         | 4.64924   |
+| 64    |    1.99        | 1.99078   |
+| 128   |    0.96        | 1.06009   |
+| 256   |    0.76        | 1.12626   |
+
+As the performance table shows, we can see some improvements during the use of fewer cores; however, as cores number goes up, we can see the performance boost decreases to none. For further later improvement, we can focus on multi-core collaborations. 
 
 ### Performance Regression
 
