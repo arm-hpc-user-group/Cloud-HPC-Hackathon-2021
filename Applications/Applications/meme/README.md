@@ -870,6 +870,9 @@ Off-node scaling study on C5n instances.
 | 4     |             288  |  40.12 s |     39.39 s |
 | 8     |             576  |  37.12 s |     37.88 s |
 
+N.B. The last run with 576 MPI processes has to be run without the `map`
+profiling, since the Arm licence installed only supported up to 512 processes.
+
 ## Optimisation
 
 Details of steps taken to optimise performance of the application.
