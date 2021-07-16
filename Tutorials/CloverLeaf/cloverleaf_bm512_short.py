@@ -70,7 +70,7 @@ class CloverLeafTest(hack.HackathonBase):
 
        # CloverLeaf prints the 'Wall clock' every timestep - so extract all lines matching the regex
               # CloverLeaf prints the 'Wall clock' every timestep - so extract the last one
-       pref_regex = r'\s+Wall clock\s+(\S+)'
+       perf_regex = r'\s+Wall clock\s+(\S+)'
        self.perf_patterns = {
-               'Total Time': sn.extractsingle(pref_regex, self.logfile, 1, float, item=-1)
+               'Total Time': sn.extractsingle(perf_regex, self.logfile, 1, float, item=-1)
        }
