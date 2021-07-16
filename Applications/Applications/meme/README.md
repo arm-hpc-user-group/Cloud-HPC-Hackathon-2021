@@ -690,10 +690,16 @@ meme_-Klf1-large_meme_fifpy6p_N_8_MPI_512_OMP_1
 #### Intel
 
 ```
-[  PASSED  ] Ran 16/16 test case(s) from 16 check(s) (0 failure(s), 0 skipped)
+[  PASSED  ] Ran 18/18 test case(s) from 18 check(s) (0 failure(s), 0 skipped)
 [==========] Finished on Fri Jul 16 15:12:29 2021
 ==============================================================================
 PERFORMANCE REPORT
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ylex6xs_N_1_MPI_1_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1416.1 s
 ------------------------------------------------------------------------------
 meme_-Klf1-large_meme_ylex6xs_N_1_MPI_3_OMP_1
 - aws:c5n
@@ -737,6 +743,11 @@ meme_-Klf1-large_meme_ylex6xs_N_8_MPI_576_OMP_1
    - builtin
       * num_tasks: 576
       * Total Time: 37.12 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ucxv6oz_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1705.14 s
 ------------------------------------------------------------------------------
 meme_-Klf1-large_meme_ucxv6oz_N_1_MPI_3_OMP_1
    - builtin
@@ -782,15 +793,15 @@ meme_-Klf1-large_meme_ucxv6oz_N_8_MPI_576_OMP_1
 
 ### On-node Strong Scaling Study
 
-| Cores |        Arm |        Gnu | 	Nvidia |
-|-------|------------|------------|------------|
-|     1 |  1973.33 s |  1954.61 s |  2216.7  s |
-|     2 |  1003.21 s |   994.1  s |  1118.03 s |
-|     4 |   498.16 s |   499.94 s |   570.22 s |
-|     8 |   253.51 s |   251.54 s |   296.85 s |
-|    16 |   133.31 s |   132.87 s |   170.7  s |
-|    32 |    73.81 s |    74.45 s |   109.83 s |
-|    64 |    44.47 s |    45.0  s |    81.18 s |
+| Cores |   Arm 21.0 |   Gnu 10.3 | Nvidia 21.2 |
+|-------|------------|------------|-------------|
+|     1 |  1973.33 s |  1954.61 s |   2216.7  s |
+|     2 |  1003.21 s |   994.1  s |   1118.03 s |
+|     4 |   498.16 s |   499.94 s |    570.22 s |
+|     8 |   253.51 s |   251.54 s |    296.85 s |
+|    16 |   133.31 s |   132.87 s |    170.7  s |
+|    32 |    73.81 s |    74.45 s |    109.83 s |
+|    64 |    44.47 s |    45.0  s |     81.18 s |
 
 ### Serial Hot-spot Profile
 
@@ -800,16 +811,16 @@ compiled with GCC). Collected with `reframe` by prepending `map --profile
 
 | Position | Routine                 | Time (%) |
 |----------|-------------------------|----------|
-|  1       |  next_pY                |  34.6%   |
-|  2       |  global_max             |  34.1%   |
-|  3       |  align_top_subsequences |   8.8%   |
-|  4       |  m_step                 |   5.1%   |
-|  5       |  __log_finite           |   4.3%   |
-|  6       |  e_step                 |  12.0%   |
-|  7       |  exp                    |   5.4%   |
-|  8       |  __exp_finite           |   1.8%   |
-|  9       |  pY_compare             |   1.6%   |
-| 10       |  msort_with_tmp.part    |   3.0%   |
+|  1       |  next_pY                |   34.6%  |
+|  2       |  global_max             |   33.3%  |
+|  3       |  align_top_subsequences |    5.2%  |
+|  4       |  m_step                 |    5.1%  |
+|  5       |  __log_finite           |    4.3%  |
+|  6       |  e_step                 |    4.2%  |
+|  7       |  exp                    |    3.6%  |
+|  8       |  __exp_finite           |    1.8%  |
+|  9       |  pY_compare             |    1.6%  |
+| 10       |  msort_with_tmp.part    |    1.3%  |
 
 ### Full Node Hot-spot Profile
 
@@ -819,34 +830,45 @@ List of top-10 functions/code locations from a full node profile (C6gn with
 
 | Position | Routine                | Time (%) | MPI (%) |
 |----------|------------------------|----------|---------|
-|  1       | next_pY                | 23.7%    |         |
-|  2       | global_max             | 24.1%    |         |
-|  3       | MPI_Allreduce          | 15.6%    |  15.6%  |
-|  4       | m_step                 |  6.8%    |         |
-|  5       | align_top_subsequences |  9.5%    |         |
-|  6       | e_step                 | 13.4%    |         |
-|  7       | __log_finite           |  3.6%    |         |
-|  8       | exp                    |  6.0%    |         |
-|  9       | __exp_finite           |  2.7%    |         |
-| 10       | pY_compare             |  0.8%    |         |
+|  1       | next_pY                |   23.7%  |         |
+|  2       | global_max             |   23.6%  |         |
+|  3       | MPI_Allreduce          |   15.6%  |  15.6%  |
+|  4       | m_step                 |    6.8%  |         |
+|  5       | align_top_subsequences |    6.5%  |         |
+|  6       | e_step                 |    5.3%  |         |
+|  7       | __log_finite           |    3.6%  |         |
+|  8       | exp                    |    3.3%  |         |
+|  9       | __exp_finite           |    2.7%  |         |
+| 10       | pY_compare             |    0.8%  |         |
 
 ### On-Node Architecture Comparison
 
-On-node scaling study for two architectures.
+#### C6gn instances
 
-| Cores | C6gn (Aarch64) | C5n (X86) |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+| Cores |   Arm 21.0 |   Gnu 10.3 | Nvidia 21.2 |
+|-------|------------|------------|-------------|
+|     1 |  1973.33 s |  1954.61 s |   2216.7  s |
+|     2 |  1003.21 s |   994.1  s |   1118.03 s |
+|     4 |   498.16 s |   499.94 s |    570.22 s |
+|     8 |   253.51 s |   251.54 s |    296.85 s |
+|    16 |   133.31 s |   132.87 s |    170.7  s |
+|    32 |    73.81 s |    74.45 s |    109.83 s |
+|    64 |    44.47 s |    45.0  s |     81.18 s |
+
+#### C5n instances
+
+| Nodes | Hardware threads |  Gnu 10.3 | Nvidia 21.2 |
+|-------|------------------|-----------|-------------|
+| 1     |               1  | 1416.1  s |   1705.14 s |
+| 1     |               3  |  484.2  s |    588.09 s |
+| 1     |               9  |  169.09 s |    204.78 s |
+| 1     |              18  |   91.34 s |    109.71 s |
+| 1     |              36  |   54.62 s |     64.38 s |
+| 1     |              72  |   57.42 s |     66.15 s |
 
 ### Off-Node Scaling Study
 
-Off-node scaling study on C6gn instances.
+#### C6gn instances
 
 | Nodes | Cores | Arm 21.0 | Gnu 10.3 | Nvidia 21.2 |
 |-------|-------|----------|----------|-------------|
@@ -858,7 +880,7 @@ Off-node scaling study on C6gn instances.
 | 4     |  256  |  30.08 s |  32.33 s |     75.75 s |
 | 8     |  512  |  29.42 s |  31.34 s |     78.88 s |
 
-Off-node scaling study on C5n instances.
+#### C5n instances
 
 | Nodes | Hardware threads | Gnu 10.3 | Nvidia 21.2 |
 |-------|------------------|----------|-------------|
@@ -872,67 +894,6 @@ Off-node scaling study on C5n instances.
 
 N.B. The last run with 576 MPI processes has to be run without the `map`
 profiling, since the Arm licence installed only supported up to 512 processes.
-
-## Optimisation
-
-Details of steps taken to optimise performance of the application.
-Please document work with compiler flags, maths libraries, system libraries, code optimisations, etc.
-
-### Compiler Flag Tuning
-
-Compiler flags before:
-```
-CFLAGS=
-FFLAGS=
-```
-
-Compiler flags after:
-```
-CFLAGS=
-FFLAGS=
-```
-
-#### Compiler Flag Performance
-
-| Cores | Original Flags | New Flags |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
-
-
-### Maths Library Report
-
-Report on use of maths library calls generated by (Perf Lib Tools)[https://github.com/ARM-software/perf-libs-tools].
-Please attach the corresponding apl files.
-
-
-### Maths Library Optimisation
-
-Performance analysis of the use of different maths libraries.
-
-
-| Cores | OpenBLAS | ArmPL | BLIS |
-|-------|----------|-------| ---- |
-| 1     |          |       |      |
-| 2     |          |       |      |
-| 4     |          |       |      |
-| 8     |          |       |      |
-| 16    |          |       |      |
-| 32    |          |       |      |
-| 64    |          |       |      |
-
-
-### Performance Regression
-
-How fast can you make the code?
-
-Use all of the above aproaches and any others to make the code as fast as possible.
-Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
 
 ## Report
 
@@ -956,9 +917,8 @@ this was a relatively simple procedure.
 
 ### Performance Summary
 
-Details of lessons from analysing the performance of the application.
-
-
-### Optimisation Summary
-
-Details of lessons from performance optimising the application.
+In our experiments, the fastest compilers turned out to be Arm and GCC. The
+former is slightly faster for a larger number of nodes, whilst the latter is
+faster for smaller runs. Meanwhile, for larger runs on C6gn nodes (e.g. 8 nodes
+with 64 MPI processes per node) the Nvidia compiler is more than 2x slower than
+Arm and GCC. However, this descrepancy does not emerge on C5n nodes.
