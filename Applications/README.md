@@ -112,7 +112,7 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [openmm](Applications/openmm/README.md)                           | TeamJoe          |                |
 | [Pathfinder](Applications/pathfinder/README.md)                   |                  |                |
 | [PICSAR](Applications/picsar/README.md)                           | ElkNet           |                |
-| [PISM](Applications/pism/README.md)                               |                  |                |
+| [PISM](Applications/pism/README.md)                               | Iman             |                |
 | [QBOX](Applications/qbox/README.md)                               | RISCy Business   |                |
 | [QMCPACK](Applications/qmcpack/README.md)                         |                  |                |
 | [Quantum-Espresso](Applications/quantum-espresso/README.md)       | TeamPhoenix      |                |
