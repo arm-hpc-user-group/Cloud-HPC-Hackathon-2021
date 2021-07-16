@@ -1,0 +1,189 @@
+[ReFrame Setup]
+  version:           3.7.0-dev.3+34ee3d0b
+  command:           '/software/reframe/bin/reframe -c remhos_regression.py -r --performance-report -v'
+  launched by:       yhchang3@ip-10-0-0-93
+  working directory: '/home/yhchang3/Cloud-HPC-Hackathon-2021/Applications/MiniApps/Remhos'
+  settings file:     '/software/reframe/settings.py'
+  check search path: '/home/yhchang3/Cloud-HPC-Hackathon-2021/Applications/MiniApps/Remhos/remhos_regression.py'
+  stage directory:   '/home/yhchang3/Cloud-HPC-Hackathon-2021/Applications/MiniApps/Remhos/stage'
+  output directory:  '/home/yhchang3/Cloud-HPC-Hackathon-2021/Applications/MiniApps/Remhos/output'
+
+Loaded 14 test(s)
+Generated 14 test case(s)
+Filtering test cases(s) by name: 14 remaining
+Filtering test cases(s) by tags: 14 remaining
+Filtering test cases(s) by other attributes: 14 remaining
+Final number of test cases: 14
+[==========] Running 14 check(s)
+[==========] Started on Fri Jul 16 07:44:14 2021 
+
+[----------] started processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_1_OMP_1 (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_)
+
+[----------] started processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_2_OMP_1 (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_)
+
+[----------] started processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_4_OMP_1 (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_)
+
+[----------] started processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_8_OMP_1 (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_)
+
+[----------] started processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_16_OMP_1 (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_32_OMP_1 (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_64_OMP_1 (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___1___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___1___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_1_OMP_1 (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___1___omp___1_)
+
+[----------] started processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___2___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___2___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___2___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___2___omp___1_)
+
+[----------] started processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___4___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___4___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___4___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___4___omp___1_)
+
+[----------] started processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___8___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___8___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___8___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___8___omp___1_)
+
+[----------] started processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___16___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___16___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___32___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___32___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___64___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___64___omp___1_ (Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67___nodes___1___mpi___64___omp___1_)
+
+[----------] waiting for spawned checks to finish
+[ [32m      OK[0m ] ( 1/14) Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.451s total: 6.472s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.451s sanity: 0.001s performance: 0.073s total: 6.472s
+[ [32m      OK[0m ] ( 2/14) Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.840s total: 7.861s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.840s sanity: 0.000s performance: 0.073s total: 7.861s
+[ [32m      OK[0m ] ( 3/14) Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.336s total: 7.357s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.336s sanity: 0.000s performance: 0.073s total: 7.357s
+[ [32m      OK[0m ] ( 4/14) Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 10.269s total: 10.290s]
+==> timings: setup: 0.006s compile: 0.005s run: 10.269s sanity: 0.000s performance: 0.073s total: 10.290s
+[ [32m      OK[0m ] ( 5/14) Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 8.483s total: 8.505s]
+==> timings: setup: 0.007s compile: 0.005s run: 8.483s sanity: 0.000s performance: 0.074s total: 8.505s
+[ [32m      OK[0m ] ( 6/14) Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 12.907s total: 12.927s]
+==> timings: setup: 0.006s compile: 0.005s run: 12.907s sanity: 0.000s performance: 0.073s total: 12.927s
+[ [32m      OK[0m ] ( 7/14) Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.432s total: 9.206s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.432s sanity: 0.000s performance: 0.073s total: 9.206s
+[ [32m      OK[0m ] ( 8/14) Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.071s total: 10.106s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.071s sanity: 0.000s performance: 0.073s total: 10.106s
+[ [32m      OK[0m ] ( 9/14) Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 8.500s total: 10.007s]
+==> timings: setup: 0.006s compile: 0.005s run: 8.500s sanity: 0.000s performance: 0.074s total: 10.007s
+[ [32m      OK[0m ] (10/14) Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.389s total: 12.948s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.389s sanity: 0.000s performance: 0.073s total: 12.948s
+[ [32m      OK[0m ] (11/14) Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 8.628s total: 15.415s]
+==> timings: setup: 0.006s compile: 0.005s run: 8.628s sanity: 0.000s performance: 0.073s total: 15.415s
+[ [32m      OK[0m ] (12/14) Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 22.638s total: 22.658s]
+==> timings: setup: 0.006s compile: 0.005s run: 22.638s sanity: 0.000s performance: 0.074s total: 22.658s
+[ [32m      OK[0m ] (13/14) Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 14.632s total: 23.213s]
+==> timings: setup: 0.006s compile: 0.005s run: 14.632s sanity: 0.000s performance: 0.073s total: 23.213s
+[ [32m      OK[0m ] (14/14) Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 24.650s total: 24.670s]
+==> timings: setup: 0.006s compile: 0.005s run: 24.650s sanity: 0.001s performance: 0.073s total: 24.670s
+[----------] all spawned checks have finished
+
+[ [32m PASSED [0m ] Ran 14/14 test case(s) from 14 check(s) (0 failure(s), 0 skipped)
+[==========] Finished on Fri Jul 16 07:44:44 2021 
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 20.55 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 11.1 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 6.48 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 4.42 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.85 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 4.06 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 5.52 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 20.24 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 10.9 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 6.36 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 4.41 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.81 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 4.06 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 5.41 s
+------------------------------------------------------------------------------
+Log file(s) saved in: '/tmp/rfm-zuwvf_mc.log'

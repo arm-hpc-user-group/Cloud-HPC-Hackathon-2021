@@ -508,8 +508,6 @@ $ spack spec -Il remhos%arm cppflags="-Ofast -mcpu=native -ffast-math"
 [+]  nqjpzbj              ^cmake@3.20.5%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" ~doc+ncurses+openssl+ownlibs~qt build_type=Release arch=linux-amzn2-aarch64
 ```
 
-Although the ffast-math flag is supposed to be turned on by Ofast, we get a better performance by explicitly specifying it.
-
 The ReFrame script can be found at [remhos_compiler_tuning.py](remhos_compiler_tuning.py) and results are in the following tables.
 
 #### Compiler Flag Performance Result
@@ -547,7 +545,7 @@ The ReFrame script can be found at [remhos_compiler_tuning.py](remhos_compiler_t
 | 32    |        3.36 s  |    2.84 s |
 | 64    |        4.12 s  |    4.81 s |
 
-##### Test Case 3: 3DTransport
+##### Test Case 4: 3DTransport
 | Cores | Original Flags | New Flags |
 |-------|----------------|-----------|
 | 1     |       10.22 s  |    9.61 s |
@@ -704,20 +702,25 @@ The ReFrame script can be found at [remhos_math_library_tuning.py](remhos_math_l
 | 64    |   4.98 s |   4.91 s |  5.24 s |
 
 ### Performance Regression
-
-
+Although it looks like we usually get some improvements on test case 1, either using compiler flags or different math libraries, it turns out that this is not the case. The reason is that the first set of the test always runs slightly slower, and the first set is always the control group of test case 1. After some robust stress testing, we found out that we didn't get any improvement. This is reasonable since the math libraries are already optimized by many people, and Remhos is not bounded by computation when using more resources. If we really want to improve the performance, we might need to mitigate the high MPI usage as demonstrated in the hot-spot profile, either by removing unnecessary MPI calls, or by balancing the workload. 
 
 ## Report
 
 ### Compilation Summary
+The original recipe of Remhos in Spack is straightforward, and the compilation was successful without any issue using gcc and arm compilers. However, it was not the case when using nvhpc since it introduced some conflicts with cmake, and we need to fall back the cmake component to using gcc. After these successful builds, we spent some time on figuring out why the outputs of the samples don't match the reference values in the source repository. Finally, we find out that the link provided by this event points to the master branch of Remhos, but the one Spack downloads is at v1.0, and there are some updates that make the results different. Using the reference values specified in v1.0, we confirm that our builds are correct.
 
-Details of lessons from compiling the application.
+In addition, using Spack as the package manager to maintain our miniApp across different compilers and configurations makes our life easier. The concept of virtual dependencies plays an important role during this event. With this virtual dependencies feature, we don't need to worry too much when re-compiling for library tuning. We can easily switch between different implementations and focus more on analyzing the results.
+
+In short, with the help of Spack, the compilation stage went smoothly and we didn't spend a huge amount of time on it.
 
 ### Performance Summary
+First of all, ReFrame is an easy-to-use tool, but it can be better if we can have access to the graylog server to see the visualization of our regression test; otherwise we need to visualize it by ourselves in order to get some insights, which hinders our development progress. 
 
-Details of lessons from analysing the performance of the application.
+From our on-node performance study, we can conclude that the gcc compiler takes a lead when having fewer cores, while the arm compiler wins when having more cores. An interesting observation is that the nvhpc compiler never gets the top place in any circumstances. Moreover, the benefit of doubling the cores becomes smaller when we have more cores, and eventually it leads to worsening our performace when we have more than 16 cores. The cause of this problem can be identified from the serial and full-node hot-spot profiling -- the program spends most of the time on computation when we have only 1 core, but spends on communication between MPI ranks when we have 64 cores. 
 
+The strong scaling study also shows that with the current implementation, there is no benefit from using more than 16 cores, and using more nodes is not effective either since we are not saturating the memory bandwith. The architecture comparison shows that the program runs faster on C6gn than on C5n. In order to figure out the core reason for this, we might want to dig deeper into the specs or collect more profiling data.
 
-### Optimisation Summary
+At the end, we have tried to use PerfLibTools to count the number of Math library calls. However, we didn't get any report. The reason might be that although `hypre` needs to be built on top BLAS library, we are probably not using that part of package hence we don't have any calls to the Math library.
 
-We have not undertaken an optimization exercise yet.
+### Optimization Summary
+We have tried compiler flags tuning and Math library tuning, but none of them gives us a huge improvement. This is expected since from the hot-spot profile, we can see that when having more cores, we spend more time on MPI Calls. The reason might be complicated, such as an imbanlance of workload or unnecessary MPI calls. To improve more, we probably need to dig into the source code of Remhos in order to achieve a better parallelism, by alleviating the usage of MPI.
