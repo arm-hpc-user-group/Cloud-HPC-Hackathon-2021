@@ -1,0 +1,78 @@
+Process full dataset for BLAS, LAPACK and FFT function usage.
+Opening file 10860.apl
+Opening file 10861.apl
+Opening file 10862.apl
+Opening file 10863.apl
+Opening file 10864.apl
+Opening file 10865.apl
+Opening file 10866.apl
+Opening file 10867.apl
+Opening file 10868.apl
+Opening file 10869.apl
+Opening file 10870.apl
+Opening file 10871.apl
+Opening file 10872.apl
+Opening file 10873.apl
+Opening file 10874.apl
+Opening file 10875.apl
+BLAS level 1     : count   45862652    total time      13.7346  user count   45250849  user time      13.5683
+BLAS level 2     : count     706762    total time       3.8064  user count     496019  user time       2.1671
+BLAS level 3     : count    1394268    total time      43.8879  user count    1394268  user time      43.8879
+LAPACK           : count    3796393    total time       3.5357  user count    3758223  user time       3.1987
+FFT              : count          0    total time       0.0000  user count          0  user time       0.0000
+ 
+Double precision : count   51760075    total time      64.9646  user count   50899359  user time      62.8221
+Single precision : count          0    total time       0.0000  user count          0  user time       0.0000
+Double complex   : count          0    total time       0.0000  user count          0  user time       0.0000
+Single complex   : count          0    total time       0.0000  user count          0  user time       0.0000
+ 
+BLAS cases:
+----------
+BLAS level 1:
+  dcopy_     cnt=   23056475  totTime=       5.6426   called_tot=   23055835  topTime=       5.6424    (%age of runtime:  0.826 )
+  daxpy_     cnt=   15993907  totTime=       5.1624   called_tot=   15993875  topTime=       5.1623    (%age of runtime:  0.756 )
+ idamax_     cnt=    1711829  totTime=       1.5675   called_tot=    1707100  topTime=       1.5663    (%age of runtime:  0.229 )
+  dscal_     cnt=    4616510  totTime=       1.2189   called_tot=    4033557  topTime=       1.0768    (%age of runtime:  0.158 )
+   ddot_     cnt=     426293  totTime=       0.1217   called_tot=     417628  topTime=       0.1037    (%age of runtime:  0.015 )
+  dnrm2_     cnt=      36588  totTime=       0.0159   called_tot=      32654  topTime=       0.0146    (%age of runtime:  0.002 )
+  dswap_     cnt=      20226  totTime=       0.0049   called_tot=      10192  topTime=       0.0022    (%age of runtime:  0.000 )
+  dasum_     cnt=        816  totTime=       0.0006   called_tot=          0  topTime=       0.0000    (%age of runtime:  0.000 )
+   drot_     cnt=          8  totTime=       0.0000   called_tot=          8  topTime=       0.0000    (%age of runtime:  0.000 )
+BLAS level 2:
+  dgemv_     cnt=     638845  totTime=       3.7260   called_tot=     435478  topTime=       2.0915    (%age of runtime:  0.306 )
+  dsymv_     cnt=      52260  totTime=       0.0582   called_tot=      52260  topTime=       0.0582    (%age of runtime:  0.009 )
+   dger_     cnt=      10144  totTime=       0.0153   called_tot=       3328  topTime=       0.0134    (%age of runtime:  0.002 )
+  dtrmv_     cnt=       4836  totTime=       0.0040   called_tot=       4836  topTime=       0.0040    (%age of runtime:  0.001 )
+   dspr_     cnt=        400  totTime=       0.0021   called_tot=          0  topTime=       0.0000    (%age of runtime:  0.000 )
+  dspmv_     cnt=        160  totTime=       0.0007   called_tot=          0  topTime=       0.0000    (%age of runtime:  0.000 )
+  dsyr2_     cnt=        117  totTime=       0.0001   called_tot=        117  topTime=       0.0001    (%age of runtime:  0.000 )
+BLAS level 3:
+  dgemm_     cnt=    1388871  totTime=      43.8536   called_tot=    1388871  topTime=      43.8536    (%age of runtime:  6.420 )
+ dsyr2k_     cnt=       2990  totTime=       0.0147   called_tot=       2990  topTime=       0.0147    (%age of runtime:  0.002 )
+  dtrmm_     cnt=       2184  totTime=       0.0093   called_tot=       2184  topTime=       0.0093    (%age of runtime:  0.001 )
+  dtrsm_     cnt=        146  totTime=       0.0076   called_tot=        146  topTime=       0.0076    (%age of runtime:  0.001 )
+  dsyrk_     cnt=         77  totTime=       0.0028   called_tot=         77  topTime=       0.0028    (%age of runtime:  0.000 )
+ 
+LAPACK cases:
+----------
+ dlartg_     cnt=    3362032  totTime=       2.6987 called_tot=    3362032  topTime=       2.6987    (%age of runtime:  0.395 )
+ dspsvx_     cnt=        128  totTime=       0.1868 called_tot=        128  topTime=       0.1868    (%age of runtime:  0.027 )
+ dsptrs_     cnt=       1456  totTime=       0.1443 called_tot=          0  topTime=       0.0000    (%age of runtime:  0.000 )
+ dlaed4_     cnt=      48981  totTime=       0.1348 called_tot=      48981  topTime=       0.1348    (%age of runtime:  0.020 )
+ dspcon_     cnt=        128  totTime=       0.0792 called_tot=          0  topTime=       0.0000    (%age of runtime:  0.000 )
+  dlasr_     cnt=      20464  totTime=       0.0687 called_tot=      20464  topTime=       0.0687    (%age of runtime:  0.010 )
+ dsprfs_     cnt=        128  totTime=       0.0659 called_tot=          0  topTime=       0.0000    (%age of runtime:  0.000 )
+ dlapy2_     cnt=     294519  totTime=       0.0629 called_tot=     286400  topTime=       0.0612    (%age of runtime:  0.009 )
+ dsteqr_     cnt=        242  totTime=       0.0280 called_tot=        242  topTime=       0.0280    (%age of runtime:  0.004 )
+ dlaed6_     cnt=      25923  totTime=       0.0265 called_tot=          0  topTime=       0.0000    (%age of runtime:  0.000 )
+ dlaset_     cnt=      38020  totTime=       0.0167 called_tot=      38020  topTime=       0.0167    (%age of runtime:  0.002 )
+ dsptrf_     cnt=        128  totTime=       0.0132 called_tot=          0  topTime=       0.0000    (%age of runtime:  0.000 )
+ dlacn2_     cnt=       1552  totTime=       0.0056 called_tot=          0  topTime=       0.0000    (%age of runtime:  0.000 )
+ dlacpy_     cnt=        850  totTime=       0.0014 called_tot=        722  topTime=       0.0013    (%age of runtime:  0.000 )
+ dlanst_     cnt=        450  totTime=       0.0012 called_tot=        208  topTime=       0.0010    (%age of runtime:  0.000 )
+ dlascl_     cnt=        528  totTime=       0.0008 called_tot=        528  topTime=       0.0008    (%age of runtime:  0.000 )
+ dlarfg_     cnt=        130  totTime=       0.0005 called_tot=        130  topTime=       0.0005    (%age of runtime:  0.000 )
+ dlansp_     cnt=        128  totTime=       0.0003 called_tot=          0  topTime=       0.0000    (%age of runtime:  0.000 )
+ dlaev2_     cnt=        606  totTime=       0.0002 called_tot=        368  topTime=       0.0001    (%age of runtime:  0.000 )
+Created /tmp/armpl.blas 
+Visualize using ./blas_usage.py -x -l -i /tmp/armpl.blas
