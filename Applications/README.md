@@ -94,7 +94,7 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [LAMMPS](Applications/lammps/README.md)                           | Masterofpuppets  |                |
 | [latte](Applications/latte/README.md)                             |                  |                |
 | [meep](Applications/meep/README.md)                               | X-Factor         |                |
-| [meme](Applications/meme/README.md)                               |                  |                |
+| [meme](Applications/meme/README.md)                               | TeamEPCC         |                |
 | [MemXCT](Applications/memxct/README.md)                           | C3SR             |                |
 | [modylas](Applications/modylas/README.md)                         |                  |                |
 | [MrBayes](Applications/mrbayes/README.md)                         |DogeCoinToTheMoon |                |
