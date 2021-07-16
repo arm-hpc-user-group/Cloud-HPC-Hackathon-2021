@@ -78,6 +78,38 @@ Concretized
 ```
 
 ## Test Case 1
+Validation is done my comparing result regenreated on C6gn with C5n
+to install on X86
+```
+spack install harminv@1.4%gcc@10.3.0 
+```
+```
+$spack spec -Il harminv@1.4%gcc@10.3.0
+```
+```
+Input spec
+--------------------------------
+ -   harminv@1.4%gcc@10.3.0
+
+Concretized
+--------------------------------
+[+]  a36yf6c  harminv@1.4%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+[+]  skexx3l      ^openblas@0.3.15%gcc@10.3.0~bignuma~consistent_fpcsr~ilp64+locking+pic+shared threads=none arch=linux-amzn2-skylake_avx512
+[+]  fb3kjch          ^perl@5.32.1%gcc@10.3.0+cpanm+shared+threads arch=linux-amzn2-skylake_avx512
+[+]  i5lbkjo              ^berkeley-db@18.1.40%gcc@10.3.0+cxx~docs+stl patches=b231fcc4d5cff05e5c3a4814f6a5af0e9a966428dc2176540d2c05aff41de522 arch=linux-amzn2-skylake_avx512
+[+]  s36txvt              ^bzip2@1.0.8%gcc@10.3.0~debug~pic+shared arch=linux-amzn2-skylake_avx512
+[+]  kjoplsl                  ^diffutils@3.7%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+[+]  qmzfn6j                      ^libiconv@1.16%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+[+]  fgwgsih              ^gdbm@1.19%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+[+]  i35suwy                  ^readline@8.1%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+[+]  xbybdoz                      ^ncurses@6.2%gcc@10.3.0~symlinks+termlib abi=none arch=linux-amzn2-skylake_avx512
+[+]  i665ooz                          ^pkgconf@1.7.4%gcc@10.3.0 arch=linux-amzn2-skylake_avx512
+[+]  q2x25kt              ^zlib@1.2.11%gcc@10.3.0+optimize+pic+shared arch=linux-amzn2-skylake_avx512
+```
+
+create an [input file](./x86/input.txt)
+use command ```harminv -t 0.02 0-6250 <input.txt > harminv.out```
+[reframe python file is used](./x86/reframe_validation.py)
 
 [ReFrame Benchmark 1](#)
 
