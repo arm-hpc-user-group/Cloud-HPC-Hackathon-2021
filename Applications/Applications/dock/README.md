@@ -164,38 +164,38 @@ Details of the validation for `Test Case 1`.
 
 #### Test Case 1
 
-arm script:
+arm script:  
 [ReFrame Benchmark](reframe_scripts/dock_offnode1_test1_arm.py)   
 gcc script:
 [ReFrame Benchmark](reframe_scripts/dock_offnode1_test1_gcc.py)   
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_offnode1_test1_nv.py)
 
 #### Test Case 2
 
-arm script:
+arm script:  
 [ReFrame Benchmark](reframe_scripts/dock_offnode1_test2_arm.py)   
-gcc script:
+gcc script:  
 [ReFrame Benchmark](reframe_scripts/dock_offnode1_test2_gcc.py)   
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_offnode1_test2_nv.py)
 
 #### Test Case 3
 
-arm script:
+arm script:  
 [ReFrame Benchmark](reframe_scripts/dock_offnode1_test3_arm.py)   
-gcc script:
+gcc script:  
 [ReFrame Benchmark](reframe_scripts/dock_offnode1_test3_gcc.py)   
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_offnode1_test3_nv.py)
 
 #### Test Case 4
 
-arm script:
+arm script:  
 [ReFrame Benchmark](reframe_scripts/dock_offnode1_test4_arm.py)   
-gcc script:
+gcc script:  
 [ReFrame Benchmark](reframe_scripts/dock_offnode1_test4_gcc.py)   
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_offnode1_test4_nv.py)
 
 ### ReFrame Output
@@ -217,11 +217,11 @@ nvhpc: nvhpc@21.2
 Performance comparison of three compilers.  
 
 #### Test Case 1
-arm script:
+arm script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test1_arm.py)   
-gcc script:
+gcc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test1_gcc.py)   
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test1_nv.py)
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
@@ -231,11 +231,11 @@ nvhpc script
 | 64    | 5.72 s           | 5.73 s           | 6.22 s |
 
 #### Test Case 2
-arm script:
+arm script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test2_arm.py)   
-gcc script:
+gcc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test2_gcc.py)   
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test2_nv.py)  
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
@@ -245,11 +245,11 @@ nvhpc script
 | 64    | 49.32 s           | 49.34 s           | 57.51 s |
 
 #### Test Case 3
-arm script:
+arm script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test3_arm.py)   
-gcc script:
+gcc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test3_gcc.py)   
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test3_nv.py)  
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
@@ -259,11 +259,11 @@ nvhpc script
 | 64    | 24.9 s           | 24.65 s           | 29.07 s |
 
 #### Test Case 4
-arm script:
+arm script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test4_arm.py)   
-gcc script:
+gcc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test4_gcc.py)   
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test4_nv.py)  
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
@@ -371,11 +371,11 @@ Profiling script:
 ### On-node scaling study for three compilers:
 
 #### Test Case 1
-arm script:
+arm script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test1_arm.py)   
-gcc script:
+gcc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test1_gcc.py)   
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test1_nv.py)  
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
@@ -385,11 +385,11 @@ nvhpc script
 | 64    | 5.72 s           | 5.73 s           | 6.22 s |
 
 #### Test Case 2
-arm script:
+arm script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test2_arm.py)   
-gcc script:
+gcc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test2_gcc.py)   
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test2_nv.py)  
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
@@ -399,11 +399,11 @@ nvhpc script
 | 64    | 49.32 s           | 49.34 s           | 57.51 s |
 
 #### Test Case 3
-arm script:
+arm script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test3_arm.py)   
-gcc script:
+gcc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test3_gcc.py)   
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test3_nv.py)  
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
@@ -413,11 +413,11 @@ nvhpc script
 | 64    | 24.9 s           | 24.65 s           | 29.07 s |
 
 #### Test Case 4
-arm script:
+arm script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test4_arm.py)   
-gcc script:
+gcc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test4_gcc.py)   
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test4_nv.py)  
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
@@ -430,13 +430,13 @@ nvhpc script
 ### Off-Node scaling study for three compilers: 
 
 #### Test Case 1
-arm script:
+arm script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test1_arm.py)   
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test1_arm.py)  
-gcc script:
+gcc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test1_gcc.py)   
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test1_gcc.py)  
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test1_nv.py)   
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test1_nv.py)  
 | Nodes | Cores | arm | gcc | nvhpc|
@@ -447,13 +447,13 @@ nvhpc script
 | 4     | 256   | 242.98 s    | 243.27 s     | 122.88 s     |
 
 #### Test Case 2
-arm script:
+arm script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test2_arm.py)   
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test2_arm.py)  
-gcc script:
+gcc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test2_gcc.py)   
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test2_gcc.py)  
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test2_nv.py)   
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test2_nv.py)  
 | Nodes | Cores | arm | gcc | nvhpc|
@@ -464,13 +464,13 @@ nvhpc script
 | 4     | 256   | 285.34 s    | 165.37 s     | 53.39 s     |
 
 #### Test Case 3
-arm script:
+arm script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test3_arm.py)   
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test3_arm.py)  
-gcc script:
+gcc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test3_gcc.py)   
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test3_gcc.py)  
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test3_nv.py)   
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test3_nv.py)  
 | Nodes | Cores | arm | gcc | nvhpc|
@@ -481,13 +481,13 @@ nvhpc script
 | 4     | 256   | 259.71 s    | 262.33 s     | 26.78 s     |
 
 #### Test Case 4
-arm script:
+arm script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test4_arm.py)   
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test4_arm.py)  
-gcc script:
+gcc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test4_gcc.py)   
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test4_gcc.py)  
-nvhpc script
+nvhpc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test4_nv.py)   
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test4_nv.py)  
 | Nodes | Cores | arm | gcc | nvhpc|
@@ -502,9 +502,9 @@ nvhpc script
 
 On-node scaling study for two architectures.
 #### Test Case 1
-X86 gcc script: 
+X86 gcc script:   
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test1_gcc_x86.py)  
-X86 nvhpc script:
+X86 nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test1_nv_x86.py)  
 | Cores | ARM(gcc) | X86(gcc) | X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
@@ -514,9 +514,9 @@ X86 nvhpc script:
 | 64    | 5.72 s               | 6.79 s          | 7.7 s                 |              
 
 #### Test Case 2
-X86 gcc script:
+X86 gcc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test2_gcc_x86.py)  
-X86 nvhpc script:
+X86 nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test2_nv_x86.py)  
 | Cores | ARM(gcc) | X86 |X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
@@ -526,9 +526,9 @@ X86 nvhpc script:
 | 64    | 49.32 s               | 62.11 s          | 72.95 s               |
 
 #### Test Case 3
-X86 gcc script:
+X86 gcc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test3_gcc_x86.py)  
-X86 nvhpc script:
+X86 nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test3_nv_x86.py)  
 | Cores | ARM(gcc) | X86 |X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
@@ -538,9 +538,9 @@ X86 nvhpc script:
 | 64    | 24.9 s               | 28.26 s          | 34.01 s               |
 
 #### Test Case 4
-X86 gcc script:
+X86 gcc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test4_gcc_x86.py)  
-X86 nvhpc script:
+X86 nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test4_nv_x86.py)  
 | Cores | ARM(gcc) | X86 |X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
@@ -552,10 +552,10 @@ X86 nvhpc script:
 ### Off-Node Architecture Comparison
 
 #### Test Case 1
-X86 gcc script:
+X86 gcc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test1_gcc_x86.py)  
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test1_gcc_x86.py)  
-X86 nvhpc script:
+X86 nvhpc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test1_nv_x86.py)  
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test1_nv_x86.py)  
 | Nodes | Cores | ARM(gcc)           | X86(gcc)    | X86(nvhpc)               |
@@ -565,11 +565,11 @@ X86 nvhpc script:
 | 2     | 128    | 5.42 s               | 5.72 s          |  6.34 s                |              
 | 4     | 256    | 242.98 s              | 5.29 s          |  5.5 s                |     
 
-#### Test Case 2
-X86 gcc script:
+#### Test Case 2 
+X86 gcc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test2_gcc_x86.py)  
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test2_gcc_x86.py)  
-X86 nvhpc script:
+X86 nvhpc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test2_nv_x86.py)  
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test2_nv_x86.py)  
 | Nodes | Cores | ARM(gcc)            | X86(gcc)    | X86(nvhpc)               |
@@ -580,10 +580,10 @@ X86 nvhpc script:
 | 4     | 256    |   285.34 s             | 59.27 s          | 70.39 s                 |     
 
 #### Test Case 3
-X86 gcc script:
+X86 gcc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test3_gcc_x86.py)  
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test3_gcc_x86.py)  
-X86 nvhpc script:
+X86 nvhpc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test3_nv_x86.py)  
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test3_nv_x86.py)  
 | Nodes | Cores | ARM(gcc)            | X86(gcc)    | X86(nvhpc)               |
@@ -594,10 +594,10 @@ X86 nvhpc script:
 | 4     | 256    |    259.71 s            | 26.26 s          | 33.17 s                 |     
 
 #### Test Case 4
-X86 gcc script:
+X86 gcc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test4_gcc_x86.py)  
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test4_gcc_x86.py)  
-X86 nvhpc script:
+X86 nvhpc script:  
 [ReFrame Benchmark 1](reframe_scripts/dock_offnode1_test4_nv_x86.py)  
 [ReFrame Benchmark 2](reframe_scripts/dock_offnode2_test4_nv_x86.py)  
 | Nodes | Cores | ARM(gcc)            | X86(gcc)    | X86(nvhpc)               |
