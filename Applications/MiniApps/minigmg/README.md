@@ -517,9 +517,7 @@ On-node scaling study for two architectures.
 Compiler: gcc
 #### Test Case 1
 X86 script:  
-[ReFrame Benchmark](#)  
-ARM script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test1_gcc_x86.py)  
 Time: 
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
@@ -530,9 +528,7 @@ Time:
 
 #### Test Case 2
 X86 script:  
-[ReFrame Benchmark](#)  
-ARM script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test2_gcc_x86.py)  
 Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
@@ -543,9 +539,7 @@ Time:
 
 #### Test Case 3
 X86 script:  
-[ReFrame Benchmark](#)  
-ARM script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test3_gcc_x86.py)  
 Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
@@ -556,9 +550,7 @@ Time:
 
 #### Test Case 4
 X86 script:  
-[ReFrame Benchmark](#)  
-ARM script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test4_gcc_x86.py)  
 Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
@@ -573,10 +565,8 @@ Off-node scaling study for two architectures.
 Compiler: gcc
 #### Test Case 1
 X86 script:  
-[ReFrame Benchmark](#)  
-ARM script:  
-[ReFrame Benchmark](#)  
-
+[ReFrame Benchmark](reframe_scripts/benchmark_offnode1_test1_gcc_x86.py)  
+[ReFrame Benchmark](reframe_scripts/benchmark_offnode2_test1_gcc_x86.py)  
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 11.39 s	           | 30.28 s    |
@@ -586,9 +576,8 @@ ARM script:
 
 #### Test Case 2
 X86 script:  
-[ReFrame Benchmark](#)  
-ARM script:  
-[ReFrame Benchmark](#)
+[ReFrame Benchmark](reframe_scripts/benchmark_offnode1_test2_gcc_x86.py)  
+[ReFrame Benchmark](reframe_scripts/benchmark_offnode2_test2_gcc_x86.py)  
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 82.87 s           | 142.46 s   |
@@ -598,9 +587,8 @@ ARM script:
 
 #### Test Case 3
 X86 script:  
-[ReFrame Benchmark](#)  
-ARM script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark](reframe_scripts/benchmark_offnode1_test3_gcc_x86.py)  
+[ReFrame Benchmark](reframe_scripts/benchmark_offnode2_test3_gcc_x86.py)  
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 686.54 s           | 1087.96 s  |
@@ -610,9 +598,8 @@ ARM script:
 
 #### Test Case 4
 X86 script:  
-[ReFrame Benchmark](#)  
-ARM script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark](reframe_scripts/benchmark_offnode1_test4_gcc_x86.py)  
+[ReFrame Benchmark](reframe_scripts/benchmark_offnode2_test4_gcc_x86.py)  
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 1906.81 s           | 3563.73 s  |
