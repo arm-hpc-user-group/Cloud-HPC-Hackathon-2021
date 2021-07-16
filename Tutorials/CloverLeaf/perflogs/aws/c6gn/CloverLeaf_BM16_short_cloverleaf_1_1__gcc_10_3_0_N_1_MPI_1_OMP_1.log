@@ -1,0 +1,2 @@
+2021-07-12T18:16:35|reframe 3.7.0-dev.3+34ee3d0b|CloverLeaf_BM16_short_cloverleaf_1_1__gcc_10_3_0_N_1_MPI_1_OMP_1 on aws:c6gn using builtin|jobid=4|Total Time=1400.7707571983337|ref=0 (l=null, u=null)|s
+2021-07-13T05:49:32|reframe 3.7.0-dev.3+34ee3d0b|CloverLeaf_BM16_short_cloverleaf_1_1__gcc_10_3_0_N_1_MPI_1_OMP_1 on aws:c6gn using builtin|jobid=61|Total Time=1397.9888591766357|ref=0 (l=null, u=null)|s

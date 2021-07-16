@@ -1,0 +1,55 @@
+--2021-07-16 11:00:29--  https://asc.llnl.gov/sites/asc/files/2021-01/amg2013_0.tgz
+Resolving asc.llnl.gov (asc.llnl.gov)... 104.16.156.245, 104.16.157.245, 2606:4700::6810:9df5, ...
+Connecting to asc.llnl.gov (asc.llnl.gov)|104.16.156.245|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 565687 (552K) [application/x-gzip]
+Saving to: ‘amg2013_0.tgz’
+
+     0K .......... .......... .......... .......... ..........  9%  321K 2s
+    50K .......... .......... .......... .......... .......... 18%  331K 1s
+   100K .......... .......... .......... .......... .......... 27% 50.8M 1s
+   150K .......... .......... .......... .......... .......... 36%  184M 1s
+   200K .......... .......... .......... .......... .......... 45%  319K 1s
+   250K .......... .......... .......... .......... .......... 54%  148M 0s
+   300K .......... .......... .......... .......... .......... 63% 40.5M 0s
+   350K .......... .......... .......... .......... .......... 72%  267M 0s
+   400K .......... .......... .......... .......... .......... 81%  325K 0s
+   450K .......... .......... .......... .......... .......... 90%  386M 0s
+   500K .......... .......... .......... .......... .......... 99%  383M 0s
+   550K ..                                                    100%  154M=0.6s
+
+2021-07-16 11:00:31 (890 KB/s) - ‘amg2013_0.tgz’ saved [565687/565687]
+
+0.03user 0.28system 0:00.35elapsed 87%CPU (0avgtext+0avgdata 46212maxresident)k
+0inputs+0outputs (0major+12570minor)pagefaults 0swaps
+0.04user 0.26system 0:00.36elapsed 87%CPU (0avgtext+0avgdata 55180maxresident)k
+0inputs+0outputs (0major+14861minor)pagefaults 0swaps
+0.06user 0.25system 0:00.36elapsed 87%CPU (0avgtext+0avgdata 52208maxresident)k
+0inputs+0outputs (0major+14149minor)pagefaults 0swaps
+0.06user 0.24system 0:00.36elapsed 86%CPU (0avgtext+0avgdata 52176maxresident)k
+0inputs+0outputs (0major+14159minor)pagefaults 0swaps
+0.04user 0.25system 0:00.36elapsed 83%CPU (0avgtext+0avgdata 52044maxresident)k
+0inputs+0outputs (0major+14155minor)pagefaults 0swaps
+0.05user 0.27system 0:00.36elapsed 86%CPU (0avgtext+0avgdata 55012maxresident)k
+0inputs+0outputs (0major+14856minor)pagefaults 0swaps
+0.03user 0.26system 0:00.36elapsed 82%CPU (0avgtext+0avgdata 52308maxresident)k
+0inputs+0outputs (0major+14151minor)pagefaults 0swaps
+0.06user 0.26system 0:00.37elapsed 86%CPU (0avgtext+0avgdata 55160maxresident)k
+0inputs+0outputs (0major+14865minor)pagefaults 0swaps
+0.04user 0.27system 0:00.37elapsed 86%CPU (0avgtext+0avgdata 127528maxresident)k
+0inputs+0outputs (0major+32916minor)pagefaults 0swaps
+0.03user 0.28system 0:00.37elapsed 87%CPU (0avgtext+0avgdata 127504maxresident)k
+0inputs+0outputs (0major+32914minor)pagefaults 0swaps
+0.07user 0.25system 0:00.38elapsed 82%CPU (0avgtext+0avgdata 52108maxresident)k
+0inputs+0outputs (0major+14150minor)pagefaults 0swaps
+0.07user 0.25system 0:00.38elapsed 85%CPU (0avgtext+0avgdata 52080maxresident)k
+0inputs+0outputs (0major+14154minor)pagefaults 0swaps
+0.06user 0.28system 0:00.39elapsed 88%CPU (0avgtext+0avgdata 127260maxresident)k
+0inputs+0outputs (0major+32904minor)pagefaults 0swaps
+0.06user 0.28system 0:00.39elapsed 88%CPU (0avgtext+0avgdata 127244maxresident)k
+0inputs+0outputs (0major+32913minor)pagefaults 0swaps
+0.05user 0.28system 0:00.39elapsed 87%CPU (0avgtext+0avgdata 127276maxresident)k
+0inputs+0outputs (0major+32912minor)pagefaults 0swaps
+0.06user 0.28system 0:00.39elapsed 88%CPU (0avgtext+0avgdata 127292maxresident)k
+0inputs+0outputs (0major+32915minor)pagefaults 0swaps
+srun: error: c6gn-dy-c6gn16xlarge-7: tasks 0-15: Exited with exit code 1

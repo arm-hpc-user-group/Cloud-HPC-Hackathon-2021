@@ -1,0 +1,154 @@
+--2021-07-16 11:00:24--  https://asc.llnl.gov/sites/asc/files/2021-01/amg2013_0.tgz
+Resolving asc.llnl.gov (asc.llnl.gov)... 104.16.157.245, 104.16.156.245, 2606:4700::6810:9cf5, ...
+Connecting to asc.llnl.gov (asc.llnl.gov)|104.16.157.245|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 565687 (552K) [application/x-gzip]
+Saving to: ‘amg2013_0.tgz’
+
+     0K .......... .......... .......... .......... ..........  9%  285K 2s
+    50K .......... .......... .......... .......... .......... 18%  303K 2s
+   100K .......... .......... .......... .......... .......... 27%  101M 1s
+   150K .......... .......... .......... .......... .......... 36% 54.6M 1s
+   200K .......... .......... .......... .......... .......... 45%  291K 1s
+   250K .......... .......... .......... .......... .......... 54%  250M 0s
+   300K .......... .......... .......... .......... .......... 63%  244M 0s
+   350K .......... .......... .......... .......... .......... 72% 38.9M 0s
+   400K .......... .......... .......... .......... .......... 81%  299K 0s
+   450K .......... .......... .......... .......... .......... 90% 14.9M 0s
+   500K .......... .......... .......... .......... .......... 99%  445M 0s
+   550K ..                                                    100% 4632G=0.7s
+
+2021-07-16 11:00:26 (805 KB/s) - ‘amg2013_0.tgz’ saved [565687/565687]
+
+srun: /home/rowsun/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/zlib-1.2.11-4js6ectch4sma7o6s4c3wdnknse53stu/lib/libz.so.1: no version information available (required by srun)
+0.06user 1.14system 0:01.41elapsed 85%CPU (0avgtext+0avgdata 48068maxresident)k
+32inputs+0outputs (4major+13026minor)pagefaults 0swaps
+0.04user 1.12system 0:01.43elapsed 81%CPU (0avgtext+0avgdata 126376maxresident)k
+0inputs+0outputs (2major+32647minor)pagefaults 0swaps
+0.05user 1.17system 0:01.43elapsed 85%CPU (0avgtext+0avgdata 126236maxresident)k
+2752inputs+0outputs (3major+32655minor)pagefaults 0swaps
+0.04user 1.11system 0:01.43elapsed 81%CPU (0avgtext+0avgdata 126080maxresident)k
+0inputs+0outputs (2major+32650minor)pagefaults 0swaps
+srun: error: c6gn-dy-c6gn16xlarge-7: tasks 0-3: Exited with exit code 1
+0.04user 1.28system 0:01.62elapsed 82%CPU (0avgtext+0avgdata 126036maxresident)k
+72inputs+0outputs (4major+32651minor)pagefaults 0swaps
+0.04user 1.26system 0:01.62elapsed 79%CPU (0avgtext+0avgdata 126280maxresident)k
+0inputs+0outputs (4major+32647minor)pagefaults 0swaps
+0.06user 1.22system 0:01.63elapsed 79%CPU (0avgtext+0avgdata 126132maxresident)k
+0.04user 1.25system 0:01.63elapsed 80%CPU (0avgtext+0avgdata 126180maxresident)k
+968inputs+0outputs (3major+32652minor)pagefaults 0swaps
+96inputs+0outputs (4major+32649minor)pagefaults 0swaps
+0.06user 1.25system 0:01.63elapsed 81%CPU (0avgtext+0avgdata 126552maxresident)k
+0inputs+0outputs (3major+32652minor)pagefaults 0swaps
+0.06user 1.21system 0:01.63elapsed 78%CPU (0avgtext+0avgdata 126428maxresident)k
+0.07user 1.21system 0:01.63elapsed 79%CPU (0avgtext+0avgdata 126520maxresident)k
+0inputs+0outputs (3major+32651minor)pagefaults 0swaps
+0inputs+0outputs (3major+32651minor)pagefaults 0swaps
+0.03user 1.18system 0:01.63elapsed 74%CPU (0avgtext+0avgdata 126420maxresident)k
+144inputs+0outputs (3major+32655minor)pagefaults 0swaps
+0.05user 1.26system 0:01.63elapsed 80%CPU (0avgtext+0avgdata 126564maxresident)k
+0inputs+0outputs (2major+32655minor)pagefaults 0swaps
+0.04user 1.16system 0:01.63elapsed 74%CPU (0avgtext+0avgdata 126416maxresident)k
+0.06user 1.26system 0:01.63elapsed 81%CPU (0avgtext+0avgdata 126412maxresident)k
+0inputs+0outputs (3major+32657minor)pagefaults 0swaps
+80inputs+0outputs (3major+32652minor)pagefaults 0swaps
+0.07user 1.23system 0:01.63elapsed 80%CPU (0avgtext+0avgdata 126196maxresident)k
+0.06user 1.26system 0:01.63elapsed 81%CPU (0avgtext+0avgdata 126180maxresident)k
+0inputs+0outputs (2major+32652minor)pagefaults 0swaps
+0inputs+0outputs (3major+32656minor)pagefaults 0swaps
+0.06user 1.25system 0:01.63elapsed 80%CPU (0avgtext+0avgdata 126384maxresident)k
+0.09user 1.24system 0:01.63elapsed 82%CPU (0avgtext+0avgdata 126164maxresident)k
+0inputs+0outputs (3major+32649minor)pagefaults 0swaps
+0inputs+0outputs (4major+32647minor)pagefaults 0swaps
+0.08user 1.26system 0:01.63elapsed 82%CPU (0avgtext+0avgdata 126304maxresident)k
+0inputs+0outputs (3major+32649minor)pagefaults 0swaps
+0.08user 1.25system 0:01.63elapsed 81%CPU (0avgtext+0avgdata 126156maxresident)k
+0inputs+0outputs (4major+32651minor)pagefaults 0swaps
+0.06user 1.26system 0:01.63elapsed 81%CPU (0avgtext+0avgdata 129048maxresident)k
+0inputs+0outputs (3major+33366minor)pagefaults 0swaps
+0.09user 1.24system 0:01.63elapsed 82%CPU (0avgtext+0avgdata 129468maxresident)k
+0inputs+0outputs (5major+33362minor)pagefaults 0swaps
+0.06user 1.25system 0:01.63elapsed 81%CPU (0avgtext+0avgdata 126240maxresident)k
+3352inputs+0outputs (5major+32651minor)pagefaults 0swaps
+0.07user 1.20system 0:01.63elapsed 78%CPU (0avgtext+0avgdata 129148maxresident)k
+0.08user 1.25system 0:01.63elapsed 81%CPU (0avgtext+0avgdata 129468maxresident)k
+0inputs+0outputs (4major+33357minor)pagefaults 0swaps
+0.09user 1.23system 0:01.63elapsed 80%CPU (0avgtext+0avgdata 129472maxresident)k
+9368inputs+0outputs (5major+33372minor)pagefaults 0swaps
+0inputs+0outputs (3major+33395minor)pagefaults 0swaps
+0.08user 1.11system 0:01.63elapsed 73%CPU (0avgtext+0avgdata 129400maxresident)k
+0inputs+0outputs (2major+33377minor)pagefaults 0swaps
+srun: error: c6gn-dy-c6gn16xlarge-7: tasks 4-19,32-35,48-51: Exited with exit code 1
+0.11user 1.33system 0:01.80elapsed 80%CPU (0avgtext+0avgdata 126208maxresident)k
+0inputs+0outputs (4major+32654minor)pagefaults 0swaps
+0.13user 1.32system 0:01.81elapsed 80%CPU (0avgtext+0avgdata 126264maxresident)k
+0inputs+0outputs (2major+32651minor)pagefaults 0swaps
+0.11user 1.35system 0:01.81elapsed 81%CPU (0avgtext+0avgdata 126036maxresident)k
+128inputs+0outputs (4major+32652minor)pagefaults 0swaps
+0.11user 1.25system 0:01.81elapsed 75%CPU (0avgtext+0avgdata 126048maxresident)k
+32inputs+0outputs (4major+32644minor)pagefaults 0swaps
+0.11user 1.35system 0:01.81elapsed 80%CPU (0avgtext+0avgdata 126112maxresident)k
+56inputs+0outputs (4major+32655minor)pagefaults 0swaps
+0.11user 1.32system 0:01.81elapsed 78%CPU (0avgtext+0avgdata 126140maxresident)k
+0inputs+0outputs (2major+32650minor)pagefaults 0swaps
+0.10user 1.33system 0:01.81elapsed 78%CPU (0avgtext+0avgdata 126232maxresident)k
+3040inputs+0outputs (6major+32645minor)pagefaults 0swaps
+0.10user 1.36system 0:01.81elapsed 80%CPU (0avgtext+0avgdata 126196maxresident)k
+0inputs+0outputs (2major+32653minor)pagefaults 0swaps
+0.11user 1.32system 0:01.81elapsed 79%CPU (0avgtext+0avgdata 126056maxresident)k
+0inputs+0outputs (3major+32659minor)pagefaults 0swaps
+0.16user 1.29system 0:01.81elapsed 80%CPU (0avgtext+0avgdata 129140maxresident)k
+816inputs+0outputs (5major+33354minor)pagefaults 0swaps
+0.16user 1.30system 0:01.81elapsed 80%CPU (0avgtext+0avgdata 129196maxresident)k
+0inputs+0outputs (3major+33360minor)pagefaults 0swaps
+0.12user 1.26system 0:01.81elapsed 76%CPU (0avgtext+0avgdata 126260maxresident)k
+8inputs+0outputs (3major+32653minor)pagefaults 0swaps
+0.11user 1.33system 0:01.81elapsed 80%CPU (0avgtext+0avgdata 126100maxresident)k
+32inputs+0outputs (4major+32657minor)pagefaults 0swaps
+0.10user 1.35system 0:01.81elapsed 80%CPU (0avgtext+0avgdata 126084maxresident)k
+0.09user 1.27system 0:01.81elapsed 75%CPU (0avgtext+0avgdata 126328maxresident)k
+32inputs+0outputs (4major+32658minor)pagefaults 0swaps
+0inputs+0outputs (2major+32653minor)pagefaults 0swaps
+0.14user 1.32system 0:01.81elapsed 80%CPU (0avgtext+0avgdata 129088maxresident)k
+4992inputs+0outputs (4major+33360minor)pagefaults 0swaps
+0.12user 1.31system 0:01.81elapsed 78%CPU (0avgtext+0avgdata 126252maxresident)k
+0inputs+0outputs (3major+32653minor)pagefaults 0swaps
+0.16user 1.29system 0:01.81elapsed 80%CPU (0avgtext+0avgdata 129420maxresident)k
+3816inputs+0outputs (5major+33360minor)pagefaults 0swaps
+0.12user 1.35system 0:01.81elapsed 81%CPU (0avgtext+0avgdata 126128maxresident)k
+0.12user 1.34system 0:01.81elapsed 81%CPU (0avgtext+0avgdata 126156maxresident)k
+0inputs+0outputs (3major+32651minor)pagefaults 0swaps
+0.10user 1.34system 0:01.81elapsed 80%CPU (0avgtext+0avgdata 126084maxresident)k
+0inputs+0outputs (3major+32644minor)pagefaults 0swaps
+0inputs+0outputs (2major+32650minor)pagefaults 0swaps
+0.10user 1.34system 0:01.81elapsed 79%CPU (0avgtext+0avgdata 126084maxresident)k
+32inputs+0outputs (3major+32655minor)pagefaults 0swaps
+0.12user 1.34system 0:01.81elapsed 80%CPU (0avgtext+0avgdata 126160maxresident)k
+0inputs+0outputs (5major+32648minor)pagefaults 0swaps
+0.12user 1.30system 0:01.81elapsed 79%CPU (0avgtext+0avgdata 126120maxresident)k
+0inputs+0outputs (4major+32647minor)pagefaults 0swaps
+0.13user 1.34system 0:01.81elapsed 81%CPU (0avgtext+0avgdata 126432maxresident)k
+48inputs+0outputs (4major+32652minor)pagefaults 0swaps
+0.12user 1.30system 0:01.81elapsed 78%CPU (0avgtext+0avgdata 126112maxresident)k
+0inputs+0outputs (4major+32651minor)pagefaults 0swaps
+0.17user 1.30system 0:01.81elapsed 81%CPU (0avgtext+0avgdata 129088maxresident)k
+0inputs+0outputs (3major+33359minor)pagefaults 0swaps
+0.10user 1.18system 0:01.81elapsed 71%CPU (0avgtext+0avgdata 126096maxresident)k
+264inputs+0outputs (5major+32645minor)pagefaults 0swaps
+0.10user 1.31system 0:01.81elapsed 78%CPU (0avgtext+0avgdata 126096maxresident)k
+0.09user 1.37system 0:01.81elapsed 80%CPU (0avgtext+0avgdata 126268maxresident)k
+0inputs+0outputs (3major+32645minor)pagefaults 0swaps
+0.10user 1.28system 0:01.81elapsed 76%CPU (0avgtext+0avgdata 126136maxresident)k
+0inputs+0outputs (3major+32651minor)pagefaults 0swaps
+10568inputs+0outputs (3major+32649minor)pagefaults 0swaps
+0.10user 1.33system 0:01.81elapsed 79%CPU (0avgtext+0avgdata 126088maxresident)k
+0inputs+0outputs (2major+32650minor)pagefaults 0swaps
+0.18user 1.26system 0:01.81elapsed 80%CPU (0avgtext+0avgdata 129436maxresident)k
+0inputs+0outputs (3major+33365minor)pagefaults 0swaps
+0.18user 1.26system 0:01.81elapsed 79%CPU (0avgtext+0avgdata 129396maxresident)k
+0inputs+0outputs (2major+33373minor)pagefaults 0swaps
+0.15user 1.30system 0:01.81elapsed 80%CPU (0avgtext+0avgdata 129160maxresident)k
+0inputs+0outputs (4major+33371minor)pagefaults 0swaps
+0.17user 1.28system 0:01.81elapsed 79%CPU (0avgtext+0avgdata 129180maxresident)k
+2064inputs+0outputs (4major+33364minor)pagefaults 0swaps
+srun: error: c6gn-dy-c6gn16xlarge-7: tasks 20-31,36-47,52-63: Exited with exit code 1

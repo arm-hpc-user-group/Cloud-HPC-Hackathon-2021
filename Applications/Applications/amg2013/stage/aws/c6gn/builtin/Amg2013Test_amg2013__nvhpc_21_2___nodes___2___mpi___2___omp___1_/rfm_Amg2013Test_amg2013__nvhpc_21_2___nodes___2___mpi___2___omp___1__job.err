@@ -1,0 +1,29 @@
+--2021-07-16 11:11:58--  https://asc.llnl.gov/sites/asc/files/2021-01/amg2013_0.tgz
+Resolving asc.llnl.gov (asc.llnl.gov)... 104.16.157.245, 104.16.156.245, 2606:4700::6810:9df5, ...
+Connecting to asc.llnl.gov (asc.llnl.gov)|104.16.157.245|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 565687 (552K) [application/x-gzip]
+Saving to: ‘amg2013_0.tgz’
+
+     0K .......... .......... .......... .......... ..........  9%  319K 2s
+    50K .......... .......... .......... .......... .......... 18%  314K 1s
+   100K .......... .......... .......... .......... .......... 27%  109M 1s
+   150K .......... .......... .......... .......... .......... 36% 50.3M 1s
+   200K .......... .......... .......... .......... .......... 45%  316K 1s
+   250K .......... .......... .......... .......... .......... 54%  184M 0s
+   300K .......... .......... .......... .......... .......... 63% 52.9M 0s
+   350K .......... .......... .......... .......... .......... 72%  227M 0s
+   400K .......... .......... .......... .......... .......... 81%  315K 0s
+   450K .......... .......... .......... .......... .......... 90%  180M 0s
+   500K .......... .......... .......... .......... .......... 99%  270M 0s
+   550K ..                                                    100%  143M=0.6s
+
+2021-07-16 11:12:00 (868 KB/s) - ‘amg2013_0.tgz’ saved [565687/565687]
+
+srun: /home/rowsun/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/zlib-1.2.11-4js6ectch4sma7o6s4c3wdnknse53stu/lib/libz.so.1: no version information available (required by srun)
+srun: error: c6gn-dy-c6gn16xlarge-1: task 0: Exited with exit code 1
+0.00user 0.05system 0:00.06elapsed 82%CPU (0avgtext+0avgdata 37152maxresident)k
+0inputs+0outputs (0major+10292minor)pagefaults 0swaps
+srun: error: c6gn-dy-c6gn16xlarge-6: task 1: Exited with exit code 1
+0.02user 0.04system 0:00.09elapsed 77%CPU (0avgtext+0avgdata 112832maxresident)k
+0inputs+0outputs (0major+29078minor)pagefaults 0swaps

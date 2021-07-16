@@ -1,0 +1,28 @@
+=============================================
+SStruct Interface:
+=============================================
+SStruct Interface:
+SStruct Interface  wall clock time = 0.001046 seconds
+SStruct Interface  cpu clock time  = 0.001047 seconds
+=============================================
+Setup phase times:
+=============================================
+PCG Setup:
+PCG Setup  wall clock time = 0.000950 seconds
+PCG Setup  cpu clock time  = 0.011336 seconds
+
+System Size / Setup Phase Time: 5.388492e+05
+
+=============================================
+Solve phase times:
+=============================================
+PCG Solve:
+PCG Solve  wall clock time = 0.001387 seconds
+PCG Solve  cpu clock time  = 0.001387 seconds
+
+AMG2013 Benchmark version 1.0
+Iterations = 7
+Final Relative Residual Norm = 1.965791e-07
+
+System Size * Iterations / Solve Phase Time: 2.584852e+06
+

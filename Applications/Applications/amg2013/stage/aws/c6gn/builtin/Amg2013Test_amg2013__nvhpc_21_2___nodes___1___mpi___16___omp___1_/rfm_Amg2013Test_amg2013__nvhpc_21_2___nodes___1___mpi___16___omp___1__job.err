@@ -1,0 +1,56 @@
+--2021-07-16 11:00:23--  https://asc.llnl.gov/sites/asc/files/2021-01/amg2013_0.tgz
+Resolving asc.llnl.gov (asc.llnl.gov)... 104.16.156.245, 104.16.157.245, 2606:4700::6810:9cf5, ...
+Connecting to asc.llnl.gov (asc.llnl.gov)|104.16.156.245|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 565687 (552K) [application/x-gzip]
+Saving to: ‘amg2013_0.tgz’
+
+     0K .......... .......... .......... .......... ..........  9%  316K 2s
+    50K .......... .......... .......... .......... .......... 18%  311K 1s
+   100K .......... .......... .......... .......... .......... 27%  111M 1s
+   150K .......... .......... .......... .......... .......... 36% 47.4M 1s
+   200K .......... .......... .......... .......... .......... 45%  315K 1s
+   250K .......... .......... .......... .......... .......... 54% 79.9M 0s
+   300K .......... .......... .......... .......... .......... 63% 19.2M 0s
+   350K .......... .......... .......... .......... .......... 72%  174M 0s
+   400K .......... .......... .......... .......... .......... 81%  321K 0s
+   450K .......... .......... .......... .......... .......... 90%  117M 0s
+   500K .......... .......... .......... .......... .......... 99%  172M 0s
+   550K ..                                                    100%  151M=0.6s
+
+2021-07-16 11:00:24 (865 KB/s) - ‘amg2013_0.tgz’ saved [565687/565687]
+
+srun: /home/rowsun/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/zlib-1.2.11-4js6ectch4sma7o6s4c3wdnknse53stu/lib/libz.so.1: no version information available (required by srun)
+0.03user 0.27system 0:00.35elapsed 88%CPU (0avgtext+0avgdata 46876maxresident)k
+0inputs+0outputs (0major+12599minor)pagefaults 0swaps
+0.02user 0.29system 0:00.35elapsed 88%CPU (0avgtext+0avgdata 55836maxresident)k
+0inputs+0outputs (0major+14898minor)pagefaults 0swaps
+0.04user 0.26system 0:00.36elapsed 88%CPU (0avgtext+0avgdata 53068maxresident)k
+0inputs+0outputs (0major+14183minor)pagefaults 0swaps
+0.03user 0.27system 0:00.36elapsed 87%CPU (0avgtext+0avgdata 52744maxresident)k
+0inputs+0outputs (0major+14178minor)pagefaults 0swaps
+0.03user 0.28system 0:00.36elapsed 87%CPU (0avgtext+0avgdata 52836maxresident)k
+0inputs+0outputs (0major+14178minor)pagefaults 0swaps
+0.03user 0.29system 0:00.36elapsed 87%CPU (0avgtext+0avgdata 55672maxresident)k
+0inputs+0outputs (0major+14893minor)pagefaults 0swaps
+0.02user 0.30system 0:00.36elapsed 86%CPU (0avgtext+0avgdata 52784maxresident)k
+0inputs+0outputs (0major+14184minor)pagefaults 0swaps
+0.03user 0.28system 0:00.37elapsed 86%CPU (0avgtext+0avgdata 53168maxresident)k
+0inputs+0outputs (0major+14182minor)pagefaults 0swaps
+0.05user 0.26system 0:00.37elapsed 85%CPU (0avgtext+0avgdata 55668maxresident)k
+0inputs+0outputs (0major+14885minor)pagefaults 0swaps
+0.04user 0.27system 0:00.37elapsed 85%CPU (0avgtext+0avgdata 55632maxresident)k
+0inputs+0outputs (0major+14891minor)pagefaults 0swaps
+0.02user 0.29system 0:00.37elapsed 86%CPU (0avgtext+0avgdata 52828maxresident)k
+0inputs+0outputs (0major+14182minor)pagefaults 0swaps
+0.03user 0.27system 0:00.37elapsed 84%CPU (0avgtext+0avgdata 55616maxresident)k
+0inputs+0outputs (0major+14891minor)pagefaults 0swaps
+0.00user 0.32system 0:00.37elapsed 87%CPU (0avgtext+0avgdata 128200maxresident)k
+0inputs+0outputs (0major+32941minor)pagefaults 0swaps
+0.01user 0.30system 0:00.37elapsed 87%CPU (0avgtext+0avgdata 127912maxresident)k
+0inputs+0outputs (0major+32943minor)pagefaults 0swaps
+0.02user 0.29system 0:00.37elapsed 86%CPU (0avgtext+0avgdata 128200maxresident)k
+0inputs+0outputs (0major+32938minor)pagefaults 0swaps
+0.01user 0.30system 0:00.37elapsed 86%CPU (0avgtext+0avgdata 127792maxresident)k
+0inputs+0outputs (0major+32936minor)pagefaults 0swaps
+srun: error: c6gn-dy-c6gn16xlarge-6: tasks 0-15: Exited with exit code 1

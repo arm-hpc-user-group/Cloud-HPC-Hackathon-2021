@@ -1,0 +1,31 @@
+--2021-07-16 11:05:14--  https://asc.llnl.gov/sites/asc/files/2021-01/amg2013_0.tgz
+Resolving asc.llnl.gov (asc.llnl.gov)... 104.16.156.245, 104.16.157.245, 2606:4700::6810:9cf5, ...
+Connecting to asc.llnl.gov (asc.llnl.gov)|104.16.156.245|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 565687 (552K) [application/x-gzip]
+Saving to: ‘amg2013_0.tgz’
+
+     0K .......... .......... .......... .......... ..........  9%  322K 2s
+    50K .......... .......... .......... .......... .......... 18%  318K 1s
+   100K .......... .......... .......... .......... .......... 27%  111M 1s
+   150K .......... .......... .......... .......... .......... 36% 46.3M 1s
+   200K .......... .......... .......... .......... .......... 45%  317K 1s
+   250K .......... .......... .......... .......... .......... 54%  196M 0s
+   300K .......... .......... .......... .......... .......... 63%  168M 0s
+   350K .......... .......... .......... .......... .......... 72% 79.8M 0s
+   400K .......... .......... .......... .......... .......... 81%  326K 0s
+   450K .......... .......... .......... .......... .......... 90% 92.4M 0s
+   500K .......... .......... .......... .......... .......... 99%  266M 0s
+   550K ..                                                    100% 4632G=0.6s
+
+2021-07-16 11:05:16 (881 KB/s) - ‘amg2013_0.tgz’ saved [565687/565687]
+
+0.03user 0.10system 0:00.15elapsed 92%CPU (0avgtext+0avgdata 45272maxresident)k
+0inputs+0outputs (0major+12430minor)pagefaults 0swaps
+0.03user 0.12system 0:00.16elapsed 93%CPU (0avgtext+0avgdata 123720maxresident)k
+0inputs+0outputs (0major+32075minor)pagefaults 0swaps
+0.02user 0.13system 0:00.16elapsed 92%CPU (0avgtext+0avgdata 126608maxresident)k
+0inputs+0outputs (0major+32790minor)pagefaults 0swaps
+0.02user 0.13system 0:00.16elapsed 92%CPU (0avgtext+0avgdata 123596maxresident)k
+0inputs+0outputs (0major+32074minor)pagefaults 0swaps
+srun: error: c6gn-dy-c6gn16xlarge-1: tasks 0-3: Exited with exit code 1

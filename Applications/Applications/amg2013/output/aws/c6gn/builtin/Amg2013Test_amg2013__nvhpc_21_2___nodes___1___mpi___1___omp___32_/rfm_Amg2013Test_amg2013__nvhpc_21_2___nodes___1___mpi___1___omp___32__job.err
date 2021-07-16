@@ -1,0 +1,25 @@
+--2021-07-16 11:28:19--  https://asc.llnl.gov/sites/asc/files/2021-01/amg2013_0.tgz
+Resolving asc.llnl.gov (asc.llnl.gov)... 104.16.157.245, 104.16.156.245, 2606:4700::6810:9cf5, ...
+Connecting to asc.llnl.gov (asc.llnl.gov)|104.16.157.245|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 565687 (552K) [application/x-gzip]
+Saving to: ‘amg2013_0.tgz’
+
+     0K .......... .......... .......... .......... ..........  9%  323K 2s
+    50K .......... .......... .......... .......... .......... 18%  315K 1s
+   100K .......... .......... .......... .......... .......... 27%  193M 1s
+   150K .......... .......... .......... .......... .......... 36% 42.9M 1s
+   200K .......... .......... .......... .......... .......... 45%  324K 1s
+   250K .......... .......... .......... .......... .......... 54%  186M 0s
+   300K .......... .......... .......... .......... .......... 63% 41.7M 0s
+   350K .......... .......... .......... .......... .......... 72%  240M 0s
+   400K .......... .......... .......... .......... .......... 81%  322K 0s
+   450K .......... .......... .......... .......... .......... 90%  311M 0s
+   500K .......... .......... .......... .......... .......... 99% 46.8M 0s
+   550K ..                                                    100%  149M=0.6s
+
+2021-07-16 11:28:20 (881 KB/s) - ‘amg2013_0.tgz’ saved [565687/565687]
+
+srun: /home/rowsun/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/zlib-1.2.11-4js6ectch4sma7o6s4c3wdnknse53stu/lib/libz.so.1: no version information available (required by srun)
+0.20user 0.18system 0:01.37elapsed 27%CPU (0avgtext+0avgdata 35520maxresident)k
+50224inputs+0outputs (23major+9983minor)pagefaults 0swaps

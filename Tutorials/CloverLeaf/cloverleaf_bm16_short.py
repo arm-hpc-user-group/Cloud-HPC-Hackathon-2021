@@ -8,7 +8,7 @@ class CloverLeafTest(hack.HackathonBase):
     valid_systems = ['aws:c6gn']
 
     # Logging Variables
-    log_team_name = 'TeamArm'
+    log_team_name = 'HPCNepal'
     log_app_name = 'CloverLeaf'
     log_test_name = 'BM16_short'
 
@@ -30,8 +30,9 @@ class CloverLeafTest(hack.HackathonBase):
     # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
     spec = parameter([
         'cloverleaf@1.1 %gcc@10.3.0',     # CloverLeaf with the GCC compiler
-        'cloverleaf@1.1 %arm@21.0.0.879', # CloverLeaf with the Arm compiler
-        'cloverleaf@1.1 %nvhpc@21.2'      # CloverLeaf with the NVIDIA compiler
+        #'cloverleaf@1.1 %arm@21.0.0.879', # CloverLeaf with the Arm compiler
+        'cloverleaf@1.1 %nvhpc@21.2',      # CloverLeaf with the NVIDIA compiler
+        'cloverleaf@1.1 /a366d6'
     ])
 
     # Parameters - MPI / Threads - Used for scaling studies
@@ -45,7 +46,9 @@ class CloverLeafTest(hack.HackathonBase):
         { 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
     ])
 
-
+    @run_before('run')
+    def prepare_job(self):
+        self.job.options += ['--exclusive']
     # Code validation
     @run_before('sanity')
     def set_sanity_patterns(self):
@@ -76,4 +79,5 @@ class CloverLeafTest(hack.HackathonBase):
        self.perf_patterns = {
                'Total Time': sn.extractsingle(pref_regex, self.logfile, 1, float, item=-1)
        }
+
 

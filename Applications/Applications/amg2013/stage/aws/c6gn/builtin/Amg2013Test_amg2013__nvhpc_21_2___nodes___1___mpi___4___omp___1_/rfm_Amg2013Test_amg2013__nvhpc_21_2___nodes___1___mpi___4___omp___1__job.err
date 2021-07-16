@@ -1,0 +1,32 @@
+--2021-07-16 11:01:49--  https://asc.llnl.gov/sites/asc/files/2021-01/amg2013_0.tgz
+Resolving asc.llnl.gov (asc.llnl.gov)... 104.16.156.245, 104.16.157.245, 2606:4700::6810:9cf5, ...
+Connecting to asc.llnl.gov (asc.llnl.gov)|104.16.156.245|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 565687 (552K) [application/x-gzip]
+Saving to: ‘amg2013_0.tgz’
+
+     0K .......... .......... .......... .......... ..........  9%  321K 2s
+    50K .......... .......... .......... .......... .......... 18%  312K 1s
+   100K .......... .......... .......... .......... .......... 27%  115M 1s
+   150K .......... .......... .......... .......... .......... 36% 36.6M 1s
+   200K .......... .......... .......... .......... .......... 45%  323K 1s
+   250K .......... .......... .......... .......... .......... 54%  147M 0s
+   300K .......... .......... .......... .......... .......... 63%  157M 0s
+   350K .......... .......... .......... .......... .......... 72% 31.9M 0s
+   400K .......... .......... .......... .......... .......... 81%  317K 0s
+   450K .......... .......... .......... .......... .......... 90%  233M 0s
+   500K .......... .......... .......... .......... .......... 99%  232M 0s
+   550K ..                                                    100%  153M=0.6s
+
+2021-07-16 11:01:50 (873 KB/s) - ‘amg2013_0.tgz’ saved [565687/565687]
+
+srun: /home/rowsun/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/zlib-1.2.11-4js6ectch4sma7o6s4c3wdnknse53stu/lib/libz.so.1: no version information available (required by srun)
+0.03user 0.09system 0:00.13elapsed 91%CPU (0avgtext+0avgdata 46756maxresident)k
+0inputs+0outputs (0major+12526minor)pagefaults 0swaps
+0.01user 0.11system 0:00.13elapsed 92%CPU (0avgtext+0avgdata 125056maxresident)k
+0inputs+0outputs (0major+32166minor)pagefaults 0swaps
+0.02user 0.10system 0:00.14elapsed 88%CPU (0avgtext+0avgdata 125160maxresident)k
+0inputs+0outputs (0major+32171minor)pagefaults 0swaps
+0.00user 0.13system 0:00.14elapsed 92%CPU (0avgtext+0avgdata 127772maxresident)k
+0inputs+0outputs (0major+32875minor)pagefaults 0swaps
+srun: error: c6gn-dy-c6gn16xlarge-1: tasks 0-3: Exited with exit code 1
