@@ -410,6 +410,8 @@ X86 script:
 [ReFrame Benchmark](#)  
 ARM script:  
 [ReFrame Benchmark](#)  
+Time:
+
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 11.39 s	           | 30.28 s    |
@@ -421,7 +423,7 @@ ARM script:
 X86 script:  
 [ReFrame Benchmark](#)  
 ARM script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark](#)
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 82.87 s           | 142.46 s   |
@@ -462,34 +464,54 @@ Please document work with compiler flags, maths libraries, system libraries, cod
 
 Compiler flags before:
 ```
-CFLAGS=
+CFLAGS= -O3 -fopenmp  -lm -Daarch64 -D__MPI -D__COLLABORATIVE_THREADING=6 -D__TEST_MG_CONVERGENCE -D__PRINT_NORM -D__USE_BICGSTAB 
 FFLAGS=
 ```
 
 Compiler flags after:
 ```
-CFLAGS=
+CFLAGS= -O3 -Ofast -fopenmp -lm -Daarch64 -D__MPI -D__TEST_MG_CONVERGENCE -D__PREFETCH_NEXT_PLANE_FROM_DRAM -D__FUSION_RESIDUAL_RESTRICTION -D__PRINT_NORM -D__USE_BICGSTAB 
 FFLAGS=
 ```
 
 #### Compiler Flag Performance
 
+The following table is based on gcc@10.3.0 with Test Case 3.
+
 | Cores | Original Flags | New Flags |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+| ----- | -------------- | --------- |
+| 1     | 1060.55            |1030.97   |
+| 2     | 643.84        |    619.43       |
+| 4     | 401.97      |          371.58 |
+| 8     | 314.23    |          270.56 |
+| 16    | 418.16 |           146.35|
+| 32    | 686.54|           105.15|
+| 64    | 1097.58 |           74.81|
 
 ### Performance Regression
 
 How fast can you make the code?
 
+The following table is based on gcc@10.3.0 with Test Case 3.
+
+
+| Cores | Original  | Optimization |
+| ----- | -------------- | --------- |
+| 1     | 1060.55            |720.42   |
+| 2     | 643.84        |    349.17      |
+| 4     | 401.97      |          233.63 |
+| 8     | 314.23    |          144.44|
+| 16    | 418.16 |           91.6|
+| 32    | 686.54|           64.02|
+| 64    | 1097.58 |           46.04|
+
+#### 
+
+
 Use all of the above aproaches and any others to make the code as fast as possible.
 Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
+
+
 
 ## Report
 
