@@ -1,5 +1,6 @@
 import os
-import sys
+
+#os.environ['FI_EFA_FORK_SAFE'] = '1'
 
 import reframe as rfm
 import reframe.utility.sanity as sn
@@ -15,13 +16,13 @@ my_log_team_name = 'TeamEPCC'
 my_log_app_name = 'meme'
 my_log_test_name = 'meme'
 
-my_prerun_cmds = [
-    'wget https://raw.githubusercontent.com/rj-jesus/Cloud-HPC-Hackathon-2021/app/meme/Applications/Applications/meme/inputs/lex0.fna',
-    'wget https://raw.githubusercontent.com/rj-jesus/Cloud-HPC-Hackathon-2021/app/meme/Applications/Applications/meme/outputs/lex0.fna.txt',
-]
+rfile = 'lex0.fna.txt'  # reference output
+ofile = 'lex0.fna.out'  # actual output
 
-# Where the output is written to
-ofile = 'lex0.fna.out'
+my_prerun_cmds = [
+    f'wget https://meme-suite.org/meme/doc/examples/example-datasets/lex0.fna',                      # dataset
+    f'wget https://meme-suite.org/meme/doc/examples/meme_example_output_files/meme.txt -O {rfile}',  # reference output
+]
 
 # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
 my_spec = [
@@ -47,9 +48,10 @@ my_parallelism = [
 ]
 
 my_postrun_cmds = [
-    "tail -n +12 lex0.fna.txt         | head -n -4 | grep -v 'PRIMARY SEQUENCES=\|command:\|Time' > lex0.fna.txt.clean",
-    f"tail -n +12 lex0.fna.d/meme.txt | head -n -4 | grep -v 'PRIMARY SEQUENCES=\|command:\|Time' > {ofile}.clean",
-    f'diff -q lex0.fna.txt.clean {ofile}.clean && echo PASS || echo FAIL',
+    f"cp lex0.fna.d/meme.txt {ofile}",  # output generated
+    f"tail -n +12 {rfile} | head -n -4 | grep -v 'PRIMARY SEQUENCES=\|command:\|Time' > {rfile}.clean",
+    f"tail -n +12 {ofile} | head -n -4 | grep -v 'PRIMARY SEQUENCES=\|command:\|Time' > {ofile}.clean",
+    f'diff -q {rfile}.clean {ofile}.clean && echo PASS || echo FAIL',
 ]
 
 @rfm.simple_test
