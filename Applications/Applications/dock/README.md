@@ -253,7 +253,7 @@ Profiling script:
 #### Test Case 4
 Profiling script:
 [ReFrame Benchmark](reframe_scripts/dock_profilef_test4_gcc.py)
-![s1](#)
+![s1](pictures/f4g.png)
 
 #### nvhpc
 #### Test Case 1
