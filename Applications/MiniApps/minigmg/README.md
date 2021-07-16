@@ -605,6 +605,7 @@ X86 script:
 X86 script:  
 [ReFrame Benchmark](reframe_scripts/benchmark_offnode1_test4_gcc_x86.py)  
 [ReFrame Benchmark](reframe_scripts/benchmark_offnode2_test4_gcc_x86.py)  
+
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 1906.81 s           | 3563.73 s  |
@@ -701,7 +702,17 @@ index fee85d4..22ab6fd 100755
 
 #### Spack recipe and build line
 
+We have attached the spack [package.py](package.py). 
+
+We use the following commands to install our optimization version.
+
+```
+spack install -j 64 minigmg@local+simde+opt
+```
+
 #### ReFrame script
+
+We have attached the [reframe script](reframe_scripts/benchmark_opt.py) for optimization version.
 
 ## Report
 
