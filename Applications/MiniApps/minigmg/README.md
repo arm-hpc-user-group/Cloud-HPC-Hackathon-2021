@@ -167,20 +167,20 @@ Profiling script:
 
 On-node scaling study for two compilers.
 
-| Cores | Compiler 1 | Compiler 2 |
+| Cores | arm | gcc |
 |-------|------------|------------|
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
+| 1     | 17.19 s           |            |
+| 2     | 9.95 s           |            |
+| 4     | 5.98 s           |            |
+| 8     | 4.35 s           |            |
+| 16    | 3.58 s           |            |
+| 32    | 3.71 s           |            |
+| 64    | 3.91 s           |            |
 
 ### On-Node Architecture Comparison
 
-On-node scaling study for two architectures.
-
+On-node scaling study for two architectures.  
+Compiler: gcc
 #### Test Case 1
 X86 script:  
 [ReFrame Benchmark](#)  
@@ -189,12 +189,12 @@ ARM script:
 Time: 
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
-| 1     | 17.19 s           | 19.09 s   |
-| 2     | 9.95 s           | 23.29 s   |
-| 4     | 5.98 s           | 20.83 s   |
-| 8     | 4.35 s           | 19.91 s   |
-| 16    | 3.58 s           | 22.06 s   |
-| 32    | 3.71 s           | 30.28 s   |
+| 1     |            | 19.09 s   |
+| 2     |            | 23.29 s   |
+| 4     |            | 20.83 s   |
+| 8     |            | 19.91 s   |
+| 16    |            | 22.06 s   |
+| 32    |            | 30.28 s   |
 | 64    |            | 46.11 s   |
 
 #### Test Case 2
