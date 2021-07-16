@@ -1216,7 +1216,8 @@ Building this application can be a little bit tricky, as we need the sse2neon li
 
 ### Performance Summary
 
-The performance is inline with our expectations. 
+The performance is inline with our expectations. The performance can be benefited from running on a single node, but can be decreased from running on several nodes. 
+The longer it runs, the better performance gain we can observe from running it. 
 
 
 ### Optimisation Summary
