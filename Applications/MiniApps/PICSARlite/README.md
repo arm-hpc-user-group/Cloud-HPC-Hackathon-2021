@@ -157,14 +157,16 @@ Concretized
 
 ```
 
-We provide two test cases, both with input files from the original PIXSARlite Github repository:
-- Test Case 1: `homogeneous_plasma_lite.pixr` with fixed and pre-defined number of 8 MPI processes
+We provide two test cases, both with input files from the original PICSARlite Github repository:
+- Test Case 1: `homogeneous_plasma_lite.pixr` with fixed and pre-defined number of MPI processes = 8
 - Test Case 2: `test.pixr` for scaling
 
 ## Test Case 1: `homogeneous_plasma_lite.pixr`
 
+[picsarlite_homogeneous_plasma_lite.py](picsarlite_homogeneous_plasma_lite.py)
+
 Runs PICSARlite with input file `homogeneous_plasma_lite.pixr`. This input file defines `nprocx`, `nprocy` and `nprocz` each equal to `2`, thus overall `8` MPI processes. Note the number of MPI processes must match 
-`nprocx * nprocy * nprocz` (see input file). If `nprocx`, `nprocy`, `nprocz` are net set, the code performs 
+`nprocx * nprocy * nprocz` (see input file). If `nprocx`, `nprocy`, `nprocz` are not set, the code performs 
 automatic CPU split in each direction. For our scaling experiments we use Test Case 2. 
 
 ```
@@ -253,18 +255,18 @@ Profiling command used:
 reframe -c picsarlite_homogeneous_plasma_lite.py -r --performance-report
 ```
 
-| Position | depth | Self | Total | Child | MPI | Overhead | Regions | Function |
-|----------|-------|------|-------|-------|–----|–---------|–--------|–---------|
-|  1  | 0 | 21.0% | 21.0% |  |  |  |  | depose_jxjyjz_scalar_1_1_1_ |
-|  2  | 0 | 12.8% | 12.8% |  |  | 12.8% |  | GOMP_parallel |
-|  3  | 0 | 12.6% | 12.6% |  | 12.6% |  |  | mpi_waitall_ |
-|  4  | 0 | 9.6% | 9.6% |  |  |  |  | pxr_boris_push_u_3d_ |
-|  5  | 0 | 4.4% | 4.4% |  |  |  |  | mpi_file_close_ |
+| Position | depth | Self  | Total | Child | MPI  | Overhead | Regions | Function                    |
+|----------|-------|-------|-------|-------|–-----|–---------|–--------|–----------------------------|
+|  1       | 0     | 21.0% | 21.0% |       |      |          |         | depose_jxjyjz_scalar_1_1_1\_ |
+|  2       | 0     | 12.8% | 12.8% |       |      | 12.8%    |         | GOMP_parallel               |
+|  3       | 0     | 12.6% | 12.6% |       | 12.6%|          |         | mpi_waitall\_                |
+|  4  | 0 | 9.6% | 9.6% |  |  |  |  | pxr_boris_push_u_3d\_ |
+|  5  | 0 | 4.4% | 4.4% |  |  |  |  | mpi_file_close˜_ |
 |  6  | 0 | 3.2% | 9.2% | 6.0% | 4.8% |  |  | __particle_boundary_MOD_particle_bcs_mpi_non_blocking |
-|  7  | 0 | 3.1% | 3.1% |  |  |  |  | mpi_file_open_ |
-|  8  | 0 | 2.5% | 2.5% |  |  |  |  | pxr_set_gamma_ |
+|  7  | 0 | 3.1% | 3.1% |  |  |  |  | mpi_file_open\_ |
+|  8  | 0 | 2.5% | 2.5% |  |  |  |  | pxr_set_gamma\_ |
 |  9  | 0 | 2.3% | 2.3% |  |  |  |  | sincos |
-| 10  | 0 | 1.5% | 1.5% |  | 1.5% |  |  | mpi_isend_ |
+| 10  | 0 | 1.5% | 1.5% |  | 1.5% |  |  | mpi_isend\_ |
 
 ### On-node Compiler Comparison
 
@@ -286,6 +288,8 @@ On-node study for two architectures, for 8 cores.
 
 
 ## Test Case 2: `test.pixr`
+
+[picsarlite_test.py](picsarlite_test.py)
 
 We run PICSARlite with the available input file `test.pixr`. This input file does not set the number of processes
 (`nprocx`, `nprocy`, `nprocz`). Therefore the code performs automatic CPU split in each direction. We use this input
