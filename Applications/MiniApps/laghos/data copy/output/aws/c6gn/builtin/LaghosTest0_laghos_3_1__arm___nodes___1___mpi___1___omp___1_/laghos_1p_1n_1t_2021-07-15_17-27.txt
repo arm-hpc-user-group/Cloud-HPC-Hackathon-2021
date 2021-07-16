@@ -1,0 +1,62 @@
+Command:        srun laghos -p 0 -dim 2 -rs 3 -tf 0.75 -pa
+Resources:      1 node (64 physical, 64 logical cores per node)
+Memory:         124 GiB per node
+Tasks:          1 process
+Machine:        c6gn-dy-c6gn16xlarge-6
+Start time:     Thu Jul 15 17:27:05 2021
+Total time:     6 seconds
+Full path:      /scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/laghos-3.1-qsrtkaefmj3xu4lx676h2syhsspwwzpo/bin
+
+Summary: laghos is Compute-bound in this configuration
+Compute:                                     98.2% |=========|
+MPI:                                          1.8% ||
+I/O:                                          0.0% |
+This application run was Compute-bound. A breakdown of this time and advice for investigating further is in the CPU Metrics section below. 
+As very little time is spent in MPI calls, this code may also benefit from running at larger scales.
+
+CPU Metrics:
+Linux perf event metrics:
+Cycles per instruction:                       0.29 
+L2D cache miss:                               1.1% ||
+Stalled backend cycles:                      15.9% |=|
+Stalled frontend cycles:                      0.0% |
+Cycles per instruction is low, which is good. Vectorization allows multiple instructions per clock cycle.
+
+MPI:
+A breakdown of the 1.8% MPI time:
+Time in collective calls:                   100.0% |=========|
+Time in point-to-point calls:                 0.0% |
+Effective process collective rate:            15.0 MB/s
+Effective process point-to-point rate:        0.00 bytes/s
+
+I/O:
+A breakdown of the 0.0% I/O time:
+Time in reads:                                0.0% |
+Time in writes:                               0.0% |
+Effective process read rate:                  0.00 bytes/s
+Effective process write rate:                 0.00 bytes/s
+No time is spent in I/O operations. There's nothing to optimize here!
+
+Threads:
+A breakdown of how multiple threads were used:
+Computation:                                100.0% |=========|
+Synchronization:                              0.0% |
+Physical core utilization:                    1.6% ||
+System load:                                  1.6% ||
+Physical core utilization is low. Try increasing the number of threads or processes to improve performance.
+
+Memory:
+Per-process memory usage may also affect scaling:
+Mean process memory usage:                    56.6 MiB
+Peak process memory usage:                    56.7 MiB
+Peak node memory usage:                      12.0% ||
+The peak node memory usage is very low. Larger problem sets can be run before scaling to multiple nodes.
+
+Energy:
+A breakdown of how energy was used:
+CPU:                                      not supported
+System:                                   not supported
+Mean node power:                          not supported
+Peak node power:                              0.00 W
+Energy metrics are not available on this system.
+

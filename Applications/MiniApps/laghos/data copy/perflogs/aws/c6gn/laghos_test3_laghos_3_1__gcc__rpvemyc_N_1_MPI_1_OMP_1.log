@@ -1,0 +1,2 @@
+2021-07-15T17:17:19|reframe 3.7.0-dev.3+34ee3d0b|laghos_test3_laghos_3_1__gcc__rpvemyc_N_1_MPI_1_OMP_1 on aws:c6gn using builtin|jobid=227|Major kernels total time=14.587591868|ref=0 (l=null, u=null)|s
+2021-07-15T17:17:19|reframe 3.7.0-dev.3+34ee3d0b|laghos_test3_laghos_3_1__gcc__rpvemyc_N_1_MPI_1_OMP_1 on aws:c6gn using builtin|jobid=227|Major kernels total rate=13.4026489615|ref=0 (l=null, u=null)|Mdofs x steps / s
