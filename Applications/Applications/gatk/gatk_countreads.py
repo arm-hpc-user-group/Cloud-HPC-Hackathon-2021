@@ -1,5 +1,5 @@
 """
-Tests `gatk CountBases[Spark]` using public example data 
+Tests `gatk CountReads[Spark]` using public example data
 
 This tests one of the common GATK tools and both the GATK3 version and GATK4 (aka Spark-based) version.
 
@@ -32,14 +32,14 @@ class GATKTest(hack.HackathonBase):
 
     # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
     spec = parameter([
-        'gatk@4.1.8.1%gcc@10.3.0',     # gatk CountBasesSparck with GCC compiler
-        'gatk@4.1.8.1%arm@21.0.0.879', # gatk CountBasesSpark with ARM compiler
+        'gatk@4.1.8.1%gcc@10.3.0',     # gatk CountReadsSparck with GCC compiler
+        'gatk@4.1.8.1%arm@21.0.0.879', # gatk CountReadsSpark with ARM compiler
     ])
 
 
     parallelism = parameter([{ 'nodes' : 1, 'mpi' : 1, 'omp' : 1}])
 
-    def __init__(self, log_test_name, bam_file, gatk_tool, expected_bases, perf_regex):
+    def __init__(self, log_test_name, bam_file, gatk_tool, expected_reads, perf_regex):
         self.log_test_name = log_test_name
 
         # CLI args to use the Spark version of read counting 
@@ -48,7 +48,7 @@ class GATKTest(hack.HackathonBase):
         ]
 
         self.bam_file = bam_file
-        self.expected_bases = expected_bases
+        self.expected_reads = expected_reads
         self.perf_regex = perf_regex
         self.gatk_tool = gatk_tool
 
@@ -56,9 +56,9 @@ class GATKTest(hack.HackathonBase):
     def set_sanity_patterns(self):
 
         # Use the logfile for validation testing and performance
-        expected_count = sn.extractsingle(f'({self.expected_bases})', self.logfile, 1, float)
+        expected_count = sn.extractsingle(f'({self.expected_reads})', self.logfile, 1, float)
 
-        self.sanity_patterns = sn.assert_eq(expected_count, self.expected_bases)
+        self.sanity_patterns = sn.assert_eq(expected_count, self.expected_reads)
 
         # timing is taken from the code's self-reported numbers
         self.reference = {
@@ -74,67 +74,67 @@ class GATKTest(hack.HackathonBase):
 
 
 @rfm.simple_test
-class GATKCountBasesSpark20kTest(GATKTest):
+class GATKCountReadsSpark20kTest(GATKTest):
     def __init__(self):
         super().__init__(
-                log_test_name="gatk_countbasesspark_hiseq_2500_20k",
+                log_test_name="gatk_countreadsspark_hiseq_2500_20k",
                 bam_file="/scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam",
-                gatk_tool="CountBasesSpark", 
-                expected_bases=5000000,
+                gatk_tool="CountReadsSpark", 
+                expected_reads=20000,
                 perf_regex=r'Job .* finished: .* took (\S+) s',
             )
 
 @rfm.simple_test
-class GATKCountBases20kTest(GATKTest):
+class GATKCountReads20kTest(GATKTest):
     def __init__(self):
         super().__init__(
-                log_test_name="gatk_countbases_hiseq_2500_20k",
+                log_test_name="gatk_countreads_hiseq_2500_20k",
                 bam_file="/scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam",
-                gatk_tool="CountBases",
-                expected_bases=5000000,
+                gatk_tool="CountReads",
+                expected_reads=20000,
                 perf_regex=r'Processed 20000 total reads in (\S+) minutes',
             )
 
 @rfm.simple_test
-class GATKCountBasesSpark1000GenomesLowCoverageTest(GATKTest):
+class GATKCountReadsSpark1000GenomesLowCoverageTest(GATKTest):
     def __init__(self):
         super().__init__(
-                log_test_name="gatk_countbasesspark_1000_genomes_low_coverage",
+                log_test_name="gatk_countreadsspark_1000_genomes_low_coverage",
                 bam_file="/scratch/home/jayson/gatk-data/HG00096.mapped.ILLUMINA.bwa.GBR.low_coverage.20120522.bam",
-                gatk_tool="CountBasesSpark", 
-                expected_bases=14506358900,
+                gatk_tool="CountReadsSpark", 
+                expected_reads=145063589,
                 perf_regex=r'Job .* finished: .* took (\S+) s',
             )
 
 @rfm.simple_test
-class GATKCountBases1000GenomesLowCoverageTest(GATKTest):
+class GATKCountReads1000GenomesLowCoverageTest(GATKTest):
     def __init__(self):
         super().__init__(
-                log_test_name="gatk_countbases_1000_genomes_low_coverage",
+                log_test_name="gatk_countreads_1000_genomes_low_coverage",
                 bam_file="/scratch/home/jayson/gatk-data/HG00096.mapped.ILLUMINA.bwa.GBR.low_coverage.20120522.bam",
-                gatk_tool="CountBases",
-                expected_bases=14506358900,
+                gatk_tool="CountReads",
+                expected_reads=145063589,
                 perf_regex=r'Processed 145063589 total reads in (\S+) minutes',
             )
 
 @rfm.simple_test
-class GATKCountBasesSpark1000GenomesHighCoverageTest(GATKTest):
+class GATKCountReadsSpark1000GenomesHighCoverageTest(GATKTest):
     def __init__(self):
         super().__init__(
-                log_test_name="gatk_countbasesspark_1000_genomes_high_coverage",
+                log_test_name="gatk_countreadsspark_1000_genomes_high_coverage",
                 bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
-                gatk_tool="CountBasesSpark", 
-                expected_bases=161506906064,
-                perf_regex=r'.*CountBasesSpark done. Elapsed time: (\S+) minutes.',
+                gatk_tool="CountReadsSpark", 
+                expected_reads=652944493,
+                perf_regex=r'Job .* finished: .* took (\S+) s',
             )
 
 @rfm.simple_test
-class GATKCountBases1000GenomesHighCoverageTest(GATKTest):
+class GATKCountReads1000GenomesHighCoverageTest(GATKTest):
     def __init__(self):
         super().__init__(
-                log_test_name="gatk_countbases_1000_genomes_high_coverage",
+                log_test_name="gatk_countreads_1000_genomes_high_coverage",
                 bam_file="/scratch/home/jayson/gatk-data/HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam",
-                gatk_tool="CountBases",
-                expected_bases=161506906064,
+                gatk_tool="CountReads",
+                expected_reads=652944493,
                 perf_regex=r'Processed 652944493 total reads in (\S+) minutes',
             )
