@@ -12,18 +12,18 @@
 
 ### Spack Package Modification
 
-The default spack configuration works for MPI but won't compile for OMP. The below diff was used to enable OpenMP compilation on the ARM HPC and was used for the scaling test.
+The default spack configuration works for MPI but won't compile for OMP. The below diff was used to enable OpenMP compilation on the ARM HPC and was used for the scaling test. A PR is linked below to fix these two issues in the spack config.
 
 Two issues below:
 * A copy of `Make.vanilla` would not happen in the `with ... or ...:` for the second thing, namely OpenMP
-* `spack_cc` wasn't recognized; however, manually loading and specifying the compile works fine
+* `'spack_cc'` is incorrectly quoted, which prevents the variable from being evaluated to the correct compiler. Removing the quotes fixes this. 
 
 ```
 diff --git a/var/spack/repos/builtin/packages/comd/package.py b/var/spack/repos/builtin/packages/comd/package.py
-index 5ab3600f1f..9214ff4ec3 100644
+index 5ab3600f1f..9eaafb4733 100644
 --- a/var/spack/repos/builtin/packages/comd/package.py
 +++ b/var/spack/repos/builtin/packages/comd/package.py
-@@ -36,7 +36,9 @@ class Comd(MakefilePackage):
+@@ -36,14 +36,17 @@ class Comd(MakefilePackage):
      conflicts('+openmp', when='+mpi')
 
      def edit(self, spec, prefix):
@@ -34,15 +34,21 @@ index 5ab3600f1f..9214ff4ec3 100644
              copy('Makefile.vanilla', 'Makefile')
 
      @property
-@@ -56,7 +58,10 @@ def build_targets(self):
+     def build_targets(self):
+         targets = []
+         cflags = ' -std=c99 '
+-        optflags = ' -g -O5 '
++        optflags = ' -g -O5 -Ofast'
++
+         clib = ' -lm '
+         comd_variant = 'CoMD'
+         cc = spack_cc
+@@ -56,7 +59,7 @@ def build_targets(self):
                  comd_variant += '-mpi'
                  targets.append('CC = {0}'.format(self.spec['mpi'].mpicc))
              else:
 -                targets.append('CC = {0}'.format('spack_cc'))
-+                #targets.append('CC = {0}'.format('spack_cc'))
-+                #targets.append('CC = {0}'.format('armclang'))
-+                #targets.append('CC = {0}'.format('gcc'))
-+                targets.append('CC = {0}'.format('nvc'))
++                targets.append(f'CC = {spack_cc}')
 
          else:
              targets.append('--directory=src-mpi')
@@ -50,7 +56,7 @@ index 5ab3600f1f..9214ff4ec3 100644
 
 Git commit hash of checkout for pacakage: `667ab501996058b1f89f1763d1791befa455b1f8`
 
-Pull request for Spack recipe changes: the full change as-is isn't appropriate for a PR
+Pull request for Spack recipe changes: https://github.com/spack/spack/pull/24916
 
 ### Building COMD
 
@@ -369,12 +375,150 @@ Performance comparison of two compilers. Note: each step increases in complexity
 
 ### Serial Hot-spot Profile
 
-Serial hot-spot profile not done for this test.
+Serial hot-spot profiling was done with perf for the "weak scaling" test CoMD includes in the GitHub repo. `OMP_THREAD_LIMIT=1` was used to limit OMP and timing was confirmed to match expected single-thread timing.
+
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `gcc`
+
+```
+SPACK_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens"
+env OMP_THREAD_LIMIT=1 LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_gcc_weak_serial.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
+
+COMD_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/comd-1.1-6sifbzehxhqkgkerdq24qnzb4xegipyh"
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_gcc_weak_serial.profile
+
+Total: 5041 samples
+    1947  38.6%  38.6%     2370  47.0% eamForce._omp_fn.3
+    1932  38.3%  76.9%     2596  51.5% eamForce._omp_fn.1
+     859  17.0%  94.0%      957  19.0% interpolate
+     125   2.5%  96.5%      125   2.5% __sqrt
+      84   1.7%  98.1%       84   1.7% __floor_sse41
+      26   0.5%  98.7%       26   0.5% _init
+      18   0.4%  99.0%       18   0.4% advanceVelocity._omp_fn.0
+       7   0.1%  99.1%       11   0.2% getBoxFromCoord
+       7   0.1%  99.3%       11   0.2% sortAtomsInCell
+       6   0.1%  99.4%       10   0.2% eamForce._omp_fn.0
+```
+
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `nvhpc`
+
+```
+SPACK_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens"
+env OMP_THREAD_LIMIT=1 LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_nvhpc_weak_serial.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
+
+COMD_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/nvhpc-21.2/comd-1.1-chfwr76qbks5xpqlnuhuzjmc3zsxld5x"
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_nvhpc_weak_serial.profile
+
+Total: 3569 samples
+    1486  41.6%  41.6%     1731  48.5% __nv_eamForce_F1L328_4
+    1421  39.8%  81.5%     1771  49.6% __nv_eamForce_F1L250_2
+     597  16.7%  98.2%      597  16.7% interpolate
+      10   0.3%  98.5%       12   0.3% __nv_eamForce_F1L239_1
+       9   0.3%  98.7%        9   0.3% __nv_advanceVelocity_F1L72_1
+       7   0.2%  98.9%        7   0.2% __memmove_avx_unaligned_erms
+       7   0.2%  99.1%       15   0.4% sortAtomsInCell
+       6   0.2%  99.3%        6   0.2% __nv_advancePosition_F1L86_2
+       4   0.1%  99.4%        4   0.1% getBoxFromTuple
+       3   0.1%  99.5%        5   0.1% __nv_eamForce_F1L305_3
+```
+
+For the C6gn (ARM) here are the top ten application routines, with associated % of runtime for `arm`
+
+```
+SPACK_DIR=/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gperftools-2.8.1-nlcrjyzchw37gafuffie7h5vapyl5uhg
+[jayson@ip-10-0-0-176 gatk]$ env OMP_THREAD_LIMIT=1 LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_weak_arm_serial.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
+
+COMD_DIR=/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/comd-1.1-phpsqbdm2lucpiarf7j5rd2m22owszc5
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_weak_arm_serial.profile  Using local file /scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/comd-1.1-phpsqbdm2lucpiarf7j5rd2m22owszc5/bin/CoMD-openmp.
+Using local file comd_weak_arm_serial.profile.
+Total: 6495 samples
+    2754  42.4%  42.4%     3306  50.9% .omp_outlined..5
+    2750  42.3%  84.7%     3039  46.8% .omp_outlined..8
+     834  12.8%  97.6%      834  12.8% interpolate
+      28   0.4%  98.0%       53   0.8% .omp_outlined.@40beb4
+      25   0.4%  98.4%       25   0.4% zeroReal3
+      15   0.2%  98.6%       26   0.4% sortAtomsInCell
+      13   0.2%  98.8%       13   0.2% __sqrt
+      12   0.2%  99.0%       12   0.2% __brk
+       9   0.1%  99.2%       13   0.2% getBoxFromCoord
+       8   0.1%  99.3%        8   0.1% .omp_outlined..2
+```
 
 
 ### Full Node Hot-spot Profile
 
-Node hot-spot profile not done for this test.
+Full node hot-spot profiling was done using gperf. CoMD reported OMP threads and timing was also used to confirm full node utilization.
+
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `gcc`
+
+```
+SPACK_DIR='/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens/'
+env LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_weak_gcc_full.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
+
+COMD_DIR='/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/comd-1.1-6sifbzehxhqkgkerdq24qnzb4xegipyh/bin/'
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_weak_gcc_full.profile
+
+Total: 1108 samples
+     574  51.8%  51.8%      581  52.4% do_spin (inline)
+     491  44.3%  96.1%      491  44.3% ljForce._omp_fn.1
+      13   1.2%  97.3%       13   1.2% advancePosition._omp_fn.0
+       8   0.7%  98.0%        8   0.7% __brk
+       7   0.6%  98.6%        7   0.6% cpu_relax (inline)
+       4   0.4%  99.0%        7   0.6% sortAtomsInCell
+       3   0.3%  99.3%        3   0.3% advanceVelocity._omp_fn.0
+       2   0.2%  99.5%        2   0.2% loadAtomsBuffer
+       2   0.2%  99.6%        2   0.2% sortAtomsById
+       1   0.1%  99.7%        3   0.3% __GI___qsort_r
+```
+
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `nvhpc`
+
+```
+SPACK_DIR='/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens/'
+env LD_PRELOAD={SPACK_DIR}/lib/libprofiler.so CPUPROFILE=comd_weak_nvhpc_full.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
+
+COMD_DIR='/scratch/opt/spack/linux-amzn2-skylake_avx512/nvhpc-21.2/comd-1.1-chfwr76qbks5xpqlnuhuzjmc3zsxld5x'
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_weak_nvhpc_full.profile
+
+Total: 1108 samples
+     574  51.8%  51.8%      581  52.4% do_spin (inline)
+     248  22.4%  74.2%      256  23.1% initAtomHaloExchange
+     155  14.0%  88.2%      163  14.7% __nv_ljForce_F1L173_2
+      41   3.7%  91.9%       41   3.7% zeroReal3
+      20   1.8%  93.7%       20   1.8% comdMalloc
+      15   1.4%  95.0%       15   1.4% comdFree
+      13   1.2%  96.2%       13   1.2% timerStats
+      12   1.1%  97.3%       12   1.1% pgCplus_compiled.
+       8   0.7%  98.0%        8   0.7% __brk
+       7   0.6%  98.6%        7   0.6% cpu_relax (inline)
+       3   0.3%  98.9%       14   1.3% printPerformanceResultsYaml
+       3   0.3%  99.2%        3   0.3% processArgs
+       2   0.2%  99.4%        2   0.2% findOption
+       2   0.2%  99.5%        2   0.2% mkForceSendCellList
+       1   0.1%  99.6%        3   0.3% __GI___qsort_r
+```
+
+For the C6gn (ARM) here are the top ten application routines, with associated % of runtime for `arm`
+
+```
+SPACK_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gperftools-2.8.1-nlcrjyzchw37gafuffie7h5vapyl5uhg"
+env LD_PRELOAD={SPACK_DIR}/lib/libprofiler.so CPUPROFILE=comd_arm.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
+
+COMD_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/comd-
+1.1-phpsqbdm2lucpiarf7j5rd2m22owszc5"
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_arm.profile
+
+Total: 170 samples
+      85  50.0%  50.0%      114  67.1% .omp_outlined..2
+      58  34.1%  84.1%       84  49.4% kmp_flag_64::wait
+      23  13.5%  97.6%       23  13.5% __GI___sched_yield
+       1   0.6%  98.2%        1   0.6% 0x0000ffff9bade348
+       1   0.6%  98.8%        1   0.6% __kmp_yield
+       1   0.6%  99.4%        1   0.6% _init
+       1   0.6% 100.0%        1   0.6% zeroReal3
+       0   0.0% 100.0%        1   0.6% __GI___gettimeofday
+       0   0.0% 100.0%       29  17.1% __kmp_barrier
+       0   0.0% 100.0%       55  32.4% __kmp_fork_barrier
+```
 
 ### Strong Scaling Study
 
@@ -602,12 +746,103 @@ Performance comparison of three available compilers on the ARM HPC. Note: each s
 
 ### Serial Hot-spot Profile
 
-Serial hot-spot profile not done for this test.
+Serial hot-spot profiling was done with perf for the "strong scaling" test CoMD includes in the GitHub repo. `OMP_THREAD_LIMIT=1` was used to limit OMP and timing was confirmed to match expected single-thread timing.
 
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `gcc`
+
+```
+SPACK_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens"
+env OMP_THREAD_LIMIT=1 LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_gcc_strong_serial.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 40 -y 40 -z 40
+
+COMD_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/comd-1.1-6sifbzehxhqkgkerdq24qnzb4xegipyh"
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_gcc_strong_serial.profile
+
+Total: 37996 samples
+    6709  17.7%  17.7%     7472  19.7% _fini
+    4292  11.3%  29.0%     4292  11.3% .S01798
+    3274   8.6%  37.6%     3274   8.6% .S01764
+    2850   7.5%  45.1%     2850   7.5% .S01376
+    2688   7.1%  52.1%     2688   7.1% .S01382
+    2607   6.9%  59.0%     2607   6.9% .S01814
+    1796   4.7%  63.7%     1796   4.7% .S01768
+    1504   4.0%  67.7%     1504   4.0% .S01278
+    1295   3.4%  71.1%     1295   3.4% .S01770
+    1286   3.4%  74.5%     1286   3.4% .S01379
+    1192   3.1%  77.6%     1192   3.1% .S01373
+     938   2.5%  80.1%      938   2.5% __sqrt
+     868   2.3%  82.4%      868   2.3% .S01284
+     669   1.8%  84.1%      669   1.8% .S01816
+```
+
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `nvhpc`
+
+```
+SPACK_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens"
+env OMP_THREAD_LIMIT=1 LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_nvhpc_strong.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 40 -y 40 -z 40
+
+COMD_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/nvhpc-21.2/comd-1.1-chfwr76qbks5xpqlnuhuzjmc3zsxld5x"
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_nvhpc_strong_serial.profile
+
+Total: 27307 samples
+   11268  41.3%  41.3%    13193  48.3% __nv_eamForce_F1L328_4
+   10714  39.2%  80.5%    13467  49.3% __nv_eamForce_F1L250_2
+    4714  17.3%  97.8%     4714  17.3% interpolate
+     101   0.4%  98.1%      134   0.5% __nv_eamForce_F1L239_1
+      97   0.4%  98.5%       97   0.4% __nv_advanceVelocity_F1L72_1
+      74   0.3%  98.8%      118   0.4% sortAtomsInCell
+      58   0.2%  99.0%       58   0.2% __nv_advancePosition_F1L86_2
+      48   0.2%  99.1%       61   0.2% getBoxFromCoord
+      33   0.1%  99.3%       33   0.1% zeroReal3@40b210
+      26   0.1%  99.4%       26   0.1% loadAtomsBuffer
+```
 
 ### Full Node Hot-spot Profile
 
-Full node hot-spot profile not done for this test.
+Full node hot-spot profiling was done using gperf. CoMD reported OMP threads and timing was also used to confirm full node utilization.
+
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `nvhpc`
+
+```
+SPACK_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens"
+env LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_nvhpc_strong_full.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 40 -y 40 -z 40
+
+COMD_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/nvhpc-21.2/comd-1.1-chfwr76qbks5xpqlnuhuzjmc3zsxld5x"
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_nvhpc_strong_full.profile
+
+Total: 5552 samples
+    1672  30.1%  30.1%     1958  35.3% __nv_eamForce_F1L250_2
+    1656  29.8%  59.9%     1837  33.1% __nv_eamForce_F1L328_4
+     820  14.8%  74.7%     1221  22.0% waitForNeighborThreads (inline)
+     474   8.5%  83.2%      474   8.5% interpolate
+     396   7.1%  90.4%      396   7.1% __GI___sched_yield
+     106   1.9%  92.3%      123   2.2% __nv_eamForce_F1L239_1
+      81   1.5%  93.8%       98   1.8% getBoxFromCoord
+      51   0.9%  94.7%       79   1.4% unloadAtomsBuffer
+      46   0.8%  95.5%       46   0.8% __nv_advancePosition_F1L86_2
+      46   0.8%  96.3%       46   0.8% loadAtomsBuffer
+```
+
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `gcc`
+
+```
+SPACK_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens"
+env LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_gcc_strong_full.profile CoMD-openmp -e -i 1 -j 1 -k 1 -x 40 -y 40 -z 40
+
+COMD_DIR="/scratch/opt/spack/linux-amzn2-skylake_avx512/nvhpc-21.2/comd-1.1-chfwr76qbks5xpqlnuhuzjmc3zsxld5x"
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_gcc_strong_full.profile
+
+Total: 8240 samples
+    2175  26.4%  26.4%     2199  26.7% do_spin (inline)
+     797   9.7%  36.1%      797   9.7% .S01764
+     779   9.5%  45.5%      779   9.5% .S01376
+     727   8.8%  54.3%      823  10.0% _fini
+     594   7.2%  61.6%      594   7.2% .S01798
+     327   4.0%  65.5%      327   4.0% .S01814
+     315   3.8%  69.3%      315   3.8% .S01768
+     297   3.6%  72.9%      297   3.6% .S01382
+     233   2.8%  75.8%      233   2.8% .S01373
+     159   1.9%  77.7%      159   1.9% .S01278
+```
 
 ### Strong Scaling Study
 
@@ -657,7 +892,7 @@ reframe -c comd_weak_omp.py -r --performance-report
 
 See `comd_weak_omp.py` for the steps, data download and copy of the test from CoMD's website.
 
-Spack compiles with openmp and no mpi (they conflict) were done for these tests.
+These tests uses spack compiles with openmp and no mpi (they conflict).
 
 ```
 spack install comd %arm@21.0.0.879 +openmp -mpi
@@ -933,25 +1168,242 @@ Results from `nvhpc` on the different instance types.
 
 Compiler optimization not tested.
 
+## Test Case 4
+
+[ReFrame Benchmark 4](#)
+
+Optimized compiler flag testing on the ARM HPC with `gcc`, `nvhpc` and `arm` compilers.
+
+```
+reframe -c comd_weak_omp_optimized.py -r --performance-report
+```
+
+### Validation
+
+See `Test Case 3`'s description. This test is split out because it focuses on trying compiler optimizations, mainly on the ARM HPC with all available compilers. See the "Optimisation" second for a summary of results and compilers and respective flags used.
+
+See `comd_weak_omp_optimized.py` for the steps, data download and copy of the test from CoMD's website.
+
+
+### ReFrame Output
+
+ReFrame output from the ARM HPC.
+
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 74.1731 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_2
+   - builtin
+      * num_tasks: 1
+      * Total Time: 37.4698 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_4
+   - builtin
+      * num_tasks: 1
+      * Total Time: 18.9969 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_8
+   - builtin
+      * num_tasks: 1
+      * Total Time: 10.4386 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_16
+   - builtin
+      * num_tasks: 1
+      * Total Time: 5.5555 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_32
+   - builtin
+      * num_tasks: 1
+      * Total Time: 3.0709 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_36
+   - builtin
+      * num_tasks: 1
+      * Total Time: 2.8487 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__gcc_10_3_0_N_1_MPI_1_OMP_64
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1.935 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 64.3581 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_2
+   - builtin
+      * num_tasks: 1
+      * Total Time: 32.4968 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_4
+   - builtin
+      * num_tasks: 1
+      * Total Time: 16.4493 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_8
+   - builtin
+      * num_tasks: 1
+      * Total Time: 9.0953 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_16
+   - builtin
+      * num_tasks: 1
+      * Total Time: 4.8372 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_32
+   - builtin
+      * num_tasks: 1
+      * Total Time: 2.6707 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_36
+   - builtin
+      * num_tasks: 1
+      * Total Time: 2.4786 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__arm_21_0_0_879_N_1_MPI_1_OMP_64
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1.7449 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 56.4017 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_2
+   - builtin
+      * num_tasks: 1
+      * Total Time: 28.4105 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_4
+   - builtin
+      * num_tasks: 1
+      * Total Time: 14.587 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_8
+   - builtin
+      * num_tasks: 1
+      * Total Time: 7.999 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_16
+   - builtin
+      * num_tasks: 1
+      * Total Time: 4.2243 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_32
+   - builtin
+      * num_tasks: 1
+      * Total Time: 2.3321 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_36
+   - builtin
+      * num_tasks: 1
+      * Total Time: 2.1806 s
+------------------------------------------------------------------------------
+CoMD_CoMD_weak_omp_optimize_compiler_flags_comd_1_1__nvhpc_21_2_N_1_MPI_1_OMP_64
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1.5382 s
+------------------------------------------------------------------------------
+```
+
+Compiler optimization not run on the c5n (x86) HPC.
+
+## Optimisation
+
+Details of steps taken to optimise performance of the application.
+Please document work with compiler flags, maths libraries, system libraries, code optimisations, etc.
+
+
+
+### Compiler Flag Tuning
+
+Same OpenMP compiling was done as in `Test Case 3`. Just different flags via `spack edit comd`. Here is a diff of the flags tried per-architecture.
+
+```
+     @property
+     def build_targets(self):
+         targets = []
+```
+Compiler flas before:
+```
+-        cflags = ' -std=c99 '
+-        optflags = ' -g -O5 '
+```
+
+Compiler flags after:
+```
++        # ARM HPC w/armclang
++        #cflags = ' -mcpu=native -std=c99 '
++        #optflags = ' -g -O5 -Ofast'
++
++        # ARM HPC w/gcc
++        cflags = ' -mcpu=native -std=c99 '
++        optflags = ' -g -Ofast -ffast-math'
++
++        # ARM HPC w/nvc
++        cflags = ' -std=c99 -mp=multicore'
++        optflags = ' -g -O4 -fast'
+```
+
+#### Compiler Flag Performance
+
+`nvhpc` on C6gn (ARM), which was the best, previously observed performance before optimization.
+
+No large difference observed. 
+
+| Cores | Original Flags | New Flags |
+|-------|------------|----------------|
+|   1   |  56.42     |  56.40         |
+|   2   |  28.46     |  28.41         |
+|   4   |  14.42     |  14.587         |
+|   8   |  7.96     |  7.99         |
+|   16  |  4.22     |  4.22         |
+|   32  |  2.32     |  2.33         |
+|   64  |  1.59     |  2.18         |
+
+Both `gcc` and `nvhpcc` also have very similar results. The spack config was double-checked to confirm it has the updated flags.
+
 ### Maths Library Report
 
-Maths library report not generated.
+A check for maths library uses was done but resulted in no report because it appears CoMD does not call any of the functions. Discussion at the hack-a-thon
 
+```
+spack install gperftools%arm
+
+# find the lib's dir
+# which process_summary.py
+
+MATHS_DIR="/scratch/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perf-libs-tools-git-master-kf5orv4ea6umnsedi4ousemwmdwnso4s"
+
+# "weak scaling" test from CoMD's data sets
+env LD_PRELOAD=$MATHS_DIR/lib/libarmpl-summarylog.so CoMD-openmp -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
+```
 
 ### Performance Regression
 
-OpenMP is the fastest the code has been observed. Compared to MPI, OpenMP allows for running `CoMD` with a linear(ish) increase per core.
+OpenMP is the fastest the code has been observed. Compared to MPI, OpenMP allows for running `CoMD` with a linear(ish) increase per core. The changes done as part of this work were to enable OpenMP to correctly compile. MPI has limitations for `comd` based on CLI parameters of the analysis; however, OpenMP does not.
 
 Testing showed sub-2 second timing for running the first "weak scaling" example step from `CoMD`. This is compared to the 30 seconds the test normally takes.
 
+Given that the maths libraries don't appear to be called, no optimization was done to try to include the improved ones.
 
 ## Report
 
 ### Compilation Summary
 
-Compilation of `CoMD` includes MPI and appears to work equally well on the x86 HPC and ARM-based HPC. There were no surprises related to porting it to ARM and getting the code to correctly work with `spack`.
+Compilation of `CoMD` using MPI and appears to work equally well on the x86 HPC and ARM-based HPC. There were no surprises related to porting it to ARM and getting the code to correctly work with `spack`.
 
-OpenMP builds of `CoMD` require `-mpi +openmp` and need the diff given in the intro.
+OpenMP builds of `CoMD` require `-mpi +openmp` and need the diff given in the intro. These builds were previously broken due to two different issues; however, when the PR merges the code will work as expected.
 
 ### Performance Summary
 
@@ -963,6 +1415,8 @@ Overall, the `nvhpc` appear to perform best; however, all three compilers appear
 
 
 ### Optimisation Summary
+
+Compiler optimization did not appear to notably change the performance of the three compilers on the ARM HPC. The spack package for `comd` appears to compile efficiently with its existing flags.
 
 `CoMD` appears to scale workload successfully via MPI; however, the program requires specific combinations of the `-i`, `-j` and `-k` flags to match the given MPI number.
 

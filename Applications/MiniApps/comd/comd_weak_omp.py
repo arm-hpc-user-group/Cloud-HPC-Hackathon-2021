@@ -45,6 +45,7 @@ class CoMDTest(hack.HackathonBase):
         { 'nodes' : 1, 'mpi' : 1, 'omp' : 8},
         { 'nodes' : 1, 'mpi' : 1, 'omp' : 16},
         { 'nodes' : 1, 'mpi' : 1, 'omp' : 32},
+        { 'nodes' : 1, 'mpi' : 1, 'omp' : 36},
         { 'nodes' : 1, 'mpi' : 1, 'omp' : 64},
     ])
 
