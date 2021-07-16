@@ -106,7 +106,7 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [Nek5000](Applications/nek5000/README.md)                         | C-unMake         |                |
 | [Nektar](Applications/nektar/README.md)                           |                  |                |
 | [NEST](Applications/nest/README.md)                               | NeuralMimicry    |                |
-| [NuT](Applications/nut/README.md)                                 |                  |                |
+| [NuT](Applications/nut/README.md)                                 | Iman             |                |
 | [NWChem](Applications/nwchem/README.md)                           | QMLab            |                |
 | [octopus](Applications/octopus/README.md)                         |                  |                |
 | [openmm](Applications/openmm/README.md)                           | TeamJoe          |                |
