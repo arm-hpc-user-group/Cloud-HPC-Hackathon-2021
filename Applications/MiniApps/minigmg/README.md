@@ -4,7 +4,7 @@
 
 **URL:** http://crd.lbl.gov/departments/computer-science/PAR/research/previous-projects/miniGMG/
 
-**Team:**  
+**Team:**  WolfPack
 
 ## Compilation
 
