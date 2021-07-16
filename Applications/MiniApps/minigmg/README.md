@@ -413,13 +413,15 @@ Demonstrate your gains by providing a scaling study for your test case, demonstr
 
 ### Compilation Summary
 
-Details of lessons from compiling the application.
+Porting miniGMG to ARM needs some adaptation of the code. We changed the rdtsc() function in the timer.x86.c from x86 assemblies to aarch64 assemblies to ensure the success of the compilation. Furthermore, our compilation enables both OpenMP and MPI. We found some issues in both Spack and nvhpc compiler. For Spack, it does not give a special build option for graviton2, but only a general aarch64 option; we added a graviton2 option in Spack and submitted to archspec-json. For nvhpc, we found it produces wrong code for OpenMP programs when running with more than 1 thread, while nvhpc works correctly for sequential and MPI (with no threads) programs. Given the short time frame, we didn’t pinpoint the exact bug in nvhpc code genration, but it inspires to investigate its OpenMP implementation and checks whether it exactly follows the OpenMP standard.
 
 ### Performance Summary
 
-Details of lessons from analysing the performance of the application.
+We have observed very interesting performance insights in miniGMG. When there are 4 cores or less, ARM21 and GCC have comparable performanc
+e. However, ARM21 gives much better performance over GCC when the execution scales to 8 and more cores. Moreover, ARM server gives much bet
+ter performance than Intel server.
 
 
 ### Optimisation Summary
 
-Details of lessons from performance optimising the application.
+We have tested multiple optimization strategies, which includes: (1) using SIMD instructions on aarch64 (Neon), (2) using -Ofast (especially using fast math library), (3) enabling algorithm optimization (residual operator fusion), (4) using active waiting policy for OpenMP threads.
