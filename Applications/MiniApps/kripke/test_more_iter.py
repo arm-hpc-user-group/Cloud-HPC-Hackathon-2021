@@ -6,7 +6,7 @@ from datetime import datetime
 @rfm.simple_test
 class KripkeTest(hack.HackathonBase):
     # Where to run the binaries 'aws:c6gn' on Arm or 'aws:c5n' on Intel
-    valid_systems = ['aws:c6gn']
+    valid_systems = ['aws:c6gn', 'aws:c5n']
 
     # Logging Variables
     log_team_name = 'Dogecointothemoon'
@@ -54,7 +54,7 @@ class KripkeTest(hack.HackathonBase):
 
     @run_before('sanity')
     def set_sanity_patterns(self):
-        #Validate the change and particle in the last iter
+        #Validate the particle in the last iter
         particle_regex = r'iter 19: particle count=(\d+\.\d+e\+\d+)'
         change_regex = r'iter 19: particle count=\d+\.\d+e\+\d+, change=(\d+\.\d+e-\d+)'
 
