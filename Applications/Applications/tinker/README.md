@@ -165,9 +165,9 @@ Concretized
 
 #### ARM
 
-``` spack install fftw%arm+openmp ```
+``` $ spack install fftw%arm+openmp ```
 
-``` spack spec -Il fftw%arm/mnfafv2 
+``` $ spack spec -Il fftw%arm/mnfafv2 
 [+]  fftw@3.3.9%arm@21.0.0.879+mpi+openmp~pfft_patches precision=double,float arch=linux-amzn2-aarch64
 [+]      ^openmpi@4.1.0%arm@21.0.0.879~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=ofi patches=60ce20bc14d98c572ef7883b9fcd254c3f232c2f3a13377480f96466169ac4c8 schedulers=slurm arch=linux-amzn2-aarch64
 [+]          ^hwloc@2.5.0%arm@21.0.0.879~cairo~cuda~gl~libudev+libxml2~netloc~nvml+pci+shared arch=linux-amzn2-aarch64
@@ -205,9 +205,9 @@ Concretized
 [+]  x5xehti          ^slurm@20-02-4-1%arm@21.0.0.879~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-aarch64
 ```
 
-```spack install tinker%arm ^fftw/mnfafv2```
+``` $ spack install tinker%arm ^fftw/mnfafv2```
 
-``` spack spec -Il tinker%arm/ynitub 
+``` $ spack spec -Il tinker%arm/ynitub 
 [+]  tinker@8.7.1%arm@21.0.0.879~ipo build_type=RelWithDebInfo patches=9121550598380fcac2929b9e0530c52ffd3466ff05654e80dbaa46b92566ac86 arch=linux-amzn2-aarch64
 [+]      ^fftw@3.3.9%arm@21.0.0.879+mpi+openmp~pfft_patches precision=double,float arch=linux-amzn2-aarch64
 [+]          ^openmpi@4.1.0%arm@21.0.0.879~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=ofi patches=60ce20bc14d98c572ef7883b9fcd254c3f232c2f3a13377480f96466169ac4c8 schedulers=slurm arch=linux-amzn2-aarch64
@@ -248,7 +248,7 @@ Concretized
 
 ```
 
-####NVHPC
+#### NVHPC
 
 nvhpc doens't has the variant openmpi, so we used gcc(enabled openmp) version of the fftw.
 
