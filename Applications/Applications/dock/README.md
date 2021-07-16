@@ -423,7 +423,11 @@ The following table is based on gcc@10.3.0 with test case 4. The speedup is up t
 
 #### Code modifications
 
-We add the arm/nvhpc compilers support following their coding rules. The [attached files](config_files/) are those configuration files. We use `jemalloc` to replace the original system malloc library by installing `jemalloc` and adding `-ljemalloc` to the configuration files.
+We add the arm/nvhpc compilers support following their coding rules. The [attached files](config_files/) are those configuration files. In order to compile the code on modern gcc/arm/nvhpc compilers, we add some compilation flag changes and [attach the difference](modification_patch/). When users compile for different compilers, they have to manually checkout different commmit manually.  Given the short time frame, we didn't add compilation flags change in spack package.
+
+We use `jemalloc` to replace the original system malloc library by installing `jemalloc` and adding `-ljemalloc` to the configuration files.
+
+
 
 #### Compiler flags
 
