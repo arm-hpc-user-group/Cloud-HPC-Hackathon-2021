@@ -1298,11 +1298,82 @@ Was not done as part of this test.
 
 The spack package for GATK runs relatively optimally as-is becauase it relies mainly on the JVM. For example, not a custom C binary where compiler flags may substantially help.
 
-It is unclear if/how to add these commands to the spack package, but all of the `--java-opts` can substantially speed up a single HPC node. In particular, using `-Xmx60g` to make sure RAM is limited by the JVM.
+Two targets were identified for optimization: OpenJDK and the hardware accelerated deflater replacement (aka "IntelDeflator"). Time only permitted to focus on one. OpenJDK was picked and the goal was to test using the latest ARM compile of Java. Time permitted, test out compile options for it too.
 
-GATK also uses Spark for some of its new tooling, which is based on a scatter/gather strategy. It appears that it may be possible to try to run this cross-node; however, it also will default to trying to optimize on same node. The strategy appears to work as expected. The Spark runs above shows that the new GATK Spark-based tool replacements will work on an HPC and likely be faster regardless of architecture.
+Initial install of OpenJDK16 (note the existing spack install is OpenJDK11 -- several years old!) is the first task. ARM is targeted since it can potentially speed up the most and is a focus of the a-hug event. After install, testing compiler flags, namely `–mcpu=native`.
 
-The best strategy for replicating large-scale genomics work such as 1000 Genomes is to rely moreso on Slurm to fan out analyses of the many (3000ish) very large (150GB+) files and store results in `/scratch`. GATK can then combine the results.
+```
+# install ARM with the latest JDK
+spack install gatk%arm ^openjdk@16.0.1%arm
+
+# check the dependencies are now for OpenJDK
+spack spec -Il gatk@4.1.8.1%arm
+Input spec
+--------------------------------
+ -   gatk@4.1.8.1%arm
+
+Concretized
+--------------------------------
+==> Warning: arm@21.0.0.879 cannot build optimized binaries for "graviton2". Using best target possible: "aarch64"
+[+]  six5xcj  gatk@4.1.8.1%arm@21.0.0.879~r arch=linux-amzn2-aarch64
+[+]  ssljwi4      ^openjdk@16.0.1%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  jk7wv5q      ^python@3.8.11%arm@21.0.0.879+bz2+ctypes+dbm~debug+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87 arch=linux-amzn2-aarch64
+[+]  z4ybgri          ^bzip2@1.0.8%arm@21.0.0.879~debug~pic+shared arch=linux-amzn2-aarch64
+[+]  adtc6yc              ^diffutils@3.7%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  7vnthzn                  ^libiconv@1.16%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  oyfuwk3          ^expat@2.4.1%arm@21.0.0.879+libbsd arch=linux-amzn2-aarch64
+[+]  5q4lmyg              ^libbsd@0.11.3%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  srfepw2                  ^libmd@1.0.3%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  645q4qj          ^gdbm@1.19%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  3haw5gt              ^readline@8.1%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  uhtqtlb                  ^ncurses@6.2%arm@21.0.0.879~symlinks+termlib abi=none arch=linux-amzn2-aarch64
+[+]  zpuzm23                      ^pkgconf@1.7.4%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  rl3qj47          ^gettext@0.21%arm@21.0.0.879+bzip2+curses+git~libunistring+libxml2+tar+xz arch=linux-amzn2-aarch64
+[+]  dypqz2i              ^libxml2@2.9.10%arm@21.0.0.879~python arch=linux-amzn2-aarch64
+[+]  zqsab4f                  ^xz@5.2.5%arm@21.0.0.879~pic libs=shared,static arch=linux-amzn2-aarch64
+[+]  puuxvg2                  ^zlib@1.2.11%arm@21.0.0.879+optimize+pic+shared arch=linux-amzn2-aarch64
+[+]  fohku26              ^tar@1.34%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  far5l4e          ^libffi@3.3%arm@21.0.0.879 patches=26f26c6f29a7ce9bf370ad3ab2610f99365b4bdd7b82e7c31df41a3370d685c0 arch=linux-amzn2-aarch64
+[+]  vc3waha          ^openssl@1.1.1k%arm@21.0.0.879~docs+systemcerts arch=linux-amzn2-aarch64
+[+]  vv6txro              ^perl@5.32.1%arm@21.0.0.879+cpanm+shared+threads arch=linux-amzn2-aarch64
+[+]  33wiajj                  ^berkeley-db@18.1.40%arm@21.0.0.879+cxx~docs+stl patches=b231fcc4d5cff05e5c3a4814f6a5af0e9a966428dc2176540d2c05aff41de522 arch=linux-amzn2-aarch64
+[+]  zj3dbdy          ^sqlite@3.35.5%arm@21.0.0.879+column_metadata+fts~functions~rtree arch=linux-amzn2-aarch64
+[+]  uflz3t5          ^util-linux-uuid@2.36.2%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  7wpcn2q      ^samtools@1.12%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  ir7dg6z          ^htslib@1.12%arm@21.0.0.879+libcurl arch=linux-amzn2-aarch64
+[+]  2ycz6hz              ^curl@7.76.1%arm@21.0.0.879~darwinssl~gssapi~libssh~libssh2~nghttp2 arch=linux-amzn2-aarch64
+[+]  tgj327p                  ^libidn2@2.3.0%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  6onwa6i                      ^libunistring@0.9.10%arm@21.0.0.879 arch=linux-amzn2-aarch64
+```
+
+Initial results are almost unbelievable but the seem to reproduce. The latest OpenJDK must be doing IO remarkably better! The asusmption is that ARM must have benefited from the past several years of OpenJDK updates (maybe it already uses their tooling). See the below ReFrame comparison where the same node `gcc` compiles were left as-is. They essentially used to match the `arm` compiler's timing. ReFrame output below.
+
+```
+# from "medium"
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+GATK_gatk_dedup_medium_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 17.37 m
+------------------------------------------------------------------------------
+GATK_gatk_dedup_medium_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 0.05 m
+------------------------------------------------------------------------------
+```
+
+Above it being double-checked to try and find why it is so much faster.
+
+Noteworthy other optimization attempts:
+* It is unclear if/how to add these commands to the spack package, but all of the `--java-opts` can substantially speed up a single HPC node. In particular, using `-Xmx60g` to make sure RAM is limited by the JVM. Otherwise bigger files wil be laggy due to swapping and sometimes crash.
+
+* GATK uses Spark for some of its new tooling, which is based on a scatter/gather strategy. It appears that it may be possible to try to run this cross-node; however, it also will default to trying to optimize on same node. The strategy appears to work as expected. The Spark runs above shows that the new GATK Spark-based tool replacements will work on an HPC and likely be faster regardless of architecture. It'd be helpful to test mulit-node scaling.
+
+* The best strategy for replicating large-scale genomics work such as 1000 Genomes is to rely moreso on Slurm to fan out analyses of the many (3000ish) very large (150GB+) files and store results in `/scratch`. GATK can then combine the results. This work shows that GATK runs and can process a sequencing result. It'd be helpful to redo the entire 1000 Genomes assembly process with the massive, public data. That'd be a benchmark that would merit in the least a whitepaper for AWS and ARM!
 
 
 ## Report
@@ -1324,4 +1395,6 @@ GATK appears to be marginally faster on C6gn (Aarch64) compared to C5n (X86) for
 
 ### Optimisation Summary
 
-The biggest optimizations appear to come from using the latest JVM (OpenJDK 16) and using the `--java-opts "-Xm60G ..."` style argument in JDK to leverage the full resources of the HPC nodes. The ReFrame tests includes examples of these Java perf options.
+Several attempts at optimizing were tried. Unbelievably, simply updating to use the latest OpenJDK16 code appears to massively speedup (probably IO) on the C5gn (ARM) HPC. For the medium sized BAM file, over 10 mintutes was reduced to less than a minute. Seemingly 10x faster!
+
+Aside from using the latest JVM (OpenJDK 16) the other best optimization was making sure to use the HPC's available RAM. Using the `--java-opts "-Xm60G ..."` style argument in GATK to set JVM options lets you leverage the full resources of the HPC nodes. The ReFrame tests includes examples of these Java perf options.
