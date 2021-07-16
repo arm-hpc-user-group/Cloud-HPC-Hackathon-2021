@@ -752,8 +752,7 @@ successfully compiled with all gcc, arm21, and nvhpc compilers.
 
 ### Performance Summary
 
-From our experiments, we find that arm21 and gcc10 compilers yield comparable performance. For the on-node scaling study, arm21 and gcc10 a
-re generally better than nvhpc, while for the off-node scaling study, arm21 and gcc10 perform worse than nvhpc. We also find that the on-no
+From our experiments, we find that arm21 and gcc10 compilers yield comparable performance. For the on-node scaling study, arm21 and gcc10 are generally better than nvhpc, while for the off-node scaling study, arm21 and gcc10 perform worse than nvhpc. We also find that the on-no
 de scaling is generally good for all compilers. However, the off-node scaling is not good. One potential reason is that the input workload provided by the application is not large enough to be divided across nodes.
 
 
