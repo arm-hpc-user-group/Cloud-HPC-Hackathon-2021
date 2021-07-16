@@ -224,7 +224,7 @@ gcc script:
 | 8     |            | 789.04 s            |
 | 16    |            | 1048.72 s          |
 | 32    |            | 1906.81 s           |
-| 64    |            |            |
+| 64    |            | 2499.68 s           |
 
 ### On-Node Architecture Comparison
 
