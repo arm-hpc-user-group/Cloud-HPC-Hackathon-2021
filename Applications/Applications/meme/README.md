@@ -437,6 +437,44 @@ is matched against [the reference output from MEME](https://meme-suite.org/meme/
 
 #### Arm
 
+```
+----------] waiting for spawned checks to finish
+[       OK ] ( 1/30) meme_-lex0-small_meme_csigtg7_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.709s total: 7.730s]
+[       OK ] ( 2/30) meme_-lex0-small_meme_csigtg7_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 8.670s total: 8.690s]
+[       OK ] ( 3/30) meme_-lex0-small_meme_csigtg7_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 8.988s total: 9.008s]
+[       OK ] ( 4/30) meme_-lex0-small_meme_csigtg7_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 8.900s total: 8.921s]
+[       OK ] ( 5/30) meme_-lex0-small_meme_csigtg7_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 10.111s total: 10.131s]
+[       OK ] ( 6/30) meme_-lex0-small_meme_csigtg7_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 11.420s total: 11.440s]
+[       OK ] ( 7/30) meme_-lex0-small_meme_csigtg7_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 10.639s total: 10.660s]
+[       OK ] ( 8/30) meme_-lex0-small_meme_csigtg7_N_2_MPI_128_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 12.273s total: 12.293s]
+[       OK ] ( 9/30) meme_-lex0-small_meme_fifpy6p_N_8_MPI_512_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 16.798s total: 18.739s]
+[       OK ] (10/30) meme_-lex0-small_meme_fifpy6p_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 19.708s total: 24.713s]
+[       OK ] (11/30) meme_-lex0-small_meme_fifpy6p_N_2_MPI_128_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 20.934s total: 25.178s]
+[       OK ] (12/30) meme_-lex0-small_meme_fifpy6p_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 20.097s total: 26.112s]
+[       OK ] (13/30) meme_-lex0-small_meme_fifpy6p_N_4_MPI_256_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 23.825s total: 26.524s]
+[       OK ] (14/30) meme_-lex0-small_meme_fifpy6p_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 22.953s total: 29.736s]
+[       OK ] (15/30) meme_-lex0-small_meme_fifpy6p_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 22.934s total: 30.508s]
+[       OK ] (16/30) meme_-lex0-small_meme_fifpy6p_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 21.577s total: 31.307s]
+[       OK ] (17/30) meme_-lex0-small_meme_fifpy6p_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 16.944s total: 36.988s]
+[       OK ] (18/30) meme_-lex0-small_meme_fifpy6p_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 12.556s total: 38.256s]
+[       OK ] (19/30) meme_-lex0-small_meme_xzjirlu_N_8_MPI_512_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 21.296s total: 47.762s]
+[       OK ] (20/30) meme_-lex0-small_meme_xzjirlu_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 22.054s total: 53.879s]
+[       OK ] (21/30) meme_-lex0-small_meme_xzjirlu_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 23.280s total: 54.345s]
+[       OK ] (22/30) meme_-lex0-small_meme_xzjirlu_N_2_MPI_128_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 26.504s total: 54.814s]
+[       OK ] (23/30) meme_-lex0-small_meme_xzjirlu_N_4_MPI_256_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 28.785s total: 56.039s]
+[       OK ] (24/30) meme_-lex0-small_meme_xzjirlu_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 25.740s total: 58.355s]
+[       OK ] (25/30) meme_-lex0-small_meme_xzjirlu_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 20.733s total: 59.009s]
+[       OK ] (26/30) meme_-lex0-small_meme_xzjirlu_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 20.381s total: 59.925s]
+[       OK ] (27/30) meme_-lex0-small_meme_xzjirlu_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 12.311s total: 61.370s]
+[       OK ] (28/30) meme_-lex0-small_meme_xzjirlu_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 9.337s total: 64.012s]
+[       OK ] (29/30) meme_-lex0-small_meme_csigtg7_N_8_MPI_512_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 18.424s total: 73.884s]
+[       OK ] (30/30) meme_-lex0-small_meme_csigtg7_N_4_MPI_256_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 26.543s total: 82.800s]
+[----------] all spawned checks have finished
+
+[  PASSED  ] Ran 30/30 test case(s) from 30 check(s) (0 failure(s), 0 skipped)
+[==========] Finished on Fri Jul 16 16:28:11 2021 
+```
+
 #### Intel
 
 ```
