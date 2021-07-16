@@ -9,7 +9,7 @@ class CosmoFlowTest(hack.HackathonBase):
 
     # Logging Variables
     log_team_name = 'SGHackers'
-    log_app_name = 'cosmoflow'
+    log_app_name = 'cosmoflow-benchmark'
     log_test_name = 'short_test'
 
     # Define test case
@@ -45,6 +45,8 @@ class CosmoFlowTest(hack.HackathonBase):
         { 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
         { 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
          { 'nodes' : 1, 'mpi' : 4, 'omp' : 1},
+         { 'nodes' : 1, 'mpi' : 2, 'omp' : 1},
+         { 'nodes' : 1, 'mpi' : 1, 'omp' : 1},
         #{ 'nodes' : 2, 'mpi' : 128, 'omp' : 1},
         #{ 'nodes' : 4, 'mpi' : 256, 'omp' : 1},
         # { 'nodes' : 8, 'mpi' : 512, 'omp' : 1},
