@@ -363,12 +363,22 @@ Profiling command used:
 
 
 ### Full Node Hot-spot Profile
+Relevant files can be found in the sub-dir [c240/mapping_hot_spot](./c240/mapping_hot_spot)
+Reframe file used is ```c240/mapping_hot_spot/DFT_mps.py```
+NWchem related files   
+   - ipput file : [nwchem.nw](./c240/mapping_hot_spot/nwchem.nw)
+   - output file : [nwchem.out](./c240/mapping_hot_spot/nwchem.out)
+Profile data
+   - [prof.csv][(./c240/mapping_hot_spot/prof.csv)
+   - [profile.map]((./c240/mapping_hot_spot/profile.map)
+   - [rfm-khtkwb0p.log](./c240/mapping_hot_spot/rfm-khtkwb0p.log)
 
 List of top-10 functions / code locations from a full node profile.
-
+![Top MPI related functions](./c240/mapping_hot_spot/
+```
 Profiling command used:
 ```
-:
+reframe -c DFT_mps.py -r --performance-report
 ```
 
 | Position | Routine | Time (s) | Time (%) | MPI (%) |
