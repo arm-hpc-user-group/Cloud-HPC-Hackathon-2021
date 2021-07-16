@@ -189,46 +189,94 @@ Performance comparison of two compilers.
 
 List of top-10 functions / code locations from a serial profile.
 
-Profiling command used:
-```
-:
-```
+#### Test Case 1
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profiles_test1.py)
+![s1](pictures/s1.png)
 
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
+#### Test Case 2
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profiles_test2.py)
+![s1](pictures/s3.png)
 
+#### Test Case 3
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profiles_test3.py)
+![s1](pictures/s3.png)
+
+#### Test Case 4
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profiles_test4.py)  
+![s1](pictures/s4.png)  
 
 ### Full Node Hot-spot Profile
 
 List of top-10 functions / code locations from a full node profile.
 
-Profiling command used:
-```
-:
-```
+#### arm
+#### Test Case 1
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profilef_test1_arm.py)
+![s1](pictures/f1a.png)
 
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
-| 10       |         |          |          |         |
+#### Test Case 2
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profilef_test2_arm.py)
+![s1](pictures/f2a.png)
+
+#### Test Case 3
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profilef_test3_arm.py)
+![s1](pictures/f3a.png)
+
+#### Test Case 4
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profilef_test4_arm.py)
+![s1](pictures/f4a.png)
+
+#### gcc
+#### Test Case 1
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profilef_test1_gcc.py)
+![s1](pictures/f1g.png)
+
+#### Test Case 2
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profilef_test2_gcc.py)
+![s1](pictures/f2g.png)
+
+#### Test Case 3
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profilef_test3_gcc.py)
+![s1](pictures/f3g.png)
+
+#### Test Case 4
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profilef_test4_gcc.py)
+![s1](pictures/f4g.png)
+
+#### nvhpc
+#### Test Case 1
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profilef_test1_nv.py)
+![s1](pictures/f1n.png)
+
+#### Test Case 2
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profilef_test2_nv.py)
+![s1](pictures/f2n.png)
+
+#### Test Case 3
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profilef_test3_nv.py)
+![s1](pictures/f3n.png)
+
+#### Test Case 4
+Profiling script:
+[ReFrame Benchmark](reframe_scripts/dock_profilef_test4_nv.py)
+![s1](pictures/f4n.png)
+
+
 
 ### Strong Scaling Study
 
@@ -236,7 +284,7 @@ On-node scaling study for two compilers.
 #### Test Case 1
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
-| 8     | 5.4           | 4.76 s           | 5.23 s |
+| 8     | 5.4 s          | 4.76 s           | 5.23 s |
 | 16    | 4.23 s           | 4.21 s           | 5.31 s |
 | 32    | 4.69 s           | 4.68 s           | 5.2 s |
 | 64    | 5.72 s           | 5.73 s           | 6.22 s |
@@ -281,8 +329,8 @@ On-node scaling study for two compilers.
 
 | Nodes | Cores | arm | gcc | nvhpc|
 |-------|-------|-----|------|------|
-| 1     | 32    | 91.7    | 92.02     | 108.98     |
-| 1     | 64    | 49.32    | 49.34     | 57.51     |
+| 1     | 32    | 91.7 s   | 92.02     | 108.98     |
+| 1     | 64    | 49.32 s    | 49.34     | 57.51     |
 | 2     | 128   | 46.72 s    | 47.87 s     | 54.99 s     |
 | 4     | 256   | 285.34 s    | 165.37 s     | 53.39 s     |
 
@@ -292,16 +340,16 @@ On-node scaling study for two compilers.
 
 | Nodes | Cores | arm | gcc | nvhpc|
 |-------|-------|-----|------|------|
-| 1     | 32    | 38.57    | 38.68     | 47.17     |
-| 1     | 64    | 24.9    | 24.65     | 29.07     |
+| 1     | 32    | 38.57 s    | 38.68     | 47.17     |
+| 1     | 64    | 24.9 s    | 24.65     | 29.07     |
 | 2     | 128   | 23.07 s    | 263.83 s    |27.43 s      |
 | 4     | 256   | 259.71 s    | 262.33 s     | 26.78 s     |
 
 #### Test Case 4
 | Nodes | Cores | arm | gcc | nvhpc|
 |-------|-------|-----|------|------|
-| 1     | 32    | 149.42    | 152.75     | 184.17     |
-| 1     | 64    | 84.8    | 87.79     | 104.57     |
+| 1     | 32    | 149.42 s    | 152.75     | 184.17     |
+| 1     | 64    | 84.8 s    | 87.79     | 104.57     |
 | 2     | 128   | 84.11 s    | 190.17 s     | 209.04 s     |
 | 4     | 256   | 310.51 s    | 207.26 s     | 101.01 s     |
 
@@ -312,68 +360,68 @@ On-node scaling study for two architectures.
 #### Test Case 1
 | Cores | ARM(gcc) | X86(gcc) | X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
-| 8     | 5.4               | 5.09 s          | 4.93 s               |                
-| 16    | 4.23               | 3.81 s          | 4.21 s                |               
-| 32    | 4.69               | 4.32 s          |                  |              
-| 64    | 5.72               | 6.79 s          |                  |              
+| 8     | 5.4 s               | 5.09 s          | 4.93 s               |                
+| 16    | 4.23 s               | 3.81 s          | 4.21 s                |               
+| 32    | 4.69 s               | 4.32 s          | 6.15 s                 |              
+| 64    | 5.72 s               | 6.79 s          |                  |              
 
 #### Test Case 2
-| Cores | ARM | X86 |X86(nvhpc)               |
+| Cores | ARM(gcc) | X86 |X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
-| 8     | 380.47               | 493.54 s          | 601.18 s               |
-| 16    | 180.85               | 237.41 s          | 285.5 s               |
-| 32    | 91.7               | 119.79 s          |                |
-| 64    | 49.32               | 62.11 s          |                |
+| 8     | 380.47 s               | 493.54 s          | 601.18 s               |
+| 16    | 180.85 s               | 237.41 s          | 285.5 s               |
+| 32    | 91.7 s               | 119.79 s          | 142.48 s               |
+| 64    | 49.32 s               | 62.11 s          |                |
 
 #### Test Case 3
-| Cores | ARM | X86 |X86(nvhpc)               |
+| Cores | ARM(gcc) | X86 |X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
-| 8     | 147.27               | 189.52 s          | 232.3 s               |
-| 16    | 72.2               | 93.0 s          |                |
-| 32    | 38.57               | 47.77 s          |                |
-| 64    | 24.9               | 28.26 s          |                |
+| 8     | 147.27 s               | 189.52 s          | 232.3 s               |
+| 16    | 72.2 s               | 93.0 s          |  113.59 s              |
+| 32    | 38.57 s               | 47.77 s          | 57.94 s               |
+| 64    | 24.9 s               | 28.26 s          |                |
 
 #### Test Case 4
-| Cores | ARM | X86 |X86(nvhpc)               |
+| Cores | ARM(gcc) | X86 |X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
-| 8     |  624.82              | 814.98 s          |                |
-| 16    |  298.95              | 385.96 s          |                |
-| 32    |  149.42              | 192.27 s          |                |
-| 64    |  84.8              | 104.91 s          |                |
+| 8     |  624.82 s              | 814.98 s          | 1027.04 s               |
+| 16    |  298.95 s              | 385.96 s          | 485.81 s               |
+| 32    |  149.42 s              | 192.27 s          |                |
+| 64    |  84.8 s              | 104.91 s          |                |
 
 ### Off-Node Architecture Comparison
 
 #### Test Case 1
-| Nodes | Cores | ARM            | X86(gcc)    | X86(nvhpc)               |
+| Nodes | Cores | ARM(gcc)           | X86(gcc)    | X86(nvhpc)               |
 |-------|-------|----------------|-----------|-----------|
-| 1     | 32     |                |           |                |                
-| 1     | 64    |                |           |                 |               
-| 2     | 128    | 5.42               | 5.72 s          |                  |              
-| 4     | 256    | 242.98               | 5.29 s          |                  |     
+| 1     | 32     |  4.69 s              | 4.32 s          |                |                
+| 1     | 64    |   5.72 s             |  6.79 s         |                 |               
+| 2     | 128    | 5.42 s               | 5.72 s          |                  |              
+| 4     | 256    | 242.98 s              | 5.29 s          |                  |     
 
 #### Test Case 2
-| Nodes | Cores | ARM            | X86(gcc)    | X86(nvhpc)               |
+| Nodes | Cores | ARM(gcc)            | X86(gcc)    | X86(nvhpc)               |
 |-------|-------|----------------|-----------|-----------|
-| 1     | 32     |                |           |                |                
-| 1     | 64    |                |           |                 |               
-| 2     | 128    |   46.72             | 60.91 s          |                  |              
-| 4     | 256    |   285.34             | 59.27 s          |                  |     
+| 1     | 32     |  380.47 s              | 493.54 s          |                |                
+| 1     | 64    |  180.85 s              | 237.41 s          |                 |               
+| 2     | 128    |   46.72 s             | 60.91 s          |                  |              
+| 4     | 256    |   285.34 s             | 59.27 s          |                  |     
 
 #### Test Case 3
-| Nodes | Cores | ARM            | X86(gcc)    | X86(nvhpc)               |
+| Nodes | Cores | ARM(gcc)            | X86(gcc)    | X86(nvhpc)               |
 |-------|-------|----------------|-----------|-----------|
-| 1     | 32     |                |           |                |                
-| 1     | 64    |                |           |                 |               
-| 2     | 128    |    23.07            | 26.13 s          |                  |              
-| 4     | 256    |    259.71            | 26.26 s          |                  |     
+| 1     | 32     |  147.27 s              |  189.52 s         |                |                
+| 1     | 64    |   72.2 s             |  93.0 s         |                 |               
+| 2     | 128    |    23.07 s            | 26.13 s          |                  |              
+| 4     | 256    |    259.71 s            | 26.26 s          |                  |     
 
 #### Test Case 4
-| Nodes | Cores | ARM            | X86(gcc)    | X86(nvhpc)               |
+| Nodes | Cores | ARM(gcc)            | X86(gcc)    | X86(nvhpc)               |
 |-------|-------|----------------|-----------|-----------|
-| 1     | 32     |                |           |                |                
-| 1     | 64    |                |           |                 |               
-| 2     | 128    |    84.11            | 101.48 s          |                  |              
-| 4     | 256    |    310.51            | 101.6 s          |                  |     
+| 1     | 32     |   624.82 s             |  814.98 s         |                |                
+| 1     | 64    |   298.95 s             |  385.96 s         |                 |               
+| 2     | 128    |    84.11 s            | 101.48 s          |                  |              
+| 4     | 256    |    310.51 s            | 101.6 s          |                  |     
 
 ## Optimisation
 
