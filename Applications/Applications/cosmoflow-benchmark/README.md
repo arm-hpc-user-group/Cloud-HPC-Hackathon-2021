@@ -10,14 +10,10 @@
 
 ### Spack Package Modification
 
-Details of any changes to the Spack recipe used.
-
-Git commit hash of checkout for pacakage:
-
-Pull request for Spack recipe changes:
+We have modified the spack package inplace and did not manage to come up with a patch and other reasonable constraint rules, as the building of Tensorflow and Horovod itself is quite
+challenging for us and making spack modifications haphazardly would most probabily result in more trouble than goods. The outline of out build process is explained in the later sections.
 
 ### Building cosmoflow-benchmark
-
 
 #### Compiler 1: GCC@10.3.0
 
@@ -28,7 +24,8 @@ the main application is a python script to begin TensorFlow training.
 It seems like there is no good solution yet as to building py-tensorflow from spack and the
 existing approach to interface with a bazel build scripts. There are a couple of places
 where bazel build fails and we have to manually go in and modify bazel scripts, as well as the
-source code.
+source code. There is also mishandled environment variables as bazel could not find ARM compiler's 
+license, which unfortunately we did not have time to debug that.
 
 
 The first step is to build Tensorflow package
@@ -177,13 +174,13 @@ cosmoflow-benchmark@master%gcc@10.3.0~cuda cuda_arch=none arch=linux-amzn2-gravi
 [ReFrame Benchmark 1](#)
 
 ```
-../bin/reframe -c benchmark.py -r --performance-report
+reframe -c cosmoflow.py -r --performance-report
 ```
 
 ### Validation
 
-Details of the validation for `Test Case 1`.
-
+This reframe script runs the cosmoflow benchmark using a 32 test and 32 validation inputs for TensorFlow training. 
+Validation is done by checking the final model loss is below a certain margin.
 
 ### ReFrame Output
 
@@ -197,15 +194,12 @@ PERFORMANCE REPORT
 
 ### On-node Compiler Comparison
 
-Performance comparison of two compilers.
-
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-
+As the underlying bazel script has some problem locating the licence of arm compiler, we are not able to conduct any compiler comparisons.
 
 ### Serial Hot-spot Profile
 
 List of top-10 functions / code locations from a serial profile.
+Profiling is done using the arm-forge toolchain.
 
 Profiling command used:
 ```
@@ -250,30 +244,19 @@ Profiling command used:
 
 On-node scaling study for two compilers.
 
-| Cores | gcc@10.3.0 | Compiler 2 |
-|-------|------------|------------|
-| 1      |     334.5496       |            |
-| 2      |     180.5409       |           |
-| 4      |    98.1472        |           |
-| 8      |   129.8837         |           |
-| 16      |   72.2408      |           |
-| 32      |   44.6530      |           |
+| Cores | gcc@10.3.0 |
+|-------|------------|
+| 1      |   1388(projected)   |          
+| 2      |    720(projected)   |  
+| 4      |    947.2417      |    
+| 8      |    489.2307      |
+| 16      |   256.7789      | 
+| 32      |   141.5865      |
 
 
 ### Off-Node Scaling Study
 
-Off-node scaling study comparing C6g and C6gn instances.
-
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |  129.8837    |
-| 1     | 16    |     |  72.2408    |
-| 1     | 32    |     |  44.6530    |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
-
+Unfortunately, we didn't have time to do scaling analysis due to time constraint, as tensorflow training is quite time consuming.
 
 ### On-Node Architecture Comparison
 
@@ -281,22 +264,21 @@ On-node scaling study for two architectures.
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
 |-------|----------------|-----------|
-| 1      |     334.5496       |   675.3713         |
-| 2      |     180.5409       |   548.188        |
-| 4      |    98.1472        |   307.938        |
-| 8      |   129.8837         |           |
-| 16      |   72.2408      |           |
-| 32      |   44.6530      |           |
+| 1      |   1388(projected)   |   3311.0096        |
+| 2      |    720(projected)   |   2565.0004       |
+| 4      |      947.2417      |    1483.0482        |
+| 8      |    489.2307        |   771.6113        |
+| 16      |   256.7789      |   400.7628        |
+| 32      |   141.5865      |   224.0208        |
 
 
 ## Optimisation
 
 Since the main application is a python script to execute tensorflow model training, the optimization has 
-to be done at the library level. Due to time constraints, we were not able to tune libraries like numpy or
-tensorflow.
+to be done at the library level. Due to time constraint, we were not able to tune libraries like numpy or
+tensorflow, as large amount of time is spent on building and performance analysis.
 
-However, we see some good scaling behaviour for ARM architecture, 
-
+However, we see some good scaling behaviour for ARM architecture, with almost linear performance scaling as core count increases above 4
 
 
 ## Report
@@ -308,7 +290,6 @@ Details of lessons from compiling the application.
 ### Performance Summary
 
 Details of lessons from analysing the performance of the application.
-
 
 ### Optimisation Summary
 
