@@ -13,7 +13,7 @@ Tinker combines lost of some executable file, due to time limit, we only gave on
 ### Spack Package Modification
 
 Adding OpenMP support to tinker is tricky, as what the original package did is using a patch file of cmake. And we patched the patch file to add the openmp support.
-
+```
 +
 diff --git a/var/spack/repos/builtin/packages/tinker/tinker-8.7.1-cmake.patch b/var/spack/repos/builtin/packages/tinker/tinker-8.7.1-cmake.patch
 index e07d05a7dc..96747a9bf1 100644
@@ -65,7 +65,7 @@ index e07d05a7dc..96747a9bf1 100644
 ---
 -2.23.0
 -
-
+```
 the git commit hash for Spack is HEAD(64f31c4)
 
 ### Building tinker
