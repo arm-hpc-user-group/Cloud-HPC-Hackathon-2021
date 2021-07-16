@@ -10,7 +10,7 @@ class CoMDTest(hack.HackathonBase):
     # Logging Variables
     log_team_name = 'Falkners'
     log_app_name = 'CoMD'
-    log_test_name = 'CoMD_weak_omp'
+    log_test_name = 'CoMD_weak_omp_optimize_compiler_flags'
 
     # Define test case
     # In this case we download the file from GitHub and write as clover.in - the expected input file
@@ -45,7 +45,7 @@ class CoMDTest(hack.HackathonBase):
         { 'nodes' : 1, 'mpi' : 1, 'omp' : 8},
         { 'nodes' : 1, 'mpi' : 1, 'omp' : 16},
         { 'nodes' : 1, 'mpi' : 1, 'omp' : 32},
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 36},
+        { 'nodes' : 1, 'mpi' : 1, 'omp' : 36},  # Helpful since c5n instances have 36 CPUs
         { 'nodes' : 1, 'mpi' : 1, 'omp' : 64},
     ])
 
