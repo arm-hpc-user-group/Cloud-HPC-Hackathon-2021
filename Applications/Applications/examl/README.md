@@ -99,6 +99,10 @@ spack install examl%arm
 
 We haven't yet successfully build ExaML on nvhpc.
 
+Reason:
+
+ExaML uses a lot of Intel intrinsics. To build it on ARM, we need to use sse2neon. However, this technique is not supported by nvhpc.
+
 ## Test Case 1
 
 > examl -t /home/peize/examl-test/case1/49.tree -m PSR -s /home/peize/examl-test/case1/49.unpartitioned.binary -n T1
@@ -126,47 +130,47 @@ ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 1
-      * Total Time: 8.0 s
+      * Total Time: 8.206136 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 6.0 s
+      * Total Time: 6.26856 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_4_OMP_1
    - builtin
       * num_tasks: 4
-      * Total Time: 5.0 s
+      * Total Time: 6.533407 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 7.0 s
+      * Total Time: 7.698577 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 8.0 s
+      * Total Time: 9.4256 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 10.0 s
+      * Total Time: 11.153909 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_64_OMP_1
    - builtin
       * num_tasks: 64
-      * Total Time: 15.0 s
+      * Total Time: 14.792326 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_2_MPI_128_OMP_1
    - builtin
       * num_tasks: 128
-      * Total Time: 33.0 s
+      * Total Time: 38.992808 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_4_MPI_256_OMP_1
    - builtin
       * num_tasks: 256
-      * Total Time: 54.0 s
+      * Total Time: 55.726266 s
 ------------------------------------------------------------------------------
 ```
 
@@ -180,47 +184,47 @@ ExaML_case1_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_1_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 1
-      * Total Time: 8.0 s
+      * Total Time: 8.3541 s
 ------------------------------------------------------------------------------
 ExaML_case1_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 6.0 s
+      * Total Time: 6.207255 s
 ------------------------------------------------------------------------------
 ExaML_case1_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_4_OMP_1
    - builtin
       * num_tasks: 4
-      * Total Time: 6.0 s
+      * Total Time: 6.312409 s
 ------------------------------------------------------------------------------
 ExaML_case1_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 8.0 s
+      * Total Time: 7.812155 s
 ------------------------------------------------------------------------------
 ExaML_case1_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 10.0 s
+      * Total Time: 9.898919 s
 ------------------------------------------------------------------------------
 ExaML_case1_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 12.0 s
+      * Total Time: 13.136745 s
 ------------------------------------------------------------------------------
 ExaML_case1_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_64_OMP_1
    - builtin
       * num_tasks: 64
-      * Total Time: 16.0 s
+      * Total Time: 16.193352 s
 ------------------------------------------------------------------------------
 ExaML_case1_arm_examl_3_0_22_arm_21_0_0_879_N_2_MPI_128_OMP_1
    - builtin
       * num_tasks: 128
-      * Total Time: 44.0 s
+      * Total Time: 48.722489 s
 ------------------------------------------------------------------------------
 ExaML_case1_arm_examl_3_0_22_arm_21_0_0_879_N_4_MPI_256_OMP_1
    - builtin
       * num_tasks: 256
-      * Total Time: 57.0 s
+      * Total Time: 70.327222 s
 ------------------------------------------------------------------------------
 ```
 
@@ -234,57 +238,65 @@ ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c5n
    - builtin
       * num_tasks: 1
-      * Total Time: 10.0 s
+      * Total Time: 10.29801 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 8.0 s
+      * Total Time: 8.69561 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_4_OMP_1
    - builtin
       * num_tasks: 4
-      * Total Time: 8.0 s
+      * Total Time: 8.311922 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 9.0 s
+      * Total Time: 9.335008 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 11.0 s
+      * Total Time: 11.231569 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 15.0 s
+      * Total Time: 15.254454 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_64_OMP_1
    - builtin
       * num_tasks: 64
-      * Total Time: 19.0 s
+      * Total Time: 19.561287 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_2_MPI_128_OMP_1
    - builtin
       * num_tasks: 128
-      * Total Time: 51.0 s
+      * Total Time: 51.807964 s
 ------------------------------------------------------------------------------
 ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_4_MPI_256_OMP_1
    - builtin
       * num_tasks: 256
-      * Total Time: 54.0 s
+      * Total Time: 66.533237 s
 ------------------------------------------------------------------------------
 ```
 
-### On-node Compiler Comparison
+### Strong Scaling (on&off-node, 1-4 nodes) and Compiler Comparison
 
-Performance comparison of two compilers.
+This includes results of tasks: P1, P3, P6
 
-| Cores | Compiler 1 | Compiler 2 |
+| Cores(MPI rank) | GCC | ARM |
 |-------|------------|------------|
-|       |            |            |
+|  1     |  8.21   | 8.35|
+|  2     |  6.27    | 6.21|
+|  4     |  6.53    | 6.31|
+|  8     |  7.70    | 7.81|
+|  16    |  9.43     | 9.90 |
+|  32    |  11.15     | 13.14 |
+|  64    |  14.79     | 16.19 |
+|  128   |  38.99     | 48.72	|
+|  256   |  55.73	 | 70.33	|
 
 
 ### Serial Hot-spot Profile
@@ -332,49 +344,22 @@ map --profile srun -N 1 -n 64 examl -t /home/peize/examl-test/case1/49.tree -m P
 | 9        | topLevelMakenewz | <0.1%    | 88.6%   |
 | 10       | saveSubtree      | <0.1%    |         |
 
-### Strong Scaling Study
 
-On-node scaling study for two compilers.
+### On-Node & Off-Node Architecture Comparison
 
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
-
-
-### Off-Node Scaling Study
-
-Off-node scaling study comparing C6g and C6gn instances.
-
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
-
-
-### On-Node Architecture Comparison
-
-On-node scaling study for two architectures.
+On-Node & Off-Node scaling study for two architectures.
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
 |-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+| 1     |       8.21         |      10.30     |
+| 2     |       6.27         |         8.70  |
+| 4     |       6.53         |      8.31     |
+| 8     |       7.70         |      9.34     |
+| 16    |       9.43         |      11.23     |
+| 32    |       11.15         |      15.25     |
+| 64    |       14.79         |      19.56     |
+| 128    |      38.99          |     51.81      |
+| 256    |      55.73          |     66.53      |
 
 ## Test Case 2
 
@@ -396,55 +381,54 @@ Details of the validation for `Test Case 1`.
 #### GCC compiler on aarch64 c6gn
 
 ```
-It says case1 below, actually it's case2. I forgot to change the name.
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_1_OMP_1
+ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 1
-      * Total Time: 18.0 s
+      * Total Time: 18.705801 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_2_OMP_1
+ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 10.0 s
+      * Total Time: 11.11089 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_4_OMP_1
+ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_4_OMP_1
    - builtin
       * num_tasks: 4
-      * Total Time: 8.0 s
+      * Total Time: 8.815214 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_8_OMP_1
+ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 8.0 s
+      * Total Time: 8.999906 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_16_OMP_1
+ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 10.0 s
+      * Total Time: 10.470279 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_32_OMP_1
+ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 12.0 s
+      * Total Time: 12.440436 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_64_OMP_1
+ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_64_OMP_1
    - builtin
       * num_tasks: 64
-      * Total Time: 17.0 s
+      * Total Time: 17.292035 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_2_MPI_128_OMP_1
+ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_2_MPI_128_OMP_1
    - builtin
       * num_tasks: 128
-      * Total Time: 50.0 s
+      * Total Time: 49.663453 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_4_MPI_256_OMP_1
+ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_4_MPI_256_OMP_1
    - builtin
       * num_tasks: 256
-      * Total Time: 64.0 s
+      * Total Time: 73.42773 s
 ------------------------------------------------------------------------------
 ```
 
@@ -458,47 +442,47 @@ ExaML_case2_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_1_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 1
-      * Total Time: 19.0 s
+      * Total Time: 19.32975 s
 ------------------------------------------------------------------------------
 ExaML_case2_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 11.0 s
+      * Total Time: 11.336217 s
 ------------------------------------------------------------------------------
 ExaML_case2_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_4_OMP_1
    - builtin
       * num_tasks: 4
-      * Total Time: 9.0 s
+      * Total Time: 8.706697 s
 ------------------------------------------------------------------------------
 ExaML_case2_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 9.0 s
+      * Total Time: 8.847904 s
 ------------------------------------------------------------------------------
 ExaML_case2_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 10.0 s
+      * Total Time: 10.632513 s
 ------------------------------------------------------------------------------
 ExaML_case2_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 12.0 s
+      * Total Time: 11.91183 s
 ------------------------------------------------------------------------------
 ExaML_case2_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_64_OMP_1
    - builtin
       * num_tasks: 64
-      * Total Time: 16.0 s
+      * Total Time: 16.395895 s
 ------------------------------------------------------------------------------
 ExaML_case2_arm_examl_3_0_22_arm_21_0_0_879_N_2_MPI_128_OMP_1
    - builtin
       * num_tasks: 128
-      * Total Time: 45.0 s
+      * Total Time: 50.075047 s
 ------------------------------------------------------------------------------
 ExaML_case2_arm_examl_3_0_22_arm_21_0_0_879_N_4_MPI_256_OMP_1
    - builtin
       * num_tasks: 256
-      * Total Time: 69.0 s
+      * Total Time: 71.162784 s
 ------------------------------------------------------------------------------
 ```
 
@@ -512,57 +496,65 @@ ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c5n
    - builtin
       * num_tasks: 1
-      * Total Time: 21.0 s
+      * Total Time: 20.770661 s
 ------------------------------------------------------------------------------
 ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 15.0 s
+      * Total Time: 15.57556 s
 ------------------------------------------------------------------------------
 ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_4_OMP_1
    - builtin
       * num_tasks: 4
-      * Total Time: 10.0 s
+      * Total Time: 10.884692 s
 ------------------------------------------------------------------------------
 ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 10.0 s
+      * Total Time: 10.716423 s
 ------------------------------------------------------------------------------
 ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 12.0 s
+      * Total Time: 12.784417 s
 ------------------------------------------------------------------------------
 ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 16.0 s
+      * Total Time: 16.821747 s
 ------------------------------------------------------------------------------
 ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_64_OMP_1
    - builtin
       * num_tasks: 64
-      * Total Time: 22.0 s
+      * Total Time: 22.248651 s
 ------------------------------------------------------------------------------
 ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_2_MPI_128_OMP_1
    - builtin
       * num_tasks: 128
-      * Total Time: 92.0 s
+      * Total Time: 51.58473 s
 ------------------------------------------------------------------------------
 ExaML_case2_gcc_examl_3_0_22_gcc_10_3_0_N_4_MPI_256_OMP_1
    - builtin
       * num_tasks: 256
-      * Total Time: 63.0 s
+      * Total Time: 81.924382 s
 ------------------------------------------------------------------------------
 ```
 
-### On-node Compiler Comparison
+### Strong Scaling (on&off-node, 1-4 nodes) and Compiler Comparison
 
-Performance comparison of two compilers.
+This includes results of tasks: P2, P3, P6
 
-| Cores | Compiler 1 | Compiler 2 |
-| ----- | ---------- | ---------- |
-|       |            |            |
+| Cores(MPI rank) | GCC | ARM |
+|-------|------------|------------|
+|  1     |  18.71   | 19.33|
+|  2     |  11.11    | 11.34|
+|  4     |  8.82    | 8.71|
+|  8     |  9.00    | 8.85|
+|  16    |  10.47     | 10.63 |
+|  32    |  12.44     | 11.91 |
+|  64    |  17.29     | 16.40 |
+|  128   |  49.66     | 50.08	|
+|  256   |  73.43	 | 71.16	|
 
 
 ### Serial Hot-spot Profile
@@ -612,49 +604,22 @@ map --profile srun -N 1 -n 64 examl -t /home/peize/examl-test/case1/49.tree -m G
 | 9        | log                     | 0.4%     |         |
 | 10       | \_\_GI\_\_IO_file_fopen | 0.3%     |         |
 
-### Strong Scaling Study
 
-On-node scaling study for two compilers.
+### On-Node & Off-Node Architecture Comparison
 
-| Cores | Compiler 1 | Compiler 2 |
-| ----- | ---------- | ---------- |
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
-
-
-### Off-Node Scaling Study
-
-Off-node scaling study comparing C6g and C6gn instances.
-
-| Nodes | Cores | C6g  | C6gn |
-| ----- | ----- | ---- | ---- |
-| 1     | 8     |      |      |
-| 1     | 16    |      |      |
-| 1     | 32    |      |      |
-| 1     | 64    |      |      |
-| 2     | 128   |      |      |
-| 4     | 256   |      |      |
-| 8     | 512   |      |      |
-
-
-### On-Node Architecture Comparison
-
-On-node scaling study for two architectures.
+On-Node & Off-Node scaling study for two architectures.
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
 | ----- | -------------- | --------- |
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+| 1     |       18.71         |    20.77       |
+| 2     |       11.11         |    15.58       |
+| 4     |       8.82         |    10.88       |
+| 8     |       9.00         |    10.72       |
+| 16    |       10.47         |    12.78       |
+| 32    |       12.44         |    16.82       |
+| 64    |       17.29         |    22.25       |
+| 128    |      49.66          |   51.58        |
+| 256    |      73.43          |   81.92        |
 
 ## Test Case 3
 
@@ -676,55 +641,54 @@ Details of the validation for `Test Case 1`.
 #### GCC compiler on aarch64 c6gn
 
 ```
-It says case1 below, actually it's case2. I forgot to change the name.
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_1_OMP_1
+ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 1
-      * Total Time: 845.0 s
+      * Total Time: 852.061624 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_2_OMP_1
+ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 455.0 s
+      * Total Time: 460.389792 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_4_OMP_1
+ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_4_OMP_1
    - builtin
       * num_tasks: 4
-      * Total Time: 270.0 s
+      * Total Time: 273.466533 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_8_OMP_1
+ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 184.0 s
+      * Total Time: 188.462236 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_16_OMP_1
+ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 151.0 s
+      * Total Time: 153.156592 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_32_OMP_1
+ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 141.0 s
+      * Total Time: 144.639644 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_64_OMP_1
+ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_64_OMP_1
    - builtin
       * num_tasks: 64
-      * Total Time: 160.0 s
+      * Total Time: 164.994314 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_2_MPI_128_OMP_1
+ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_2_MPI_128_OMP_1
    - builtin
       * num_tasks: 128
-      * Total Time: 361.0 s
+      * Total Time: 348.725791 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_4_MPI_256_OMP_1
+ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_4_MPI_256_OMP_1
    - builtin
       * num_tasks: 256
-      * Total Time: 458.0 s
+      * Total Time: 469.439062 s
 ------------------------------------------------------------------------------
 ```
 
@@ -738,47 +702,47 @@ ExaML_case3_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_1_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 1
-      * Total Time: 1032.0 s
+      * Total Time: 1031.85876 s
 ------------------------------------------------------------------------------
 ExaML_case3_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 538.0 s
+      * Total Time: 538.28273 s
 ------------------------------------------------------------------------------
 ExaML_case3_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_4_OMP_1
    - builtin
       * num_tasks: 4
-      * Total Time: 299.0 s
+      * Total Time: 301.012165 s
 ------------------------------------------------------------------------------
 ExaML_case3_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 190.0 s
+      * Total Time: 189.691921 s
 ------------------------------------------------------------------------------
 ExaML_case3_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 141.0 s
+      * Total Time: 141.049704 s
 ------------------------------------------------------------------------------
 ExaML_case3_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 125.0 s
+      * Total Time: 122.590224 s
 ------------------------------------------------------------------------------
 ExaML_case3_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_64_OMP_1
    - builtin
       * num_tasks: 64
-      * Total Time: 141.0 s
+      * Total Time: 140.632196 s
 ------------------------------------------------------------------------------
 ExaML_case3_arm_examl_3_0_22_arm_21_0_0_879_N_2_MPI_128_OMP_1
    - builtin
       * num_tasks: 128
-      * Total Time: 304.0 s
+      * Total Time: 329.231369 s
 ------------------------------------------------------------------------------
 ExaML_case3_arm_examl_3_0_22_arm_21_0_0_879_N_4_MPI_256_OMP_1
    - builtin
       * num_tasks: 256
-      * Total Time: 393.0 s
+      * Total Time: 453.203107 s
 ------------------------------------------------------------------------------
 ```
 
@@ -792,57 +756,65 @@ ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c5n
    - builtin
       * num_tasks: 1
-      * Total Time: 1110.0 s
+      * Total Time: 1108.00019 s
 ------------------------------------------------------------------------------
 ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 579.0 s
+      * Total Time: 580.099378 s
 ------------------------------------------------------------------------------
 ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_4_OMP_1
    - builtin
       * num_tasks: 4
-      * Total Time: 367.0 s
+      * Total Time: 348.781388 s
 ------------------------------------------------------------------------------
 ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 240.0 s
+      * Total Time: 240.919849 s
 ------------------------------------------------------------------------------
 ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 197.0 s
+      * Total Time: 195.841886 s
 ------------------------------------------------------------------------------
 ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 186.0 s
+      * Total Time: 188.016304 s
 ------------------------------------------------------------------------------
 ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_64_OMP_1
    - builtin
       * num_tasks: 64
-      * Total Time: 201.0 s
+      * Total Time: 204.525357 s
 ------------------------------------------------------------------------------
 ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_2_MPI_128_OMP_1
    - builtin
       * num_tasks: 128
-      * Total Time: 420.0 s
+      * Total Time: 380.165379 s
 ------------------------------------------------------------------------------
 ExaML_case3_gcc_examl_3_0_22_gcc_10_3_0_N_4_MPI_256_OMP_1
    - builtin
       * num_tasks: 256
-      * Total Time: 592.0 s
+      * Total Time: 383.982744 s
 ------------------------------------------------------------------------------
 ```
 
-### On-node Compiler Comparison
+### Strong Scaling (on&off-node, 1-4 nodes) and Compiler Comparison
 
-Performance comparison of two compilers.
+This includes results of tasks: P2, P3, P6
 
-| Cores | Compiler 1 | Compiler 2 |
-| ----- | ---------- | ---------- |
-|       |            |            |
+| Cores(MPI rank) | GCC | ARM |
+|-------|------------|------------|
+|  1     |  852.06   | 1031.86|
+|  2     |  460.39    | 538.28|
+|  4     |  273.47    | 301.01|
+|  8     |  188.46    | 189.69|
+|  16    |  153.16     | 141.05 |
+|  32    |  144.64     | 122.59 |
+|  64    |  164.99     | 140.63 |
+|  128   |  348.73     | 329.23	|
+|  256   |  469.44	 | 453.20	|
 
 
 ### Serial Hot-spot Profile
@@ -892,35 +864,6 @@ map --profile srun -N 1 -n 64 examl -t /home/peize/examl-test/case2/140.tree -m 
 | 9        | __log_finite      | 0.2%     |         |
 | 10       | malloc            | <0.1%    |         |
 
-### Strong Scaling Study
-
-On-node scaling study for two compilers.
-
-| Cores | Compiler 1 | Compiler 2 |
-| ----- | ---------- | ---------- |
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
-
-
-### Off-Node Scaling Study
-
-Off-node scaling study comparing C6g and C6gn instances.
-
-| Nodes | Cores | C6g  | C6gn |
-| ----- | ----- | ---- | ---- |
-| 1     | 8     |      |      |
-| 1     | 16    |      |      |
-| 1     | 32    |      |      |
-| 1     | 64    |      |      |
-| 2     | 128   |      |      |
-| 4     | 256   |      |      |
-| 8     | 512   |      |      |
-
 
 ### On-Node Architecture Comparison
 
@@ -928,13 +871,15 @@ On-node scaling study for two architectures.
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
 | ----- | -------------- | --------- |
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+| 1     |        852.06        |    1108.00       |
+| 2     |        460.39        |    580.10       |
+| 4     |        273.47        |    348.78       |
+| 8     |        188.46        |    240.92       |
+| 16    |        153.16        |    195.84       |
+| 32    |        144.64        |    188.02       |
+| 64    |        164.99        |    204.53       |
+| 128    |       348.73         |   380.17        |
+| 256    |       469.44         |   383.98        |
 
 ## Test Case 4
 
@@ -956,55 +901,54 @@ Details of the validation for `Test Case 1`.
 #### GCC compiler on aarch64 c6gn
 
 ```
-It says case1 below, actually it's case2. I forgot to change the name.
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_1_OMP_1
+ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 1
-      * Total Time: 1673.0 s
+      * Total Time: 1675.11952 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_2_OMP_1
+ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 856.0 s
+      * Total Time: 856.515937 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_4_OMP_1
+ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_4_OMP_1
    - builtin
       * num_tasks: 4
-      * Total Time: 444.0 s
+      * Total Time: 444.694121 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_8_OMP_1
+ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 248.0 s
+      * Total Time: 248.167222 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_16_OMP_1
+ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 158.0 s
+      * Total Time: 156.176348 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_32_OMP_1
+ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 118.0 s
+      * Total Time: 116.126191 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_64_OMP_1
+ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_64_OMP_1
    - builtin
       * num_tasks: 64
-      * Total Time: 115.0 s
+      * Total Time: 117.506095 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_2_MPI_128_OMP_1
+ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_2_MPI_128_OMP_1
    - builtin
       * num_tasks: 128
-      * Total Time: 222.0 s
+      * Total Time: 255.33368 s
 ------------------------------------------------------------------------------
-ExaML_case1_gcc_examl_3_0_22_gcc_10_3_0_N_4_MPI_256_OMP_1
+ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_4_MPI_256_OMP_1
    - builtin
       * num_tasks: 256
-      * Total Time: 296.0 s
+      * Total Time: 337.595941 s
 ------------------------------------------------------------------------------
 ```
 
@@ -1018,47 +962,47 @@ ExaML_case4_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_1_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 1
-      * Total Time: 2044.0 s
+      * Total Time: 2047.356005 s
 ------------------------------------------------------------------------------
 ExaML_case4_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 1039.0 s
+      * Total Time: 1039.04339 s
 ------------------------------------------------------------------------------
 ExaML_case4_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_4_OMP_1
    - builtin
       * num_tasks: 4
-      * Total Time: 537.0 s
+      * Total Time: 538.27324 s
 ------------------------------------------------------------------------------
 ExaML_case4_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 293.0 s
+      * Total Time: 293.502664 s
 ------------------------------------------------------------------------------
 ExaML_case4_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 177.0 s
+      * Total Time: 177.613992 s
 ------------------------------------------------------------------------------
 ExaML_case4_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 126.0 s
+      * Total Time: 124.450696 s
 ------------------------------------------------------------------------------
 ExaML_case4_arm_examl_3_0_22_arm_21_0_0_879_N_1_MPI_64_OMP_1
    - builtin
       * num_tasks: 64
-      * Total Time: 122.0 s
+      * Total Time: 121.939978 s
 ------------------------------------------------------------------------------
 ExaML_case4_arm_examl_3_0_22_arm_21_0_0_879_N_2_MPI_128_OMP_1
    - builtin
       * num_tasks: 128
-      * Total Time: 235.0 s
+      * Total Time: 235.258422 s
 ------------------------------------------------------------------------------
 ExaML_case4_arm_examl_3_0_22_arm_21_0_0_879_N_4_MPI_256_OMP_1
    - builtin
       * num_tasks: 256
-      * Total Time: 291.0 s
+      * Total Time: 307.640001 s
 ------------------------------------------------------------------------------
 ```
 
@@ -1072,57 +1016,65 @@ ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c5n
    - builtin
       * num_tasks: 1
-      * Total Time: 1685.0 s
+      * Total Time: 1679.379162 s
 ------------------------------------------------------------------------------
 ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 1088.0 s
+      * Total Time: 1077.734474 s
 ------------------------------------------------------------------------------
 ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_4_OMP_1
    - builtin
       * num_tasks: 4
-      * Total Time: 569.0 s
+      * Total Time: 565.515572 s
 ------------------------------------------------------------------------------
 ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 300.0 s
+      * Total Time: 307.250027 s
 ------------------------------------------------------------------------------
 ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 195.0 s
+      * Total Time: 194.581353 s
 ------------------------------------------------------------------------------
 ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 143.0 s
+      * Total Time: 143.07804 s
 ------------------------------------------------------------------------------
 ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_1_MPI_64_OMP_1
    - builtin
       * num_tasks: 64
-      * Total Time: 135.0 s
+      * Total Time: 143.571914 s
 ------------------------------------------------------------------------------
 ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_2_MPI_128_OMP_1
    - builtin
       * num_tasks: 128
-      * Total Time: 441.0 s
+      * Total Time: 291.438198 s
 ------------------------------------------------------------------------------
 ExaML_case4_gcc_examl_3_0_22_gcc_10_3_0_N_4_MPI_256_OMP_1
    - builtin
       * num_tasks: 256
-      * Total Time: 301.0 s
+      * Total Time: 354.191831 s
 ------------------------------------------------------------------------------
 ```
 
-### On-node Compiler Comparison
+### Strong Scaling (on&off-node, 1-4 nodes) and Compiler Comparison
 
-Performance comparison of two compilers.
+This includes results of tasks: P2, P3, P6
 
-| Cores | Compiler 1 | Compiler 2 |
-| ----- | ---------- | ---------- |
-|       |            |            |
+| Cores(MPI rank) | GCC | ARM |
+|-------|------------|------------|
+|  1     |  1675.12   | 2047.36|
+|  2     |  856.52    | 1039.04|
+|  4     |  444.69    | 538.27|
+|  8     |  248.17    | 293.50|
+|  16    |  156.18     | 177.61 |
+|  32    |  116.13     | 124.45 |
+|  64    |  117.51     | 121.94 |
+|  128   |  255.33     | 235.26	|
+|  256   |  337.60	 | 307.64	|
 
 
 ### Serial Hot-spot Profile
@@ -1172,34 +1124,6 @@ map --profile srun -N 1 -n 64 examl -t /home/peize/examl-test/case2/140.tree -m 
 | 9        | __log_finite        | 0.2%     |         |
 | 10       | malloc              | <0.1%    |         |
 
-### Strong Scaling Study
-
-On-node scaling study for two compilers.
-
-| Cores | Compiler 1 | Compiler 2 |
-| ----- | ---------- | ---------- |
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
-
-
-### Off-Node Scaling Study
-
-Off-node scaling study comparing C6g and C6gn instances.
-
-| Nodes | Cores | C6g  | C6gn |
-| ----- | ----- | ---- | ---- |
-| 1     | 8     |      |      |
-| 1     | 16    |      |      |
-| 1     | 32    |      |      |
-| 1     | 64    |      |      |
-| 2     | 128   |      |      |
-| 4     | 256   |      |      |
-| 8     | 512   |      |      |
 
 
 ### On-Node Architecture Comparison
@@ -1208,13 +1132,15 @@ On-node scaling study for two architectures.
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
 | ----- | -------------- | --------- |
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+|  1     |  1675.12   | 1679.38  |
+|  2     |  856.52    | 1077.73  |
+|  4     |  444.69    | 565.52   |
+|  8     |  248.17    | 307.25 |
+|  16    |  156.18     | 194.58        |
+|  32    |  116.13     |  143.08 |
+|  64    |  117.51     | 143.57  |
+|  128   |  255.33     | 291.44	|
+|  256   |  337.60	 | 354.19 	|
 
 
 ## 
