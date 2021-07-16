@@ -12,18 +12,18 @@
 
 ### Spack Package Modification
 
-The default spack configuration works for MPI but won't compile for OMP. The below diff was used to enable OpenMP compilation on the ARM HPC and was used for the scaling test.
+The default spack configuration works for MPI but won't compile for OMP. The below diff was used to enable OpenMP compilation on the ARM HPC and was used for the scaling test. A PR is linked below to fix these two issues in the spack config.
 
 Two issues below:
 * A copy of `Make.vanilla` would not happen in the `with ... or ...:` for the second thing, namely OpenMP
-* `spack_cc` wasn't recognized; however, manually loading and specifying the compile works fine
+* `'spack_cc'` is incorrectly quoted, which prevents the variable from being evaluated to the correct compiler. Removing the quotes fixes this. 
 
 ```
 diff --git a/var/spack/repos/builtin/packages/comd/package.py b/var/spack/repos/builtin/packages/comd/package.py
-index 5ab3600f1f..9214ff4ec3 100644
+index 5ab3600f1f..9eaafb4733 100644
 --- a/var/spack/repos/builtin/packages/comd/package.py
 +++ b/var/spack/repos/builtin/packages/comd/package.py
-@@ -36,7 +36,9 @@ class Comd(MakefilePackage):
+@@ -36,14 +36,17 @@ class Comd(MakefilePackage):
      conflicts('+openmp', when='+mpi')
 
      def edit(self, spec, prefix):
@@ -34,15 +34,21 @@ index 5ab3600f1f..9214ff4ec3 100644
              copy('Makefile.vanilla', 'Makefile')
 
      @property
-@@ -56,7 +58,10 @@ def build_targets(self):
+     def build_targets(self):
+         targets = []
+         cflags = ' -std=c99 '
+-        optflags = ' -g -O5 '
++        optflags = ' -g -O5 -Ofast'
++
+         clib = ' -lm '
+         comd_variant = 'CoMD'
+         cc = spack_cc
+@@ -56,7 +59,7 @@ def build_targets(self):
                  comd_variant += '-mpi'
                  targets.append('CC = {0}'.format(self.spec['mpi'].mpicc))
              else:
 -                targets.append('CC = {0}'.format('spack_cc'))
-+                #targets.append('CC = {0}'.format('spack_cc'))
-+                #targets.append('CC = {0}'.format('armclang'))
-+                #targets.append('CC = {0}'.format('gcc'))
-+                targets.append('CC = {0}'.format('nvc'))
++                targets.append(f'CC = {spack_cc}')
 
          else:
              targets.append('--directory=src-mpi')
@@ -50,7 +56,7 @@ index 5ab3600f1f..9214ff4ec3 100644
 
 Git commit hash of checkout for pacakage: `667ab501996058b1f89f1763d1791befa455b1f8`
 
-Pull request for Spack recipe changes: the full change as-is isn't appropriate for a PR
+Pull request for Spack recipe changes: https://github.com/spack/spack/pull/24916
 
 ### Building COMD
 
@@ -657,7 +663,7 @@ reframe -c comd_weak_omp.py -r --performance-report
 
 See `comd_weak_omp.py` for the steps, data download and copy of the test from CoMD's website.
 
-Spack compiles with openmp and no mpi (they conflict) were done for these tests.
+These tests uses spack compiles with openmp and no mpi (they conflict).
 
 ```
 spack install comd %arm@21.0.0.879 +openmp -mpi
@@ -1145,7 +1151,7 @@ Maths library report not generated.
 
 ### Performance Regression
 
-OpenMP is the fastest the code has been observed. Compared to MPI, OpenMP allows for running `CoMD` with a linear(ish) increase per core.
+OpenMP is the fastest the code has been observed. Compared to MPI, OpenMP allows for running `CoMD` with a linear(ish) increase per core. The changes done as part of this work were to enable OpenMP to correctly compile. MPI has limitations for `comd` based on CLI parameters of the analysis; however, OpenMP does not.
 
 Testing showed sub-2 second timing for running the first "weak scaling" example step from `CoMD`. This is compared to the 30 seconds the test normally takes.
 
@@ -1154,9 +1160,9 @@ Testing showed sub-2 second timing for running the first "weak scaling" example 
 
 ### Compilation Summary
 
-Compilation of `CoMD` includes MPI and appears to work equally well on the x86 HPC and ARM-based HPC. There were no surprises related to porting it to ARM and getting the code to correctly work with `spack`.
+Compilation of `CoMD` using MPI and appears to work equally well on the x86 HPC and ARM-based HPC. There were no surprises related to porting it to ARM and getting the code to correctly work with `spack`.
 
-OpenMP builds of `CoMD` require `-mpi +openmp` and need the diff given in the intro.
+OpenMP builds of `CoMD` require `-mpi +openmp` and need the diff given in the intro. These builds were previously broken due to two different issues; however, when the PR merges the code will work as expected.
 
 ### Performance Summary
 
