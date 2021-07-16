@@ -800,16 +800,16 @@ compiled with GCC). Collected with `reframe` by prepending `map --profile
 
 | Position | Routine                 | Time (%) |
 |----------|-------------------------|----------|
-|  1       |  next_pY                |  34.6%   |
-|  2       |  global_max             |  34.1%   |
-|  3       |  align_top_subsequences |   8.8%   |
-|  4       |  m_step                 |   5.1%   |
-|  5       |  __log_finite           |   4.3%   |
-|  6       |  e_step                 |  12.0%   |
-|  7       |  exp                    |   5.4%   |
-|  8       |  __exp_finite           |   1.8%   |
-|  9       |  pY_compare             |   1.6%   |
-| 10       |  msort_with_tmp.part    |   3.0%   |
+|  1       |  next_pY                |   34.6%  |
+|  2       |  global_max             |   33.3%  |
+|  3       |  align_top_subsequences |    5.2%  |
+|  4       |  m_step                 |    5.1%  |
+|  5       |  __log_finite           |    4.3%  |
+|  6       |  e_step                 |    4.2%  |
+|  7       |  exp                    |    3.6%  |
+|  8       |  __exp_finite           |    1.8%  |
+|  9       |  pY_compare             |    1.6%  |
+| 10       |  msort_with_tmp.part    |    1.3%  |
 
 ### Full Node Hot-spot Profile
 
@@ -819,16 +819,16 @@ List of top-10 functions/code locations from a full node profile (C6gn with
 
 | Position | Routine                | Time (%) | MPI (%) |
 |----------|------------------------|----------|---------|
-|  1       | next_pY                | 23.7%    |         |
-|  2       | global_max             | 24.1%    |         |
-|  3       | MPI_Allreduce          | 15.6%    |  15.6%  |
-|  4       | m_step                 |  6.8%    |         |
-|  5       | align_top_subsequences |  9.5%    |         |
-|  6       | e_step                 | 13.4%    |         |
-|  7       | __log_finite           |  3.6%    |         |
-|  8       | exp                    |  6.0%    |         |
-|  9       | __exp_finite           |  2.7%    |         |
-| 10       | pY_compare             |  0.8%    |         |
+|  1       | next_pY                |   23.7%  |         |
+|  2       | global_max             |   23.6%  |         |
+|  3       | MPI_Allreduce          |   15.6%  |  15.6%  |
+|  4       | m_step                 |    6.8%  |         |
+|  5       | align_top_subsequences |    6.5%  |         |
+|  6       | e_step                 |    5.3%  |         |
+|  7       | __log_finite           |    3.6%  |         |
+|  8       | exp                    |    3.3%  |         |
+|  9       | __exp_finite           |    2.7%  |         |
+| 10       | pY_compare             |    0.8%  |         |
 
 ### On-Node Architecture Comparison
 
