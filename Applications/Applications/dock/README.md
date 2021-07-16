@@ -165,6 +165,41 @@ $ spack spec -Il dock@6.9%nvhpc@21.2+mpi
 
 Details of the validation for `Test Case 1`.
 
+#### Test Case 1
+
+arm script:
+[ReFrame Benchmark](reframe_scripts/dock_offnode1_test1_arm.py)   
+gcc script:
+[ReFrame Benchmark](reframe_scripts/dock_offnode1_test1_gcc.py)   
+nvhpc script
+[ReFrame Benchmark](reframe_scripts/dock_offnode1_test1_nv.py)
+
+#### Test Case 2
+
+arm script:
+[ReFrame Benchmark](reframe_scripts/dock_offnode1_test2_arm.py)   
+gcc script:
+[ReFrame Benchmark](reframe_scripts/dock_offnode1_test2_gcc.py)   
+nvhpc script
+[ReFrame Benchmark](reframe_scripts/dock_offnode1_test2_nv.py)
+
+#### Test Case 3
+
+arm script:
+[ReFrame Benchmark](reframe_scripts/dock_offnode1_test3_arm.py)   
+gcc script:
+[ReFrame Benchmark](reframe_scripts/dock_offnode1_test3_gcc.py)   
+nvhpc script
+[ReFrame Benchmark](reframe_scripts/dock_offnode1_test3_nv.py)
+
+#### Test Case 4
+
+arm script:
+[ReFrame Benchmark](reframe_scripts/dock_offnode1_test4_arm.py)   
+gcc script:
+[ReFrame Benchmark](reframe_scripts/dock_offnode1_test4_gcc.py)   
+nvhpc script
+[ReFrame Benchmark](reframe_scripts/dock_offnode1_test4_nv.py)
 
 ### ReFrame Output
 
@@ -178,11 +213,67 @@ PERFORMANCE REPORT
 
 ### On-node Compiler Comparison
 
-Performance comparison of two compilers.
+arm: arm@21.0.0.879  
+gcc: gcc@10.3.0
+nvhpc: nvhpc@21.2
 
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-|       |            |            |
+Performance comparison of three compilers.
+
+#### Test Case 1
+arm script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test1_arm.py)   
+gcc script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test1_gcc.py)   
+nvhpc script
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test1_nv.py)
+| Cores | gcc | arm | nvhpc |
+|-------|------------|------------|------------|
+| 8     | 5.4           | 4.76 s           | 5.23 s |
+| 16    | 4.23 s           | 4.21 s           | 5.31 s |
+| 32    | 4.69 s           | 4.68 s           | 5.2 s |
+| 64    | 5.72 s           | 5.73 s           | 6.22 s |
+
+#### Test Case 2
+arm script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test2_arm.py)   
+gcc script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test2_gcc.py)   
+nvhpc script
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test2_nv.py)
+| Cores | gcc | arm | nvhpc |
+|-------|------------|------------|------------|
+| 8     | 380.47 s           | 379.55 s            | 452.45 s |
+| 16    | 180.85 s           | 180.51 s           | 215.18 s |
+| 32    | 91.7 s           | 92.02 s           | 108.98 s |
+| 64    | 49.32 s           | 49.34 s           | 57.51 s |
+
+#### Test Case 3
+arm script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test3_arm.py)   
+gcc script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test3_gcc.py)   
+nvhpc script
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test3_nv.py)
+| Cores | gcc | arm | nvhpc |
+|-------|------------|------------|------------|
+| 8     | 147.27 s           | 149.21 s           | 176.54 s |
+| 16    | 72.2 s           | 72.8 s           | 86.12 s |
+| 32    | 38.57 s           | 38.68 s           | 47.17 s |
+| 64    | 24.9 s           | 24.65 s           | 29.07 s |
+
+#### Test Case 4
+arm script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test4_arm.py)   
+gcc script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test4_gcc.py)   
+nvhpc script
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test4_nv.py)
+| Cores | gcc | arm | nvhpc |
+|-------|------------|------------|------------|
+| 8     | 624.82 s           | 640.2 s           | 774.42 s |
+| 16    | 298.95 s           | 306.58 s           | 367.14 s |
+| 32    | 149.42 s           | 152.75 s           | 184.17 s |
+| 64    | 84.8 s           | 87.79 s           | 104.57 s |
 
 
 ### Serial Hot-spot Profile
@@ -232,8 +323,15 @@ Profiling command used:
 
 ### Strong Scaling Study
 
-On-node scaling study for two compilers.
+### On-node scaling study for three compilers:
+
 #### Test Case 1
+arm script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test1_arm.py)   
+gcc script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test1_gcc.py)   
+nvhpc script
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test1_nv.py)
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
 | 8     | 5.4           | 4.76 s           | 5.23 s |
@@ -242,6 +340,12 @@ On-node scaling study for two compilers.
 | 64    | 5.72 s           | 5.73 s           | 6.22 s |
 
 #### Test Case 2
+arm script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test2_arm.py)   
+gcc script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test2_gcc.py)   
+nvhpc script
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test2_nv.py)
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
 | 8     | 380.47 s           | 379.55 s            | 452.45 s |
@@ -250,6 +354,12 @@ On-node scaling study for two compilers.
 | 64    | 49.32 s           | 49.34 s           | 57.51 s |
 
 #### Test Case 3
+arm script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test3_arm.py)   
+gcc script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test3_gcc.py)   
+nvhpc script
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test3_nv.py)
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
 | 8     | 147.27 s           | 149.21 s           | 176.54 s |
@@ -258,6 +368,12 @@ On-node scaling study for two compilers.
 | 64    | 24.9 s           | 24.65 s           | 29.07 s |
 
 #### Test Case 4
+arm script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test4_arm.py)   
+gcc script:
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test4_gcc.py)   
+nvhpc script
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test4_nv.py)
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
 | 8     | 624.82 s           | 640.2 s           | 774.42 s |
@@ -266,7 +382,7 @@ On-node scaling study for two compilers.
 | 64    | 84.8 s           | 87.79 s           | 104.57 s |
 
 
-### Off-Node Scaling Study
+### Off-Node scaling study for three compilers: 
 
 #### Test Case 1
 | Nodes | Cores | arm | gcc | nvhpc|
