@@ -479,28 +479,28 @@ is matched against [the reference output from MEME](https://meme-suite.org/meme/
 
 ```
 [----------] waiting for spawned checks to finish
-[       OK ] ( 1/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_3_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 7.793s total: 7.814s]
-[       OK ] ( 2/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_9_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 8.098s total: 8.119s]
-[       OK ] ( 3/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_1_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 9.585s total: 9.607s]
-[       OK ] ( 4/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_36_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 10.288s total: 10.310s]
-[       OK ] ( 5/18) meme_-lex0-small_meme_ylex6xs_N_2_MPI_72_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 10.269s total: 10.289s]
-[       OK ] ( 6/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_18_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 11.255s total: 11.276s]
-[       OK ] ( 7/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_72_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 11.522s total: 11.543s]
-[       OK ] ( 8/18) meme_-lex0-small_meme_ylex6xs_N_4_MPI_72_OMP_1 on aws:c5n using builtin [compile: 0.004s run: 14.191s total: 14.211s]
-[       OK ] ( 9/18) meme_-lex0-small_meme_ucxv6oz_N_8_MPI_72_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 13.373s total: 17.563s]
-[       OK ] (10/18) meme_-lex0-small_meme_ucxv6oz_N_4_MPI_72_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 17.719s total: 22.696s]
-[       OK ] (11/18) meme_-lex0-small_meme_ucxv6oz_N_2_MPI_72_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 17.703s total: 23.694s]
-[       OK ] (12/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_36_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 16.119s total: 25.040s]
-[       OK ] (13/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_72_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 17.293s total: 25.414s]
-[       OK ] (14/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_18_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 18.566s total: 27.941s]
-[       OK ] (15/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_3_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 14.909s total: 28.499s]
-[       OK ] (16/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_9_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 19.205s total: 29.329s]
-[       OK ] (17/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_1_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 12.021s total: 30.834s]
-[       OK ] (18/18) meme_-lex0-small_meme_ylex6xs_N_8_MPI_72_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 11.815s total: 35.764s]
+[       OK ] ( 1/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_1_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 10.058s total: 10.079s]
+[       OK ] ( 2/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_9_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 10.536s total: 10.557s]
+[       OK ] ( 3/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_3_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 11.444s total: 11.465s]
+[       OK ] ( 4/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_18_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 13.744s total: 13.764s]
+[       OK ] ( 5/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_36_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 16.376s total: 16.395s]
+[       OK ] ( 6/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_72_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 16.694s total: 16.713s]
+[       OK ] ( 7/18) meme_-lex0-small_meme_ylex6xs_N_2_MPI_144_OMP_1 on aws:c5n using builtin [compile: 0.004s run: 23.544s total: 23.563s]
+[       OK ] ( 8/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_72_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 13.358s total: 24.686s]
+[       OK ] ( 9/18) meme_-lex0-small_meme_ucxv6oz_N_2_MPI_144_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 46.702s total: 54.964s]
+[       OK ] (10/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_36_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 41.446s total: 55.864s]
+[       OK ] (11/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_3_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 58.899s total: 84.183s]
+[       OK ] (12/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_18_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 68.734s total: 83.917s]
+[       OK ] (13/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_9_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 61.846s total: 84.347s]
+[       OK ] (14/18) meme_-lex0-small_meme_ylex6xs_N_4_MPI_288_OMP_1 on aws:c5n using builtin [compile: 0.004s run: 103.813s total: 103.830s]
+[       OK ] (15/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_1_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 58.300s total: 114.149s]
+[       OK ] (16/18) meme_-lex0-small_meme_ucxv6oz_N_4_MPI_288_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 107.752s total: 115.267s]
+[       OK ] (17/18) meme_-lex0-small_meme_ucxv6oz_N_8_MPI_576_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 130.548s total: 136.818s]
+[       OK ] (18/18) meme_-lex0-small_meme_ylex6xs_N_8_MPI_576_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 90.118s total: 146.735s]
 [----------] all spawned checks have finished
 
 [  PASSED  ] Ran 18/18 test case(s) from 18 check(s) (0 failure(s), 0 skipped)
-
+[==========] Finished on Fri Jul 16 16:33:40 2021 
 ```
 
 ## Test Case 2
@@ -794,9 +794,9 @@ meme_-Klf1-large_meme_ucxv6oz_N_8_MPI_576_OMP_1
 
 ### Serial Hot-spot Profile
 
-List of top-10 functions/code locations from a serial profile. Collected with
-`reframe` by prepending `map --profile --export-functions=prof.csv` to the job
-specification.
+List of top-10 functions/code locations from a serial profile (C6gn with `meme`
+compiled with GCC). Collected with `reframe` by prepending `map --profile
+--export-functions=prof.csv` to the job specification.
 
 | Position | Routine                 | Time (%) |
 |----------|-------------------------|----------|
@@ -813,9 +813,9 @@ specification.
 
 ### Full Node Hot-spot Profile
 
-List of top-10 functions/code locations from a full node profile. Collected
-with `reframe` by prepending `map --profile --export-functions=prof.csv` to the
-job specification.
+List of top-10 functions/code locations from a full node profile (C6gn with
+`meme` compiled with GCC). Collected with `reframe` by prepending `map
+--profile --export-functions=prof.csv` to the job specification.
 
 | Position | Routine                | Time (%) | MPI (%) |
 |----------|------------------------|----------|---------|
