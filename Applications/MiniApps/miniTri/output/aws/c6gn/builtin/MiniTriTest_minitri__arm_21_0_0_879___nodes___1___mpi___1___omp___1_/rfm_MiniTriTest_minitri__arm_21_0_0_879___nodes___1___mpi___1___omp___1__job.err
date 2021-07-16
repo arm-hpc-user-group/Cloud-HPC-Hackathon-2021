@@ -1,0 +1,19 @@
+--2021-07-15 17:37:01--  https://sparse.tamu.edu/MM/SNAP/ca-GrQc.tar.gz
+Resolving sparse.tamu.edu (sparse.tamu.edu)... 23.22.5.68, 3.226.182.14, 54.237.159.171, ...
+Connecting to sparse.tamu.edu (sparse.tamu.edu)|23.22.5.68|:443... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: http://sparse-files.engr.tamu.edu/MM/SNAP/ca-GrQc.tar.gz [following]
+--2021-07-15 17:37:02--  http://sparse-files.engr.tamu.edu/MM/SNAP/ca-GrQc.tar.gz
+Resolving sparse-files.engr.tamu.edu (sparse-files.engr.tamu.edu)... 52.219.98.240
+Connecting to sparse-files.engr.tamu.edu (sparse-files.engr.tamu.edu)|52.219.98.240|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 64632 (63K) [application/x-tar]
+Saving to: ‘ca-GrQc.tar.gz’
+
+     0K .......... .......... .......... .......... .......... 79%  321K 0s
+    50K .......... ...                                        100%  190M=0.2s
+
+2021-07-15 17:37:02 (405 KB/s) - ‘ca-GrQc.tar.gz’ saved [64632/64632]
+
+0.26user 0.03system 0:01.32elapsed 23%CPU (0avgtext+0avgdata 78092maxresident)k
+0inputs+0outputs (0major+21720minor)pagefaults 0swaps

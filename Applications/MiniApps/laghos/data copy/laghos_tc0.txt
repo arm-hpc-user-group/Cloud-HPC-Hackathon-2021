@@ -1,0 +1,80 @@
+{
+  "session_info": {
+    "cmdline": "/software/reframe/bin/reframe --stage /scratch/home/iman -c t0.py -r --performance-report --report-file laghos_tc0.txt",
+    "config_file": "/software/reframe/settings.py",
+    "data_version": "1.3.0",
+    "hostname": "ip-10-0-0-156",
+    "prefix_output": "/home/iman/rfms/laghos/output",
+    "prefix_stage": "/scratch/home/iman",
+    "user": "iman",
+    "version": "3.7.0-dev.3+34ee3d0b",
+    "workdir": "/home/iman/rfms/laghos",
+    "time_start": "2021-07-15T13:38:12+0000",
+    "time_end": "2021-07-15T13:42:37+0000",
+    "time_elapsed": 264.9896037578583,
+    "num_cases": 1,
+    "num_failures": 0
+  },
+  "runs": [
+    {
+      "num_cases": 1,
+      "num_failures": 0,
+      "num_aborted": 0,
+      "num_skipped": 0,
+      "runid": 0,
+      "testcases": [
+        {
+          "build_stderr": null,
+          "build_stdout": null,
+          "dependencies_actual": [],
+          "dependencies_conceptual": [],
+          "description": "LaghosTest0_laghos_3_1__arm___nodes___1___mpi___1___omp___1_",
+          "prefix": "/software/reframe/hackathon",
+          "filename": "/home/iman/rfms/laghos/t0.py",
+          "environment": "builtin",
+          "fail_phase": null,
+          "fail_reason": null,
+          "jobid": "116",
+          "job_stderr": "rfm_LaghosTest0_laghos_3_1__arm___nodes___1___mpi___1___omp___1__job.err",
+          "job_stdout": "rfm_LaghosTest0_laghos_3_1__arm___nodes___1___mpi___1___omp___1__job.out",
+          "maintainers": [],
+          "name": "laghos_test_laghos_3_1__arm_N_1_MPI_1_OMP_1",
+          "nodelist": [
+            "c6gn-dy-c6gn16xlarge-1"
+          ],
+          "outputdir": "/home/iman/rfms/laghos/output/aws/c6gn/builtin/LaghosTest0_laghos_3_1__arm___nodes___1___mpi___1___omp___1_",
+          "perfvars": [
+            {
+              "name": "Major kernels total time",
+              "reference": 0,
+              "thres_lower": null,
+              "thres_upper": null,
+              "unit": "s",
+              "value": 2.664503644
+            },
+            {
+              "name": "Major kernels total rate",
+              "reference": 0,
+              "thres_lower": null,
+              "thres_upper": null,
+              "unit": "Mdofs x steps / s",
+              "value": 20.2348921989
+            }
+          ],
+          "result": "success",
+          "stagedir": "/scratch/home/iman/aws/c6gn/builtin/LaghosTest0_laghos_3_1__arm___nodes___1___mpi___1___omp___1_",
+          "scheduler": "slurm",
+          "system": "aws:c6gn",
+          "tags": [],
+          "time_compile": 0.006710529327392578,
+          "time_performance": 0.14412736892700195,
+          "time_run": 264.4136309623718,
+          "time_sanity": 0.003148317337036133,
+          "time_setup": 0.006992340087890625,
+          "time_total": 264.4407911300659
+        }
+      ]
+    }
+  ],
+  "restored_cases": []
+}

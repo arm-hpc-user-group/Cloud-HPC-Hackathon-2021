@@ -1,0 +1,20 @@
+--2021-07-15 17:37:01--  https://sparse.tamu.edu/MM/SNAP/ca-GrQc.tar.gz
+Resolving sparse.tamu.edu (sparse.tamu.edu)... 3.226.182.14, 54.237.159.171, 52.21.227.162, ...
+Connecting to sparse.tamu.edu (sparse.tamu.edu)|3.226.182.14|:443... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: http://sparse-files.engr.tamu.edu/MM/SNAP/ca-GrQc.tar.gz [following]
+--2021-07-15 17:37:02--  http://sparse-files.engr.tamu.edu/MM/SNAP/ca-GrQc.tar.gz
+Resolving sparse-files.engr.tamu.edu (sparse-files.engr.tamu.edu)... 52.219.98.240
+Connecting to sparse-files.engr.tamu.edu (sparse-files.engr.tamu.edu)|52.219.98.240|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 64632 (63K) [application/x-tar]
+Saving to: ‘ca-GrQc.tar.gz’
+
+     0K .......... .......... .......... .......... .......... 79%  322K 0s
+    50K .......... ...                                        100%  215M=0.2s
+
+2021-07-15 17:37:02 (406 KB/s) - ‘ca-GrQc.tar.gz’ saved [64632/64632]
+
+srun: /scratch/home/subrat/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/zlib-1.2.11-4js6ectch4sma7o6s4c3wdnknse53stu/lib/libz.so.1: no version information available (required by srun)
+0.24user 0.05system 0:01.31elapsed 22%CPU (0avgtext+0avgdata 78280maxresident)k
+0inputs+0outputs (0major+21779minor)pagefaults 0swaps

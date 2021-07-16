@@ -1,0 +1,56 @@
+diff -bur spack-stage-minixyce-1.0-6txjvdkxg5w6myfup6wocxhwlolawgq4/spack-src/miniXyce_ref/mX_sparse_matrix.cpp spack-stage-minixyce-1.0-xfwtdyoa4udn42l2uu5ysh6czv5tnkjk/spack-src/miniXyce_ref/mX_sparse_matrix.cpp
+--- spack-stage-minixyce-1.0-6txjvdkxg5w6myfup6wocxhwlolawgq4/spack-src/miniXyce_ref/mX_sparse_matrix.cpp	2021-07-15 14:20:53.565829488 +0000
++++ spack-stage-minixyce-1.0-xfwtdyoa4udn42l2uu5ysh6czv5tnkjk/spack-src/miniXyce_ref/mX_sparse_matrix.cpp	2012-12-12 17:32:16.000000000 +0000
+@@ -374,21 +374,14 @@
+ 		std::vector< std::vector<double> > V;
+ 		sparse_matrix_vector_product(A,x,temp1);
+ 
+-        V.reserve(end_row-start_row + 1);
+ 		for (int i = start_row; i <= end_row; i++)
+ 		{
+ 			temp1[i-start_row] -= b[i-start_row];
+-        }
+-		for (int i = start_row; i <= end_row; i++)
+-		{
+ 			temp1[i-start_row] *= (double)(-1);
+-        }
+ 
+-		for (int i = start_row; i <= end_row; i++)
+-		{
+-			// std::vector<double> temp2;
+-			// temp2.push_back(temp1[i-start_row]);
+-			V.push_back({temp1[i-start_row]});
++			std::vector<double> temp2;
++			temp2.push_back(temp1[i-start_row]);
++			V.push_back(temp2);
+ 		}
+ 
+ 		double beta = norm(temp1);
+@@ -428,7 +421,6 @@
+ 			std::vector<double> temp1;
+ 			std::vector<double> temp2;
+ 
+-            temp1.reserve(end_row-start_row+1); 
+             for (int i = start_row; i <= end_row; i++)
+ 			{
+ 				temp1.push_back(V[i-start_row][iters-1]);	
+@@ -440,16 +432,16 @@
+ 					// with some help from Messrs Gram and Schmidt
+ 			
+ 			std::vector<double> new_col_H;
+-            new_col_H.reserve(iters+1);
++
+ 			for (int i = 0; i < iters; i++)
+ 			{
+-				double global_dot;
+ 				double local_dot = 0.0;
++				double global_dot;
++
+ 				for (int j = start_row; j <= end_row; j++)
+ 				{
+ 					local_dot += temp2[j-start_row]*V[j-start_row][i];
+ 				}
+-
+ #ifdef HAVE_MPI
+ 				MPI_Allreduce(&local_dot,&global_dot,1,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
+ #else

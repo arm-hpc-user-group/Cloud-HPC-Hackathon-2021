@@ -1,0 +1,62 @@
+Command:        srun laghos -p 0 -dim 2 -rs 3 -tf 0.75 -pa
+Resources:      1 node (64 physical, 64 logical cores per node)
+Memory:         124 GiB per node
+Tasks:          64 processes
+Machine:        c6gn-dy-c6gn16xlarge-1
+Start time:     Thu Jul 15 17:32:08 2021
+Total time:     12 seconds
+Full path:      /scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/laghos-3.1-qsrtkaefmj3xu4lx676h2syhsspwwzpo/bin
+
+Summary: laghos is MPI-bound in this configuration
+Compute:                                      1.6% ||
+MPI:                                         98.4% |=========|
+I/O:                                      &lt;0.1% ||
+This application run was MPI-bound. A breakdown of this time and advice for investigating further is in the MPI section below. 
+
+CPU Metrics:
+Linux perf event metrics:
+Cycles per instruction:                       0.56 
+L2D cache miss:                              10.2% ||
+Stalled backend cycles:                      17.4% |=|
+Stalled frontend cycles:                      0.0% |
+Cycles per instruction is low, which is good. Vectorization allows multiple instructions per clock cycle.
+
+MPI:
+A breakdown of the 98.4% MPI time:
+Time in collective calls:                    82.8% |=======|
+Time in point-to-point calls:                17.2% |=|
+Effective process collective rate:             157 kB/s
+Effective process point-to-point rate:        5.90 MB/s
+Most of the time is spent in collective calls with a very low transfer rate. This suggests load imbalance is causing synchronization overhead; use an MPI profiler to investigate.
+
+I/O:
+A breakdown of the <0.1% I/O time:
+Time in reads:                                0.0% |
+Time in writes:                               0.0% |
+Effective process read rate:                  0.00 bytes/s
+Effective process write rate:                 0.00 bytes/s
+Most of the time is spent in write operations with a very low effective transfer rate. This may be caused by contention for the filesystem or inefficient access patterns. Use an I/O profiler to investigate which write calls are affected.
+
+Threads:
+A breakdown of how multiple threads were used:
+Computation:                                100.0% |=========|
+Synchronization:                              0.0% |
+Physical core utilization:                   99.3% |=========|
+System load:                                101.1% |=========|
+Thread usage appears to be well-optimized. Check the CPU breakdown for advice on further improving performance.
+
+Memory:
+Per-process memory usage may also affect scaling:
+Mean process memory usage:                     147 MiB
+Peak process memory usage:                     148 MiB
+Peak node memory usage:                      21.0% |=|
+The peak node memory usage is very low. Running with fewer MPI processes and more data on each process may be more efficient.
+
+Energy:
+A breakdown of how energy was used:
+CPU:                                      not supported
+System:                                   not supported
+Mean node power:                          not supported
+Peak node power:                              0.00 W
+Energy metrics are not available on this system.
+

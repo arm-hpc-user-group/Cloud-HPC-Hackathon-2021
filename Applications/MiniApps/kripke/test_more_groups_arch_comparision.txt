@@ -1,0 +1,271 @@
+arm:
+[ReFrame Setup]
+  version:           3.7.0-dev.3+34ee3d0b
+  command:           '/software/reframe/bin/reframe --stage /scratch/home/s2039047 -v -c test_more_groups.py -r --performance-report'
+  launched by:       s2039047@ip-10-0-0-120
+  working directory: '/home/s2039047/Cloud-HPC-Hackathon-2021/Applications/MiniApps/kripke'
+  settings file:     '/software/reframe/settings.py'
+  check search path: '/home/s2039047/Cloud-HPC-Hackathon-2021/Applications/MiniApps/kripke/test_more_groups.py'
+  stage directory:   '/scratch/home/s2039047'
+  output directory:  '/home/s2039047/Cloud-HPC-Hackathon-2021/Applications/MiniApps/kripke/output'
+
+/home/s2039047/Cloud-HPC-Hackathon-2021/Applications/MiniApps/kripke/test_more_groups.py:55: WARNING: using the @rfm.run_before decorator from the rfm module is deprecated; please use the built-in decorator @run_before instead.
+    @rfm.run_before('run')
+
+Loaded 9 test(s)
+Generated 9 test case(s)
+Filtering test cases(s) by name: 9 remaining
+Filtering test cases(s) by tags: 9 remaining
+Filtering test cases(s) by other attributes: 9 remaining
+Final number of test cases: 9
+[==========] Running 9 check(s)
+[==========] Started on Thu Jul 15 15:29:18 2021
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___1___omp___1___extra_cmd____1_1_1__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___1___omp___1___extra_cmd____1_1_1__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___1___omp___1___extra_cmd____1_1_1__ on aws:c6gn using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_1_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___1___omp___1___extra_cmd____1_1_1__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___2___omp___1___extra_cmd____1_1_2__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___2___omp___1___extra_cmd____1_1_2__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___2___omp___1___extra_cmd____1_1_2__ on aws:c6gn using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_2_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___2___omp___1___extra_cmd____1_1_2__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___4___omp___1___extra_cmd____1_1_4__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___4___omp___1___extra_cmd____1_1_4__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___4___omp___1___extra_cmd____1_1_4__ on aws:c6gn using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_4_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___4___omp___1___extra_cmd____1_1_4__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___8___omp___1___extra_cmd____1_2_4__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___8___omp___1___extra_cmd____1_2_4__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___8___omp___1___extra_cmd____1_2_4__ on aws:c6gn using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_8_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___8___omp___1___extra_cmd____1_2_4__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___16___omp___1___extra_cmd____1_4_4__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___16___omp___1___extra_cmd____1_4_4__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___16___omp___1___extra_cmd____1_4_4__ on aws:c6gn using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_16_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___16___omp___1___extra_cmd____1_4_4__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___32___omp___1___extra_cmd____2_4_4__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___32___omp___1___extra_cmd____2_4_4__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___32___omp___1___extra_cmd____2_4_4__ on aws:c6gn using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_32_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___32___omp___1___extra_cmd____2_4_4__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___64___omp___1___extra_cmd____4_4_4__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___64___omp___1___extra_cmd____4_4_4__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___64___omp___1___extra_cmd____4_4_4__ on aws:c6gn using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_64_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___64___omp___1___extra_cmd____4_4_4__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___2___mpi___128___omp___1___extra_cmd____4_4_8__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___2___mpi___128___omp___1___extra_cmd____4_4_8__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___2___mpi___128___omp___1___extra_cmd____4_4_8__ on aws:c6gn using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_2_MPI_128_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___2___mpi___128___omp___1___extra_cmd____4_4_8__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___4___mpi___256___omp___1___extra_cmd____4_8_8__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___4___mpi___256___omp___1___extra_cmd____4_8_8__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___4___mpi___256___omp___1___extra_cmd____4_8_8__ on aws:c6gn using builtin
+[     HOLD ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___4___mpi___256___omp___1___extra_cmd____4_8_8__ on aws:c6gn using builtin
+[----------] finished processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___4___mpi___256___omp___1___extra_cmd____4_8_8__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___4___mpi___256___omp___1___extra_cmd____4_8_8__)
+
+[----------] waiting for spawned checks to finish
+[       OK ] (1/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 10.849s total: 10.871s]
+==> timings: setup: 0.007s compile: 0.005s run: 10.849s sanity: 0.004s performance: 0.074s total: 10.871s
+[       OK ] (2/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 14.606s total: 14.628s]
+==> timings: setup: 0.007s compile: 0.005s run: 14.606s sanity: 0.003s performance: 0.073s total: 14.628s
+[       OK ] (3/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 18.784s total: 18.806s]
+==> timings: setup: 0.007s compile: 0.005s run: 18.784s sanity: 0.004s performance: 0.073s total: 18.806s
+[       OK ] (4/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_4_MPI_256_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 9.273s total: 19.568s]
+==> timings: setup: 0.008s compile: 0.005s run: 9.273s sanity: 0.003s performance: 0.074s total: 19.568s
+[       OK ] (5/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 29.898s total: 29.920s]
+==> timings: setup: 0.007s compile: 0.005s run: 29.898s sanity: 0.004s performance: 0.074s total: 29.920s
+[       OK ] (6/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 43.742s total: 43.764s]
+==> timings: setup: 0.007s compile: 0.005s run: 43.742s sanity: 0.003s performance: 0.074s total: 43.764s
+[       OK ] (7/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 73.325s total: 73.346s]
+==> timings: setup: 0.007s compile: 0.005s run: 73.325s sanity: 0.003s performance: 0.074s total: 73.346s
+[       OK ] (8/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.006s run: 127.665s total: 127.688s]
+==> timings: setup: 0.007s compile: 0.006s run: 127.665s sanity: 0.003s performance: 0.074s total: 127.688s
+[       OK ] (9/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 249.783s total: 249.809s]
+==> timings: setup: 0.011s compile: 0.005s run: 249.783s sanity: 0.003s performance: 0.074s total: 249.809s
+[----------] all spawned checks have finished
+
+[  PASSED  ] Ran 9/9 test case(s) from 9 check(s) (0 failure(s), 0 skipped)
+[==========] Finished on Thu Jul 15 15:33:28 2021
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 243.57467 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 121.73165 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 66.27957 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 37.49994 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 23.87093 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 13.26184 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 6.30835 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_2_MPI_128_OMP_1
+   - builtin
+      * num_tasks: 128
+      * Total Time: 2.32622 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_4_MPI_256_OMP_1
+   - builtin
+      * num_tasks: 256
+      * Total Time: 1.34664 s
+------------------------------------------------------------------------------
+
+x86:
+reframe --stage /scratch/home/${USER} -v -c test_more_groups.py -r --performance                                                                  -report
+[ReFrame Setup]
+  version:           3.7.0-dev.3+34ee3d0b
+  command:           '/software/reframe/bin/reframe --stage /scratch/home/s20390                                                                  47 -v -c test_more_groups.py -r --performance-report'
+  launched by:       s2039047@ip-10-0-0-44
+  working directory: '/home/s2039047/Cloud-HPC-Hackathon-2021/Applications/MiniApps/kripke'
+  settings file:     '/software/reframe/settings.py'
+  check search path: '/home/s2039047/Cloud-HPC-Hackathon-2021/Applications/MiniApps/kripke/test_more_groups.py'
+  stage directory:   '/scratch/home/s2039047'
+  output directory:  '/home/s2039047/Cloud-HPC-Hackathon-2021/Applications/MiniApps/kripke/output'
+
+/home/s2039047/Cloud-HPC-Hackathon-2021/Applications/MiniApps/kripke/test_more_groups.py:55: WARNING: using the @rfm.run_before decorator from the rfm module is deprecated; please use the built-in decorator @run_before instead.
+    @rfm.run_before('run')
+
+Loaded 9 test(s)
+Generated 9 test case(s)
+Filtering test cases(s) by name: 9 remaining
+Filtering test cases(s) by tags: 9 remaining
+Filtering test cases(s) by other attributes: 9 remaining
+Final number of test cases: 9
+[==========] Running 9 check(s)
+[==========] Started on Thu Jul 15 15:41:34 2021
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___1___omp___1___extra_cmd____1_1_1__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___1___omp___1___extra_cmd____1_1_1__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___1___omp___1___extra_cmd____1_1_1__ on aws:c5n using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_1_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___1___omp___1___extra_cmd____1_1_1__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___2___omp___1___extra_cmd____1_1_2__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___2___omp___1___extra_cmd____1_1_2__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___2___omp___1___extra_cmd____1_1_2__ on aws:c5n using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_2_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___2___omp___1___extra_cmd____1_1_2__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___4___omp___1___extra_cmd____1_1_4__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___4___omp___1___extra_cmd____1_1_4__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___4___omp___1___extra_cmd____1_1_4__ on aws:c5n using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_4_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___4___omp___1___extra_cmd____1_1_4__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___8___omp___1___extra_cmd____1_2_4__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___8___omp___1___extra_cmd____1_2_4__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___8___omp___1___extra_cmd____1_2_4__ on aws:c5n using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_8_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___8___omp___1___extra_cmd____1_2_4__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___16___omp___1___extra_cmd____1_4_4__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___16___omp___1___extra_cmd____1_4_4__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___16___omp___1___extra_cmd____1_4_4__ on aws:c5n using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_16_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___16___omp___1___extra_cmd____1_4_4__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___32___omp___1___extra_cmd____2_4_4__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___32___omp___1___extra_cmd____2_4_4__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___32___omp___1___extra_cmd____2_4_4__ on aws:c5n using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_32_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___32___omp___1___extra_cmd____2_4_4__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___64___omp___1___extra_cmd____4_4_4__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___64___omp___1___extra_cmd____4_4_4__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___64___omp___1___extra_cmd____4_4_4__ on aws:c5n using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_64_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___1___mpi___64___omp___1___extra_cmd____4_4_4__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___2___mpi___128___omp___1___extra_cmd____4_4_8__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___2___mpi___128___omp___1___extra_cmd____4_4_8__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___2___mpi___128___omp___1___extra_cmd____4_4_8__ on aws:c5n using builtin
+[----------] finished processing Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_2_MPI_128_OMP_1 (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___2___mpi___128___omp___1___extra_cmd____4_4_8__)
+
+[----------] started processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___4___mpi___256___omp___1___extra_cmd____4_8_8__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___4___mpi___256___omp___1___extra_cmd____4_8_8__)
+[ RUN      ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___4___mpi___256___omp___1___extra_cmd____4_8_8__ on aws:c5n using builtin
+[     HOLD ] KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___4___mpi___256___omp___1___extra_cmd____4_8_8__ on aws:c5n using builtin
+[----------] finished processing KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___4___mpi___256___omp___1___extra_cmd____4_8_8__ (KripkeTest_kripke_1_2_4_gcc_10_3_0___nodes___4___mpi___256___omp___1___extra_cmd____4_8_8__)
+
+[----------] waiting for spawned checks to finish
+[       OK ] (1/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 287.173s total: 287.199s]
+==> timings: setup: 0.006s compile: 0.007s run: 287.173s sanity: 0.006s performance: 0.075s total: 287.199s
+[       OK ] (2/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_32_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 288.765s total: 288.791s]
+==> timings: setup: 0.007s compile: 0.006s run: 288.765s sanity: 0.005s performance: 0.075s total: 288.791s
+[       OK ] (3/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_64_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 288.890s total: 288.915s]
+==> timings: setup: 0.007s compile: 0.006s run: 288.890s sanity: 0.007s performance: 0.075s total: 288.915s
+[       OK ] (4/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_16_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 303.403s total: 303.433s]
+==> timings: setup: 0.010s compile: 0.007s run: 303.403s sanity: 0.006s performance: 0.077s total: 303.433s
+[       OK ] (5/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_8_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 326.497s total: 326.521s]
+==> timings: setup: 0.006s compile: 0.006s run: 326.497s sanity: 0.007s performance: 0.076s total: 326.521s
+[       OK ] (6/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_4_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 368.466s total: 368.489s]
+==> timings: setup: 0.007s compile: 0.005s run: 368.466s sanity: 0.007s performance: 0.076s total: 368.489s
+[       OK ] (7/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_2_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 453.918s total: 453.945s]
+==> timings: setup: 0.007s compile: 0.007s run: 453.918s sanity: 0.007s performance: 0.075s total: 453.945s
+
+
+
+
+
+[       OK ] (8/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_4_MPI_256_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 263.811s total: 550.554s]
+==> timings: setup: 0.007s compile: 0.005s run: 263.811s sanity: 0.007s performance: 0.076s total: 550.554s
+[       OK ] (9/9) Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_1_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 559.332s total: 559.358s]
+==> timings: setup: 0.007s compile: 0.007s run: 559.332s sanity: 0.007s performance: 0.076s total: 559.358s
+[----------] all spawned checks have finished
+
+[  PASSED  ] Ran 9/9 test case(s) from 9 check(s) (0 failure(s), 0 skipped)
+[==========] Finished on Thu Jul 15 15:50:54 2021
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_1_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 1
+      * Total Time: 281.03723 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 173.20433 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 91.02547 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 48.76082 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 27.66763 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 13.27175 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 7.06843 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_2_MPI_128_OMP_1
+   - builtin
+      * num_tasks: 128
+      * Total Time: 3.26131 s
+------------------------------------------------------------------------------
+Kripke_large_group_kripke_1_2_4_gcc_10_3_0_N_4_MPI_256_OMP_1
+   - builtin
+      * num_tasks: 256
+      * Total Time: 1.47471 s
+------------------------------------------------------------------------------

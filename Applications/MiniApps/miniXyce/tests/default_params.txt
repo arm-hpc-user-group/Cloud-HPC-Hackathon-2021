@@ -1,0 +1,6 @@
+circuit = test/cir1.net
+t_start = 0
+t_step = 1e-08
+t_stop = 5e-06
+tol = 1e-12
+k = 10

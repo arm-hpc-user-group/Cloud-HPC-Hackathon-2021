@@ -1,0 +1,149 @@
+
+       __                __                 
+      / /   ____  ____  / /_  ____  _____   
+     / /   / __ `/ __ `/ __ \/ __ \/ ___/ 
+    / /___/ /_/ / /_/ / / / / /_/ (__  )    
+   /_____/\__,_/\__, /_/ /_/\____/____/  
+               /____/                       
+
+Options used:
+   --dimension 2
+   --mesh default
+   --refine-serial 3
+   --refine-parallel 0
+   --cartesian-partitioning ''
+   --problem 0
+   --order-kinematic 2
+   --order-thermo 1
+   --order-intrule -1
+   --ode-solver 4
+   --t-final 0.75
+   --cfl 0.5
+   --cg-tol 1e-08
+   --ftz-tol 0
+   --cg-max-steps 300
+   --max-steps -1
+   --partial-assembly
+   --no-impose-viscosity
+   --no-visualization
+   --visualization-steps 5
+   --no-visit
+   --no-print
+   --outputfilename results/Laghos
+   --partition 0
+   --device cpu
+   --no-checks
+   --no-mem
+   --no-fom
+   --no-gpu-aware-mpi
+   --dev 0
+Device configuration: cpu
+Memory configuration: host-std
+Number of zones in the serial mesh: 256
+Non-Cartesian partitioning through METIS will be used.
+Zones min/max: 2 2
+Number of kinematic (position, velocity) dofs: 2178
+Number of specific internal energy dofs: 1024
+Repeating step 1
+step     5,	t = 0.0419,	dt = 0.008389,	|e| = 4.9514949492e+01
+Repeating step 7
+step    10,	t = 0.0789,	dt = 0.007131,	|e| = 4.9516112863e+01
+Repeating step 14
+step    15,	t = 0.1124,	dt = 0.006061,	|e| = 4.9517775396e+01
+step    20,	t = 0.1427,	dt = 0.006061,	|e| = 4.9519802493e+01
+Repeating step 23
+step    25,	t = 0.1703,	dt = 0.005152,	|e| = 4.9522010524e+01
+step    30,	t = 0.1960,	dt = 0.005152,	|e| = 4.9524391635e+01
+Repeating step 33
+step    35,	t = 0.2195,	dt = 0.004379,	|e| = 4.9526799876e+01
+step    40,	t = 0.2414,	dt = 0.004379,	|e| = 4.9529300442e+01
+Repeating step 44
+step    45,	t = 0.2619,	dt = 0.003722,	|e| = 4.9531778472e+01
+step    50,	t = 0.2806,	dt = 0.003722,	|e| = 4.9534180972e+01
+step    55,	t = 0.2992,	dt = 0.003722,	|e| = 4.9536738155e+01
+Repeating step 59
+step    60,	t = 0.3167,	dt = 0.003164,	|e| = 4.9539244275e+01
+step    65,	t = 0.3325,	dt = 0.003164,	|e| = 4.9541594703e+01
+step    70,	t = 0.3483,	dt = 0.003164,	|e| = 4.9544044771e+01
+Repeating step 75
+step    75,	t = 0.3637,	dt = 0.002689,	|e| = 4.9546512212e+01
+step    80,	t = 0.3771,	dt = 0.002689,	|e| = 4.9548738014e+01
+step    85,	t = 0.3905,	dt = 0.002689,	|e| = 4.9551028717e+01
+step    90,	t = 0.4040,	dt = 0.002689,	|e| = 4.9553389155e+01
+Repeating step 94
+step    95,	t = 0.4166,	dt = 0.002286,	|e| = 4.9555669160e+01
+step   100,	t = 0.4281,	dt = 0.002286,	|e| = 4.9557798092e+01
+step   105,	t = 0.4395,	dt = 0.002286,	|e| = 4.9559988331e+01
+step   110,	t = 0.4509,	dt = 0.002286,	|e| = 4.9562245215e+01
+step   115,	t = 0.4624,	dt = 0.002286,	|e| = 4.9564593129e+01
+Repeating step 117
+step   120,	t = 0.4724,	dt = 0.001943,	|e| = 4.9566745146e+01
+step   125,	t = 0.4821,	dt = 0.001943,	|e| = 4.9568904846e+01
+step   130,	t = 0.4918,	dt = 0.001943,	|e| = 4.9571162399e+01
+step   135,	t = 0.5016,	dt = 0.001943,	|e| = 4.9573532003e+01
+step   140,	t = 0.5113,	dt = 0.001943,	|e| = 4.9576033542e+01
+Repeating step 143
+step   145,	t = 0.5201,	dt = 0.001652,	|e| = 4.9578437216e+01
+step   150,	t = 0.5284,	dt = 0.001652,	|e| = 4.9580803879e+01
+step   155,	t = 0.5366,	dt = 0.001652,	|e| = 4.9583299462e+01
+step   160,	t = 0.5449,	dt = 0.001652,	|e| = 4.9585938601e+01
+step   165,	t = 0.5532,	dt = 0.001652,	|e| = 4.9588733084e+01
+step   170,	t = 0.5614,	dt = 0.001652,	|e| = 4.9591694211e+01
+Repeating step 174
+step   175,	t = 0.5692,	dt = 0.001404,	|e| = 4.9594631921e+01
+step   180,	t = 0.5762,	dt = 0.001404,	|e| = 4.9597426443e+01
+step   185,	t = 0.5832,	dt = 0.001404,	|e| = 4.9600357870e+01
+step   190,	t = 0.5902,	dt = 0.001404,	|e| = 4.9603432506e+01
+step   195,	t = 0.5973,	dt = 0.001404,	|e| = 4.9606652831e+01
+step   200,	t = 0.6043,	dt = 0.001404,	|e| = 4.9610015666e+01
+step   205,	t = 0.6113,	dt = 0.001404,	|e| = 4.9613512044e+01
+Repeating step 210
+step   210,	t = 0.6181,	dt = 0.001193,	|e| = 4.9617032850e+01
+step   215,	t = 0.6241,	dt = 0.001193,	|e| = 4.9620228854e+01
+step   220,	t = 0.6300,	dt = 0.001193,	|e| = 4.9623525650e+01
+step   225,	t = 0.6360,	dt = 0.001193,	|e| = 4.9626911735e+01
+step   230,	t = 0.6420,	dt = 0.001193,	|e| = 4.9630378997e+01
+step   235,	t = 0.6479,	dt = 0.001193,	|e| = 4.9633923795e+01
+step   240,	t = 0.6539,	dt = 0.001193,	|e| = 4.9637537752e+01
+step   245,	t = 0.6599,	dt = 0.001193,	|e| = 4.9641215282e+01
+step   250,	t = 0.6658,	dt = 0.001193,	|e| = 4.9644945223e+01
+Repeating step 251
+step   255,	t = 0.6709,	dt = 0.001014,	|e| = 4.9648145903e+01
+step   260,	t = 0.6760,	dt = 0.001014,	|e| = 4.9651368331e+01
+step   265,	t = 0.6810,	dt = 0.001014,	|e| = 4.9654607185e+01
+step   270,	t = 0.6861,	dt = 0.001014,	|e| = 4.9657854292e+01
+step   275,	t = 0.6912,	dt = 0.001014,	|e| = 4.9661102114e+01
+step   280,	t = 0.6963,	dt = 0.001014,	|e| = 4.9664338707e+01
+step   285,	t = 0.7013,	dt = 0.001014,	|e| = 4.9667552425e+01
+step   290,	t = 0.7064,	dt = 0.001014,	|e| = 4.9670738550e+01
+step   295,	t = 0.7115,	dt = 0.001014,	|e| = 4.9673886640e+01
+step   300,	t = 0.7165,	dt = 0.001014,	|e| = 4.9676991127e+01
+Repeating step 301
+step   305,	t = 0.7209,	dt = 0.000862,	|e| = 4.9679584356e+01
+step   310,	t = 0.7252,	dt = 0.000862,	|e| = 4.9682128361e+01
+step   315,	t = 0.7295,	dt = 0.000862,	|e| = 4.9684615285e+01
+step   320,	t = 0.7338,	dt = 0.000862,	|e| = 4.9687039555e+01
+step   325,	t = 0.7381,	dt = 0.000862,	|e| = 4.9689398900e+01
+step   330,	t = 0.7424,	dt = 0.000862,	|e| = 4.9691691636e+01
+step   335,	t = 0.7467,	dt = 0.000862,	|e| = 4.9693906870e+01
+step   339,	t = 0.7500,	dt = 0.000702,	|e| = 4.9695537349e+01
+
+CG (H1) total time: 10.7931317150
+CG (H1) rate (megadofs x cg_iterations / second): 4.0318640733
+
+CG (L2) total time: 0.9276762060
+CG (L2) rate (megadofs x cg_iterations / second): 4.6890843722
+
+Forces total time: 0.0070527640
+Forces rate (megadofs x timesteps / second): 642.8730636670
+
+UpdateQuadData total time: 0.0110880420
+UpdateQuadData rate (megaquads x timesteps / second): 528.9907812398
+
+Major kernels total time (seconds): 10.8081392800
+Major kernels total rate (megadofs x time steps / second): 4.9884575507
+
+Energy  diff: 1.97e-07
+L_inf  error: 2.59e-02
+L_1    error: 6.06e-03
+L_2    error: 7.50e-03
