@@ -201,7 +201,7 @@ On-node scaling study for two architectures.
 #### Test Case 3
 | Cores | ARM | X86 |
 |-------|----------------|-----------|
-| 8     |                |           |
+| 8     |                | 189.52 s          |
 | 16    |                |           |
 | 32    |                |           |
 | 64    |                |           |
@@ -209,7 +209,7 @@ On-node scaling study for two architectures.
 #### Test Case 4
 | Cores | ARM | X86 |
 |-------|----------------|-----------|
-| 8     |                |           |
+| 8     |                | 814.98 s          |
 | 16    |                |           |
 | 32    |                |           |
 | 64    |                |           |
