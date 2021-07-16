@@ -558,6 +558,9 @@ Performance analysis of the use of different maths libraries.
 | 32    |          |       |      |
 | 64    |          |       |      |
 
+### mpiP is generated for
+mpiP is a light-weight profiling library for MPI applications. Because it only collects statistical information about MPI functions, mpiP generates considerably less overhead and much less data than tracing tools. All the information captured by mpiP is task-local. It only uses communication during report generation, typically at the end of the experiment, to merge results from all of the tasks into one output file.
+dir [siosi3/Profiling_mpiP](.siosi3/Profiling_mpiP) has relevant reframe file and correponding [*.mpiP](siosi3/Profiling_mpiP/nwchem.32.57998.1.mpiP)
 
 ### Performance Regression
 
