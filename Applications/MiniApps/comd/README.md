@@ -375,8 +375,79 @@ Performance comparison of two compilers. Note: each step increases in complexity
 
 ### Serial Hot-spot Profile
 
-Serial hot-spot profile not done for this test.
+Serial hot-spot was done using perf.
 
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `gcc`
+
+```
+SPACK_DIR='/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens/'
+env LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=comd_gcc.profile CoMD-openmp
+
+COMD_DIR='/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/comd-1.1-6sifbzehxhqkgkerdq24qnzb4xegipyh/bin/'
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_gcc.profile
+
+Total: 1108 samples
+     574  51.8%  51.8%      581  52.4% do_spin (inline)
+     491  44.3%  96.1%      491  44.3% ljForce._omp_fn.1
+      13   1.2%  97.3%       13   1.2% advancePosition._omp_fn.0
+       8   0.7%  98.0%        8   0.7% __brk
+       7   0.6%  98.6%        7   0.6% cpu_relax (inline)
+       4   0.4%  99.0%        7   0.6% sortAtomsInCell
+       3   0.3%  99.3%        3   0.3% advanceVelocity._omp_fn.0
+       2   0.2%  99.5%        2   0.2% loadAtomsBuffer
+       2   0.2%  99.6%        2   0.2% sortAtomsById
+       1   0.1%  99.7%        3   0.3% __GI___qsort_r
+```
+
+For the C5n (Intel) here are the top ten application routines, with associated % of runtime for `nvhpc`
+
+```
+SPACK_DIR='/scratch/opt/spack/linux-amzn2-skylake_avx512/gcc-10.3.0/gperftools-2.8.1-nvbh4z2zua3abfjvhqq4hiovznkvqens/'
+env LD_PRELOAD={SPACK_DIR}/lib/libprofiler.so CPUPROFILE=comd_nvhpc.profile CoMD-openmp
+
+COMD_DIR='/scratch/opt/spack/linux-amzn2-skylake_avx512/nvhpc-21.2/comd-1.1-chfwr76qbks5xpqlnuhuzjmc3zsxld5x'
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_nvhpc.profile
+
+Total: 1108 samples
+     574  51.8%  51.8%      581  52.4% do_spin (inline)
+     248  22.4%  74.2%      256  23.1% initAtomHaloExchange
+     155  14.0%  88.2%      163  14.7% __nv_ljForce_F1L173_2
+      41   3.7%  91.9%       41   3.7% zeroReal3
+      20   1.8%  93.7%       20   1.8% comdMalloc
+      15   1.4%  95.0%       15   1.4% comdFree
+      13   1.2%  96.2%       13   1.2% timerStats
+      12   1.1%  97.3%       12   1.1% pgCplus_compiled.
+       8   0.7%  98.0%        8   0.7% __brk
+       7   0.6%  98.6%        7   0.6% cpu_relax (inline)
+       3   0.3%  98.9%       14   1.3% printPerformanceResultsYaml
+       3   0.3%  99.2%        3   0.3% processArgs
+       2   0.2%  99.4%        2   0.2% findOption
+       2   0.2%  99.5%        2   0.2% mkForceSendCellList
+       1   0.1%  99.6%        3   0.3% __GI___qsort_r
+```
+
+For the C6gn (ARM) here are the top ten application routines, with associated % of runtime for `arm`
+
+```
+SPACK_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gperftools-2.8.1-nlcrjyzchw37gafuffie7h5vapyl5uhg"
+env LD_PRELOAD={SPACK_DIR}/lib/libprofiler.so CPUPROFILE=comd_arm.profile CoMD-openmp
+
+COMD_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/comd-
+1.1-phpsqbdm2lucpiarf7j5rd2m22owszc5"
+pprof --text $COMD_DIR/bin/CoMD-openmp comd_arm.profile
+
+Total: 170 samples
+      85  50.0%  50.0%      114  67.1% .omp_outlined..2
+      58  34.1%  84.1%       84  49.4% kmp_flag_64::wait
+      23  13.5%  97.6%       23  13.5% __GI___sched_yield
+       1   0.6%  98.2%        1   0.6% 0x0000ffff9bade348
+       1   0.6%  98.8%        1   0.6% __kmp_yield
+       1   0.6%  99.4%        1   0.6% _init
+       1   0.6% 100.0%        1   0.6% zeroReal3
+       0   0.0% 100.0%        1   0.6% __GI___gettimeofday
+       0   0.0% 100.0%       29  17.1% __kmp_barrier
+       0   0.0% 100.0%       55  32.4% __kmp_fork_barrier
+```
 
 ### Full Node Hot-spot Profile
 
