@@ -392,13 +392,18 @@ Demonstrate your gains by providing a scaling study for your test case, demonstr
 
 ### Compilation Summary
 
-Details of lessons from compiling the application.
+DOCK suite includes four applications. Except the application dock, the other three are run sequentially. The application dock, written in the mix of C, C++, and Fortran, runs with MPI. Building dock is straightforward with GCC compiler. However, it incurs compilation errors with ARM21 and nvhpc “main function is redefined”. We figured out that the main function is in C++ code but the linker is using fortran compiler (armflang). Thus, we change the linker with the C++ compiler (armclang++) and link the fortran library. With this modification, dock is
+successfully compiled with all gcc, arm21, and nvhpc compilers.
 
 ### Performance Summary
 
-Details of lessons from analysing the performance of the application.
+From our experiments, we find that arm21 and gcc10 compilers yield comparable performance. For the on-node scaling study, arm21 and gcc10 a
+re generally better than nvhpc, while for the off-node scaling study, arm21 and gcc10 perform worse than nvhpc. We also find that the on-no
+de scaling is generally good for all compilers. However, the off-node scaling is not good. One potential reason is that the input workload provided by the application is not large enough to be divided across nodes.
 
 
 ### Optimisation Summary
 
-Details of lessons from performance optimising the application.
+We have tested compiler option tuning, e.g., -Ofast. Unfortunately, we do not get any speedups. With the profile, we find that many cpu cyc
+les are consumed in malloc and free functions. Thus, we have jemalloc linked with the application, which yield a maxmum 14% speedup when us
+ing gcc10 running with 8 cores.
