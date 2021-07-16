@@ -67,6 +67,10 @@ spack install py-promise%gcc@9.3.0 ^py-setuptools/7wan6v2
 pathtools
 ```
 Note that there was not a spack script for pathtools, we generated the script via pip2spack.
+```
+pip2spack install pathtools
+spack install py-pathtools
+```
 After all these steps, we could finally run the benchmark successfully.
 
 
@@ -324,6 +328,7 @@ a wrapper on bazel build system, which increases the level of indirection and ma
 developers like us). Moreover, since TensorFlow has so many dependencies, it can trigger an explosion of dependencies and with each slight modification to the 
 constraints. However, we do recognise the challenges of developing a smart concretizer that knows when to reuse packages, ignore redundant packages while satisfies all
 constraints. Nonetheless, we still greatly appreciate the work to put into this amazing package manager.
+
 
 ### Performance Summary
 
