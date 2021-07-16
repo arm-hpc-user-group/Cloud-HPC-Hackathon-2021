@@ -235,48 +235,69 @@ We only used MPI library to parallize the code. The thread per process always ke
 |  128   |  0.96     | 0.91	| 1.20	|
 |  256   |  0.76	 | 0.69	| 1.00  |
 
+### Strong Scaling(1-4 nodes) and Compiler Comparison
+
+We only used MPI library to parallize the code. The thread per process always keep 1.
+
+| Cores(MPI rank) | GCC | ARM | NVHPC|
+|-------|------------|------------|------------|
+|  1     |  105.85   | 81.40| 126.14  |
+|  2     |  53.06    | 41.17| 64.26	|
+|  4     |  28.32    | 21.54| 33.99	|
+|  8     |  16.53    | 10.19| 16.28	|
+|  16    |  9.93     | 7.41 | 8.69	|
+|  32    |  4.71     | 3.73 | 4.86	|
+|  64    |  1.99     | 1.94 | 2.56	|
+|  128   |  0.96     | 0.91	| 1.20	|
+|  256   |  0.76	 | 0.69	| 1.00  |
+
 ### Serial Hot-spot Profile
 
 List of top-10 functions / code locations from a serial profile.
 
+Use GCC compiler.
+
 Profiling command used:
 ```
+map --profile srun -N 1 -n 1 kripke.exe --zones 32,32,32
 ```
 
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
+| Position | Routine                                                      | Time (%) |
+| -------- | ------------------------------------------------------------ | -------- |
+| 1        | gomp_team_barrier_wait_end                                   | 24.8%    |
+| 2        | [OpenMP overhead (no region active)]                         | 6.0%     |
+| 3        | RAJA::operators::plus<long, long, long>::operator()(long const&, long const&) const | 3.8%     |
+| 4        | RAJA::detail::LayoutBase_impl<camp::int_seq<long, 0l, 1l, 2l>, long, 2l>::operator()<long, long, long>(long, long, long) const [inlined] | 3.4%     |
+| 5        | camp::forward<long&>(camp::type::ref::rem_s<long&>::type&)   | 2.0%     |
+| 6        | camp::forward<RAJA::operators::plus<long, long, long         | 1.7%     |
+| 7        | RAJA::View<double, RAJA::TypedLayout<long, camp::tuple<Kripke::Moment, Kripke::Group, Kripke::Zone>, 2l>, double*>::operator()<Kripke::Moment, Kripke::Group, Kripke::Zone>(Kripke::Moment, Kripke::Group, Kripke::Zone) const [inlined] | 1.5%     |
+| 8        | RAJA::stripIndexType\<long\>(long) [inlined] (OpenMP)        | 1.5%     |
+| 9        | camp::internal::tuple_storage<3l, long>::get_inner()         | 1.4%     |
+| 10       | LPlusTimesSdom::operator()<Kripke::ArchLayoutT<Kripke::ArchT_OpenMP, Kripke::LayoutT_DGZ (OpenMP) | 1.2%     |
 
 ### Full Node Hot-spot Profile
 
 List of top-10 functions / code locations from a full node profile.
 
+Use GCC compiler.
+
 Profiling command used:
 ```
-:
+map --profile srun -N 1 -n 64 kripke.exe --zones 32,32,32 --procs 4,4,4
 ```
 
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
-| 10       |         |          |          |         |
+| Position | Routine                                                      | Time (%) | MPI (%) |
+| -------- | ------------------------------------------------------------ | -------- | ------- |
+| 1        | RAJA::operators::plus<long, long, long>::operator()(long const&, long const&) const | 5.7%     |         |
+| 2        | RAJA::detail::LayoutBase_impl<camp::int_seq<long, 0l, 1l, 2l>, long, 2l>::operator()<long, long, long>(long, long, long) const [inlined] | 5.1%     |         |
+| 3        | camp::forward<long&>(camp::type::ref::rem_s<long&>::type&)   | 3.0%     |         |
+| 4        | camp::forward<RAJA::operators::plus<long, long, long         | 2.8%     |         |
+| 5        | RAJA::stripIndexType\<long\>(long) [inlined] (OpenMP)        | 2.4%     |         |
+| 6        | RAJA::View<double, RAJA::TypedLayout<long, camp::tuple<Kripke::Moment, Kripke::Group, Kripke::Zone>, 2l>, double*>::operator()<Kripke::Moment, Kripke::Group, Kripke::Zone>(Kripke::Moment, Kripke::Group, Kripke::Zone) const [inlined] | 2.4%     |         |
+| 7        | camp::internal::tuple_storage<3l, long>::get_inner()         | 2.0%     |         |
+| 8        | std::forward<RAJA::internal::LoopData<camp::list<RAJA::statement::Collapse<RAJA::omp_parallel_collapse_exec, camp::int_seq<long, 0l, 2l>, RAJA::statement::For<1l, RAJA::policy::loop::loop_exec, RAJA::statement::For<3l, RAJA::policy::loop::loop_exec, RAJA::statement::Lambda<0l | 2.0%     |         |
+| 9        | MPI_Testany                                                  | 1.9%     | 1.9%    |
+| 10       | RAJA::IndexValue<Kripke::Group, long>::IndexValue(long) [inlined] | 1.8%     |         |
 
 ### Architecture Comparison
 
@@ -377,44 +398,51 @@ We only used MPI library to parallize the code. The thread per process always ke
 
 List of top-10 functions / code locations from a serial profile.
 
+Use GCC compiler
+
 Profiling command used:
+
 ```
+map --profile srun -N 1 -n 1 kripke.exe --zones 32,32,32 --niter 20
 ```
 
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
+| Position | Routine                                                      | Time (%) |
+| -------- | ------------------------------------------------------------ | -------- |
+| 1        | gomp_team_barrier_wait_end                                   | 24.6%    |
+| 2        | [OpenMP overhead (no region active)]                         | 7.0%     |
+| 3        | RAJA::operators::plus<long, long, long>::operator()(long const&, long const&) const | 3.8%     |
+| 4        | RAJA::detail::LayoutBase_impl<camp::int_seq<long, 0l, 1l, 2l>, long, 2l>::operator()<long, long, long>(long, long, long) const [inlined] | 3.4%     |
+| 5        | camp::forward<long&>(camp::type::ref::rem_s<long&>::type&) (OpenMP) | 2.0%     |
+| 6        | camp::forward<RAJA::operators::plus<long, long, long         | 1.9%     |
+| 7        | RAJA::stripIndexType\<long\>(long) [inlined] (OpenMP)        | 1.6%     |
+| 8        | RAJA::View<double, RAJA::TypedLayout<long, camp::tuple<Kripke::Moment, Kripke::Group, Kripke::Zone>, 2l>, double*>::operator()<Kripke::Moment, Kripke::Group, Kripke::Zone>(Kripke::Moment, Kripke::Group, Kripke::Zone) const [inlined] | 1.5%     |
+| 9        | camp::internal::tuple_storage<3l, long>::get_inner()         | 1.4%     |
+| 10       | LPlusTimesSdom::operator()<Kripke::ArchLayoutT<Kripke::ArchT_OpenMP, Kripke::LayoutT_DGZ (OpenMP) | 1.2%     |
 
 ### Full Node Hot-spot Profile
 
 List of top-10 functions / code locations from a full node profile.
 
+Use GCC compiler
+
 Profiling command used:
+
 ```
-:
+map --profile srun -N 1 -n 64 kripke.exe --zones 32,32,32 --niter 20 --procs 4,4,4
 ```
 
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
-| 10       |         |          |          |         |
+| Position | Routine                                                      | Time (%) | MPI (%) |
+| -------- | ------------------------------------------------------------ | -------- | ------- |
+| 1        | RAJA::operators::plus<long, long, long>::operator()(long const&, long const&) const | 5.7%     |         |
+| 2        | RAJA::detail::LayoutBase_impl<camp::int_seq<long, 0l, 1l, 2l>, long, 2l>::operator()<long, long, long>(long, long, long) const [inlined] | 5.3%     |         |
+| 3        | camp::forward<long&>(camp::type::ref::rem_s<long&>::type&)   | 3.0%     |         |
+| 4        | camp::forward<RAJA::operators::plus<long, long, long         | 2.8%     |         |
+| 5        | RAJA::View<double, RAJA::TypedLayout<long, camp::tuple<Kripke::Moment, Kripke::Group, Kripke::Zone>, 2l>, double*>::operator()<Kripke::Moment, Kripke::Group, Kripke::Zone>(Kripke::Moment, Kripke::Group, Kripke::Zone) const [inlined] | 2.3%     |         |
+| 6        | RAJA::stripIndexType\<long\>(long) [inlined] (OpenMP)        | 2.2%     |         |
+| 7        | camp::internal::tuple_storage<3l, long>::get_inner()         | 2.0%     |         |
+| 8        | std::forward<RAJA::internal::LoopData<camp::list<RAJA::statement::Collapse<RAJA::omp_parallel_collapse_exec, camp::int_seq<long, 0l, 2l>, RAJA::statement::For<1l, RAJA::policy::loop::loop_exec, RAJA::statement::For<3l, RAJA::policy::loop::loop_exec, RAJA::statement::Lambda<0l | 1.9%     |         |
+| 9        | RAJA::IndexValue<Kripke::Group, long>::IndexValue(long) [inlined] | 1.7%     |         |
+| 10       | RAJA::detail::ConditionalMultiply<1l, 2l>::multiply<long, long>(long, long) [inlined] | 1.7%     |         |
 
 ### Architecture Comparison
 
@@ -466,44 +494,51 @@ We only used MPI library to parallize the code. The thread per process always ke
 
 List of top-10 functions / code locations from a serial profile.
 
+Use GCC compiler
+
 Profiling command used:
+
 ```
+map --profile srun -N 1 -n 1 kripke.exe --zones 32,32,32 --groups 64
 ```
 
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
+| Position | Routine                                                      | Time (%) |
+| -------- | ------------------------------------------------------------ | -------- |
+| 1        | gomp_team_barrier_wait_end                                   | 23.1%    |
+| 2        | [OpenMP overhead (no region active)]                         | 4.3%     |
+| 3        | RAJA::operators::plus<long, long, long>::operator()(long const&, long const&) const | 4.1%     |
+| 4        | RAJA::detail::LayoutBase_impl<camp::int_seq<long, 0l, 1l, 2l>, long, 2l>::operator()<long, long, long>(long, long, long) const [inlined] | 3.5%     |
+| 5        | camp::forward<long&>(camp::type::ref::rem_s<long&>::type&) (OpenMP) | 2.3%     |
+| 6        | camp::forward<RAJA::operators::plus<long, long, long         | 1.9%     |
+| 7        | ScatteringSdom::operator()<Kripke::ArchLayoutT<Kripke::ArchT_OpenMP, Kripke::LayoutT_DGZ | 1.8%     |
+| 8        | RAJA::stripIndexType\<long\>(long) [inlined] (OpenMP)        | 1.7%     |
+| 9        | RAJA::View<double, RAJA::TypedLayout<long, camp::tuple<Kripke::Moment, Kripke::Group, Kripke::Zone>, 2l>, double*>::operator()<Kripke::Moment, Kripke::Group, Kripke::Zone>(Kripke::Moment, Kripke::Group, Kripke::Zone) const [inlined] | 1.7%     |
+| 10       | camp::internal::tuple_storage<3l, long>::get_inner()         | 1.4%     |
 
 ### Full Node Hot-spot Profile
 
 List of top-10 functions / code locations from a full node profile.
 
+Use GCC compiler
+
 Profiling command used:
+
 ```
-:
+map --profile srun -N 1 -n 64 kripke.exe --zones 32,32,32 --groups 64 --procs 4,4,4
 ```
 
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
-| 10       |         |          |          |         |
+| Position | Routine                                                      | Time (%) | MPI (%) |
+| -------- | ------------------------------------------------------------ | -------- | ------- |
+| 1        | RAJA::operators::plus<long, long, long>::operator()(long const&, long const&) const | 5.6%     |         |
+| 2        | RAJA::detail::LayoutBase_impl<camp::int_seq<long, 0l, 1l, 2l>, long, 2l>::operator()<long, long, long>(long, long, long) const [inlined] | 5.2%     |         |
+| 3        | camp::forward<long&>(camp::type::ref::rem_s<long&>::type&)   | 3.1%     |         |
+| 4        | ScatteringSdom::operator()<Kripke::ArchLayoutT<Kripke::ArchT_OpenMP, Kripke::LayoutT_DGZ | 2.9%     |         |
+| 5        | RAJA::stripIndexType<long>(long) [inlined] (OpenMP)          | 2.5%     |         |
+| 6        | RAJA::View<double, RAJA::TypedLayout<long, camp::tuple<Kripke::Moment, Kripke::Group, Kripke::Zone>, 2l>, double*>::operator()<Kripke::Moment, Kripke::Group, Kripke::Zone>(Kripke::Moment, Kripke::Group, Kripke::Zone) const [inlined] | 2.5%     |         |
+| 7        | camp::forward<RAJA::operators::plus<long, long, long         | 2.5%     |         |
+| 8        | camp::internal::tuple_storage<3l, long>::get_inner()         | 2.0%     |         |
+| 9        | RAJA::IndexValue<Kripke::Group, long>::IndexValue(long) [inlined] | 1.8%     |         |
+| 10       | RAJA::IndexValue<Kripke::Zone, long>::IndexValue(long) [inlined] | 1.6%     |         |
 
 ### Architecture Comparison
 
@@ -604,44 +639,52 @@ We only used MPI library to parallize the code. The thread per process always ke
 
 List of top-10 functions / code locations from a serial profile.
 
+Use GCC compiler
+
 Profiling command used:
+
 ```
+map --profile srun -N 1 -n 1 kripke.exe --zones 32,32,64
 ```
 
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
+| Position | Routine                                                      | Time (%) |
+| -------- | ------------------------------------------------------------ | -------- |
+| 1        | gomp_team_barrier_wait_end                                   | 22.9%    |
+| 2        | [OpenMP overhead (no region active)]                         | 4.9%     |
+| 3        | RAJA::operators::plus<long, long, long>::operator()(long const&, long const&) const | 3.9%     |
+| 4        | RAJA::detail::LayoutBase_impl<camp::int_seq<long, 0l, 1l, 2l>, long, 2l>::operator()<long, long, long>(long, long, long) const [inlined] | 3.7%     |
+| 5        | camp::forward<long&>(camp::type::ref::rem_s<long&>::type&)   | 2.0%     |
+| 6        | camp::forward<RAJA::operators::plus<long, long, long         | 1.9%     |
+| 7        | RAJA::View<double, RAJA::TypedLayout<long, camp::tuple<Kripke::Moment, Kripke::Group, Kripke::Zone>, 2l>, double*>::operator()<Kripke::Moment, Kripke::Group, Kripke::Zone>(Kripke::Moment, Kripke::Group, Kripke::Zone) const [inlined] | 1.7%     |
+| 8        | RAJA::stripIndexType\<long\>(long) [inlined] (OpenMP)        | 1.6%     |
+| 9        | std::forward<RAJA::internal::LoopData<camp::list<RAJA::statement::Collapse<RAJA::omp_parallel_collapse_exec, camp::int_seq<long, 0l, 2l>, RAJA::statement::For<1l, RAJA::policy::loop::loop_exec, RAJA::statement::For<3l, RAJA::policy::loop::loop_exec, RAJA::statement::Lambda<0l | 1.4%     |
+| 10       | camp::internal::tuple_storage<3l, long>::get_inner()         | 1.4%     |
 
 ### Full Node Hot-spot Profile
 
 List of top-10 functions / code locations from a full node profile.
 
+Use GCC compiler
+
 Profiling command used:
+
 ```
-:
+map --profile srun -N 1 -n 64 kripke.exe --zones 32,32,64 --procs 4,4,4
 ```
 
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
-| 10       |         |          |          |         |
+| Position | Routine                                                      | Time (%) | MPI (%) |
+| -------- | ------------------------------------------------------------ | -------- | ------- |
+| 1        | RAJA::operators::plus<long, long, long>::operator()(long const&, long const&) const | 5.7%     |         |
+| 2        | RAJA::detail::LayoutBase_impl<camp::int_seq<long, 0l, 1l, 2l>, long, 2l>::operator()<long, long, long>(long, long, long) const [inlined] | 4.9%     |         |
+| 3        | camp::forward<long&>(camp::type::ref::rem_s<long&>::type&)   | 3.0%     |         |
+| 4        | camp::forward<RAJA::operators::plus<long, long, long         | 2.7%     |         |
+| 5        | RAJA::View<double, RAJA::TypedLayout<long, camp::tuple<Kripke::Moment, Kripke::Group, Kripke::Zone>, 2l>, double*>::operator()<Kripke::Moment, Kripke::Group, Kripke::Zone>(Kripke::Moment, Kripke::Group, Kripke::Zone) const [inlined] | 2.4%     |         |
+| 6        | RAJA::stripIndexType\<long\>(long) [inlined] (OpenMP)        | 2.4%     |         |
+| 7        | camp::internal::tuple_storage<3l, long>::get_inner()         | 2.1%     |         |
+| 8        | std::forward<RAJA::internal::LoopData<camp::list<RAJA::statement::Collapse<RAJA::omp_parallel_collapse_exec, camp::int_seq<long, 0l, 2l>, RAJA::statement::For<1l, RAJA::policy::loop::loop_exec, RAJA::statement::For<3l, RAJA::policy::loop::loop_exec, RAJA::statement::Lambda<0l | 1.9%     |         |
+| 9        | RAJA::IndexValue<Kripke::Group, long>::IndexValue(long) [inlined] | 1.8%     |         |
+| 10       | LTimesSdom::operator()<Kripke::ArchLayoutT<Kripke::ArchT_OpenMP, Kripke::LayoutT_DGZ | 1.8%     |         |
+
 
 ### Architecture Comparison
 
