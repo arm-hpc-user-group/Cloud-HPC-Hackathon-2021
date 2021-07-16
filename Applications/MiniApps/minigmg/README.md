@@ -124,42 +124,42 @@ List of top-10 functions / code locations from a full node profile.
 #### gcc
 #### Test Case 1  
 Profiling script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_p5_test1_gcc.py)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test1_gcc.py)  
 ![w1g](pictures/w1g.png)
 
 #### Test Case 2
 Profiling script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_p5_test2_gcc.py)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test2_gcc.py)  
 ![w2g](pictures/w2g.png)
 
 #### Test Case 3
 Profiling script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_p5_test3_gcc.py)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test3_gcc.py)  
 ![w3g](pictures/w3g.png)
 
 #### Test Case 4
 Profiling script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_p5_test4_gcc.py)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test4_gcc.py)  
 
 #### arm
 #### Test Case 1  
 Profiling script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_p5_test1_arm.py)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test1_arm.py)  
 ![w1a](pictures/w1a.png)
 
 #### Test Case 2
 Profiling script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_p5_test2_arm.py)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test2_arm.py)  
 ![w2a](pictures/w2a.png)
 
 #### Test Case 3
 Profiling script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_p5_test3_arm.py)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test3_arm.py)  
 ![w3a](pictures/w3a.png)
 
 #### Test Case 4
 Profiling script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_p5_test4_arm.py)
+[ReFrame Benchmark](reframe_scripts/benchmark_p5_test4_arm.py)  
 ![w4a](pictures/w4a.png)
 
 ### Strong Scaling Study
