@@ -243,6 +243,9 @@ Profiling command used:
 ### Strong Scaling Study
 
 On-node scaling study for two compilers.
+Due to time constraint, performance of 1 and 2 cores are projected by performing a single epoch and projected
+to a four epoch performance, while others perform full four epoch training. From some empirical observation, runtime
+of each epoch is consistantly similar.
 
 | Cores | gcc@10.3.0 |
 |-------|------------|
@@ -285,12 +288,19 @@ However, we see some good scaling behaviour for ARM architecture, with almost li
 
 ### Compilation Summary
 
-Details of lessons from compiling the application.
+Compilation of python applications in our experience is quite challenging, especially for big projects like Tensorflow. Since Python does not 
+enforce explicit build system and dependencies, it is hard to make a good spack receipe as stating every constraint can be challenging, and we do encounter a few 
+packages that require us to install separately, even as spack installation is successful. Moreover, in this particular build, spack feels more like
+a wrapper on bazel build system, which increases the level of indirection and make some configurations and bug fixes convoluted(at least for inexperienced spack 
+developers like us). Moreover, since TensorFlow has so many dependencies, it can trigger an explosion of dependencies and with each slight modification to the 
+constraints. However, we do recognise the challenges of developing a smart concretizer that knows when to reuse packages, ignore redundant packages while satisfies all
+constraints. Nonetheless, we still greatly appreciate the work to put into this amazing package manager.
 
 ### Performance Summary
 
-Details of lessons from analysing the performance of the application.
+For this application, we see good linear scaling as number of cores increases. This is probabily due to the proper partitioning of workloads by Tensorflow and hence the 
+runtime decreases linearly with increase core count. Moreover, Aarch64 outperforms x86 Skylake by >= 40%, exciting results.
 
 ### Optimisation Summary
 
-Details of lessons from performance optimising the application.
+We did not manage to perform fine tuning of python libraries, such as building numpy with Openblas and other math libraries due to time constraint. Such a pity :(.
