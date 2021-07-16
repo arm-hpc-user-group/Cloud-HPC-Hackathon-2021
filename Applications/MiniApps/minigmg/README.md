@@ -526,7 +526,6 @@ Compiler: gcc
 #### Test Case 1
 X86 script:  
 [ReFrame Benchmark](reframe_scripts/benchmark_onnode_test1_gcc_x86.py)  
-Time: 
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
 | 8     | 6.31 s           | 19.91 s   |
@@ -537,7 +536,6 @@ Time:
 #### Test Case 2
 X86 script:  
 [ReFrame Benchmark](reframe_scripts/benchmark_onnode_test2_gcc_x86.py)  
-Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
 | 8     | 41.18 s           | 72.85 s   |
@@ -548,7 +546,6 @@ Time:
 #### Test Case 3
 X86 script:  
 [ReFrame Benchmark](reframe_scripts/benchmark_onnode_test3_gcc_x86.py)  
-Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
 | 8     | 314.23 s           | 543.84 s  |
@@ -559,7 +556,6 @@ Time:
 #### Test Case 4
 X86 script:  
 [ReFrame Benchmark](reframe_scripts/benchmark_onnode_test4_gcc_x86.py)  
-Time:
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
 | 8     | 789.04 s           | 1305.74 s |
