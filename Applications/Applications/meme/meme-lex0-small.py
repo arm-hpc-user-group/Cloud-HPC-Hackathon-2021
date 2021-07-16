@@ -9,12 +9,11 @@ import hackathon as hack
 
 
 # Where to run the binaries 'aws:c6gn' on Arm or 'aws:c5n' on Intel
-my_valid_systems = ['aws:c6gn']
+my_valid_systems = ['aws:c5n' if os.uname().machine == 'x86_64' else 'aws:c6gn']
 
 # Logging Variables
 my_log_team_name = 'TeamEPCC'
 my_log_app_name = 'meme'
-my_log_test_name = 'meme'
 
 rfile = 'lex0.fna.txt'  # reference output
 ofile = 'lex0.fna.out'  # actual output
@@ -39,12 +38,25 @@ my_spec = [
 # Parameters - MPI / Threads - Used for scaling studies
 my_parallelism = [
     { 'nodes' : 1, 'mpi' :  1, 'omp' : 1},
-    #{ 'nodes' : 1, 'mpi' :  2, 'omp' : 1},
-    #{ 'nodes' : 1, 'mpi' :  4, 'omp' : 1},
-    #{ 'nodes' : 1, 'mpi' :  8, 'omp' : 1},
-    #{ 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
-    #{ 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
-    #{ 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' :  3, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' :  9, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' : 18, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' : 36, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' : 72, 'omp' : 1},
+    { 'nodes' : 2, 'mpi' : 72, 'omp' : 1},
+    { 'nodes' : 4, 'mpi' : 72, 'omp' : 1},
+    { 'nodes' : 8, 'mpi' : 72, 'omp' : 1},
+] if 'aws:c5n' in my_valid_systems else [
+    { 'nodes' : 1, 'mpi' :  1, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' :  2, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' :  4, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' :  8, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
+    { 'nodes' : 2, 'mpi' : 64, 'omp' : 1},
+    { 'nodes' : 4, 'mpi' : 64, 'omp' : 1},
+    { 'nodes' : 8, 'mpi' : 64, 'omp' : 1},
 ]
 
 my_postrun_cmds = [
@@ -60,7 +72,7 @@ class MemeLex09(hack.HackathonBase):
 
     log_team_name = my_log_team_name
     log_app_name  = my_log_app_name
-    log_test_name = my_log_test_name
+    log_test_name = __name__[4:]
 
     prerun_cmds = my_prerun_cmds
 
@@ -74,6 +86,11 @@ class MemeLex09(hack.HackathonBase):
     parallelism = parameter(my_parallelism)
 
     postrun_cmds = my_postrun_cmds
+
+    # Request exclusive nodes from slurm
+    @run_before('run')
+    def prepare_job(self):
+        self.job.options += ['--exclusive']
 
     # Code validation
     @run_before('sanity')
