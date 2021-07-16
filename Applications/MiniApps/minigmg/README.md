@@ -180,7 +180,30 @@ $ spack spec -Il minigmg@local%nvhpc
 
 ### Validation
 
-miniGMG reduces the norm until it is less than 1e-15. If the norm is still greater than 1e-15 after `maxVCycles` v-cycles, the program will ends with incorrect results. So we check if all the norms produced by last v-cycles are less than 1e-15.
+miniGMG reduces the norm until it is less than 1e-15. If the norm is still greater than 1e-15 after `maxVCycles` v-cycles, the program will ends with incorrect results. So we check if all the norms produced by last v-cycles are less than 1e-15.  
+#### Test Case 1
+arm script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_v_test1_arm.py)    
+gcc script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_v_test1_gcc.py)  
+
+#### Test Case 2
+arm script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_v_test2_arm.py)    
+gcc script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_v_test2_gcc.py)  
+
+#### Test Case 3
+arm script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_v_test3_arm.py)    
+gcc script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_v_test3_gcc.py)  
+
+#### Test Case 4
+arm script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_v_test4_arm.py)    
+gcc script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_v_test4_gcc.py)  
 
 
 ### ReFrame Output
