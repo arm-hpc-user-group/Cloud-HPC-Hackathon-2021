@@ -293,7 +293,7 @@ GATK_gatk_countreads_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_
 
 ### On-node Compiler Comparison
 
-Performance comparison of two compilers.
+Performance comparison of two compilers. 
 
 | BAM | gcc        | arm        |
 |-------|------------|------------|
@@ -301,6 +301,92 @@ Performance comparison of two compilers.
 | medium   |  414 s    |   408 s   |
 | large   |   4488 s     |  4488 s  |
 
+
+### Serial Hot-spot Profile
+
+List of top-10 functions / code locations from a serial profile.
+
+Profiling command used:
+```
+:
+```
+
+| Position | Routine | Time (s) | Time (%) |
+|----------|---------|----------|----------|
+| 1        |         |          |          |
+| 2        |         |          |          |
+| 3        |         |          |          |
+| 4        |         |          |          |
+| 5        |         |          |          |
+| 6        |         |          |          |
+| 7        |         |          |          |
+| 8        |         |          |          |
+| 9        |         |          |          |
+| 10       |         |          |          |
+
+
+### Full Node Hot-spot Profile
+
+List of top-10 functions / code locations from a full node profile.
+
+Profiling command used:
+```
+:
+```
+
+| Position | Routine | Time (s) | Time (%) | MPI (%) |
+|----------|---------|----------|----------|---------|
+| 1        |         |          |          |         |
+| 2        |         |          |          |         |
+| 3        |         |          |          |         |
+| 4        |         |          |          |         |
+| 5        |         |          |          |         |
+| 6        |         |          |          |         |
+| 7        |         |          |          |         |
+| 8        |         |          |          |         |
+| 9        |         |          |          |         |
+| 10       |         |          |          |         |
+
+### Strong Scaling Study
+
+On-node scaling study for two compilers.
+
+| Cores | Compiler 1 | Compiler 2 |
+|-------|------------|------------|
+| 1     |            |            |
+| 2     |            |            |
+| 4     |            |            |
+| 8     |            |            |
+| 16    |            |            |
+| 32    |            |            |
+| 64    |            |            |
+
+
+### Off-Node Scaling Study
+
+Off-node scaling study was not performed.
+
+### On-Node Architecture Comparison
+
+On-node scaling study for two architectures.
+
+| Cores | C6gn (Aarch64) | C5n (X86) |
+|-------|------------|------------|
+| small   | < sec      |   < sec    |
+| medium   |  414 s    |  384 s   |
+| large   |   4488 s     |  3630 s  |
+
+WIP: can also test scaling JVM with `taskset --cpu-list 0 gatk <tool ... >` etc
+
+| Cores | C6gn (Aarch64) | C5n (X86) |
+|-------|----------------|-----------|
+| 1     |                |           |
+| 2     |                |           |
+| 4     |                |           |
+| 8     |                |           |
+| 16    |                |           |
+| 32    |                |           |
+| 64    |                |           |
 
 
 ## Test Case 2
@@ -379,6 +465,104 @@ GATK_gatk_countreadsspark_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1
 ------------------------------------------------------------------------------
 ```
 
+### On-node Compiler Comparison
+
+`gcc@10.3.0` was compared against `arm@21.0.0.879`. 
+
+| BAM | gcc        | arm        |
+|-------|------------|------------|
+| small   | 0.54 s      |   0.51 s    |
+| medium   |  302.35 s  |   302.26 s   |
+| large   |  3231.73 s  | 3234.87 s   |
+
+
+### Serial Hot-spot Profile
+
+List of top-10 functions / code locations from a serial profile.
+
+Profiling command used:
+```
+:
+```
+
+| Position | Routine | Time (s) | Time (%) |
+|----------|---------|----------|----------|
+| 1        |         |          |          |
+| 2        |         |          |          |
+| 3        |         |          |          |
+| 4        |         |          |          |
+| 5        |         |          |          |
+| 6        |         |          |          |
+| 7        |         |          |          |
+| 8        |         |          |          |
+| 9        |         |          |          |
+| 10       |         |          |          |
+
+
+### Full Node Hot-spot Profile
+
+List of top-10 functions / code locations from a full node profile.
+
+Profiling command used:
+```
+:
+```
+
+| Position | Routine | Time (s) | Time (%) | MPI (%) |
+|----------|---------|----------|----------|---------|
+| 1        |         |          |          |         |
+| 2        |         |          |          |         |
+| 3        |         |          |          |         |
+| 4        |         |          |          |         |
+| 5        |         |          |          |         |
+| 6        |         |          |          |         |
+| 7        |         |          |          |         |
+| 8        |         |          |          |         |
+| 9        |         |          |          |         |
+| 10       |         |          |          |         |
+
+### Strong Scaling Study
+
+On-node scaling study for two compilers.
+
+| Cores | Compiler 1 | Compiler 2 |
+|-------|------------|------------|
+| 1     |            |            |
+| 2     |            |            |
+| 4     |            |            |
+| 8     |            |            |
+| 16    |            |            |
+| 32    |            |            |
+| 64    |            |            |
+
+
+### Off-Node Scaling Study
+
+Off-node scaling study was not performed.
+
+### On-Node Architecture Comparison
+
+On-node scaling study for two architectures.
+
+| Cores | C6gn (Aarch64) | C5n (X86) |
+|-------|------------|------------|
+| small   | 0.54 s      |  0.39 s    |
+| medium   |  302.35 s  |  281.91 s    |
+| large   |  3231.73 s  |  2835.65 s  |
+
+WIP: can also test scaling JVM with `taskset --cpu-list 0 gatk <tool ... >` etc
+
+| Cores | C6gn (Aarch64) | C5n (X86) |
+|-------|----------------|-----------|
+| 1     |                |           |
+| 2     |                |           |
+| 4     |                |           |
+| 8     |                |           |
+| 16    |                |           |
+| 32    |                |           |
+| 64    |                |           |
+
+
 ## Test Case 3
 
 This confirms that GATK is working by doing a common read analysis of base pairs in a BAM file using the `BaseCounts` tool that has been in all versions of GATK. This is run against the small, medium and large sequencing runs noted in the description. This is run on both the ARM and x86 HPC.
@@ -416,7 +600,17 @@ GATK_gatk_countbases_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1
 GATK_gatk_countbases_1000_genomes_low_coverage_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 402.0 s
+      * Total Time: 408.0 s
+------------------------------------------------------------------------------
+GATK_gatk_countbases_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 4488.0 s
+------------------------------------------------------------------------------
+GATK_gatk_countbases_1000_genomes_high_coverage_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 4488.0 s
 ------------------------------------------------------------------------------
 ```
 
@@ -443,6 +637,105 @@ GATK_gatk_countbases_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_
 ------------------------------------------------------------------------------
 ```
 
+### On-node Compiler Comparison
+
+`gcc@10.3.0` was compared against `arm@21.0.0.879`.
+
+| BAM | gcc        | arm        |
+|-------|------------|------------|
+| small   | < 1 s     | < 1 s    |
+| medium   | 408 s  |   408 s   |
+| large   |  4488 s  | 4488 s   |
+
+
+### Serial Hot-spot Profile
+
+List of top-10 functions / code locations from a serial profile.
+
+Profiling command used:
+```
+:
+```
+
+| Position | Routine | Time (s) | Time (%) |
+|----------|---------|----------|----------|
+| 1        |         |          |          |
+| 2        |         |          |          |
+| 3        |         |          |          |
+| 4        |         |          |          |
+| 5        |         |          |          |
+| 6        |         |          |          |
+| 7        |         |          |          |
+| 8        |         |          |          |
+| 9        |         |          |          |
+| 10       |         |          |          |
+
+
+### Full Node Hot-spot Profile
+
+List of top-10 functions / code locations from a full node profile.
+
+Profiling command used:
+```
+:
+```
+
+| Position | Routine | Time (s) | Time (%) | MPI (%) |
+|----------|---------|----------|----------|---------|
+| 1        |         |          |          |         |
+| 2        |         |          |          |         |
+| 3        |         |          |          |         |
+| 4        |         |          |          |         |
+| 5        |         |          |          |         |
+| 6        |         |          |          |         |
+| 7        |         |          |          |         |
+| 8        |         |          |          |         |
+| 9        |         |          |          |         |
+| 10       |         |          |          |         |
+
+### Strong Scaling Study
+
+On-node scaling study for two compilers.
+
+| Cores | Compiler 1 | Compiler 2 |
+|-------|------------|------------|
+| 1     |            |            |
+| 2     |            |            |
+| 4     |            |            |
+| 8     |            |            |
+| 16    |            |            |
+| 32    |            |            |
+| 64    |            |            |
+
+
+### Off-Node Scaling Study
+
+Off-node scaling study was not performed.
+
+### On-Node Architecture Comparison
+
+On-node scaling study for two architectures.
+
+| Cores | C6gn (Aarch64) | C5n (X86) |
+|-------|------------|------------|
+| small   | < 1 s     | < 1 s    |
+| medium   | 408 s  |  486 s   |
+| large   |  4488 s  | 4374 s   |
+
+WIP: can also test scaling JVM with `taskset --cpu-list 0 gatk <tool ... >` etc
+
+| Cores | C6gn (Aarch64) | C5n (X86) |
+|-------|----------------|-----------|
+| 1     |                |           |
+| 2     |                |           |
+| 4     |                |           |
+| 8     |                |           |
+| 16    |                |           |
+| 32    |                |           |
+| 64    |                |           |
+
+
+
 ## Test Case 4
 
 [ReFrame Benchmark 4](#)
@@ -468,22 +761,32 @@ GATK_gatk_countbasesspark_hiseq_2500_20k_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 1
-      * Total Time: 0.656905 s
+      * Total Time: 0.689159 s
 ------------------------------------------------------------------------------
 GATK_gatk_countbasesspark_hiseq_2500_20k_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 0.676111 s
+      * Total Time: 0.68249 s
 ------------------------------------------------------------------------------
 GATK_gatk_countbasesspark_1000_genomes_low_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 451.688856 s
+      * Total Time: 454.830457 s
 ------------------------------------------------------------------------------
 GATK_gatk_countbasesspark_1000_genomes_low_coverage_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 458.258934 s
+      * Total Time: 461.68703 s
+------------------------------------------------------------------------------
+GATK_gatk_countbases_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 4488.0 s
+------------------------------------------------------------------------------
+GATK_gatk_countbases_1000_genomes_high_coverage_gatk_4_1_8_1_arm_21_0_0_879_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 4488.0 s
 ------------------------------------------------------------------------------
 ```
 
@@ -513,11 +816,13 @@ GATK_gatk_countbasesspark_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1
 
 ### On-node Compiler Comparison
 
-Performance comparison of two compilers.
+`gcc@10.3.0` was compared against `arm@21.0.0.879`.
 
-| Cores | gcc@10.3.0 | arm@ |
+| BAM | gcc        | arm        |
 |-------|------------|------------|
-| All   |            |            |
+| small   | < 0.69 s     | < 0.68 s    |
+| medium   | 454.83 s  |   461.68 s   |
+| large   |  4488 s  | 4488 s   |
 
 
 ### Serial Hot-spot Profile
@@ -598,6 +903,13 @@ Off-node scaling study comparing C6g and C6gn instances.
 ### On-Node Architecture Comparison
 
 On-node scaling study for two architectures.
+| BAM size | C6gn (Aarch64) | C5n (X86) |
+|-------|------------|------------|
+| small   | < 0.69 s     | < 0.54 s    |
+| medium   | 454.83 s  |   505.12 s   |
+| large   |  4488 s  | 4680 s   |
+
+WIP: can scale using taskset
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
 |-------|----------------|-----------|
@@ -685,7 +997,7 @@ GATK compiles and runs on the new ARM HPC as well as it does on the x86 HPC. One
 
 GATK is able to process genomics data on both HPCs. The new GATK Sparck-based tools appear to be notably faster than the legacy GATK3 implementations. Since the JVM is used for many of these applications, it did seem to make sense to do performance sweeps using MPI and OpenMP. The JVM is already threading efficiently to take advantage of multiple processing cores and the Spark tools are capable of doing map/reduce-style processing.
 
-OpenJDK appears to be notably faster on the x86.
+GATK appears to be marginally faster on C6gn (Aarch64) compared to C5n (X86) for the tasks tested.
 
 
 ### Optimisation Summary
