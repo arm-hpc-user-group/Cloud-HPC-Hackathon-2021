@@ -206,23 +206,9 @@ spack install mrbayes%nvhpc ^cmake%gcc ^python%gcc ^util-linux-uuid%gcc ^libbsd%
 Details of the validation for `Test Case 1`.
 
 
-### ReFrame Output
+### ReFrame Output & On-node Compiler Comparison
 
-```
-==============================================================================
-PERFORMANCE REPORT
-------------------------------------------------------------------------------
-     **** 
-------------------------------------------------------------------------------
-```
-
-### On-node Compiler Comparison
-
-Performance comparison of two compilers.
-
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-|       |            |            |
+We didn't use this case for reframe tests because it keeps bugging out.
 
 
 ### Serial Hot-spot Profile
@@ -291,20 +277,96 @@ Details of the validation for `Test Case 1`.
 ### ReFrame Output
 
 ```
+GCC compiler
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-     **** 
+MrBayes_case3_gcc_mrbayes_3_2_7a_gcc_10_3_0_ly2t2fo_N_1_MPI_4_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 4
+      * Total Time: 2059.25 None
+------------------------------------------------------------------------------
+MrBayes_case3_gcc_mrbayes_3_2_7a_gcc_10_3_0_ly2t2fo_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 1056.84 None
+------------------------------------------------------------------------------
+MrBayes_case3_gcc_mrbayes_3_2_7a_gcc_10_3_0_ly2t2fo_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 550.44 None
+------------------------------------------------------------------------------
+MrBayes_case3_gcc_mrbayes_3_2_7a_gcc_10_3_0_ly2t2fo_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 302.7 None
+------------------------------------------------------------------------------
+MrBayes_case3_gcc_mrbayes_3_2_7a_gcc_10_3_0_ly2t2fo_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 197.15 None
+------------------------------------------------------------------------------
+MrBayes_case3_gcc_mrbayes_3_2_7a_gcc_10_3_0_ly2t2fo_N_2_MPI_128_OMP_1
+   - builtin
+      * num_tasks: 128
+      * Total Time: 206.04 None
 ------------------------------------------------------------------------------
 ```
 
-### On-node Compiler Comparison
+```
+ARM compiler
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+MrBayes_case3_arm_mrbayes_3_2_7a_arm_21_0_0_879_qxbrwxu_N_1_MPI_4_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 4
+      * Total Time: 1822.83 None
+------------------------------------------------------------------------------
+MrBayes_case3_arm_mrbayes_3_2_7a_arm_21_0_0_879_qxbrwxu_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 935.46 None
+------------------------------------------------------------------------------
+MrBayes_case3_arm_mrbayes_3_2_7a_arm_21_0_0_879_qxbrwxu_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 486.71 None
+------------------------------------------------------------------------------
+MrBayes_case3_arm_mrbayes_3_2_7a_arm_21_0_0_879_qxbrwxu_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 265.93 None
+------------------------------------------------------------------------------
+MrBayes_case3_arm_mrbayes_3_2_7a_arm_21_0_0_879_qxbrwxu_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 971.33 None
+------------------------------------------------------------------------------
+MrBayes_case3_arm_mrbayes_3_2_7a_arm_21_0_0_879_qxbrwxu_N_2_MPI_128_OMP_1
+   - builtin
+      * num_tasks: 128
+      * Total Time: 195.2 None
+------------------------------------------------------------------------------
+```
 
-Performance comparison of two compilers.
+### Strong Scaling (on&off-node, 1-4 nodes) and Compiler Comparison
 
-| Cores | Compiler 1 | Compiler 2 |
-| ----- | ---------- | ---------- |
-|       |            |            |
+This includes results of tasks: P2, P3, P6
+
+This test case fails on 4 nodes, but is normal with the rest.
+
+| Cores(MPI rank) | GCC | ARM |
+|-------|------------|------------|
+|  4     |   2059   | 1822 |
+|  8     |   1057   | 935 |
+|  16    |   550    | 486 |
+|  32    |   302    | 265 |
+|  64    |   197    | 971 |
+|  128   |   206    | 195	|
+|  256   |  FAIL	 | FAIL	|
 
 
 ### Serial Hot-spot Profile
@@ -372,24 +434,10 @@ map --profile srun -N 1 -n 64 mb hym.nex
 Details of the validation for `Test Case 1`.
 
 
-### ReFrame Output
+### ReFrame Output & On-node Compiler Comparison
 
-```
-==============================================================================
-PERFORMANCE REPORT
-------------------------------------------------------------------------------
-     **** 
-------------------------------------------------------------------------------
-```
 
-### On-node Compiler Comparison
-
-Performance comparison of two compilers.
-
-| Cores | Compiler 1 | Compiler 2 |
-| ----- | ---------- | ---------- |
-|       |            |            |
-
+We did not use this test case for reframe tests.
 
 ### Serial Hot-spot Profile
 
@@ -456,23 +504,10 @@ map --profile srun -N 1 -n 64 mb kim.nex
 Details of the validation for `Test Case 1`.
 
 
-### ReFrame Output
+### ReFrame Output & On-node Compiler Comparison
 
-```
-==============================================================================
-PERFORMANCE REPORT
-------------------------------------------------------------------------------
-     **** 
-------------------------------------------------------------------------------
-```
 
-### On-node Compiler Comparison
-
-Performance comparison of two compilers.
-
-| Cores | Compiler 1 | Compiler 2 |
-| ----- | ---------- | ---------- |
-|       |            |            |
+We did not use this test case for reframe tests.
 
 
 ### Serial Hot-spot Profile
@@ -639,9 +674,15 @@ Demonstrate your gains by providing a scaling study for your test case, demonstr
 
 Compiling this application is also tricky because some dependencies just cannot fit for a specific compiler (most only compiler-related, instead of architecture-related). We need to mix-up some binaries in order for the project to work properly. From our experience, gcc & arm can mostly work out of the box, while nvhpc suffers a lot compiling errors.
 
+Compiling on aarch64 nodes only succeeded after turning off sse2 support in libbeagle.
+
 ### Performance Summary
 
-The performance matches with our expectations. 
+This app scales normally on multiple cores.
+
+When testing with 1 core, the running time for a test case is so long that we have to give up running it.
+
+Then when testing with multiple cores, we can see the run time is reduced effectively.
 
 ### Optimisation Summary
 
