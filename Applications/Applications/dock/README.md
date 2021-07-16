@@ -155,12 +155,6 @@ $ spack spec -Il dock@6.9%nvhpc@21.2+mpi
 
 ## Test Case 1
 
-[ReFrame Benchmark 1](#)
-
-```
-../bin/reframe -c benchmark.py -r --performance-report
-```
-
 ### Validation
 
 Details of the validation for `Test Case 1`.
@@ -214,10 +208,10 @@ PERFORMANCE REPORT
 ### On-node Compiler Comparison
 
 arm: arm@21.0.0.879  
-gcc: gcc@10.3.0
-nvhpc: nvhpc@21.2
+gcc: gcc@10.3.0  
+nvhpc: nvhpc@21.2  
 
-Performance comparison of three compilers.
+Performance comparison of three compilers.  
 
 #### Test Case 1
 arm script:
@@ -239,7 +233,7 @@ arm script:
 gcc script:
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test2_gcc.py)   
 nvhpc script
-[ReFrame Benchmark](reframe_scripts/dock_onnode_test2_nv.py)
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test2_nv.py)  
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
 | 8     | 380.47 s           | 379.55 s            | 452.45 s |
@@ -253,7 +247,7 @@ arm script:
 gcc script:
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test3_gcc.py)   
 nvhpc script
-[ReFrame Benchmark](reframe_scripts/dock_onnode_test3_nv.py)
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test3_nv.py)  
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
 | 8     | 147.27 s           | 149.21 s           | 176.54 s |
@@ -267,7 +261,7 @@ arm script:
 gcc script:
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test4_gcc.py)   
 nvhpc script
-[ReFrame Benchmark](reframe_scripts/dock_onnode_test4_nv.py)
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test4_nv.py)  
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
 | 8     | 624.82 s           | 640.2 s           | 774.42 s |
@@ -379,7 +373,7 @@ arm script:
 gcc script:
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test1_gcc.py)   
 nvhpc script
-[ReFrame Benchmark](reframe_scripts/dock_onnode_test1_nv.py)
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test1_nv.py)  
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
 | 8     | 5.4 s          | 4.76 s           | 5.23 s |
@@ -393,7 +387,7 @@ arm script:
 gcc script:
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test2_gcc.py)   
 nvhpc script
-[ReFrame Benchmark](reframe_scripts/dock_onnode_test2_nv.py)
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test2_nv.py)  
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
 | 8     | 380.47 s           | 379.55 s            | 452.45 s |
@@ -407,7 +401,7 @@ arm script:
 gcc script:
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test3_gcc.py)   
 nvhpc script
-[ReFrame Benchmark](reframe_scripts/dock_onnode_test3_nv.py)
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test3_nv.py)  
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
 | 8     | 147.27 s           | 149.21 s           | 176.54 s |
@@ -421,7 +415,7 @@ arm script:
 gcc script:
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test4_gcc.py)   
 nvhpc script
-[ReFrame Benchmark](reframe_scripts/dock_onnode_test4_nv.py)
+[ReFrame Benchmark](reframe_scripts/dock_onnode_test4_nv.py)  
 | Cores | gcc | arm | nvhpc |
 |-------|------------|------------|------------|
 | 8     | 624.82 s           | 640.2 s           | 774.42 s |
@@ -431,7 +425,10 @@ nvhpc script
 
 
 ### Off-Node scaling study for three compilers: 
-
+X86 gcc script:
+[ReFrame Benchmark](#)
+X86 nvhpc script:
+[ReFrame Benchmark](#)
 #### Test Case 1
 | Nodes | Cores | arm | gcc | nvhpc|
 |-------|-------|-----|------|------|
@@ -441,8 +438,10 @@ nvhpc script
 | 4     | 256   | 242.98 s    | 243.27 s     | 122.88 s     |
 
 #### Test Case 2
-
-
+X86 gcc script:
+[ReFrame Benchmark](#)
+X86 nvhpc script:
+[ReFrame Benchmark](#)  
 | Nodes | Cores | arm | gcc | nvhpc|
 |-------|-------|-----|------|------|
 | 1     | 32    | 91.7 s   | 92.02     | 108.98     |
@@ -450,10 +449,11 @@ nvhpc script
 | 2     | 128   | 46.72 s    | 47.87 s     | 54.99 s     |
 | 4     | 256   | 285.34 s    | 165.37 s     | 53.39 s     |
 
-
-
 #### Test Case 3
-
+X86 gcc script:
+[ReFrame Benchmark](#)
+X86 nvhpc script:
+[ReFrame Benchmark](#)  
 | Nodes | Cores | arm | gcc | nvhpc|
 |-------|-------|-----|------|------|
 | 1     | 32    | 38.57 s    | 38.68     | 47.17     |
@@ -462,6 +462,10 @@ nvhpc script
 | 4     | 256   | 259.71 s    | 262.33 s     | 26.78 s     |
 
 #### Test Case 4
+X86 gcc script:
+[ReFrame Benchmark](#)
+X86 nvhpc script:
+[ReFrame Benchmark](#)  
 | Nodes | Cores | arm | gcc | nvhpc|
 |-------|-------|-----|------|------|
 | 1     | 32    | 149.42 s    | 152.75     | 184.17     |
@@ -479,7 +483,7 @@ On-node scaling study for two architectures.
 | 8     | 5.4 s               | 5.09 s          | 4.93 s               |                
 | 16    | 4.23 s               | 3.81 s          | 4.21 s                |               
 | 32    | 4.69 s               | 4.32 s          | 6.15 s                 |              
-| 64    | 5.72 s               | 6.79 s          |                  |              
+| 64    | 5.72 s               | 6.79 s          | 7.7 s                 |              
 
 #### Test Case 2
 | Cores | ARM(gcc) | X86 |X86(nvhpc)               |
@@ -487,7 +491,7 @@ On-node scaling study for two architectures.
 | 8     | 380.47 s               | 493.54 s          | 601.18 s               |
 | 16    | 180.85 s               | 237.41 s          | 285.5 s               |
 | 32    | 91.7 s               | 119.79 s          | 142.48 s               |
-| 64    | 49.32 s               | 62.11 s          |                |
+| 64    | 49.32 s               | 62.11 s          | 72.95 s               |
 
 #### Test Case 3
 | Cores | ARM(gcc) | X86 |X86(nvhpc)               |
@@ -495,7 +499,7 @@ On-node scaling study for two architectures.
 | 8     | 147.27 s               | 189.52 s          | 232.3 s               |
 | 16    | 72.2 s               | 93.0 s          |  113.59 s              |
 | 32    | 38.57 s               | 47.77 s          | 57.94 s               |
-| 64    | 24.9 s               | 28.26 s          |                |
+| 64    | 24.9 s               | 28.26 s          | 34.01 s               |
 
 #### Test Case 4
 | Cores | ARM(gcc) | X86 |X86(nvhpc)               |
@@ -503,7 +507,7 @@ On-node scaling study for two architectures.
 | 8     |  624.82 s              | 814.98 s          | 1027.04 s               |
 | 16    |  298.95 s              | 385.96 s          | 485.81 s               |
 | 32    |  149.42 s              | 192.27 s          | 239.79 s               |
-| 64    |  84.8 s              | 104.91 s          |                |
+| 64    |  84.8 s              | 104.91 s          |  128.94 s              |
 
 ### Off-Node Architecture Comparison
 
@@ -520,7 +524,7 @@ On-node scaling study for two architectures.
 |-------|-------|----------------|-----------|-----------|
 | 1     | 32     |  380.47 s              | 493.54 s          |                |                
 | 1     | 64    |  180.85 s              | 237.41 s          |                 |               
-| 2     | 128    |   46.72 s             | 60.91 s          |                  |              
+| 2     | 128    |   46.72 s             | 60.91 s          |  71.89 s                |              
 | 4     | 256    |   285.34 s             | 59.27 s          |                  |     
 
 #### Test Case 3
@@ -528,7 +532,7 @@ On-node scaling study for two architectures.
 |-------|-------|----------------|-----------|-----------|
 | 1     | 32     |  147.27 s              |  189.52 s         |                |                
 | 1     | 64    |   72.2 s             |  93.0 s         |                 |               
-| 2     | 128    |    23.07 s            | 26.13 s          |                  |              
+| 2     | 128    |    23.07 s            | 26.13 s          |  32.28 s                |              
 | 4     | 256    |    259.71 s            | 26.26 s          |                  |     
 
 #### Test Case 4
@@ -536,7 +540,7 @@ On-node scaling study for two architectures.
 |-------|-------|----------------|-----------|-----------|
 | 1     | 32     |   624.82 s             |  814.98 s         |                |                
 | 1     | 64    |   298.95 s             |  385.96 s         |                 |               
-| 2     | 128    |    84.11 s            | 101.48 s          |                  |              
+| 2     | 128    |    84.11 s            | 101.48 s          |  133.19 s                |              
 | 4     | 256    |    310.51 s            | 101.6 s          |                  |     
 
 ## Optimisation
