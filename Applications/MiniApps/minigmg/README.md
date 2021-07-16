@@ -383,7 +383,7 @@ Profiling script:
 ![w3g](pictures/w3g.png)
 
 #### Test Case 4
- 
+HPCToolkit  
 ![w4g](pictures/w4g.png)
 
 #### arm
