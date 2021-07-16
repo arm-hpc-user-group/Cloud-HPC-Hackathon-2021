@@ -1,0 +1,60 @@
+# DOCK configuration file for GNU compilers with MPICH2 based parallelism.
+# This configuration file can be used on many platforms:
+#  Linux, Macintosh OS X, Windows with Cygwin, etc.
+# If gfortran is not preferred then change FC below to g95 or g77.
+
+# REQUIREMENTS - define these environment variables:
+# MPICH_HOME is the root directory of the MPICH2 MPI implementation
+# END REQUIREMENTS
+
+# TROUBLESHOOTING
+# 1. Linking problems, such as undefined references, cannot find -lbla_bla,
+# and command not found errors:
+# ensure that mpicxx exists;  ensure that the compiler invoked by mpicxx exists
+# (for best results it should be g++); in the worst case try manual linking:
+# change the CXX and LOAD definitions below to g++, execute the command
+# $MPICH_HOME/bin/mpicc -show
+# and add to the LIBS definition below the output related to link flags, e.g
+# LIBS= -lm -Lyada -Lyada_yada -lbla -lbla_bla ...
+# 2. General advice: build a serial dock first then build a parallel
+# dock using a validated MPI implementation.
+# 3. Best practice advice:  the most straightforward route to successful
+# parallel executable building is to use the same compilers for building
+# the MPI implementation and dock.
+# END TROUBLESHOOTING
+
+# CC is the C compiler
+# CXX is the C++ compiler
+# CFLAGS is the flags for the C and C++ compilers
+# FC is the Fortran compiler
+# FFLAGS is the flags for the Fortran compiler
+# LIBS is the flags for the linker
+# LINK_WITHOUT_FORTRAN_MAIN is the flag for linking without Fortran's main
+# LOAD is the command to invoke the linker
+# MPICH_IGNORE_CXX_SEEK  see
+#   https://wiki.mpich.org/mpich/index.php/Frequently_Asked_Questions#Q:_I_get_compile_errors_saying_.22SEEK_SET_is_.23defined_but_must_not_be_for_the_C.2B.2B_binding_of_MPI.22.
+# MPICH_SKIP_MPICXX  Dock does not use MPI C++ bindings; see
+#   http://www.mpi-forum.org/docs/mpi-2.0/mpi-20-html/node300.htm
+# DOCK_SUFFIX is the suffix for the dock executable
+
+CC=          nvc
+CXX=         nvc++
+CFLAGS=      -O2
+FC=          nvfortran
+#FFLAGS=      -O2 -fno-automatic -fno-second-underscore
+FFLAGS=      -O2 
+LIBS=        -lm
+LINK_WITHOUT_FORTRAN_MAIN=
+LOAD=        nvc++
+DOCK_SUFFIX= 
+
+# Macro definitions for NAB
+# AR is the library archiver
+# LEX is the lexical analyzer generator
+# OCFLAGS is the flags for the C compilers with high optimization
+# RANLIB is the library index generator
+AR=          ar rv
+LEX=         flex
+OCFLAGS=     -O3 -D_ANSI_SOURCE
+RANLIB=      ranlib
+
