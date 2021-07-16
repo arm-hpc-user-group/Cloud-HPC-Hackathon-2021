@@ -303,7 +303,6 @@ X86 script:
 [ReFrame Benchmark](#)  
 ARM script:  
 [ReFrame Benchmark](#)  
-Time:
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 11.39 s	           | 30.28 s    |
@@ -316,7 +315,6 @@ X86 script:
 [ReFrame Benchmark](#)  
 ARM script:  
 [ReFrame Benchmark](#)  
-Time:
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 82.87 s           | 142.46 s   |
@@ -329,7 +327,6 @@ X86 script:
 [ReFrame Benchmark](#)  
 ARM script:  
 [ReFrame Benchmark](#)  
-Time:
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 686.54 s           | 1087.96 s  |
@@ -342,7 +339,6 @@ X86 script:
 [ReFrame Benchmark](#)  
 ARM script:  
 [ReFrame Benchmark](#)  
-Time:
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 1906.81 s           | 3563.73 s  |
