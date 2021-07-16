@@ -186,6 +186,7 @@ arm script:
 [ReFrame Benchmark](#)    
 gcc script:   
 [ReFrame Benchmark](#)    
+
 | Cores | arm | gcc |
 |-------|------------|------------|
 | 1     | 124.5 s           | 127.3 s           |
@@ -216,6 +217,7 @@ arm script:
 [ReFrame Benchmark](#)    
 gcc script:   
 [ReFrame Benchmark](#)    
+
 | Cores | arm | gcc |
 |-------|------------|------------|
 | 1     |            |         |
@@ -284,6 +286,7 @@ X86 script:
 ARM script:  
 [ReFrame Benchmark](#)  
 Time:
+
 | Cores | C6gn (ARM) | C5n (X86) |
 |-------|------------|-----------|
 | 1     |            | 4790.18 s |
@@ -304,6 +307,7 @@ X86 script:
 ARM script:  
 [ReFrame Benchmark](#)  
 Time:
+
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 11.39 s	           | 30.28 s    |
@@ -343,6 +347,7 @@ X86 script:
 ARM script:  
 [ReFrame Benchmark](#)  
 Time:
+
 | Nodes | Cores | C6gn (ARM) |  C5n (X86) |
 |-------|-------|------------|------------|
 | 1     | 32    | 1906.81 s           | 3563.73 s  |
@@ -359,13 +364,13 @@ Please document work with compiler flags, maths libraries, system libraries, cod
 
 Compiler flags before:
 ```
-CFLAGS=
+CFLAGS= -O3 -fopenmp  -lm -Daarch64 -D__MPI -D__COLLABORATIVE_THREADING=6 -D__TEST_MG_CONVERGENCE -D__PRINT_NORM -D__USE_BICGSTAB 
 FFLAGS=
 ```
 
 Compiler flags after:
 ```
-CFLAGS=
+CFLAGS= -O3 -Ofast -fopenmp -lm -Daarch64 -D__MPI -D__TEST_MG_CONVERGENCE -D__PREFETCH_NEXT_PLANE_FROM_DRAM -D__FUSION_RESIDUAL_RESTRICTION -D__PRINT_NORM -D__USE_BICGSTAB 
 FFLAGS=
 ```
 
@@ -393,7 +398,7 @@ Please attach the corresponding apl files.
 Performance analysis of the use of different maths libraries.
 
 
-| Cores | OpenBLAS | ArmPL | BLIS | 
+| Cores | OpenBLAS | ArmPL | BLIS |
 |-------|----------|-------| ---- |
 | 1     |          |       |      |
 | 2     |          |       |      |
@@ -407,6 +412,18 @@ Performance analysis of the use of different maths libraries.
 ### Performance Regression
 
 How fast can you make the code?
+
+#### 
+
+| Cores | Original Flags | New Flags |
+| ----- | -------------- | --------- |
+| 1     |                |           |
+| 2     |                |           |
+| 4     |                |           |
+| 8     |                |           |
+| 16    |                |           |
+| 32    |                |           |
+| 64    |                |           |
 
 Use all of the above aproaches and any others to make the code as fast as possible.
 Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
