@@ -312,15 +312,15 @@ On-node scaling study for two architectures.
 #### Test Case 1
 | Cores | ARM | X86(gcc) | X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
-| 8     |                | 5.09 s          |                |
-| 16    |                | 3.81 s          |                 |
-| 32    |                | 4.32 s          |                  |
-| 64    |                | 6.79 s          |                  |
+| 8     |                | 5.09 s          | 4.93 s               |                
+| 16    |                | 3.81 s          |                 |               
+| 32    |                | 4.32 s          |                  |              
+| 64    |                | 6.79 s          |                  |              
 
 #### Test Case 2
 | Cores | ARM | X86 |X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
-| 8     |                | 493.54 s          |                |
+| 8     |                | 493.54 s          | 601.18 s               |
 | 16    |                | 237.41 s          |                |
 | 32    |                | 119.79 s          |                |
 | 64    |                | 62.11 s          |                |
@@ -346,34 +346,34 @@ On-node scaling study for two architectures.
 #### Test Case 1
 | Nodes | Cores | ARM            | X86(gcc)    | X86(nvhpc)               |
 |-------|-------|----------------|-----------|-----------|
-| 1     | 32     |                |           |                |
-| 1     | 64    |                |           |                 |
-| 2     | 128    |                |           |                  |
-| 4     | 256    |                |           |                  |
+| 1     | 32     |                |           |                |                
+| 1     | 64    |                |           |                 |               
+| 2     | 128    |                | 5.72 s          |                  |              
+| 4     | 256    |                | 5.29 s          |                  |     
 
 #### Test Case 2
 | Nodes | Cores | ARM            | X86(gcc)    | X86(nvhpc)               |
 |-------|-------|----------------|-----------|-----------|
-| 1     | 32     |                |           |                |
-| 1     | 64    |                |           |                 |
-| 2     | 128    |                |           |                  |
-| 4     | 256    |                |           |                  |
+| 1     | 32     |                |           |                |                
+| 1     | 64    |                |           |                 |               
+| 2     | 128    |                | 60.91 s          |                  |              
+| 4     | 256    |                | 59.27 s          |                  |     
 
 #### Test Case 3
 | Nodes | Cores | ARM            | X86(gcc)    | X86(nvhpc)               |
 |-------|-------|----------------|-----------|-----------|
-| 1     | 32     |                |           |                |
-| 1     | 64    |                |           |                 |
-| 2     | 128    |                |           |                  |
-| 4     | 256    |                |           |                  |
+| 1     | 32     |                |           |                |                
+| 1     | 64    |                |           |                 |               
+| 2     | 128    |                | 26.13 s          |                  |              
+| 4     | 256    |                | 26.26 s          |                  |     
 
 #### Test Case 4
 | Nodes | Cores | ARM            | X86(gcc)    | X86(nvhpc)               |
 |-------|-------|----------------|-----------|-----------|
-| 1     | 32     |                |           |                |
-| 1     | 64    |                |           |                 |
-| 2     | 128    |                |           |                  |
-| 4     | 256    |                |           |                  |
+| 1     | 32     |                |           |                |                
+| 1     | 64    |                |           |                 |               
+| 2     | 128    |                | 101.48 s          |                  |              
+| 4     | 256    |                | 101.6 s          |                  |     
 
 ## Optimisation
 
@@ -464,13 +464,18 @@ Our [reframe script] for optimization is attached.
 
 ### Compilation Summary
 
-Details of lessons from compiling the application.
+DOCK suite includes four applications. Except the application dock, the other three are run sequentially. The application dock, written in the mix of C, C++, and Fortran, runs with MPI. Building dock is straightforward with GCC compiler. However, it incurs compilation errors with ARM21 and nvhpc “main function is redefined”. We figured out that the main function is in C++ code but the linker is using fortran compiler (armflang). Thus, we change the linker with the C++ compiler (armclang++) and link the fortran library. With this modification, dock is
+successfully compiled with all gcc, arm21, and nvhpc compilers.
 
 ### Performance Summary
 
-Details of lessons from analysing the performance of the application.
+From our experiments, we find that arm21 and gcc10 compilers yield comparable performance. For the on-node scaling study, arm21 and gcc10 a
+re generally better than nvhpc, while for the off-node scaling study, arm21 and gcc10 perform worse than nvhpc. We also find that the on-no
+de scaling is generally good for all compilers. However, the off-node scaling is not good. One potential reason is that the input workload provided by the application is not large enough to be divided across nodes.
 
 
 ### Optimisation Summary
 
-Details of lessons from performance optimising the application.
+We have tested compiler option tuning, e.g., -Ofast. Unfortunately, we do not get any speedups. With the profile, we find that many cpu cyc
+les are consumed in malloc and free functions. Thus, we have jemalloc linked with the application, which yield a maxmum 14% speedup when us
+ing gcc10 running with 8 cores.
