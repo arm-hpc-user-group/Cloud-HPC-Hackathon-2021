@@ -12,7 +12,7 @@
 
 Details of any changes to the Spack recipe used.
 
-Git commit hash of checkout for pacakage:
+Git commit hash of checkout for pacakage: b4cd913
 
 Pull request for Spack recipe changes: https://github.com/spack/spack/pull/24937
 
