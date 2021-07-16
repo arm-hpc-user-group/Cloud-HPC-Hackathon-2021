@@ -1,0 +1,348 @@
+ argument  1 = nwchem.nw
+                                         
+                                         
+ 
+ 
+             Northwest Computational Chemistry Package (NWChem) 7.0.2
+             --------------------------------------------------------
+ 
+ 
+                    Environmental Molecular Sciences Laboratory
+                       Pacific Northwest National Laboratory
+                                Richland, WA 99352
+ 
+                              Copyright (c) 1994-2020
+                       Pacific Northwest National Laboratory
+                            Battelle Memorial Institute
+ 
+             NWChem is an open-source computational chemistry package
+                        distributed under the terms of the
+                      Educational Community License (ECL) 2.0
+             A copy of the license is included with this distribution
+                              in the LICENSE.TXT file
+ 
+                                  ACKNOWLEDGMENT
+                                  --------------
+
+            This software and its documentation were developed at the
+            EMSL at Pacific Northwest National Laboratory, a multiprogram
+            national laboratory, operated for the U.S. Department of Energy
+            by Battelle under Contract Number DE-AC05-76RL01830. Support
+            for this work was provided by the Department of Energy Office
+            of Biological and Environmental Research, Office of Basic
+            Energy Sciences, and the Office of Advanced Scientific Computing.
+
+
+           Job information
+           ---------------
+
+    hostname        = c6gn-dy-c6gn16xlarge-7
+    program         = /scratch/home/qmlab/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/nwchem-7.0.2-66ljtcrzelzd2pg23tv2wapjhgfvkcot/bin/nwchem
+    date            = Wed Jul 14 20:21:26 2021
+
+    compiled        = Tue_Jul_13_09:25:04_2021
+    source          = /tmp/qmlab/spack-stage/spack-stage-nwchem-7.0.2-66ljtcrzelzd2pg23tv2wapjhgfvkcot/spack-src
+    nwchem branch   = 7.0.2
+    nwchem revision = b9985dfa
+    ga revision     = 5.7.2
+    use scalapack   = T
+    input           = nwchem.nw
+    prefix          = siosi3.
+    data base       = ./siosi3.db
+    status          = startup
+    nproc           =       32
+    time left       =     -1s
+
+
+
+           Memory information
+           ------------------
+
+    heap     =   14745598 doubles =    112.5 Mbytes
+    stack    =   14745595 doubles =    112.5 Mbytes
+    global   =   29491200 doubles =    225.0 Mbytes (distinct from heap & stack)
+    total    =   58982393 doubles =    450.0 Mbytes
+    verify   = no 
+    hardfail = no 
+
+
+           Directory information
+           ---------------------
+ 
+  0 permanent = .
+  0 scratch   = .
+ 
+ 
+ 
+ 
+                                NWChem Input Module
+                                -------------------
+ 
+ 
+  library name resolved from: environment
+  library file name is: <
+ /scratch/home/qmlab/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/nwchem-7.0.2-66ljtcrzelzd2pg23tv2wapjhgfvkcot/share/nwchem/libraries/
+ >
+  
+  library name resolved from: environment
+  library file name is: <
+ /scratch/home/qmlab/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/nwchem-7.0.2-66ljtcrzelzd2pg23tv2wapjhgfvkcot/share/nwchem/libraries/
+ >
+  
+ 
+                                 NWChem DFT Module
+                                 -----------------
+ 
+ 
+
+
+ Summary of "ao basis" -> "ao basis" (cartesian)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ O                       user specified              6       15   3s2p1d
+ Si                      user specified              8       19   4s3p1d
+ H                       user specified              3        5   2s1p
+
+
+  Caching 1-el integrals 
+ 
+            General Information
+            -------------------
+          SCF calculation type: DFT
+          Wavefunction type:  closed shell.
+          No. of atoms     :    33
+          No. of electrons :   186
+           Alpha electrons :    93
+            Beta electrons :    93
+          Charge           :     0
+          Spin multiplicity:     1
+          Use of symmetry is: off; symmetry adaption is: off
+          Maximum number of iterations:  30
+          AO basis - number of functions:   347
+                     number of shells:   160
+          A Charge density fitting basis will be used.
+          CD basis - number of functions:   832
+                     number of shells:   335
+          Convergence on energy requested:  1.00D-06
+          Convergence on density requested:  1.00D-05
+          Convergence on gradient requested:  5.00D-04
+ 
+              XC Information
+              --------------
+                        Slater Exchange Functional  1.000 local    
+                      VWN V Correlation Functional  1.000 local    
+ 
+             Grid Information
+             ----------------
+          Grid used for XC integration:  medium    
+          Radial quadrature: Mura-Knowles        
+          Angular quadrature: Lebedev. 
+          Tag              B.-S. Rad. Rad. Pts. Rad. Cut. Ang. Pts.
+          ---              ---------- --------- --------- ---------
+          O                   0.60       49          16.0       434
+          Si                  1.10       88          19.0       590
+          H                   0.35       45          21.0       434
+          Grid pruning is: on 
+          Number of quadrature shells:  1857
+          Spatial weights used:  Erf1
+ 
+          Convergence Information
+          -----------------------
+          Convergence aids based upon iterative change in 
+          total energy or number of iterations. 
+          Levelshifting, if invoked, occurs when the 
+          HOMO/LUMO gap drops below (HL_TOL):  1.00D-02
+          DIIS, if invoked, will attempt to extrapolate 
+          using up to (NFOCK): 10 stored Fock matrices.
+
+                    Damping(70%)  Levelshifting(0.5)       DIIS
+                  --------------- ------------------- ---------------
+          dE  on:    start            ASAP                start   
+          dE off:    2 iters         30 iters            30 iters 
+
+ 
+      Screening Tolerance Information
+      -------------------------------
+          Density screening/tol_rho:  1.00D-10
+          AO Gaussian exp screening on grid/accAOfunc:  14
+          CD Gaussian exp screening on grid/accCDfunc:  20
+          XC Gaussian exp screening on grid/accXCfunc:  20
+          Schwarz screening/accCoul:  1.00D-10
+
+ 
+      Superposition of Atomic Density Guess
+      -------------------------------------
+ 
+ Sum of atomic energies:       -2842.55896057
+ 
+      Non-variational initial energy
+      ------------------------------
+
+ Total energy =   -2848.597708
+ 1-e energy   =   -8548.884484
+ 2-e energy   =    3387.044398
+ HOMO         =      -0.373192
+ LUMO         =      -0.026200
+ 
+   Time after variat. SCF:      2.0
+ 
+      3 Center 2 Electron Integral Information
+      ----------------------------------------
+          Maximum number of 3-center 2e- integrals is:       100180288.
+            This is reduced with Schwarz screening to:        36353408.
+            Incore requires a per proc buffer size of:         1333697.
+          Minimum dble words available (all nodes) is:        29462940
+                   This is reduced (for later use) to:        29107595
+                      proc 0 Suggested buffer size is:         1333697
+                         Max Suggested buffer size is:         1362817
+                              no. integral batches is:            1000
+
+           1.334 MW buffer allocated for incore 3-center 
+          2e- integral storage on stack. 
+   Time prior to 1st pass:      2.3
+
+ Grid_pts file          = ./siosi3.gridpts.00
+ Record size in doubles =  12289        No. of grid_pts per rec  =   3070
+ Max. records in memory =     14        Max. recs in file   =  31664089
+
+
+           Memory utilization after 1st SCF pass: 
+           Heap Space remaining (MW):        8.26             8255814
+          Stack Space remaining (MW):       13.41            13407684
+
+   convergence    iter        energy       DeltaE   RMS-Dens  Diis-err    time
+ ---------------- ----- ----------------- --------- --------- ---------  ------
+ d=70,ls=0.0,diis     1  -2840.3324303789 -5.15D+03  9.89D-03  6.28D+00     3.7
+ d=70,ls=0.0,diis     2  -2840.4598777210 -1.27D-01  3.91D-03  1.78D+00     4.9
+ d= 0,ls=0.0,diis     3  -2840.5222639659 -6.24D-02  2.29D-03  1.00D+00     6.1
+ d= 0,ls=0.0,diis     4  -2840.7157348042 -1.93D-01  6.20D-04  6.06D-02     7.3
+ d= 0,ls=0.0,diis     5  -2840.7229341214 -7.20D-03  1.73D-04  8.31D-03     8.5
+  Resetting Diis
+ d= 0,ls=0.0,diis     6  -2840.7236927070 -7.59D-04  5.17D-05  5.73D-04    10.3
+ d= 0,ls=0.0,diis     7  -2840.7237580400 -6.53D-05  1.92D-05  1.14D-05    12.2
+ d= 0,ls=0.0,diis     8  -2840.7237551269  2.91D-06  1.15D-05  4.17D-05    14.1
+ d= 0,ls=0.0,diis     9  -2840.7237593770 -4.25D-06  2.25D-06  8.60D-07    15.9
+ d= 0,ls=0.0,diis    10  -2840.7237594848 -1.08D-07  3.78D-07  2.45D-08    17.7
+
+
+         Total DFT energy =    -2840.723759484757
+      One electron energy =    -8561.196490903116
+           Coulomb energy =     3628.156841536162
+    Exchange-Corr. energy =     -220.926486891203
+ Nuclear repulsion energy =     2313.242376773401
+
+ Numeric. integr. density =      186.000096915850
+
+     Total iterative time =     15.5s
+
+
+
+ center of mass
+ --------------
+ x =  -0.00952295 y =   0.03028985 z =  -0.02257135
+
+ moments of inertia (a.u.)
+ ------------------
+        6246.693956998214       -1350.867456527314         178.358701865298
+       -1350.867456527314       10287.349148271946        -337.687957306076
+         178.358701865298        -337.687957306076       10500.339172729227
+
+ Task  times  cpu:       17.3s     wall:       17.7s
+ 
+ 
+                                NWChem Input Module
+                                -------------------
+ 
+ 
+ Summary of allocated global arrays
+-----------------------------------
+  No active global arrays
+
+
+
+                         GA Statistics for process    0
+                         ------------------------------
+
+       create   destroy   get      put      acc     scatter   gather  read&inc
+calls:  144      144     2.37e+04 1153     1.78e+04    0        0      145     
+number of processes/call 3.49e+12 1.66e+14 1.52e+12 0.00e+00 0.00e+00
+bytes total:             1.37e+08 7.24e+06 7.11e+07 0.00e+00 0.00e+00 1.16e+03
+bytes remote:            1.24e+08 3.08e+06 6.64e+07 0.00e+00 0.00e+00 0.00e+00
+Max memory consumed for GA by this process: 1677824 bytes
+ 
+MA_summarize_allocated_blocks: starting scan ...
+heap block 'gridpts', handle 72, address 0xffff7db66430:
+	type of elements:		double precision
+	number of elements:		6291456
+	address of client space:	0xffff7db664c0
+	index for client space:		35184075265113
+	total number of bytes:		50331800
+MA_summarize_allocated_blocks: scan completed: 1 heap block, 0 stack blocks
+MA usage statistics:
+
+	allocation statistics:
+					      heap	     stack
+					      ----	     -----
+	current number of blocks	         1	         0
+	maximum number of blocks	        27	        54
+	current total bytes		  50331800	         0
+	maximum total bytes		  51918072	  22534456
+	maximum total K-bytes		     51919	     22535
+	maximum total M-bytes		        52	        23
+ 
+ 
+                                     CITATION
+                                     --------
+                Please cite the following reference when publishing
+                           results obtained with NWChem:
+ 
+          E. Aprà, E. J. Bylaska, W. A. de Jong, N. Govind, K. Kowalski,
+       T. P. Straatsma, M. Valiev, H. J. J. van Dam, Y. Alexeev, J. Anchell,
+       V. Anisimov, F. W. Aquino, R. Atta-Fynn, J. Autschbach, N. P. Bauman,
+     J. C. Becca, D. E. Bernholdt, K. Bhaskaran-Nair, S. Bogatko, P. Borowski,
+        J. Boschen, J. Brabec, A. Bruner, E. Cauët, Y. Chen, G. N. Chuev,
+      C. J. Cramer, J. Daily, M. J. O. Deegan, T. H. Dunning Jr., M. Dupuis,
+   K. G. Dyall, G. I. Fann, S. A. Fischer, A. Fonari, H. Früchtl, L. Gagliardi,
+      J. Garza, N. Gawande, S. Ghosh, K. Glaesemann, A. W. Götz, J. Hammond,
+       V. Helms, E. D. Hermes, K. Hirao, S. Hirata, M. Jacquelin, L. Jensen,
+   B. G. Johnson, H. Jónsson, R. A. Kendall, M. Klemm, R. Kobayashi, V. Konkov,
+      S. Krishnamoorthy, M. Krishnan, Z. Lin, R. D. Lins, R. J. Littlefield,
+      A. J. Logsdail, K. Lopata, W. Ma, A. V. Marenich, J. Martin del Campo,
+   D. Mejia-Rodriguez, J. E. Moore, J. M. Mullin, T. Nakajima, D. R. Nascimento,
+    J. A. Nichols, P. J. Nichols, J. Nieplocha, A. Otero-de-la-Roza, B. Palmer,
+    A. Panyala, T. Pirojsirikul, B. Peng, R. Peverati, J. Pittner, L. Pollack,
+   R. M. Richard, P. Sadayappan, G. C. Schatz, W. A. Shelton, D. W. Silverstein,
+   D. M. A. Smith, T. A. Soares, D. Song, M. Swart, H. L. Taylor, G. S. Thomas,
+            V. Tipparaju, D. G. Truhlar, K. Tsemekhman, T. Van Voorhis,
+     Á. Vázquez-Mayagoitia, P. Verma, O. Villa, A. Vishnu, K. D. Vogiatzis,
+        D. Wang, J. H. Weare, M. J. Williamson, T. L. Windus, K. Woliński,
+        A. T. Wong, Q. Wu, C. Yang, Q. Yu, M. Zacharias, Z. Zhang, Y. Zhao,
+                                and R. J. Harrison
+                        "NWChem: Past, present, and future
+                         J. Chem. Phys. 152, 184102 (2020)
+                               doi:10.1063/5.0004997
+ 
+                                      AUTHORS
+                                      -------
+     E. Apra, E. J. Bylaska, N. Govind, K. Kowalski, M. Valiev, W. A. de Jong,
+      T. P. Straatsma, H. J. J. van Dam, D. Wang, T. L. Windus, N. P. Bauman,
+       A. Panyala, J. Hammond, J. Autschbach, K. Bhaskaran-Nair, J. Brabec,
+    K. Lopata, S. A. Fischer, S. Krishnamoorthy, M. Jacquelin, W. Ma, M. Klemm,
+       O. Villa, Y. Chen, V. Anisimov, F. Aquino, S. Hirata, M. T. Hackler,
+           Eric Hermes, L. Jensen, J. E. Moore, J. C. Becca, V. Konjkov,
+            D. Mejia-Rodriguez, T. Risthaus, M. Malagoli, A. Marenich,
+   A. Otero-de-la-Roza, J. Mullin, P. Nichols, R. Peverati, J. Pittner, Y. Zhao,
+        P.-D. Fan, A. Fonari, M. J. Williamson, R. J. Harrison, J. R. Rehr,
+      M. Dupuis, D. Silverstein, D. M. A. Smith, J. Nieplocha, V. Tipparaju,
+      M. Krishnan, B. E. Van Kuiken, A. Vazquez-Mayagoitia, M. Swart, Q. Wu,
+   T. Van Voorhis, A. A. Auer, M. Nooijen, L. D. Crosby, E. Brown, G. Cisneros,
+     G. I. Fann, H. Fruchtl, J. Garza, K. Hirao, R. A. Kendall, J. A. Nichols,
+       K. Tsemekhman, K. Wolinski, J. Anchell, D. E. Bernholdt, P. Borowski,
+       T. Clark, D. Clerc, H. Dachsel, M. J. O. Deegan, K. Dyall, D. Elwood,
+      E. Glendening, M. Gutowski, A. C. Hess, J. Jaffe, B. G. Johnson, J. Ju,
+        R. Kobayashi, R. Kutteh, Z. Lin, R. Littlefield, X. Long, B. Meng,
+      T. Nakajima, S. Niu, L. Pollack, M. Rosing, K. Glaesemann, G. Sandrone,
+      M. Stave, H. Taylor, G. Thomas, J. H. van Lenthe, A. T. Wong, Z. Zhang.
+
+ Total times  cpu:       17.3s     wall:       18.9s

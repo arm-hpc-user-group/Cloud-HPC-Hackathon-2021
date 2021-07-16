@@ -1,0 +1,283 @@
+[2021-07-16T03:59:39] debug: reframe: Initializing runtime
+[2021-07-16T03:59:39] debug: reframe: Selecting subconfig for 'aws:login'
+[2021-07-16T03:59:39] debug: reframe: Initializing system partition 'login'
+[2021-07-16T03:59:39] debug: reframe: Selecting subconfig for 'aws:c6gn'
+[2021-07-16T03:59:39] debug: reframe: Initializing system partition 'c6gn'
+[2021-07-16T03:59:39] debug: reframe: Selecting subconfig for 'aws'
+[2021-07-16T03:59:39] debug: reframe: Initializing system 'aws'
+[2021-07-16T03:59:39] debug: reframe: Initializing modules system 'spack'
+[2021-07-16T03:59:40] debug: reframe: detecting topology info for aws:login
+[2021-07-16T03:59:40] debug: reframe: > found topology file '/software/reframe/_meta/aws-login/processor.json'; loading...
+[2021-07-16T03:59:40] debug: reframe: > device auto-detection is not supported
+[2021-07-16T03:59:40] debug: reframe: detecting topology info for aws:c6gn
+[2021-07-16T03:59:40] debug: reframe: > no topology file found; auto-detecting...
+[2021-07-16T03:59:40] debug: reframe: > saved topology in '/software/reframe/_meta/aws-c6gn/processor.json'
+[2021-07-16T03:59:40] debug: reframe: > device auto-detection is not supported
+[2021-07-16T03:59:40] debug: reframe: [ReFrame Environment]
+  RFM_CHECK_SEARCH_PATH=<not set>
+  RFM_CHECK_SEARCH_RECURSIVE=<not set>
+  RFM_CLEAN_STAGEDIR=<not set>
+  RFM_COLORIZE=<not set>
+  RFM_CONFIG_FILE=<not set>
+  RFM_GRAYLOG_ADDRESS=<not set>
+  RFM_HTTPJSON_URL=<not set>
+  RFM_IGNORE_CHECK_CONFLICTS=<not set>
+  RFM_IGNORE_REQNODENOTAVAIL=<not set>
+  RFM_INSTALL_PREFIX=/software/reframe
+  RFM_KEEP_STAGE_FILES=<not set>
+  RFM_MODULE_MAPPINGS=<not set>
+  RFM_MODULE_MAP_FILE=<not set>
+  RFM_NON_DEFAULT_CRAYPE=<not set>
+  RFM_OUTPUT_DIR=<not set>
+  RFM_PERFLOG_DIR=<not set>
+  RFM_PREFIX=<not set>
+  RFM_PURGE_ENVIRONMENT=<not set>
+  RFM_REMOTE_DETECT=<not set>
+  RFM_REMOTE_WORKDIR=<not set>
+  RFM_REPORT_FILE=<not set>
+  RFM_REPORT_JUNIT=<not set>
+  RFM_RESOLVE_MODULE_CONFLICTS=<not set>
+  RFM_SAVE_LOG_FILES=<not set>
+  RFM_STAGE_DIR=<not set>
+  RFM_SYSLOG_ADDRESS=<not set>
+  RFM_SYSTEM=<not set>
+  RFM_TIMESTAMP_DIRS=<not set>
+  RFM_UNLOAD_MODULES=<not set>
+  RFM_USER_MODULES=<not set>
+  RFM_USE_LOGIN_SHELL=<not set>
+  RFM_VERBOSE=<not set>
+[2021-07-16T03:59:40] info: reframe: [ReFrame Setup]
+[2021-07-16T03:59:40] info: reframe:   version:           3.7.0-dev.3+34ee3d0b
+[2021-07-16T03:59:40] info: reframe:   command:           '/software/reframe/bin/reframe -c DFT_mps.py -r --performance-report'
+[2021-07-16T03:59:40] info: reframe:   launched by:       qmlab@ip-10-0-0-211
+[2021-07-16T03:59:40] info: reframe:   working directory: '/home/qmlab/Cloud-HPC-Hackathon-2021/Applications/Applications/nwchem/c240/mapping_hot_spot'
+[2021-07-16T03:59:40] info: reframe:   settings file:     '/software/reframe/settings.py'
+[2021-07-16T03:59:40] info: reframe:   check search path: '/home/qmlab/Cloud-HPC-Hackathon-2021/Applications/Applications/nwchem/c240/mapping_hot_spot/DFT_mps.py'
+[2021-07-16T03:59:40] info: reframe:   stage directory:   '/home/qmlab/Cloud-HPC-Hackathon-2021/Applications/Applications/nwchem/c240/mapping_hot_spot/stage'
+[2021-07-16T03:59:40] info: reframe:   output directory:  '/home/qmlab/Cloud-HPC-Hackathon-2021/Applications/Applications/nwchem/c240/mapping_hot_spot/output'
+[2021-07-16T03:59:40] info: reframe: 
+[2021-07-16T03:59:40] debug: reframe: Looking for tests in '/home/qmlab/Cloud-HPC-Hackathon-2021/Applications/Applications/nwchem/c240/mapping_hot_spot/DFT_mps.py'
+[2021-07-16T03:59:40] debug: reframe: Validating '/home/qmlab/Cloud-HPC-Hackathon-2021/Applications/Applications/nwchem/c240/mapping_hot_spot/DFT_mps.py': OK
+[2021-07-16T03:59:41] debug: reframe:   > Loaded 1 test(s)
+[2021-07-16T03:59:41] verbose: reframe: Loaded 1 test(s)
+[2021-07-16T03:59:41] verbose: reframe: Generated 1 test case(s)
+[2021-07-16T03:59:41] verbose: reframe: Filtering test cases(s) by name: 1 remaining
+[2021-07-16T03:59:41] verbose: reframe: Filtering test cases(s) by tags: 1 remaining
+[2021-07-16T03:59:41] verbose: reframe: Filtering test cases(s) by other attributes: 1 remaining
+[2021-07-16T03:59:41] debug: reframe: Building and validating the full test DAG
+[2021-07-16T03:59:41] debug: reframe: Full test DAG:
+[2021-07-16T03:59:41] debug: reframe:   ('NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1_', 'aws:c6gn', 'builtin') -> []
+[2021-07-16T03:59:41] verbose: reframe: Final number of test cases: 1
+[2021-07-16T03:59:41] debug: reframe: Loading environment for current system
+[2021-07-16T03:59:41] debug: reframe: (Un)using module paths from command line
+[2021-07-16T03:59:41] debug: reframe: Loading user modules from command line
+[2021-07-16T03:59:41] info: reframe: [==========] Running 1 check(s)
+[2021-07-16T03:59:41] info: reframe: [==========] Started on Fri Jul 16 03:59:41 2021 
+[2021-07-16T03:59:41] info: reframe: 
+[2021-07-16T03:59:41] info: reframe: [----------] started processing NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1_ (NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1_)
+[2021-07-16T03:59:41] debug: reframe: Selecting subconfig for 'aws:c6gn'
+[2021-07-16T03:59:41] info: reframe: [ [32mRUN     [0m ] NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1_ on aws:c6gn using builtin
+[2021-07-16T03:59:41] debug: NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1_: Entering stage: setup
+[2021-07-16T03:59:41] debug: NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1_ on aws:c6gn using builtin: Setting up test paths
+[2021-07-16T03:59:41] debug: NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1_ on aws:c6gn using builtin: Created stage directory '/home/qmlab/Cloud-HPC-Hackathon-2021/Applications/Applications/nwchem/c240/mapping_hot_spot/stage/aws/c6gn/builtin/NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1_' [clean_stagedir: True]
+[2021-07-16T03:59:41] debug: NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1_ on aws:c6gn using builtin: Created output directory '/home/qmlab/Cloud-HPC-Hackathon-2021/Applications/Applications/nwchem/c240/mapping_hot_spot/output/aws/c6gn/builtin/NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1_'
+[2021-07-16T03:59:41] debug: NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1_ on aws:c6gn using builtin: Setting up job 'rfm_NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1__job' (scheduler: 'slurm', launcher: 'srun')
+[2021-07-16T03:59:41] debug: NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1_ on aws:c6gn using builtin: Entering stage: compile
+[2021-07-16T03:59:41] debug: NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1_ on aws:c6gn using builtin: Entering stage: compile_wait
+[2021-07-16T03:59:41] debug: NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1_ on aws:c6gn using builtin: Entering stage: run
+[2021-07-16T03:59:41] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Generating the run script
+[2021-07-16T03:59:42] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Spawned run job (id=570)
+[2021-07-16T03:59:42] info: reframe: [----------] finished processing NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 (NWChemTest_nwchem_7_0_2__gcc_10_3_0___nodes___2___mpi___128___omp___1_)
+[2021-07-16T03:59:42] info: reframe: 
+[2021-07-16T03:59:42] info: reframe: [----------] waiting for spawned checks to finish
+[2021-07-16T03:59:42] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:43] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:43] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:43] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:43] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:43] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:44] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:44] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:44] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:45] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:45] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:45] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:46] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:46] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:47] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:47] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:48] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:48] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:49] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:49] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:50] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:51] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:52] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:53] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:54] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:55] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:56] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:57] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T03:59:59] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:00] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:02] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:04] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:06] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:08] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:11] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:13] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:16] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:19] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:23] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:27] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:31] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:36] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:41] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:46] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:52] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:00:59] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:01:07] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:01:15] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:01:24] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:01:33] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:01:44] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:01:54] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:02:04] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:02:14] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:02:24] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:02:34] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:02:44] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:02:54] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:03:05] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:03:15] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:03:25] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:03:35] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:03:45] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:03:55] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:04:05] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:04:15] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:04:26] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:04:36] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:04:46] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:04:56] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:05:06] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:05:16] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:05:26] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:05:36] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:05:46] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:05:57] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:06:07] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:06:17] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:06:27] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:06:37] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:06:47] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:06:57] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:07:07] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:07:18] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:07:28] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:07:38] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:07:48] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:07:58] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:08:08] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:08:18] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:08:28] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:08:38] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:08:49] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:08:59] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:09:09] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:09:19] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:09:29] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:09:39] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:09:49] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:09:59] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:10:10] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:10:20] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:10:30] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:10:40] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:10:50] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:11:00] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:11:10] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:11:20] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:11:31] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:11:41] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:11:51] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:12:01] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:12:11] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:12:21] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:12:31] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:12:41] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:12:51] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:13:02] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:13:12] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:13:22] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:13:32] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:13:42] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:13:52] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:14:02] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:14:12] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:14:23] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:14:33] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:14:43] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:14:53] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:15:03] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:15:13] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:15:23] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:15:33] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:15:44] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:15:54] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:16:04] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:16:14] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:16:24] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:16:34] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:16:44] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:16:54] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:17:04] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:17:15] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:17:25] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:17:35] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:17:45] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:17:55] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:18:05] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:18:15] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:18:25] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:18:36] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:18:46] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:18:56] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:19:06] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:19:16] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:19:26] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:19:36] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:19:46] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:19:56] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:20:07] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:20:17] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:20:27] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:20:37] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:20:47] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:20:57] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:21:07] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:21:17] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:21:28] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:21:38] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_complete
+[2021-07-16T04:21:38] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: run_wait
+[2021-07-16T04:21:38] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: sanity
+[2021-07-16T04:21:38] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: performance
+[2021-07-16T04:21:38] info: reframe: [ [32m      OK[0m ] (1/1) NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 1316.583s total: 1316.603s]
+[2021-07-16T04:21:38] verbose: reframe: ==> timings: setup: 0.006s compile: 0.005s run: 1316.583s sanity: 0.014s performance: 0.085s total: 1316.603s
+[2021-07-16T04:21:38] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Entering stage: cleanup
+[2021-07-16T04:21:38] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Copying test files to output directory
+[2021-07-16T04:21:38] debug: NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1 on aws:c6gn using builtin: Removing stage directory
+[2021-07-16T04:21:38] info: reframe: [----------] all spawned checks have finished
+
+[2021-07-16T04:21:38] info: reframe: [ [32m PASSED [0m ] Ran 1/1 test case(s) from 1 check(s) (0 failure(s), 0 skipped)
+[2021-07-16T04:21:38] info: reframe: [==========] Finished on Fri Jul 16 04:21:38 2021 
+[2021-07-16T04:21:38] info: reframe: ==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+NWChem_NWchem_mps_nwchem_7_0_2__gcc_10_3_0_N_2_MPI_128_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 128
+      * Total Time: 887.9 s
+------------------------------------------------------------------------------
+[2021-07-16T04:21:38] info: reframe: Log file(s) saved in: '/tmp/rfm-khtkwb0p.log'

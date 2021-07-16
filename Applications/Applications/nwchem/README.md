@@ -342,33 +342,27 @@ Performance comparison of two compilers.
 ### Serial Hot-spot Profile
 
 List of top-10 functions / code locations from a serial profile.
-
-Profiling command used:
-```
-:
-```
-
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
+![Top MPI related functions](./c240/mapping_hot_spot/Nwchem_most_expensive_function.png)
+![Top MPI related functions](./c240/mapping_hot_spot/Nwchem_function_deepdive.png)
 
 
 ### Full Node Hot-spot Profile
+Relevant files can be found in the sub-dir [c240/mapping_hot_spot](./c240/mapping_hot_spot)
+Reframe file used is ```c240/mapping_hot_spot/DFT_mps.py```
+NWchem related files   
+   - ipput file : [nwchem.nw](./c240/mapping_hot_spot/nwchem.nw)
+   - output file : [nwchem.out](./c240/mapping_hot_spot/nwchem.out)
+Profile data
+   - [prof.csv][(./c240/mapping_hot_spot/prof.csv)
+   - [profile.map]((./c240/mapping_hot_spot/profile.map)
+   - [rfm-khtkwb0p.log](./c240/mapping_hot_spot/rfm-khtkwb0p.log)
 
 List of top-10 functions / code locations from a full node profile.
+![Top MPI related functions](./c240/mapping_hot_spot/c240_profile_128.png)
 
 Profiling command used:
 ```
-:
+reframe -c DFT_mps.py -r --performance-report
 ```
 
 | Position | Routine | Time (s) | Time (%) | MPI (%) |
@@ -400,33 +394,35 @@ On-node scaling study for two compilers.
 
 
 ### Off-Node Scaling Study
-
+Test example : [C240 molecule](https://nwchemgit.github.io/Benchmarks.html) with 3600 basis set  
+Dir. name scaling containing the relevant files to support the scaling behaviour. 
+x86 number can be found in 
 Off-node scaling study comparing C6g and C6gn instances.
 
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
+| Nodes | Cores | C5n (gcc@10.3)  | C6gn (gcc@10.3)| C6gn (rm@21.0.0.879) | 
+|-------|-------|-----------------|--------------- |----------------------|
+| 1     | 64    |1605.8           | 1407.4         |1401.4                |               
+| 2     | 128   | 943.1           |  834.2         | 830.7                |
+| 4     | 256   | 599.0           |  559.9         | 576.4                |
+| 8     | 512   | 656.2           |  659.9         | 664.2                |
 
 
 ### On-Node Architecture Comparison
-
+Input file for the test is taken from[ NWChem git repo](https://raw.githubusercontent.com/nwchemgit/nwchem/master/web/benchmarks/dft/siosi3.nw)
+supporting data for C6gn is can be found at [siosi3](./siosi3)   
+while supporting data for C5n can be found at [x86/siosi3](./x86/siosi3)
 On-node scaling study for two architectures.
+|Nodes | Cores |		C5n(gcc@10.3)	| C6gn(gcc@10.3)|	C6gn(Arm)|
+|------|-------|----------------|---------------|----------|
+|1	    |8	     |     49.1	      |  48.6	        | 50.6     |
+|1	    |   16	 | 25.6	          | 25.7	         | 26.4     |
+|1	    |32	    |21.2	           |18.9	          | 18.9     |
+|1	    |64	    | 25.3	          | 18.5	         | 19.0     |			
+|2	|64	|22.3	|18.9	|19.0|
+|4	|64	|19.6	|18.4	|19.7|
+|8	|64	|27.6	|17.6	|17.9|
 
-| Cores | C6gn (Aarch64) | C5n (X86) |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+
 
 
 ## Optimisation
