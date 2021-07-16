@@ -408,7 +408,9 @@ Off-node scaling study comparing C6g and C6gn instances.
 
 
 ### On-Node Architecture Comparison
-
+Input file for the test is taken from[ NWChem git repo](https://raw.githubusercontent.com/nwchemgit/nwchem/master/web/benchmarks/dft/siosi3.nw)
+supporting data for C6gn is can be found at [siosi3](./siosi3)   
+while supporting data for C5n can be found at [x86/siosi3](./x86/siosi3)
 On-node scaling study for two architectures.
 |Nodes | Cores |		C5n(gcc@10.3)	| C6gn(gcc@10.3)|	C6gn(Arm)|
 |------|-------|----------------|---------------|----------|
