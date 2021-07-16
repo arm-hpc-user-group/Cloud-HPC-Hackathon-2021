@@ -14,7 +14,7 @@ Details of any changes to the Spack recipe used.
 
 Git commit hash of checkout for pacakage:
 
-Pull request for Spack recipe changes:
+Pull request for Spack recipe changes: https://github.com/spack/spack/pull/24937
 
 ### Building SIESTA
 
