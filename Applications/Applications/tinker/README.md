@@ -302,7 +302,51 @@ Concretized
 reframe --stage /scratch/home/${USER} -v -c test_ice.py -r --performance-report
 ```
 
-### ReFrame Output
+### Validation 
+
+We use the energy result to validate whether our program run corrects or not. Because there are some randomness in the original program, so we set the boundary a littel broader.
+
+All the compilers with different threads passed the test.
+
+```
+[       OK ] ( 1/16) tinker_ice_tinker_8_7_1_gcc_10_3_0_dqija4h_N_1_MPI_1_OMP_8 on aws:c6gn using builtin [compile: 0.007s run: 458.238s total: 458.265s]
+==> timings: setup: 0.007s compile: 0.007s run: 458.238s sanity: 0.004s performance: 0.077s total: 458.265s
+[       OK ] ( 2/16) tinker_ice_tinker_8_7_1_gcc_10_3_0_dqija4h_N_1_MPI_1_OMP_4 on aws:c6gn using builtin [compile: 0.007s run: 463.661s total: 463.689s]
+==> timings: setup: 0.007s compile: 0.007s run: 463.661s sanity: 0.003s performance: 0.077s total: 463.689s
+[       OK ] ( 3/16) tinker_ice_tinker_8_7_1_gcc_10_3_0_dqija4h_N_1_MPI_1_OMP_2 on aws:c6gn using builtin [compile: 0.007s run: 470.519s total: 470.546s]
+==> timings: setup: 0.007s compile: 0.007s run: 470.519s sanity: 0.003s performance: 0.077s total: 470.546s
+[       OK ] ( 4/16) tinker_ice_tinker_8_7_1_gcc_10_3_0_oxk2q3c_N_1_MPI_1_OMP_8 on aws:c6gn using builtin [compile: 0.007s run: 476.379s total: 476.406s]
+==> timings: setup: 0.007s compile: 0.007s run: 476.379s sanity: 0.003s performance: 0.077s total: 476.406s
+[       OK ] ( 5/16) tinker_ice_tinker_8_7_1_gcc_10_3_0_oxk2q3c_N_1_MPI_1_OMP_2 on aws:c6gn using builtin [compile: 0.007s run: 478.160s total: 478.187s]
+==> timings: setup: 0.007s compile: 0.007s run: 478.160s sanity: 0.002s performance: 0.076s total: 478.187s
+[       OK ] ( 6/16) tinker_ice_tinker_8_7_1_gcc_10_3_0_dqija4h_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.007s run: 482.391s total: 482.419s]
+==> timings: setup: 0.007s compile: 0.007s run: 482.391s sanity: 0.002s performance: 0.076s total: 482.419s
+[       OK ] ( 7/16) tinker_ice_tinker_8_7_1_gcc_10_3_0_oxk2q3c_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.007s run: 481.229s total: 481.256s]
+==> timings: setup: 0.007s compile: 0.007s run: 481.229s sanity: 0.003s performance: 0.076s total: 481.256s
+[       OK ] ( 8/16) tinker_ice_tinker_8_7_1_gcc_10_3_0_oxk2q3c_N_1_MPI_1_OMP_4 on aws:c6gn using builtin [compile: 0.007s run: 480.575s total: 480.603s]
+==> timings: setup: 0.007s compile: 0.007s run: 480.575s sanity: 0.003s performance: 0.077s total: 480.603s
+[       OK ] ( 9/16) tinker_ice_tinker_8_7_1_arm_21_0_0_879_ynitubh_N_1_MPI_1_OMP_8 on aws:c6gn using builtin [compile: 0.007s run: 127.288s total: 602.282s]
+==> timings: setup: 0.007s compile: 0.007s run: 127.288s sanity: 0.003s performance: 0.078s total: 602.282s
+[       OK ] (10/16) tinker_ice_tinker_8_7_1_arm_21_0_0_879_ynitubh_N_1_MPI_1_OMP_4 on aws:c6gn using builtin [compile: 0.007s run: 127.202s total: 603.230s]
+==> timings: setup: 0.007s compile: 0.007s run: 127.202s sanity: 0.002s performance: 0.076s total: 603.230s
+[       OK ] (11/16) tinker_ice_tinker_8_7_1_arm_21_0_0_879_ynitubh_N_1_MPI_1_OMP_2 on aws:c6gn using builtin [compile: 0.007s run: 127.411s total: 604.996s]
+==> timings: setup: 0.007s compile: 0.007s run: 127.411s sanity: 0.003s performance: 0.077s total: 604.996s
+[       OK ] (12/16) tinker_ice_tinker_8_7_1_arm_21_0_0_879_ynitubh_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.007s run: 143.936s total: 623.017s]
+==> timings: setup: 0.007s compile: 0.007s run: 143.936s sanity: 0.003s performance: 0.077s total: 623.017s
+[       OK ] (13/16) tinker_ice_tinker_8_7_1_nvhpc_21_2_qszz7b5_N_1_MPI_1_OMP_2 on aws:c6gn using builtin [compile: 0.007s run: 184.922s total: 647.302s]
+==> timings: setup: 0.007s compile: 0.007s run: 184.922s sanity: 0.003s performance: 0.077s total: 647.302s
+[       OK ] (14/16) tinker_ice_tinker_8_7_1_nvhpc_21_2_qszz7b5_N_1_MPI_1_OMP_8 on aws:c6gn using builtin [compile: 0.007s run: 195.744s total: 646.445s]
+==> timings: setup: 0.007s compile: 0.007s run: 195.744s sanity: 0.003s performance: 0.077s total: 646.445s
+[       OK ] (15/16) tinker_ice_tinker_8_7_1_nvhpc_21_2_qszz7b5_N_1_MPI_1_OMP_4 on aws:c6gn using builtin [compile: 0.007s run: 191.558s total: 647.378s]
+==> timings: setup: 0.007s compile: 0.007s run: 191.558s sanity: 0.003s performance: 0.077s total: 647.378s
+[       OK ] (16/16) tinker_ice_tinker_8_7_1_nvhpc_21_2_qszz7b5_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.007s run: 176.371s total: 650.314s]
+==> timings: setup: 0.007s compile: 0.007s run: 176.371s sanity: 0.003s performance: 0.077s total: 650.314s
+[----------] all spawned checks have finished
+
+
+```
+
+### Peformance ReFrame Output
 
 ```
 tinker_ice_tinker_8_7_1_gcc_10_3_0_dqija4h_N_1_MPI_1_OMP_1
