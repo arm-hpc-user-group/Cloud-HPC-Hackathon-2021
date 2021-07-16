@@ -282,7 +282,7 @@ of each epoch is consistantly similar.
 
 | Cores | gcc@10.3.0 |
 |-------|------------|
-| 1      |   1388(projected)   |          
+| 1      |   3282.5884   |          
 | 2      |    1770.1830  |  
 | 4      |    947.2417      |    
 | 8      |    489.2307      |
@@ -300,7 +300,7 @@ On-node scaling study for two architectures.
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
 |-------|----------------|-----------|
-| 1      |   1388(projected)   |   3311.0096        |
+| 1      |   3282.5884   |   3311.0096        |
 | 2      |    1770.1830  |   2565.0004       |
 | 4      |      947.2417      |    1483.0482        |
 | 8      |    489.2307        |   771.6113        |
@@ -335,7 +335,7 @@ constraints. Nonetheless, we still greatly appreciate the work to put into this 
 For this application, we see good linear scaling as number of cores increases, with around 90% improvement from single core to 32 core. This is probabily due to the proper partitioning of workloads by Tensorflow and hence the 
 runtime decreases linearly with increase core count. As the test input is only a batch of 32 training data,
 we are not able to increase the number of cores further as Tensorflow is unable to partition the work. But we expect the runtime to scale pretty well, as training input size goes up.
-Moreover, Aarch64 outperforms x86 Skylake by >= 40%, exciting results!
+Moreover, Aarch64 outperforms x86 Skylake by > 40% in multicore setups, exciting results!
 
 ### Optimisation Summary
 
