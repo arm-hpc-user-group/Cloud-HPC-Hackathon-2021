@@ -204,7 +204,77 @@ nvhpc script:
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-     **** 
+dock_dock_test2_dock_6_9_gcc_10_3_0_N_1_MPI_8_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 8
+      * Total Time: 380.47 s
+------------------------------------------------------------------------------
+dock_dock_test2_dock_6_9_gcc_10_3_0_N_1_MPI_16_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 16
+      * Total Time: 180.85 s
+------------------------------------------------------------------------------
+dock_dock_test2_dock_6_9_gcc_10_3_0_N_1_MPI_32_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 32
+      * Total Time: 91.7 s
+------------------------------------------------------------------------------
+dock_dock_test2_dock_6_9_gcc_10_3_0_N_1_MPI_64_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 64
+      * Total Time: 49.32 s
+------------------------------------------------------------------------------
+dock_dock_test2_dock_6_9_arm_21_0_0_879_N_1_MPI_8_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 8
+      * Total Time: 379.55 s
+------------------------------------------------------------------------------
+dock_dock_test2_dock_6_9_arm_21_0_0_879_N_1_MPI_16_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 16
+      * Total Time: 180.51 s
+------------------------------------------------------------------------------
+dock_dock_test2_dock_6_9_arm_21_0_0_879_N_1_MPI_32_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 32
+      * Total Time: 92.02 s
+------------------------------------------------------------------------------
+dock_dock_test2_dock_6_9_arm_21_0_0_879_N_1_MPI_64_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 64
+      * Total Time: 49.34 s
+------------------------------------------------------------------------------
+dock_dock_test2_dock_6_9_nvhpc_21_2_N_1_MPI_8_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 8
+      * Total Time: 452.45 s
+------------------------------------------------------------------------------
+dock_dock_test2_dock_6_9_nvhpc_21_2_N_1_MPI_16_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 16
+      * Total Time: 215.18 s
+------------------------------------------------------------------------------
+dock_dock_test2_dock_6_9_nvhpc_21_2_N_1_MPI_32_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 32
+      * Total Time: 108.98 s
+------------------------------------------------------------------------------
+dock_dock_test2_dock_6_9_nvhpc_21_2_N_1_MPI_64_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 64
+      * Total Time: 57.51 s
 ------------------------------------------------------------------------------
 ```
 
@@ -518,7 +588,7 @@ X86 gcc script:
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test2_gcc_x86.py)  
 X86 nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test2_nv_x86.py)  
-| Cores | ARM(gcc) | X86 |X86(nvhpc)               |
+| Cores | ARM(gcc) | X86(gcc) |X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
 | 8     | 380.47 s               | 493.54 s          | 601.18 s               |
 | 16    | 180.85 s               | 237.41 s          | 285.5 s               |
@@ -530,7 +600,7 @@ X86 gcc script:
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test3_gcc_x86.py)  
 X86 nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test3_nv_x86.py)  
-| Cores | ARM(gcc) | X86 |X86(nvhpc)               |
+| Cores | ARM(gcc) | X86(gcc) |X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
 | 8     | 147.27 s               | 189.52 s          | 232.3 s               |
 | 16    | 72.2 s               | 93.0 s          |  113.59 s              |
@@ -542,7 +612,7 @@ X86 gcc script:
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test4_gcc_x86.py)  
 X86 nvhpc script:  
 [ReFrame Benchmark](reframe_scripts/dock_onnode_test4_nv_x86.py)  
-| Cores | ARM(gcc) | X86 |X86(nvhpc)               |
+| Cores | ARM(gcc) | X86(gcc) |X86(nvhpc)               |
 |-------|----------------|-----------|-----------|
 | 8     |  624.82 s              | 814.98 s          | 1027.04 s               |
 | 16    |  298.95 s              | 385.96 s          | 485.81 s               |
