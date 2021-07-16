@@ -16,7 +16,7 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [CloverLeaf3D](MiniApps/CloverLeaf3D/README.md)   | C-unMake                      |                |
 | [CoEVP](MiniApps/CoEVP/README.md)                 | Top Gun                       |                |
 | [CoHMM](MiniApps/CoHMM/README.md)                 | Serendipity                   |                |
-| [COMD](MiniApps/comd/README.md)                   | Falkners                      |                |
+| [COMD](MiniApps/comd/README.md)                   | Falkners                      | Logging        |
 | [ExaMiniMD](MiniApps/ExaMiniMD/README.md)         | MexicanWolf                   |                |
 | [ExaMPM](MiniApps/ExaMPM/README.md)               | Firefly                       |                |
 | [ExaSP2](MiniApps/ExaSP2/README.md)               | CloudHPC                      |                |
@@ -24,7 +24,7 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [Harminv](MiniApps/harminv/README.md)             | QMLab                         |                |
 | [HPCCG](MiniApps/HPCCG/README.md)                 | SPEED                         |                |
 | [HPCG](MiniApps/HPCG/README.md)                   | HPC-LUL                       |                |
-| [Kripke](MiniApps/kripke/README.md)               | DogeCoinToTheMoon             |                |
+| [Kripke](MiniApps/kripke/README.md)               | DogeCoinToTheMoon             | Logging        |
 | [Laghos](MiniApps/laghos/README.md)               | Iman                          |                |
 | [LULESH](MiniApps/LULESH/README.md)               | Calligo HPC Cluster Team      |                |
 | [MACSio](MiniApps/MACSio/README.md)               | Fast Solvers with Firedrake   |                |
@@ -32,23 +32,23 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 | [miniAMR](MiniApps/miniAMR/README.md)             | TPPU                          |                |
 | [miniFE](MiniApps/miniFE/README.md)               | Karthikeyan                   |                |
 | [miniGhost](MiniApps/miniGhost/README.md)         | Quantori                      |                |
-| [miniGMG](Applications/minigmg/README.md)         | Wolfpack                      |                |
+| [miniGMG](Applications/minigmg/README.md)         | Wolfpack                      | Logging        |
 | [miniMD](MiniApps/miniMD/README.md)               | Alejandro Ruiz                |                |
 | [miniQMC](MiniApps/miniQMC/README.md)             | Team Phoenix                  |                |
 | [miniSMAC2D](MiniApps/miniSMAC2D/README.md)       | Explorer                      |                |
 | [miniTri](MiniApps/miniTri/README.md)             | HPCNepal                      |                |
-| [miniVite](MiniApps/miniVite/README.md)           | Garotes de Premià             |                |
-| [miniXyce](MiniApps/miniXyce/README.md)           | SGHackers                     |                |
+| [miniVite](MiniApps/miniVite/README.md)           | Garotes de Premià             | Logging        |
+| [miniXyce](MiniApps/miniXyce/README.md)           | SGHackers                     | Logging        |
 | [Nekbone](MiniApps/nekbone/README.md)             | RISCy Business                |                |
 | [PENNANT](MiniApps/PENNANT/README.md)             | HPC Matrix                    |                |
 | [PICSARlite](MiniApps/PICSARlite/README.md)       | TeamEPCC                      |                |
 | [Quicksilver](MiniApps/Quicksilver/README.md)     | Fidesys                       |                |
-| [Remhos](MiniApps/Remhos/README.md)               | C3SR                          |                |
-| [RSBench](MiniApps/RSBench/README.md)             | DeepNeuron Purple             |                |
+| [Remhos](MiniApps/Remhos/README.md)               | C3SR                          | Logging        |
+| [RSBench](MiniApps/RSBench/README.md)             | DeepNeuron Purple             | Logging        |
 | [SimpleMOC](MiniApps/SimpleMOC/README.md)         | BlueHPCHens                   |                |
 | [SNAP](MiniApps/SNAP/README.md)                   | X-Factor                      |                |
 | [Sombrero](MiniApps/sombrero/README.md)           | ARC-wolves                    |                |
-| [swfft](MiniApps/swfft/README.md)                 | ElkNet                        |                |
+| [swfft](MiniApps/swfft/README.md)                 | ElkNet                        | Logging        |
 | [Tealeaf](MiniApps/Tealeaf/README.md)             | Master of puppets             |                |
 | [thornado-mini](MiniApps/thornado-mini/README.md) | Clangers                      |                |
 | [Tycho2](MiniApps/tycho2/README.md)               | Harry Porters                 |                |
@@ -60,71 +60,71 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 
 | Code                                                              | Team Assigned    | Porting Status |
 |-------------------------------------------------------------------|------------------|----------------|
-| [Abinit](Applications/abinit/README.md)                           |                  |                |
+| [Abinit](Applications/abinit/README.md)                           | DeepNeuronPurple |                |
 | [ABySS](Applications/abyss/README.md)                             |                  |                |
-| [Albany](Applications/albany/README.md)                           |                  |                |
+| [Albany](Applications/albany/README.md)                           | Clangers         |                |
 | [AMBER](Applications/amber/README.md)                             | Quantori         |                |
-| [AMG2013](Applications/amg2013/README.md)                         |                  |                |
-| [aoflagger](Applications/aoflagger/README.md)                     |                  |                |
+| [AMG2013](Applications/amg2013/README.md)                         | HPCNepal         |                |
+| [aoflagger](Applications/aoflagger/README.md)                     | Serendipity      |                |
 | [athena](Applications/athena/README.md)                           |                  |                |
 | [BLIS](Applications/blis/README.md)                               | SPEED            |                |
 | [Bowtie](Applications/bowtie/README.md)                           |                  |                |
-| [branson](Applications/branson/README.md)                         |                  |                |
-| [CAMx](Applications/camx/README.md)                               |                  |                |
-| [CANDLE-benchmarks](Applications/candle-benchmarks/README.md)     |                  |                |
-| [Cbench](Applications/cbench/README.md)                           |                  |                |
-| [CGM](Applications/cgm/README.md)                                 |                  |                |
+| [branson](Applications/branson/README.md)                         | Iman             |                |
+| [CAMx](Applications/camx/README.md)                               | TPPU             |                |
+| [CANDLE-benchmarks](Applications/candle-benchmarks/README.md)     | DeepNeuronBlue   |                |
+| [Cbench](Applications/cbench/README.md)                           | KeyzerSozeHPC    |                |
+| [CGM](Applications/cgm/README.md)                                 | Firefly          |                |
 | [chatterbug](Applications/chatterbug/README.md)                   |                  |                |
 | [cistem](Applications/cistem/README.md)                           |                  |                |
 | [CONVERGE](Applications/converge/README.md)                       |                  |                |
-| [cosmoflow-benchmark](Applications/cosmoflow-benchmark/README.md) |                  |                |
+| [cosmoflow-benchmark](Applications/cosmoflow-benchmark/README.md) | SGHackers        |                |
 | [CosmoMC](Applications/cosmomc/README.md)                         |                  |                |
 | [CoSP2](Applications/cosp2/README.md)                             |                  |                |
 | [CP2K](Applications/cp2k/README.md)                               | QMLab            |                |
-| [DOCK](Applications/dock/README.md)                               |                  |                |
+| [DOCK](Applications/dock/README.md)                               | Wolfpack         |                |
 | [elk](Applications/elk/README.md)                                 |                  |                |
 | [elmerfem](Applications/elmerfem/README.md)                       | CloudHPC         |                |
 | [ExaBayes](Applications/exabayes/README.md)                       |                  |                |
 | [ExaML](Applications/examl/README.md)                             | DogeCoinToTheMoon|                |
 | [FleCSPH](Applications/flecsph/README.md)                         | BlueHPCHens      |                |
-| [frontistr](Applications/frontistr/README.md)                     |                  |                |
-| [GATK](Applications/gatk/README.md)                               | Falkners         |                |
+| [frontistr](Applications/frontistr/README.md)                     | GopherHPC        |                |
+| [GATK](Applications/gatk/README.md)                               | Falkners         | Logging        |
 | [graph500](Applications/graph500/README.md)                       | Masterofpuppets  |                |
 | [HPGMG](Applications/hpgmg/README.md)                             |                  |                |
 | [LAMMPS](Applications/lammps/README.md)                           | Masterofpuppets  |                |
 | [latte](Applications/latte/README.md)                             |                  |                |
 | [meep](Applications/meep/README.md)                               | X-Factor         |                |
-| [meme](Applications/meme/README.md)                               |                  |                |
+| [meme](Applications/meme/README.md)                               | TeamEPCC         |                |
 | [MemXCT](Applications/memxct/README.md)                           | C3SR             |                |
 | [modylas](Applications/modylas/README.md)                         |                  |                |
 | [MrBayes](Applications/mrbayes/README.md)                         |DogeCoinToTheMoon |                |
 | [MRChem](Applications/mrchem/README.md)                           |                  |                |
 | [MXNet](Applications/mxnet/README.md)                             | X-Factor         |                |
 | [NALU](Applications/nalu/README.md)                               |                  |                |
-| [Nalu-Wind](Applications/nalu-wind/README.md)                     |                  |                |
+| [Nalu-Wind](Applications/nalu-wind/README.md)                     | HPC-LUL          |                |
 | [NAMD](Applications/namd/README.md)                               | HPCMatrix        |                |
-| [Nek5000](Applications/nek5000/README.md)                         |                  |                |
+| [Nek5000](Applications/nek5000/README.md)                         | C-unMake         |                |
 | [Nektar](Applications/nektar/README.md)                           |                  |                |
-| [NEST](Applications/nest/README.md)                               | neuralmimicry    |                |
+| [NEST](Applications/nest/README.md)                               | NeuralMimicry    |                |
 | [NuT](Applications/nut/README.md)                                 |                  |                |
 | [NWChem](Applications/nwchem/README.md)                           | QMLab            |                |
 | [octopus](Applications/octopus/README.md)                         |                  |                |
-| [openmm](Applications/openmm/README.md)                           |                  |                |
+| [openmm](Applications/openmm/README.md)                           | TeamJoe          |                |
 | [Pathfinder](Applications/pathfinder/README.md)                   |                  |                |
-| [PICSAR](Applications/picsar/README.md)                           |                  |                |
+| [PICSAR](Applications/picsar/README.md)                           | ElkNet           |                |
 | [PISM](Applications/pism/README.md)                               |                  |                |
-| [QBOX](Applications/qbox/README.md)                               |                  |                |
+| [QBOX](Applications/qbox/README.md)                               | RISCy Business   |                |
 | [QMCPACK](Applications/qmcpack/README.md)                         |                  |                |
 | [Quantum-Espresso](Applications/quantum-espresso/README.md)       | TeamPhoenix      |                |
 | [relion](Applications/relion/README.md)                           | Quantori         |                |
-| [SIESTA](Applications/siesta/README.md)                           | GarotesdePremia  |                |
-| [SNbone](Applications/snbone/README.md)                           |                  |                |
+| [SIESTA](Applications/siesta/README.md)                           | GarotesdePremia  | Logging        |
+| [SNbone](Applications/snbone/README.md)                           | FastSolversWithFiredrake|                |
 | [STAR](Applications/star/README.md)                               | BlueHPCHens      |                |
 | [SU2](Applications/su2/README.md)                                 | CloudHPC         |                |
-| [tinker](Applications/tinker/README.md)                           |                  |                |
-| [VASP](Applications/vasp/README.md)                               |                  |                |
+| [tinker](Applications/tinker/README.md)                           | DogeCoinToTheMoon |                |
+| [VASP](Applications/vasp/README.md)                               | HarryPorters     |                |
 | [VPFFT](Applications/vpfft/README.md)                             |                  |                |
-| [VPIC](Applications/vpic/README.md)                               |                  |                |
+| [VPIC](Applications/vpic/README.md)                               | MexicanWolf      |                |
 | [warpx](Applications/warpx/README.md)                             |                  |                |
 | [yambo](Applications/yambo/README.md)                             |                  |                |
 

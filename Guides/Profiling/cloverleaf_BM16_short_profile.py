@@ -8,7 +8,7 @@ import csv
 @rfm.simple_test
 class CloverLeafTest(hack.HackathonBase):
     # Where to run the binaries
-    valid_systems = ['aws:c6g'] #, 'aws:c6gn'] 
+    valid_systems = ['aws:c6gn'] 
 
     # Logging Variables
     log_team_name = 'TeamArm'
@@ -37,7 +37,7 @@ class CloverLeafTest(hack.HackathonBase):
         { 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
     ])
 
-    @rfm.run_before('sanity')
+    @run_before('sanity')
     def set_sanity_patterns(self):
        # Validation at step 87 (BM_short)
        # Regex - Volume   Mass   Density   Pressure   Internal Energy   Kinetic Energy   Total Energy
@@ -54,16 +54,16 @@ class CloverLeafTest(hack.HackathonBase):
 
        # Extract wall clock values
        pref_regex = r'\s+Wall clock\s+(\S+)'
-       times = sn.extractall(pref_regex,self.logfile, 1, float)
 
        # Use last wall clock
        self.perf_patterns = { 
-               'Total Time':  times[sn.count(times) -1],
+               'Total Time': sn.extractsingle(pref_regex, self.logfile, 1, float, item=-1)
        }
 
 
-
-    @rfm.run_before('run')
+    # Here we modify the launcher to use the MAP profiler, and generate a `profile.map` file
+    # We tell ReFrame to stage this file back too
+    @run_before('run')
     def set_profiler(self):
       self.proffile = 'profile.map'
       self.keep_files.append(self.proffile)
@@ -71,6 +71,6 @@ class CloverLeafTest(hack.HackathonBase):
       self.modules.append('arm-forge@21.0')
    
       self.job.launcher = LauncherWrapper(self.job.launcher, 'map',
-                                            ['--profile', '--outfile='+self.proffile])
+                                            ['--profile', '--output='+self.proffile])
 
 
