@@ -1,6 +1,6 @@
 import os
 
-#os.environ['FI_EFA_FORK_SAFE'] = '1'
+os.environ['FI_EFA_FORK_SAFE'] = '1'
 
 import reframe as rfm
 import reframe.utility.sanity as sn
@@ -90,5 +90,5 @@ class MemeLex09(hack.HackathonBase):
 
         perf_regex = r'^Time\s+(\S+) secs.'  # Time 73.34 secs.
         self.perf_patterns = {
-            'Total Time': sn.extractsingle(perf_regex, 'lex0.fna.d/meme.txt', 1, float, item=-1)
+            'Total Time': sn.extractsingle(perf_regex, ofile, 1, float, item=-1)
         }
