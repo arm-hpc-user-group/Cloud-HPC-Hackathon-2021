@@ -2,9 +2,9 @@ import reframe as rfm
 import reframe.utility.sanity as sn
 import hackathon as hack
 import os
+from PyLoadArrayPicsar import *
 from reframe.core.launchers import LauncherWrapper
 from shutil import copyfile
-
 
 @rfm.simple_test
 class PICSARtest(hack.HackathonBase):
@@ -14,10 +14,10 @@ class PICSARtest(hack.HackathonBase):
     # Logging Variables
     log_team_name = 'ElkNet'
     log_app_name = 'PICSAR'
-    log_test_name = 'PICSAR-GAUSSIAN_TEST'
+    log_test_name = 'PICSAR-PERF1'
 
     # Define test case
-    input_name = 'gaussian_test'
+    input_name = 'perf1'
     input_dir = os.path.dirname(__file__) + '/benchmarks/' + input_name
     inputfile = input_dir + '/input/' + input_name + '.pixr'
 
@@ -60,17 +60,31 @@ class PICSARtest(hack.HackathonBase):
     @run_before('sanity')
     def set_sanity_patterns(self):
         # Validate the output
-
-        expected_output_path = self.input_dir + '/reference_output'
         results_path = self.stagedir + '/RESULTS'
 
-        # Check output agains the reference output
-        files = ['/bxE', '/byE', '/bzE', '/exE', '/eyE', '/ezE', '/kinE']
-        for f in files:
-            regex = r'.*'
-            expected = sn.extractall(regex, expected_output_path + f)
-            actual = sn.extractall(regex, results_path + f)
-            self.sanity_patterns = sn.assert_eq(expected, actual, msg=None)
+        #### CHECK ENERGY BALANCE ###
+        # Kinetic energy
+        t,kinE = read_picsar_temporal_diags(results_path + '/kinE')
+        # Opening of the ezfield
+        t,ezE = read_picsar_temporal_diags(results_path + '/ezE')
+        # Opening of the eyfield
+        t,eyE = read_picsar_temporal_diags(results_path + '/eyE')
+        # Opening of the exfield
+        t,exE = read_picsar_temporal_diags(results_path + '/exE')
+        # Opening of the exfield
+        t,bzE = read_picsar_temporal_diags(results_path + '/bzE')
+        # Opening of the exfield
+        t,byE = read_picsar_temporal_diags(results_path + '/byE')
+        # Opening of the exfield
+        t,bxE = read_picsar_temporal_diags(results_path + '/bxE')
+
+        total_energy = sum(kinE,axis=0) + ezE + exE + eyE + bzE + bxE + byE
+
+        min_totalE = min(total_energy)
+        max_totalE = max(total_energy)
+        diffrel = (max_totalE - min_totalE)/max_totalE
+
+        self.sanity_patterns = sn.assert_lt(diffrel, 1e-2, msg=None)
 
         # Performance Testing - FOM Total Time units 's'
         # We dont set an expected value

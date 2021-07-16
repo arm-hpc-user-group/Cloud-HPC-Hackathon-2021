@@ -155,7 +155,7 @@ end::antenna
 section::temporal
   frequency=1
   # output 0 - binary, 1 - ascii
-  format=1
+  format=0
   kinE=1
   exE=1
   eyE=1
