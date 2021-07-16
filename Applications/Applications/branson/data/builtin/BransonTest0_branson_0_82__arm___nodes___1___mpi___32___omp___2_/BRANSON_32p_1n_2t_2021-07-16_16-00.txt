@@ -1,0 +1,63 @@
+Command:        srun BRANSON ./branson.in
+Resources:      1 node (64 physical, 64 logical cores per node)
+Memory:         124 GiB per node
+Tasks:          32 processes
+Machine:        c6gn-dy-c6gn16xlarge-1
+Start time:     Fri Jul 16 16:00:09 2021
+Total time:     344 seconds (about 6 minutes)
+Full path:      /scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/branson-0.82-jnkdmccz3fmdv53qkrklxbx3mvsyxlqo/bin
+
+Summary: BRANSON is Compute-bound in this configuration
+Compute:                                     98.8% |=========|
+MPI:                                          1.2% ||
+I/O:                                          0.0% |
+This application run was Compute-bound. A breakdown of this time and advice for investigating further is in the CPU Metrics section below. 
+As very little time is spent in MPI calls, this code may also benefit from running at larger scales.
+
+CPU Metrics:
+Linux perf event metrics:
+Cycles per instruction:                       1.18 
+L2D cache miss:                              14.4% ||
+Stalled backend cycles:                      32.1% |==|
+Stalled frontend cycles:                      0.0% |
+Cycles per instruction is moderate. Lower values are better but are application-dependent. High values may indicate memory latency or branch mispredictions.
+
+MPI:
+A breakdown of the 1.2% MPI time:
+Time in collective calls:                    92.3% |========|
+Time in point-to-point calls:                 7.7% ||
+Effective process collective rate:            94.2 MB/s
+Effective process point-to-point rate:        1.12 GB/s
+Most of the time is spent in collective calls with a low transfer rate. This can be caused by inefficient message sizes, such as many small messages, or by imbalanced workloads causing processes to wait.
+
+I/O:
+A breakdown of the 0.0% I/O time:
+Time in reads:                                0.0% |
+Time in writes:                               0.0% |
+Effective process read rate:                  0.00 bytes/s
+Effective process write rate:                 0.00 bytes/s
+No time is spent in I/O operations. There's nothing to optimize here!
+
+Threads:
+A breakdown of how multiple threads were used:
+Computation:                                100.0% |=========|
+Synchronization:                              0.0% |
+Physical core utilization:                   49.1% |====|
+System load:                                 50.0% |====|
+Physical core utilization is low. Try increasing the number of threads or processes to improve performance.
+
+Memory:
+Per-process memory usage may also affect scaling:
+Mean process memory usage:                    1.18 GiB
+Peak process memory usage:                    1.74 GiB
+Peak node memory usage:                      52.0% |====|
+The peak node memory usage is modest. Running with fewer MPI processes and more data on each process may be more efficient.
+
+Energy:
+A breakdown of how energy was used:
+CPU:                                      not supported
+System:                                   not supported
+Mean node power:                          not supported
+Peak node power:                              0.00 W
+Energy metrics are not available on this system.
+

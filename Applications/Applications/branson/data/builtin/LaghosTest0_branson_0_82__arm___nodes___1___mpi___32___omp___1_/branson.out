@@ -1,0 +1,238 @@
+-------- Branson, a massively parallel proxy app for Implicit Monte Carlo ------
+-------- Author: Alex Long (along@lanl.gov) ------------------------------------
+-------- Version: 0.81----------------------------------------------------------
+
+ Branson compiled on: CCS
+"use_combing" not found or recognized, defaulting to TRUE
+WARNING: Mesh decomposition method not recognized... setting to METIS method
+Problem Specifications:Constants -- c: 299.792 (cm/sh) , a: 0.01372
+Run Parameters-- Photons: 160000000, time finish: 0.01 (sh), time step: 0.001 (sh) ,
+ time multiplier: 1 , max dt:1 (sh), Random number seed: 14706 , output frequency: 1
+Stratified sampling in angle: FALSE
+Combing census enabled (default)
+Terse printing mode (default)
+NOTE: SILO libraries not linked... no visualization
+Spatial Information -- cells x,y,z: 100 100 100
+--Material Information--
+ heat capacity: 0.1 opacity constants: 10 + 0^0, scattering opacity: 0
+ heat capacity: 0.1 opacity constants: 100 + 0^0, scattering opacity: 0
+ heat capacity: 0.1 opacity constants: 10 + 0^0, scattering opacity: 0
+--Parallel Information--
+DD algorithm: CELL PASSING
+grip size: 9000, map size: 500000, batch size: 5000
+Mesh decomposition: METIS
+
+partitioning...
+overdecomposing...
+remapping with allreduce...
+Minimum/Maximum grip size: 10415 / 10537
+Partition: 0.846302
+Overdecomp: 0.027675
+Remap: 0.082271
+********************************************************************************
+Step: 1  Start Time: 0  End Time: 0.001  dt: 0.001
+Load balancing 161997000 particles
+Max particles: 154139623 on rank 16, 95.1497 percent of total work
+Transport complete
+Max census on rank: 15149170, average census: 543887
+Total acceptors: 592, total donors: 592
+Total Photons transported: 161997000
+Emission E: 1.55491e-05, Absorption E: 2.47215e-05, Exit E: 2.99228e-15
+Pre census E: 1.372e-05 Post census E: 4.5476e-06 Post census Size: 17404398
+Pre mat E: 0.0001999 Post mat E: 0.000209072
+Radiation conservation: 1.5643e-17
+Material conservation: 2.11799e-16
+Sends posted: 2930, sends completed: 556414
+Receives posted: 2930, receives completed: 2930
+Step cell messages sent: 1465, Step cells sent: 20127995
+Step cells requested: 0
+Load balance time: 0.033807
+Transport time max/min: 20.624/9.50972
+Census Rebalance time max/min: 0.619589/0.383117
+********************************************************************************
+Step: 2  Start Time: 0.001  End Time: 0.002  dt: 0.001
+Load balancing 178401482 particles
+Max particles: 148299230 on rank 16, 83.1267 percent of total work
+Transport complete
+Max census on rank: 14866828, average census: 533661
+Total acceptors: 589, total donors: 589
+Total Photons transported: 178401482
+Emission E: 1.47972e-05, Absorption E: 1.48263e-05, Exit E: 2.96823e-15
+Pre census E: 4.5476e-06 Post census E: 4.51848e-06 Post census Size: 17077173
+Pre mat E: 0.000209072 Post mat E: 0.000209102
+Radiation conservation: 1.03575e-17
+Material conservation: -1.01644e-17
+Sends posted: 2806, sends completed: 1515874
+Receives posted: 2806, receives completed: 2806
+Step cell messages sent: 1403, Step cells sent: 19991867
+Step cells requested: 0
+Load balance time: 0.083445
+Transport time max/min: 25.3737/9.90257
+Census Rebalance time max/min: 0.6462/0.34776
+********************************************************************************
+Step: 3  Start Time: 0.002  End Time: 0.003  dt: 0.001
+Load balancing 178074026 particles
+Max particles: 143425562 on rank 16, 80.5427 percent of total work
+Transport complete
+Max census on rank: 14684172, average census: 533183
+Total acceptors: 590, total donors: 590
+Total Photons transported: 178074026
+Emission E: 1.36154e-05, Absorption E: 1.4084e-05, Exit E: 2.96986e-15
+Pre census E: 4.51848e-06 Post census E: 4.04988e-06 Post census Size: 17061862
+Pre mat E: 0.000209102 Post mat E: 0.00020957
+Radiation conservation: 1.04354e-17
+Material conservation: -1.06523e-17
+Sends posted: 2710, sends completed: 1166437
+Receives posted: 2710, receives completed: 2710
+Step cell messages sent: 1355, Step cells sent: 19675827
+Step cells requested: 0
+Load balance time: 0.072063
+Transport time max/min: 24.6451/10.2474
+Census Rebalance time max/min: 0.673824/0.354645
+********************************************************************************
+Step: 4  Start Time: 0.003  End Time: 0.004  dt: 0.001
+Load balancing 178058427 particles
+Max particles: 139352650 on rank 16, 78.2623 percent of total work
+Transport complete
+Max census on rank: 14546541, average census: 533216
+Total acceptors: 589, total donors: 589
+Total Photons transported: 178058427
+Emission E: 1.29122e-05, Absorption E: 1.33338e-05, Exit E: 2.96441e-15
+Pre census E: 4.04988e-06 Post census E: 3.62827e-06 Post census Size: 17062937
+Pre mat E: 0.00020957 Post mat E: 0.000209992
+Radiation conservation: 1.08183e-17
+Material conservation: -9.26993e-18
+Sends posted: 2678, sends completed: 1178166
+Receives posted: 2678, receives completed: 2678
+Step cell messages sent: 1339, Step cells sent: 19571173
+Step cells requested: 0
+Load balance time: 0.072994
+Transport time max/min: 30.4589/9.80085
+Census Rebalance time max/min: 0.794207/0.487936
+********************************************************************************
+Step: 5  Start Time: 0.004  End Time: 0.005  dt: 0.001
+Load balancing 178059381 particles
+Max particles: 135925085 on rank 16, 76.3369 percent of total work
+Transport complete
+Max census on rank: 14422230, average census: 533349
+Total acceptors: 590, total donors: 590
+Total Photons transported: 178059381
+Emission E: 1.24729e-05, Absorption E: 1.27961e-05, Exit E: 2.96861e-15
+Pre census E: 3.62827e-06 Post census E: 3.30513e-06 Post census Size: 17067182
+Pre mat E: 0.000209992 Post mat E: 0.000210315
+Radiation conservation: 1.02423e-17
+Material conservation: -1.00018e-17
+Sends posted: 2774, sends completed: 1177711
+Receives posted: 2774, receives completed: 2774
+Step cell messages sent: 1387, Step cells sent: 19960375
+Step cells requested: 0
+Load balance time: 0.073893
+Transport time max/min: 26.8196/11.1012
+Census Rebalance time max/min: 0.712711/0.439295
+********************************************************************************
+Step: 6  Start Time: 0.005  End Time: 0.006  dt: 0.001
+Load balancing 178063473 particles
+Max particles: 133333110 on rank 16, 74.8795 percent of total work
+Transport complete
+Max census on rank: 14316448, average census: 533340
+Total acceptors: 592, total donors: 592
+Total Photons transported: 178063473
+Emission E: 1.20977e-05, Absorption E: 1.23665e-05, Exit E: 2.97599e-15
+Pre census E: 3.30513e-06 Post census E: 3.03629e-06 Post census Size: 17066910
+Pre mat E: 0.000210315 Post mat E: 0.000210584
+Radiation conservation: 9.6765e-18
+Material conservation: -1.1601e-17
+Sends posted: 2720, sends completed: 1210671
+Receives posted: 2720, receives completed: 2720
+Step cell messages sent: 1360, Step cells sent: 19729177
+Step cells requested: 0
+Load balance time: 0.074865
+Transport time max/min: 27.4957/10.1503
+Census Rebalance time max/min: 0.75583/0.397607
+********************************************************************************
+Step: 7  Start Time: 0.006  End Time: 0.007  dt: 0.001
+Load balancing 178063080 particles
+Max particles: 131321074 on rank 16, 73.7497 percent of total work
+Transport complete
+Max census on rank: 14227299, average census: 533250
+Total acceptors: 580, total donors: 580
+Total Photons transported: 178063080
+Emission E: 1.17727e-05, Absorption E: 1.19988e-05, Exit E: 2.96962e-15
+Pre census E: 3.03629e-06 Post census E: 2.81021e-06 Post census Size: 17064025
+Pre mat E: 0.000210584 Post mat E: 0.00021081
+Radiation conservation: 1.02474e-17
+Material conservation: -9.37835e-18
+Sends posted: 2846, sends completed: 1309034
+Receives posted: 2846, receives completed: 2846
+Step cell messages sent: 1423, Step cells sent: 20255374
+Step cells requested: 0
+Load balance time: 0.073483
+Transport time max/min: 27.0508/10.3938
+Census Rebalance time max/min: 0.738305/0.463136
+********************************************************************************
+Step: 8  Start Time: 0.007  End Time: 0.008  dt: 0.001
+Load balancing 178060027 particles
+Max particles: 129571593 on rank 16, 72.7685 percent of total work
+Transport complete
+Max census on rank: 14151165, average census: 533266
+Total acceptors: 578, total donors: 578
+Total Photons transported: 178060027
+Emission E: 1.15032e-05, Absorption E: 1.16954e-05, Exit E: 2.97422e-15
+Pre census E: 2.81021e-06 Post census E: 2.61799e-06 Post census Size: 17064520
+Pre mat E: 0.00021081 Post mat E: 0.000211002
+Radiation conservation: 1.0017e-17
+Material conservation: -1.02999e-17
+Sends posted: 2730, sends completed: 1160414
+Receives posted: 2730, receives completed: 2730
+Step cell messages sent: 1365, Step cells sent: 20097765
+Step cells requested: 0
+Load balance time: 0.074674
+Transport time max/min: 31.9154/10.4485
+Census Rebalance time max/min: 0.857378/0.547151
+********************************************************************************
+Step: 9  Start Time: 0.008  End Time: 0.009  dt: 0.001
+Load balancing 178060461 particles
+Max particles: 128024992 on rank 16, 71.8997 percent of total work
+Transport complete
+Max census on rank: 14080539, average census: 533303
+Total acceptors: 587, total donors: 587
+Total Photons transported: 178060461
+Emission E: 1.12772e-05, Absorption E: 1.14413e-05, Exit E: 2.96434e-15
+Pre census E: 2.61799e-06 Post census E: 2.45386e-06 Post census Size: 17065726
+Pre mat E: 0.000211002 Post mat E: 0.000211166
+Radiation conservation: 1.01271e-17
+Material conservation: -8.83625e-18
+Sends posted: 2870, sends completed: 1244508
+Receives posted: 2870, receives completed: 2870
+Step cell messages sent: 1435, Step cells sent: 20538555
+Step cells requested: 0
+Load balance time: 0.075982
+Transport time max/min: 27.4091/10.6797
+Census Rebalance time max/min: 0.755846/0.491188
+********************************************************************************
+Step: 10  Start Time: 0.009  End Time: 0.01  dt: 0.001
+Load balancing 178061571 particles
+Max particles: 126658800 on rank 16, 71.132 percent of total work
+Transport complete
+Max census on rank: 14026781, average census: 533516
+Total acceptors: 591, total donors: 591
+Total Photons transported: 178061571
+Emission E: 1.10768e-05, Absorption E: 1.12179e-05, Exit E: 2.96627e-15
+Pre census E: 2.45386e-06 Post census E: 2.3127e-06 Post census Size: 17072532
+Pre mat E: 0.000211166 Post mat E: 0.000211307
+Radiation conservation: 9.9916e-18
+Material conservation: -9.18861e-18
+Sends posted: 2870, sends completed: 1170739
+Receives posted: 2870, receives completed: 2870
+Step cell messages sent: 1435, Step cells sent: 20476103
+Step cells requested: 0
+Load balance time: 0.076414
+Transport time max/min: 25.588/10.6777
+Census Rebalance time max/min: 0.677684/0.341426
+********************************************************************************
+Total cells requested: 0
+Total cells sent: 200424211
+Total cell messages: 13967
+********************************************************************************
+Total transport: 282.069
+Total setup: 1.00744

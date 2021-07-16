@@ -20,14 +20,14 @@ Pull request for Spack recipe changes:
 
 
 
-#### Compiler 1
+#### Compiler 1 ARM
 
 ```
-spack install <app>%<compiler1>
+spack install pism%arm
 ```
 
 ```
-$ spack spec -Il <app>%<compiler1>
+$ spack spec -Il pism%arm
 
 ```
 

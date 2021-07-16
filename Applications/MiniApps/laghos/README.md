@@ -855,6 +855,20 @@ On-node scaling study for 3 compilers. Here 'major kernels total time' in second
 | 16    | 14.21  | 14.68  | 14.84  |
 | 64    | 25.77  | 25.60  | 26.23  |
 
+### Maths Library Report (OR how we analyzed the absence of math libraries)
+
+Ok I don't have Maths Library report, but as I put time into this, I just want to document this: initially we didn't know if an app was using blas or not, as the perf lib tool thing, did not even make an empty file in case there was no call (not nice!) so first I made sure that openblas was there, like, in real to do that I tried ldd to see what libraries are linked:
+
+```
+ ldd /scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/laghos-3.1-qsrtkaefmj3xu4lx676h2syhsspwwzpo/bin/laghos | grep blas
+```
+
+Showing openblas, but it turned out it was only there due to HYPRE bringing it in (HYPRE itself there due to MFEM) so long story short being in ldd we thought it must be using it but it didn't but how would we be sure? ltrace to the rescue:
+```
+ ltrace -l libopenblas.so.0 laghos
+```
+and no calls! Case closed.
+
 ## Optimisation
 
 Initially the package did not set _any_ compiler flag. I fiddled with them a little bit, and the clear thing to do was to go with inlining and -Ofast. I picked gnu compiler as it was the fastest among the compilers and added those flags (and well, Ofast is only available on gnu). Gains were mostly evident in serial (single core) and they where still very modest changes as it can be seen, but well, C'est la vie! (A modest 3% enhancement is observed)
