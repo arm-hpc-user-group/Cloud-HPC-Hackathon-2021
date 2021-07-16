@@ -8,7 +8,7 @@ GATK is a very large set of tools with ~100 different distinct tools to test. Se
 * `HG00096.mapped.ILLUMINA.bwa.GBR.low_coverage.20120522.bam` is a medium sized "low coverage" Illumina sequencer data set from the initial 1000 Genomes Project
 * `HG00096.wgs.ILLUMINA.bwa.GBR.high_cov_pcr_free.20140203.bam` is a large sized "high coverage" Illumina sequencer data from Phase 3 updates to the 1000 Genomes Project
 
-The above files represent real, large genomics files and have been saved to `/scratch/home/jayson/gatk-data` since they are so large (100GB+ for the last one!). These represent one sequencing run of one sample. The full 1000 Genome Project data set has closer to 3,000 total files of this size. Results here help show how well these types of files can be handled.
+The above files represent real, large genomics files and have been saved to `/scratch/home/<user>/gatk-data` since they are so large (100GB+ for the last one!). These represent one sequencing run of one sample. The full 1000 Genome Project data set has closer to 3,000 total files of this size. Results here help show how well these types of files can be handled.
 
 **URL:** https://software.broadinstitute.org/gatk/
 
