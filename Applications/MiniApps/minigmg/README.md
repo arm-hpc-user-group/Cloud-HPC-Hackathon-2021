@@ -100,22 +100,22 @@ List of top-10 functions / code locations from a serial profile.
 #### Test Case 1  
 Profiling script:  
 [ReFrame Benchmark](#)  
-![alt text](/pictures/st1.png)
+![st1](pictures/st1.png)
 
 #### Test Case 2
 Profiling script:  
 [ReFrame Benchmark](#)  
-![alt text](/pictures/st2.png)
+![st2](pictures/st2.png)
 
 #### Test Case 3
 Profiling script:  
 [ReFrame Benchmark](#)  
-![alt text](/pictures/st3.png)
+![st3](pictures/st3.png)
 
 #### Test Case 4
 Profiling script:  
 [ReFrame Benchmark](#)  
-![alt text](/pictures/st4.png)
+![st4](pictures/st4.png)
 
 ### Full Node Hot-spot Profile
 
