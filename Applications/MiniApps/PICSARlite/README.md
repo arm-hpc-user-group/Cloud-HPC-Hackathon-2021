@@ -255,18 +255,18 @@ Profiling command used:
 reframe -c picsarlite_homogeneous_plasma_lite.py -r --performance-report
 ```
 
-| Position | depth | Self  | Total | Child | MPI  | Overhead | Regions | Function                     |
-|----------|-------|-------|-------|-------|–-----|–---------|–--------|–-----------------------------|
-|  1       | 0     | 21.0% | 21.0% |       |      |          |         | depose_jxjyjz_scalar_1_1_1   |
-|  2       | 0     | 12.8% | 12.8% |       |      | 12.8%    |         | GOMP_parallel                |
-|  3       | 0     | 12.6% | 12.6% |       | 12.6%|          |         | mpi_waitall                  |
-|  4       | 0     | 9.6%  | 9.6%  |       |      |          |         | pxr_boris_push_u_3d          |
-|  5       | 0     | 4.4%  | 4.4%  |       |      |          |         | mpi_file_close               |
-|  6       | 0     | 3.2%  | 9.2%  | 6.0%  | 4.8% |          |         | __particle_boundary_MOD_particle_bcs_mpi_non_blocking |
-|  7       | 0     | 3.1%  | 3.1%  |       |      |          |         | mpi_file_open                |
-|  8       | 0     | 2.5%  | 2.5%  |       |      |          |         | pxr_set_gamma                |
-|  9       | 0     | 2.3%  | 2.3%  |       |      |          |         | sincos                       |
-| 10       | 0     | 1.5%  | 1.5%  |       | 1.5% |          |         | mpi_isend                    |
+| Position | depth | Self  | Total | Child | MPI  | Overhead | Regions | Function                                               |
+|----------|-------|-------|-------|-------|–-----|–---------|–--------|–-------------------------------------------------------|
+|  1       | 0     | 21.0% | 21.0% |       |      |          |         | depose_jxjyjz_scalar_1_1_1                             |
+|  2       | 0     | 12.8% | 12.8% |       |      | 12.8%    |         | GOMP_parallel                                          |
+|  3       | 0     | 12.6% | 12.6% |       | 12.6%|          |         | mpi_waitall                                            |
+|  4       | 0     | 9.6%  | 9.6%  |       |      |          |         | pxr_boris_push_u_3d                                    |
+|  5       | 0     | 4.4%  | 4.4%  |       |      |          |         | mpi_file_close                                         |
+|  6       | 0     | 3.2%  | 9.2%  | 6.0%  | 4.8% |          |         | __particle_boundary_MOD_particle_bcs_mpi_non_blocking  |
+|  7       | 0     | 3.1%  | 3.1%  |       |      |          |         | mpi_file_open                                          |
+|  8       | 0     | 2.5%  | 2.5%  |       |      |          |         | pxr_set_gamma                                          |
+|  9       | 0     | 2.3%  | 2.3%  |       |      |          |         | sincos                                                 |
+| 10       | 0     | 1.5%  | 1.5%  |       | 1.5% |          |         | mpi_isend                                              |
 
 ### On-node Compiler Comparison
 
