@@ -690,10 +690,16 @@ meme_-Klf1-large_meme_fifpy6p_N_8_MPI_512_OMP_1
 #### Intel
 
 ```
-[  PASSED  ] Ran 16/16 test case(s) from 16 check(s) (0 failure(s), 0 skipped)
+[  PASSED  ] Ran 18/18 test case(s) from 18 check(s) (0 failure(s), 0 skipped)
 [==========] Finished on Fri Jul 16 15:12:29 2021
 ==============================================================================
 PERFORMANCE REPORT
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ylex6xs_N_1_MPI_1_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1416.1 s
 ------------------------------------------------------------------------------
 meme_-Klf1-large_meme_ylex6xs_N_1_MPI_3_OMP_1
 - aws:c5n
@@ -737,6 +743,11 @@ meme_-Klf1-large_meme_ylex6xs_N_8_MPI_576_OMP_1
    - builtin
       * num_tasks: 576
       * Total Time: 37.12 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ucxv6oz_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1705.14 s
 ------------------------------------------------------------------------------
 meme_-Klf1-large_meme_ucxv6oz_N_1_MPI_3_OMP_1
    - builtin
@@ -846,14 +857,14 @@ List of top-10 functions/code locations from a full node profile (C6gn with
 
 #### C5n instances
 
-| Nodes | Hardware threads | Gnu 10.3 | Nvidia 21.2 |
-|-------|------------------|----------|-------------|
-| 1     |               1  |          |             |
-| 1     |               3  | 484.2  s |    588.09 s |
-| 1     |               9  | 169.09 s |    204.78 s |
-| 1     |              18  |  91.34 s |    109.71 s |
-| 1     |              36  |  54.62 s |     64.38 s |
-| 1     |              72  |  57.42 s |     66.15 s |
+| Nodes | Hardware threads |  Gnu 10.3 | Nvidia 21.2 |
+|-------|------------------|-----------|-------------|
+| 1     |               1  | 1416.1  s |   1705.14 s |
+| 1     |               3  |  484.2  s |    588.09 s |
+| 1     |               9  |  169.09 s |    204.78 s |
+| 1     |              18  |   91.34 s |    109.71 s |
+| 1     |              36  |   54.62 s |     64.38 s |
+| 1     |              72  |   57.42 s |     66.15 s |
 
 ### Off-Node Scaling Study
 
