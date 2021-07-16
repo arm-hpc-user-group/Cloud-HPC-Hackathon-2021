@@ -1220,7 +1220,16 @@ Please attach the corresponding apl files.
 
 ### Maths Library Optimisation
 
-Was not done as part of this test.
+The test that most likely might use the maths libs was tried, but it appears to not call any maths libraries. It was confirmed that no report is expected if no calls end up being made.
+
+```
+# find/set the lib
+# which process_summary.py
+MATHS_DIR="/scratch/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perf-libs-tools-git-master-kf5orv4ea6umnsedi4ousemwmdwnso4s"
+
+# re-run the test
+env LD_PRELOAD=$MATHS_DIR/lib/libarmpl-summarylog.so gatk --java-options "-Xmx60g" MarkDuplicatesSpark -I /scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam -O test.bam -M test_metrics.txt
+```
 
 
 ### Performance Regression
