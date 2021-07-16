@@ -631,7 +631,7 @@ FFLAGS=
 
 #### Compiler Flag Performance
 
-The following table is based on gcc@10.3.0 with Test Case 3. The speedup is up to 14.67X when there are 64 threads.
+The following table is based on gcc@10.3.0 with Test Case 3. The speedup is up to 14.67X when there are 64 threads. 
 
 | Cores | Original Flags | New Flags | Speedup |
 | ----- | -------------- | --------- | ------- |
@@ -650,7 +650,7 @@ How fast can you make the code?
 Use all of the above aproaches and any others to make the code as fast as possible.
 Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
 
-The following table is based on gcc@10.3.0 with Test Case 3. The speedup is up to 23.8X when there are 64 threads.
+The following table is based on gcc@10.3.0 with Test Case 3. The speedup is up to 23.8X when there are 64 threads. The percentage of reduction of runtime is **95.81%**.
 
 | Cores | Original | Optimization | Speedup |
 | ----- | -------- | ------------ | ------- |
@@ -668,7 +668,7 @@ The following table is based on gcc@10.3.0 with Test Case 3. The speedup is up t
 
 ### Compilation Summary
 
-Porting miniGMG to ARM needs some adaptation of the code. We changed the rdtsc() function in the timer.x86.c from x86 assemblies to aarch64 assemblies to ensure the success of the compilation. Furthermore, our compilation enables both OpenMP and MPI. We found some issues in both Spack and nvhpc compiler. For Spack, it does not give a special build option for graviton2, but only a general aarch64 option; we added a graviton2 option in Spack and submitted to archspec-json. For nvhpc, we found it produces wrong code for OpenMP programs when running with more than 1 thread, while nvhpc works correctly for sequential and MPI (with no threads) programs. Given the short time frame, we didn’t pinpoint the exact bug in nvhpc code genration, but it inspires to investigate its OpenMP implementation and checks whether it exactly follows the OpenMP standard.
+Porting miniGMG to ARM needs some adaptation of the code. We changed the `rdtsc()` function in the timer.x86.c from x86 assemblies to aarch64 assemblies to ensure the success of the compilation. Furthermore, our compilation enables both OpenMP and MPI. We found some issues in both Spack and nvhpc compiler. For Spack, it does not give a special build option for arm compiler on graviton2, but only a general aarch64 option; we added a arm compiler section in graviton2 in Spack and submitted to archspec-json. [Our PR](https://github.com/archspec/archspec-json/pull/34) has been merged to archspec-json.  For nvhpc, we found it produces wrong code for OpenMP programs when running with more than 1 thread, while nvhpc works correctly for sequential and MPI (with no threads) programs. Given the short time frame, we didn’t pinpoint the exact bug in nvhpc code genration, but it inspires to investigate its OpenMP implementation and checks whether it exactly follows the OpenMP standard.
 
 ### Performance Summary
 
