@@ -164,6 +164,13 @@ is very short when the core=256, so we decide to make the problem size bigger to
 reframe --stage /scratch/home/${USER} -v -c kripke_single_node_test_default.py -r --performance-report
 ```
 
+### Validation output
+
+We use the particle value to validate whether our program run correctly or not.
+
+You can view the x86 and arm validation(and performance) result in `test_default_arch_comparision.txt`
+
+
 ### ReFrame partial output
 
 Performance: Only showing the result of the GCC, we have got the result of ARM and NVHPC but we think it is not necessary to show all of them.
@@ -323,6 +330,12 @@ In the second case, we use run the program with zones=32,32,32 --niter=20. the d
 reframe --stage /scratch/home/${USER} -v -c test_more_iter.py
 ```
 
+### Validation output
+
+We use the particle value to validate whether our program run correctly or not.
+
+You can view the x86 and arm validation(and performance) result in `test_default_more_iter.txt`
+
 ### ReFrame partial output
 
 Performance:
@@ -468,6 +481,12 @@ In the third case, we use the default configuration withg zones=32,32,32 groups=
 reframe --stage /scratch/home/${USER} -v -c kripke_single_node_test_more_groups.py -r --performance-report
 ```
 
+### Validation output
+
+We use the particle value to validate whether our program run correctly or not.
+
+You can view the x86 and arm validation(and performance) result in `test_more_group_arch_comparision.txt`
+
 ### ReFrame partial output
 
 Performance:
@@ -563,6 +582,12 @@ In the fourth case, we use the default configuration withg zones=32,32,64.
 ```
 reframe --stage /scratch/home/${USER} -v -c kripke_single_node_large_zone.py -r --performance-report
 ```
+
+### Validation output
+
+We use the particle value to validate whether our program run correctly or not.
+
+You can view the x86 and arm validation(and performance) result in `test_default_large_zone.txt`
 
 ### ReFrame partial output
 
