@@ -1375,8 +1375,19 @@ Both `gcc` and `nvhpcc` also have very similar results. The spack config was dou
 
 ### Maths Library Report
 
-Maths library report not generated.
+A check for maths library uses was done but resulted in no report because it appears CoMD does not call any of the functions. Discussion at the hack-a-thon
 
+```
+spack install gperftools%arm
+
+# find the lib's dir
+# which process_summary.py
+
+MATHS_DIR="/scratch/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perf-libs-tools-git-master-kf5orv4ea6umnsedi4ousemwmdwnso4s"
+
+# "weak scaling" test from CoMD's data sets
+env LD_PRELOAD=$MATHS_DIR/lib/libarmpl-summarylog.so CoMD-openmp -e -i 1 -j 1 -k 1 -x 20 -y 20 -z 20
+```
 
 ### Performance Regression
 
@@ -1384,6 +1395,7 @@ OpenMP is the fastest the code has been observed. Compared to MPI, OpenMP allows
 
 Testing showed sub-2 second timing for running the first "weak scaling" example step from `CoMD`. This is compared to the 30 seconds the test normally takes.
 
+Given that the maths libraries don't appear to be called, no optimization was done to try to include the improved ones.
 
 ## Report
 
