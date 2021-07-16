@@ -39,6 +39,7 @@ cd STAR
 git checkout 7ea5331
 cd source
 make STAR
+export LD_LIBRARY_PATH=`pwd`/htslib:$LD_LIBRARY_PATH # The htslib folder required in the LD_LIBRARY_PATH to run the code
 ```
 
 ## Testing Pre-Run script
