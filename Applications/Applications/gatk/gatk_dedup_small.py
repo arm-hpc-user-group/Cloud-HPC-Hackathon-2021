@@ -31,7 +31,7 @@ class GATKTest(hack.HackathonBase):
     # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
     spec = parameter([
         'gatk@4.1.8.1%gcc@10.3.0',     # gatk CountReadsSparck with GCC compiler
-        #'gatk@4.1.8.1%arm@21.0.0.879', # gatk CountReadsSpark with ARM compiler
+        'gatk@4.1.8.1%arm@21.0.0.879', # gatk CountReadsSpark with ARM compiler
     ])
 
     log_test_name = f'gatk_dedup_small'
@@ -39,8 +39,6 @@ class GATKTest(hack.HackathonBase):
     # CLI args to use the Spark version of read counting 
     executable_opts = [
         '--java-options "-Xmx60g" MarkDuplicatesSpark -I /scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam -O test.bam -M test_metrics.txt &> gatk.out'
-        #'--java-options "-Xmx60g" MarkDuplicates -I /scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam -R /scratch/home/jayson/gatk-data/chr1.fa -O test.bam -M test_metrics.txt'
-         #f'--java-options "-Xmx60g" BwaSpark --single-end-alignment -I /scratch/home/jayson/gatk-data/HG00096.mapped.ILLUMINA.bwa.GBR.low_coverage.20120522.bam -R /scratch/home/jayson/gatk-data/chr1.fa -O test4.bam &> gatk.out'
     ]
 
     parallelism = parameter([
@@ -52,18 +50,13 @@ class GATKTest(hack.HackathonBase):
         #{ 'nodes' : 1, 'mpi' : 1, 'omp' : 32, 'extra-cmd': '0-31'},
         #{ 'nodes' : 1, 'mpi' : 1, 'omp' : 35, 'extra-cmd': '0-35'},
         { 'nodes' : 1, 'mpi' : 1, 'omp' : 1, 'extra-cmd': '0'},
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 2, 'extra-cmd': '0-1'},
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 4, 'extra-cmd': '0-3'},
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 8, 'extra-cmd': '0-7'},
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 16, 'extra-cmd': '0-15'},
-        { 'nodes' : 1, 'mpi' : 1, 'omp' : 32, 'extra-cmd': '0-31'},
-        #{ 'nodes' : 1, 'mpi' : 1, 'omp' : 35, 'extra-cmd': '0-35'},
     ])
 
     @run_before('run')
     def set_config(self):
-        #pass
-        self.executable = f"taskset --cpu-list {self.parallelism['extra-cmd']} {self.executable}"
+        pass
+        # tried to get the JVM to respect a scaling test!
+        #self.executable = f"taskset --cpu-list {self.parallelism['extra-cmd']} {self.executable}"
         #self.executable_opts.append(f"--spark-master local[{self.parallelism['omp']}] &> gatk.out")
         
 
@@ -71,20 +64,16 @@ class GATKTest(hack.HackathonBase):
     def set_sanity_patterns(self):
 
         # Use the logfile for validation testing and performance
-        #expected_count_regex = r'(BwaSpark)'
         expected_count_regex = r'(MarkDuplicatesSpark)'
-        #expected_count = sn.extractsingle(expected_count_regex, self.logfile, 1, float)
         expected_count = sn.extractsingle(expected_count_regex, self.logfile, 1, str)
 
         self.sanity_patterns = sn.assert_eq(expected_count, 'MarkDuplicatesSpark') 
 
         # timing is taken from the code's self-reported numbers
         self.reference = {
-            '*': {'Total Time': (0, None, None, 's'),}
+            '*': {'Total Time': (0, None, None, 'm'),}
         }
 
-        #perf_regex = r'Job 2 finished: .* took (\S+) s'
-        #perf_regex = r'BwaSpark done. Elapsed time: (\S+) minutes'
         perf_regex = r'MarkDuplicatesSpark done. Elapsed time: (\S+) minutes'
         self.perf_patterns = {
             'Total Time': sn.extractsingle(perf_regex, self.logfile, 1, float, item=-1)
