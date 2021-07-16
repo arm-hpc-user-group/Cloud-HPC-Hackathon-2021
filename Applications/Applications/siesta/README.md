@@ -337,6 +337,13 @@ SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_4_MPI_256_OMP_
       * Run Time: 306.58 None
 ```
 
+430.85
+278.13
+185.62
+152.54
+230.60
+306.58
+
 ### On-node Compiler Comparison
 
 Performance comparison of two compilers.
@@ -349,52 +356,6 @@ Performance comparison of two compilers.
 |    16 |   280.76 |
 |    32 |   187.52 |
 |    64 |   151.52 |
-
-
-### Serial Hot-spot Profile
-
-List of top-10 functions / code locations from a serial profile.
-
-Profiling command used:
-```
-:
-```
-
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
-
-
-### Full Node Hot-spot Profile
-
-List of top-10 functions / code locations from a full node profile.
-
-Profiling command used:
-```
-:
-```
-
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
-| 10       |         |          |          |         |
 
 ### Strong Scaling Study
 
@@ -409,110 +370,160 @@ On-node scaling study for the GNU Compiler.
 |    32 |   187.52 |
 |    64 |   151.52 |
 
-### Off-Node Scaling Study
-
-Off-node scaling study comparing C6g and C6gn instances.
-
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
-
-
 ### On-Node Architecture Comparison
 
 On-node scaling study for two architectures.
 
+The c6ng on-node reframe report is the same one seent above in the # On-node section.
+
+The c5n on-node reframe report:
+```
+[==========] Finished on Fri Jul 16 20:29:06 2021 
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_1_MPI_2_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 2
+      * Run Time: 1385.13 None
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Run Time: 782.3 None
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Run Time: 457.13 None
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Run Time: 298.04 None
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Run Time: 205.45 None
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Run Time: 160.11 None
+------------------------------------------------------------------------------
+```
+
+The scalability comparison betwen architectures on-node.
+
 | Cores | C6gn (Aarch64) | C5n (X86) |
 |-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+| 2     |         430.85 |   1385.13 |
+| 4     |         278.13 |    782.30 |
+| 8     |         185.62 |    457.13 |
+| 16    |         152.54 |    298.04 |
+| 32    |         230.60 |    205.45 |
+| 64    |         306.58 |    160.11 |
 
-
-## Optimisation
-
-Details of steps taken to optimise performance of the application.
-Please document work with compiler flags, maths libraries, system libraries, code optimisations, etc.
-
-### Compiler Flag Tuning
-
-Compiler flags before:
+The c6ng off-node reframe report:
 ```
-CFLAGS=
-FFLAGS=
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_1_MPI_8_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 8
+      * Run Time: 434.38 None
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Run Time: 279.96 None
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Run Time: 187.25 None
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Run Time: 150.2 None
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_2_MPI_128_OMP_1
+   - builtin
+      * num_tasks: 128
+      * Run Time: 237.7 None
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_4_MPI_256_OMP_1
+   - builtin
+      * num_tasks: 256
+      * Run Time: 327.59 None
+------------------------------------------------------------------------------
+```
+The c5n off-node reframe report:
+```
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_1_MPI_8_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 8
+      * Run Time: 459.34 None
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Run Time: 301.42 None
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Run Time: 208.06 None
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Run Time: 161.46 None
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_2_MPI_128_OMP_1
+   - builtin
+      * num_tasks: 128
+      * Run Time: 343.96 None
+------------------------------------------------------------------------------
+SIESTA_Scalability h2o_64 input_siesta_4_0_1__gcc_10_3_0__metis_N_4_MPI_256_OMP_1
+   - builtin
+      * num_tasks: 256
+      * Run Time: 417.51 None
+------------------------------------------------------------------------------
 ```
 
-Compiler flags after:
-```
-CFLAGS=
-FFLAGS=
-```
+The scalability comparison betwen architectures off-node.
 
-#### Compiler Flag Performance
-
-| Cores | Original Flags | New Flags |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
-
-
-### Maths Library Report
-
-Report on use of maths library calls generated by (Perf Lib Tools)[https://github.com/ARM-software/perf-libs-tools].
-Please attach the corresponding apl files.
-
-
-### Maths Library Optimisation
-
-Performance analysis of the use of different maths libraries.
-
-
-| Cores | OpenBLAS | ArmPL | BLIS | 
-|-------|----------|-------| ---- |
-| 1     |          |       |      |
-| 2     |          |       |      |
-| 4     |          |       |      |
-| 8     |          |       |      |
-| 16    |          |       |      |
-| 32    |          |       |      |
-| 64    |          |       |      |
-
-
-### Performance Regression
-
-How fast can you make the code?
-
-Use all of the above aproaches and any others to make the code as fast as possible.
-Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
-
-
+| Cores | Cores | C6gn (Aarch64) | C5n (X86) |
+|-------|-------|----------------|-----------|
+| 1     | 8     |         434.38 |    459,34 |
+| 1     | 16    |         239.68 |    301.42 |
+| 1     | 32    |         187.25 |    208.06 |
+| 1     | 64    |         150.20 |    161.46 |
+| 2     | 128   |         237.70 |    343.96 |
+| 4     | 256   |         327.59 |    417.51 |
 
 ## Report
 
 ### Compilation Summary
 
-Details of lessons from compiling the application.
+Siesta was an easy application to compile using the GNU Compiler, on the other hand
+using the ARM Compiler and the Nvidia HPC Compiler was not possible due to the code 
+that implements siesta. It has some incompatible/non-standard module implementation
+that made it impossible for us to compile the aplication using said compailers.
 
 ### Performance Summary
 
-Details of lessons from analysing the performance of the application.
+Siesta is an aplication that scales fairly well on-node, and when scaling off-node it
+starts to lose performance. Whereas we think that its scalaility is hardly related to
+the input set, we think there is space for improvement.
 
-
-### Optimisation Summary
-
-Details of lessons from performance optimising the application.

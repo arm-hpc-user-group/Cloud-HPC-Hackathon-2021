@@ -50,9 +50,6 @@ class Siesta(Package):
         sh("-c", "wget -O Src/FoX/config/config.guess \"https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD\"")
         sh("-c", "wget -O Src/FoX/config/config.sub   \"https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD\"")
 
-        sh("-c", "find -type  f -exec sed -i 's/iso_fortran_env/siesta_fortran_env/g' {} \\;")
-        sh("-c", "find -iname iso_fortran_env.F90 -exec rename iso siesta {} \\;")
-
         configure_args = ['--enable-mpi',
                           '--with-blas=%s' % spec['blas'].libs,
                           '--with-lapack=%s' % spec['lapack'].libs,
