@@ -342,24 +342,8 @@ Performance comparison of two compilers.
 ### Serial Hot-spot Profile
 
 List of top-10 functions / code locations from a serial profile.
-
-Profiling command used:
-```
-:
-```
-
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
+![Top MPI related functions](./c240/mapping_hot_spot/Nwchem_most_expensive_function.png)
+![Top MPI related functions](./c240/mapping_hot_spot/Nwchem_function_deepdive.png)
 
 
 ### Full Node Hot-spot Profile
