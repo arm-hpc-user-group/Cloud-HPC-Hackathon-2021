@@ -895,6 +895,37 @@ List of top-10 functions/code locations from a full node profile (C6gn with
 N.B. The last run with 576 MPI processes has to be run without the `map`
 profiling, since the Arm licence installed only supported up to 512 processes.
 
+## Optimisation
+
+Details of steps taken to optimise performance of the application.
+Please document work with compiler flags, maths libraries, system libraries, code optimisations, etc.
+
+### Compiler Flag Tuning
+
+For this test we used the Arm compiler.
+
+Compiler flags before:
+```
+CFLAGS=-O3
+```
+
+Compiler flags after:
+```
+CFLAGS=-O3 -mcpu=native -funroll-loops
+```
+
+#### Compiler Flag Performance
+
+| Cores | Original Flags | New Flags |
+|-------|----------------|-----------|
+| 1     |    1973.33 s   | 1991.99 s |
+| 2     |    1003.21 s   |  994.8  s |
+| 4     |     498.16 s   |  503.03 s |
+| 8     |     253.51 s   |  254.46 s |
+| 16    |     133.31 s   |  132.63 s |
+| 32    |      73.81 s   |   73.24 s |
+| 64    |      44.47 s   |   43.98 s |
+
 ## Report
 
 ### Compilation Summary
@@ -922,3 +953,14 @@ former is slightly faster for a larger number of nodes, whilst the latter is
 faster for smaller runs. Meanwhile, for larger runs on C6gn nodes (e.g. 8 nodes
 with 64 MPI processes per node) the Nvidia compiler is more than 2x slower than
 Arm and GCC. However, this descrepancy does not emerge on C5n nodes.
+
+### Optimisation Summary
+
+In our (limited) tests, we haven't been able to improve performance by tweaking
+with compiler flags. This may happen because `meme` by default builds with a
+flag [`--enable-opt`](https://meme-suite.org/meme/doc/install.html), which
+builds an executable with optimization. Furthermore, as the hot-spot analysis
+reveals, `meme` does not employ linear algebra routines, and the math functions
+it calls are not the bottleneck. Consequently, it is not possible to optimise
+it significantly with the usage of optimised math libraries. Using OpenMP in
+certain loops seems to be a more promising approach.
