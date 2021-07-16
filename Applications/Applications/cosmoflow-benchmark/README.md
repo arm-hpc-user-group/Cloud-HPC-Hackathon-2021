@@ -292,7 +292,16 @@ of each epoch is consistantly similar.
 
 ### Off-Node Scaling Study
 
-Unfortunately, we didn't have time to do scaling analysis due to time constraint, as tensorflow training is quite time consuming.
+
+| Nodes | Cores | C6g | C6gn |
+|-------|-------|-----|------|
+| 1     | 8     |     | 3282.5884|
+| 1     | 16    |     | 256.7784|
+| 1     | 32    |     | 141.5865|
+| 2     | 64    |     | 145.3611 |
+
+Note that for even larger nodes and cores, srun crashes with signal aborted.
+
 
 ### On-Node Architecture Comparison
 
