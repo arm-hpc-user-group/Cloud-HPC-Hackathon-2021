@@ -365,7 +365,7 @@ On-Node & Off-Node scaling study for two architectures.
 
 > examl -t /home/peize/examl-test/case1/49.tree -m GAMMA -s /home/peize/examl-test/case1/49.unpartitioned.binary -n T1
 
-[ReFrame Benchmark 1](#)
+[ReFrame Benchmark](#)
 
 ```
 ../bin/reframe -c benchmark.py -r --performance-report
@@ -373,7 +373,7 @@ On-Node & Off-Node scaling study for two architectures.
 
 ### Validation
 
-Details of the validation for `Test Case 1`.
+Details of the validation for `Test Case 2`.
 
 
 ### ReFrame Output
@@ -625,7 +625,7 @@ On-Node & Off-Node scaling study for two architectures.
 
 > examl -t /home/peize/examl-test/case2/140.tree -m PSR -s /home/peize/examl-test/case2/140.unpartitioned.binary -n T1
 
-[ReFrame Benchmark 1](#)
+[ReFrame Benchmark ](#)
 
 ```
 ../bin/reframe -c benchmark.py -r --performance-report
@@ -633,7 +633,7 @@ On-Node & Off-Node scaling study for two architectures.
 
 ### Validation
 
-Details of the validation for `Test Case 1`.
+Details of the validation for `Test Case 3`.
 
 
 ### ReFrame Output
@@ -1216,7 +1216,8 @@ Building this application can be a little bit tricky, as we need the sse2neon li
 
 ### Performance Summary
 
-The performance is inline with our expectations. 
+The performance is inline with our expectations. The performance can be benefited from running on a single node, but can be decreased from running on several nodes. 
+The longer it runs, the better performance gain we can observe from running it. 
 
 
 ### Optimisation Summary
