@@ -458,7 +458,7 @@ Our [spack recipe](package.py) is attached.
 
 #### ReFrame script
 
-Our [reframe script] for optimization is attached.
+Our [reframe script](reframe_scripts/dock_opt_gcc.py) for optimization is attached.
 
 ## Report
 
