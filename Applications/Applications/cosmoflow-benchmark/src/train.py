@@ -78,7 +78,7 @@ def parse_args():
     """Parse command line arguments"""
     parser = argparse.ArgumentParser('train.py')
     add_arg = parser.add_argument
-    add_arg('config', nargs='?', default='configs/cosmo.yaml')
+    add_arg('config', nargs='?', default='src/configs/cosmo.yaml')
     add_arg('--output-dir', help='Override output directory')
     add_arg('--run-tag', help='Unique run tag for logging')
 

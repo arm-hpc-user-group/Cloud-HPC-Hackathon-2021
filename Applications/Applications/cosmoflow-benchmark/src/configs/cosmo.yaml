@@ -16,7 +16,7 @@ data:
     n_valid: 32
     sample_shape: [128, 128, 128, 4]
     batch_size: 1
-    n_epochs: 4
+    n_epochs: 1
     shard: True
     apply_log: True
     prefetch: 4

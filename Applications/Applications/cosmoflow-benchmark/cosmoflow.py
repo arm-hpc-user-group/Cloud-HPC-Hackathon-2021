@@ -15,25 +15,25 @@ class CosmoFlowTest(hack.HackathonBase):
     # Define test case
     # In this case we download the file from GitHub and write as clover.in - the expected input file
     
-    prerun_cmds = ['cp -r /home/malaithannir/Cloud-HPC-Hackathon-2021/Applications/Applications/cosmoflow-benchmark/src src', 'spack load py-tensorflow-estimator%gcc@10.3.0', 'spack load py-wandb%gcc@10.3.0', 'spack load py-promise%gcc@10.3.0', 'spack load py-setuptools%gcc@10.3.0', 'spack load py-pathtools', 'spack load cosmoflow-benchmark%gcc@10.3.0/oz44zmc']
+    prerun_cmds = ['cp -r /home/rae/Cloud-HPC-Hackathon-2021/Applications/Applications/cosmoflow-benchmark/src src', 'spack load py-tensorflow-estimator%gcc@10.3.0', 'spack load py-wandb%gcc@10.3.0', 'spack load py-promise%gcc@10.3.0', 'spack load py-setuptools%gcc@10.3.0','spack load py-numpy/iurvu23', ' spack load py-pandas/gv2evo6']
     
 
     # Define Execution
     # Binary to run
-    executable = f'time python3 src/train.py > output'
+    executable = f'time'
     # Command line options to pass executable_opts is parametrised
     #executable_opts = ['configs/cosmo.yaml']
 
     # Where the output is written to
-    logfile = 'output'
+    logfile = 'output_file'
     # Store the output file (used for validation later)
     keep_files = [logfile]
 
-    exec_opts = parameter(["src/cosmo.yaml",])
+    exec_opts = parameter([" python3 src/train.py -d > output_file",])
 
     # Parameters - Compilers - Defined as their Spack specs (use spec or hash)
     spec = parameter([
-        '^cosmoflow-benchmark/oz44zmc %gcc@10.3.0'     # CloverLeaf with the GCC compiler
+        'cosmoflow-benchmark/oz44zmc'     # CloverLeaf with the GCC compiler
      #   'minixyce %arm'     # CloverLeaf with the GCC compiler
 #        'cloverleaf@1.1 %arm@21.0.0.879', # CloverLeaf with the Arm compiler
 #        'cloverleaf@1.1 %nvhpc@21.2'      # CloverLeaf with the NVIDIA compiler
@@ -41,11 +41,11 @@ class CosmoFlowTest(hack.HackathonBase):
 
     # Parameters - MPI / Threads - Used for scaling studies
     parallelism = parameter([
-        { 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
-        { 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
-        { 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
-         { 'nodes' : 1, 'mpi' : 4, 'omp' : 1},
-         { 'nodes' : 1, 'mpi' : 2, 'omp' : 1},
+       # { 'nodes' : 1, 'mpi' : 64, 'omp' : 1},
+       # { 'nodes' : 1, 'mpi' : 32, 'omp' : 1},
+       # { 'nodes' : 1, 'mpi' : 16, 'omp' : 1},
+       #  { 'nodes' : 1, 'mpi' : 4, 'omp' : 1},
+       #  { 'nodes' : 1, 'mpi' : 2, 'omp' : 1},
          { 'nodes' : 1, 'mpi' : 1, 'omp' : 1},
         #{ 'nodes' : 2, 'mpi' : 128, 'omp' : 1},
         #{ 'nodes' : 4, 'mpi' : 256, 'omp' : 1},
@@ -88,18 +88,22 @@ class CosmoFlowTest(hack.HackathonBase):
        pref_regex = r'\s+Total time:\s+(\S+)'
        #performance = sn.extractall(pref_regex, self.logfile, 1, float)
        #print(performance)
+       '''
        self.perf_patterns = {
             'Total Time': sn.max(sn.extractall(pref_regex, self.logfile, 1, float))
        }
+       '''
 
        # 8/8 - 602s - loss: 0.2631 - mean_absolute_error: 0.4298 - val_loss: 0.8947 - val_mean_absolute_error: 0.7145
        # Gold standard validation
+       '''
        with open(self.logfile,"r") as f1:
            for line in f1:
                ind = line.find("loss:")
                if (ind != -1):
                    val = float(line[ind+5:line+12])
                    sn.assert_bounded(val, 0, 0.4)
+       '''
 
 
 
