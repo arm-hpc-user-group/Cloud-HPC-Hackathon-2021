@@ -560,50 +560,6 @@ map --profile srun -N 1 -n 64 mb primates.nex
 | 9        | MPI_Send                                                     | 0.2%     | 0.2%    |
 | 10       | beagle::cpu::EigenDecompositionCube<float, 1>::updateTransitionMatrices(int, int const*, int const*, int const*, double const*, double const*, float**, int) | 0.2%     |         |
 
-### Strong Scaling Study
-
-On-node scaling study for two compilers.
-
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
-
-
-### Off-Node Scaling Study
-
-Off-node scaling study comparing C6g and C6gn instances.
-
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
-
-
-### On-Node Architecture Comparison
-
-On-node scaling study for two architectures.
-
-| Cores | C6gn (Aarch64) | C5n (X86) |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
-
 
 ## Optimisation
 
@@ -626,16 +582,6 @@ FFLAGS=
 
 #### Compiler Flag Performance
 
-| Cores | Original Flags | New Flags |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
-
 
 ### Maths Library Report
 
@@ -646,17 +592,6 @@ Please attach the corresponding apl files.
 ### Maths Library Optimisation
 
 Performance analysis of the use of different maths libraries.
-
-
-| Cores | OpenBLAS | ArmPL | BLIS |
-|-------|----------|-------| ---- |
-| 1     |          |       |      |
-| 2     |          |       |      |
-| 4     |          |       |      |
-| 8     |          |       |      |
-| 16    |          |       |      |
-| 32    |          |       |      |
-| 64    |          |       |      |
 
 
 ### Performance Regression
