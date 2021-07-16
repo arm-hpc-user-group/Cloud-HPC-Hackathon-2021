@@ -346,8 +346,6 @@ Total: 398 samples
 
 ### Full Node Hot-spot Profile
 
-List of top-10 functions / code locations from a full node profile.
-
 For the C6gn (ARM) with `arm` compiler, here are the top ten application routines, with associated % of runtime. By default the JVM uses all cores for GATK.
 
 Profiling command used:
@@ -493,8 +491,6 @@ GATK_gatk_countreadsspark_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1
 
 
 ### Serial Hot-spot Profile
-
-List of top-10 functions / code locations from a serial profile.
 
 For the C6gn (ARM) with `arm` compiler, here are the top ten application routines, with associated % of runtime. `taskset` is used to limit JVM/GATK to one core.
 
@@ -677,8 +673,6 @@ GATK_gatk_countbases_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1_MPI_
 
 ### Serial Hot-spot Profile
 
-List of top-10 functions / code locations from a serial profile.
-
 For the C6gn (ARM) with `arm` compiler, here are the top ten application routines, with associated % of runtime. `taskset` is used to limit JVM/GATK to one core.
 
 Profiling command used:
@@ -715,8 +709,6 @@ Total: 866 samples
 
 
 ### Full Node Hot-spot Profile
-
-List of top-10 functions / code locations from a full node profile.
 
 For the C6gn (ARM) with `arm` compiler, here are the top ten application routines, with associated % of runtime. By default the JVM uses all cores for GATK.
 
@@ -864,8 +856,6 @@ GATK_gatk_countbasesspark_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1
 
 ### Serial Hot-spot Profile
 
-List of top-10 functions / code locations from a serial profile.
-
 For the C6gn (ARM) with `arm` compiler, here are the top ten application routines, with associated % of runtime. `taskset` is used to limit JVM/GATK to one core.
 
 Profiling command used:
@@ -902,8 +892,6 @@ Total: 849 samples
 
 
 ### Full Node Hot-spot Profile
-
-List of top-10 functions / code locations from a full node profile.
 
 For the C6gn (ARM) with `arm` compiler, here are the top ten application routines, with associated % of runtime. By default the JVM uses all cores for GATK.
 
@@ -1076,8 +1064,6 @@ TODO
 
 ### Serial Hot-spot Profile
 
-List of top-10 functions / code locations from a serial profile.
-
 For the C6gn (ARM) here are the top ten application routines, with associated % of runtime for arm. `taskset` is used to limit the JVM to one core. It by default will use and GATK didn't otherwise have a great way to constrain resources.
 
 Profiling command used:
@@ -1114,8 +1100,6 @@ Total: 1225 samples
 
 
 ### Full Node Hot-spot Profile
-
-List of top-10 functions / code locations from a full node profile.
 
 For the C6gn (ARM) here are the top ten application routines, with associated % of runtime for arm. By default the JVM uses all cores for GATK.
 
