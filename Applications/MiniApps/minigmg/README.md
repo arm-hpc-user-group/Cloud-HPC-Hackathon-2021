@@ -631,40 +631,36 @@ FFLAGS=
 
 #### Compiler Flag Performance
 
-The following table is based on gcc@10.3.0 with Test Case 3.
+The following table is based on gcc@10.3.0 with Test Case 3. The speedup is up to 14.67X when there are 64 threads.
 
-| Cores | Original Flags | New Flags |
-| ----- | -------------- | --------- |
-| 1     | 1060.55            |1030.97   |
-| 2     | 643.84        |    619.43       |
-| 4     | 401.97      |          371.58 |
-| 8     | 314.23    |          270.56 |
-| 16    | 418.16 |           146.35|
-| 32    | 686.54|           105.15|
-| 64    | 1097.58 |           74.81|
+| Cores | Original Flags | New Flags | Speedup |
+| ----- | -------------- | --------- | ------- |
+| 1     | 1060.55        | 1030.97   | 1.03    |
+| 2     | 643.84         | 619.43    | 1.04    |
+| 4     | 401.97         | 371.58    | 1.08    |
+| 8     | 314.23         | 270.56    | 1.16    |
+| 16    | 418.16         | 146.35    | 2.86    |
+| 32    | 686.54         | 105.15    | 6.53    |
+| 64    | 1097.58        | 74.81     | 14.67   |
 
 ### Performance Regression
 
 How fast can you make the code?
 
-The following table is based on gcc@10.3.0 with Test Case 3.
-
-
-| Cores | Original  | Optimization |
-| ----- | -------------- | --------- |
-| 1     | 1060.55            |720.42   |
-| 2     | 643.84        |    349.17      |
-| 4     | 401.97      |          233.63 |
-| 8     | 314.23    |          144.44|
-| 16    | 418.16 |           91.6|
-| 32    | 686.54|           64.02|
-| 64    | 1097.58 |           46.04|
-
-#### 
-
-
 Use all of the above aproaches and any others to make the code as fast as possible.
 Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
+
+The following table is based on gcc@10.3.0 with Test Case 3. The speedup is up to 23.8X when there are 64 threads.
+
+| Cores | Original | Optimization | Speedup |
+| ----- | -------- | ------------ | ------- |
+| 1     | 1060.55  | 720.42       | 1.47    |
+| 2     | 643.84   | 349.17       | 1.84    |
+| 4     | 401.97   | 233.63       | 1.72    |
+| 8     | 314.23   | 144.44       | 2.18    |
+| 16    | 418.16   | 91.6         | 4.57    |
+| 32    | 686.54   | 64.02        | 10.72   |
+| 64    | 1097.58  | 46.04        | 23.84   |
 
 
 
