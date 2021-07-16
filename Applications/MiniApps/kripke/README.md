@@ -747,13 +747,13 @@ Demonstrate your gains by providing a scaling study for your test case, demonstr
 
 ### Compilation Summary
 
-Details of lessons from compiling the application.
+Kripke can work perfectly out of the box, except we have to manually disable the -sse2 before compiling. The provides us a good start to dig deeper into the usage of tools like spack/reframe, etc. 
 
 ### Performance Summary
 
-Details of lessons from analysing the performance of the application.
+Kripke can perform good, which is in inline with our expectations. The running time can be drastically decreased, benefited from multi-cores.
 
 
 ### Optimisation Summary
 
-Details of lessons from performance optimising the application.
+Optimisations in tuning the compiler flags can be tricky sometimes, but some flags can do perform better compared to the others. We should also decide the flags with profiling result / code analysis to have the optimal result.
