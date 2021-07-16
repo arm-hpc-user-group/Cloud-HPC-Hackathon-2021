@@ -1,0 +1,2 @@
+../bin/poledit.x < methanol.dat
+rm methanol.xyz* methanol.key_*
