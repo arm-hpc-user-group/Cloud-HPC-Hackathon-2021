@@ -647,11 +647,6 @@ The following table is based on gcc@10.3.0 with Test Case 3. The speedup is up t
 
 ### Performance Regression
 
-How fast can you make the code?
-
-Use all of the above aproaches and any others to make the code as fast as possible.
-Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
-
 The following table is based on gcc@10.3.0 with Test Case 3. The speedup is up to 23.8X when there are 64 threads. The percentage of reduction of runtime is **95.81%**.
 
 | Cores | Original | Optimization | Speedup |
@@ -664,7 +659,49 @@ The following table is based on gcc@10.3.0 with Test Case 3. The speedup is up t
 | 32    | 686.54   | 64.02        | 10.72   |
 | 64    | 1097.58  | 46.04        | 23.84   |
 
+#### Code modifications
 
+```
+From 04ff2d513531aaf60871d306d19d4f0a326aa8a0 Mon Sep 17 00:00:00 2001
+From: dolanzhao <neuzqd@gmail.com>
+Date: Fri, 16 Jul 2021 17:11:38 +0000
+Subject: [PATCH 5/5] support simd
+
+---
+ operators.avx.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/operators.avx.c b/operators.avx.c
+index fee85d4..22ab6fd 100755
+--- a/operators.avx.c
++++ b/operators.avx.c
+@@ -8,7 +8,12 @@
+ #include <stdint.h>
+ #include <string.h>
+ #include <math.h>
+-#include <immintrin.h>
++// #include <immintrin.h>
++#define SIMDE_ENABLE_NATIVE_ALIASES
++#define SIMDE_X86_SSE_ENABLE_NATIVE_ALIASES
++#define _MM_HINT_T0 1
++#define _MM_HINT_T1 2
++#include "simde/x86/avx2.h"
+ //------------------------------------------------------------------------------------------------------------------------------
+ #include "timer.h"
+ #include "defines.h"
+-- 
+2.32.0
+```
+
+#### Compiler flags
+
+```
+-Ofast -D__PREFETCH_NEXT_PLANE_FROM_DRAM -D__FUSION_RESIDUAL_RESTRICTION
+```
+
+#### Spack recipe and build line
+
+#### ReFrame script
 
 ## Report
 
@@ -681,4 +718,12 @@ ter performance than Intel server.
 
 ### Optimisation Summary
 
-We have tested multiple optimization strategies, which includes: (1) using SIMD instructions on aarch64 (Neon), (2) using -Ofast (especially using fast math library), (3) enabling algorithm optimization (residual operator fusion), (4) using active waiting policy for OpenMP threads.
+We have tested multiple optimization strategies, which includes: 
+
+* (1) using SIMD instructions on aarch64 (Neon)
+
+* (2) using -Ofast (especially using fast math library)
+
+* (3) enabling algorithm optimization (residual operator fusion)
+
+* (4) using active waiting policy for OpenMP threads.
