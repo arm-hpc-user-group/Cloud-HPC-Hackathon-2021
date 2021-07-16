@@ -88,22 +88,18 @@ class CosmoFlowTest(hack.HackathonBase):
        pref_regex = r'\s+Total time:\s+(\S+)'
        #performance = sn.extractall(pref_regex, self.logfile, 1, float)
        #print(performance)
-       '''
        self.perf_patterns = {
             'Total Time': sn.max(sn.extractall(pref_regex, self.logfile, 1, float))
        }
-       '''
 
        # 8/8 - 602s - loss: 0.2631 - mean_absolute_error: 0.4298 - val_loss: 0.8947 - val_mean_absolute_error: 0.7145
        # Gold standard validation
-       '''
        with open(self.logfile,"r") as f1:
            for line in f1:
                ind = line.find("loss:")
                if (ind != -1):
                    val = float(line[ind+5:line+12])
                    sn.assert_bounded(val, 0, 0.4)
-       '''
 
 
 

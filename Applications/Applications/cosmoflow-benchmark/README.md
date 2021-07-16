@@ -188,7 +188,36 @@ Validation is done by checking the final model loss is below a certain margin.
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-     **** 
+cosmoflow-benchmark_short_test_cosmoflow_benchmark_cuda_gcc_10_3_0_N_1_MPI_32_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 32
+      * Total Time: 224.0208 s
+------------------------------------------------------------------------------
+cosmoflow-benchmark_short_test_cosmoflow_benchmark_cuda_gcc_10_3_0_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 400.7628 s
+------------------------------------------------------------------------------
+cosmoflow-benchmark_short_test_cosmoflow_benchmark_cuda_gcc_10_3_0_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 771.6113 s
+------------------------------------------------------------------------------
+cosmoflow-benchmark_short_test_cosmoflow_benchmark_cuda_gcc_10_3_0_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 1483.0482 s
+------------------------------------------------------------------------------
+cosmoflow-benchmark_short_test_cosmoflow_benchmark_cuda_gcc_10_3_0_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 2565.0004 s
+------------------------------------------------------------------------------
+cosmoflow-benchmark_short_test_cosmoflow_benchmark_cuda_gcc_10_3_0_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 3311.0096 s
 ------------------------------------------------------------------------------
 ```
 
@@ -250,7 +279,7 @@ of each epoch is consistantly similar.
 | Cores | gcc@10.3.0 |
 |-------|------------|
 | 1      |   1388(projected)   |          
-| 2      |    720(projected)   |  
+| 2      |    1770.1830  |  
 | 4      |    947.2417      |    
 | 8      |    489.2307      |
 | 16      |   256.7789      | 
@@ -268,7 +297,7 @@ On-node scaling study for two architectures.
 | Cores | C6gn (Aarch64) | C5n (X86) |
 |-------|----------------|-----------|
 | 1      |   1388(projected)   |   3311.0096        |
-| 2      |    720(projected)   |   2565.0004       |
+| 2      |    1770.1830  |   2565.0004       |
 | 4      |      947.2417      |    1483.0482        |
 | 8      |    489.2307        |   771.6113        |
 | 16      |   256.7789      |   400.7628        |
@@ -281,7 +310,7 @@ Since the main application is a python script to execute tensorflow model traini
 to be done at the library level. Due to time constraint, we were not able to tune libraries like numpy or
 tensorflow, as large amount of time is spent on building and performance analysis.
 
-However, we see some good scaling behaviour for ARM architecture, with almost linear performance scaling as core count increases above 4
+However, we see some good scaling behaviour for ARM architecture, with almost linear performance scaling as core count increases above four.
 
 
 ## Report
@@ -299,7 +328,7 @@ constraints. Nonetheless, we still greatly appreciate the work to put into this 
 ### Performance Summary
 
 For this application, we see good linear scaling as number of cores increases. This is probabily due to the proper partitioning of workloads by Tensorflow and hence the 
-runtime decreases linearly with increase core count. Moreover, Aarch64 outperforms x86 Skylake by >= 40%, exciting results.
+runtime decreases linearly with increase core count. Moreover, Aarch64 outperforms x86 Skylake by >= 40%, exciting results!
 
 ### Optimisation Summary
 
