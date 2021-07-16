@@ -10,12 +10,7 @@
 ## Compilation
 
 ### Spack Package Modification
-
-Details of any changes to the Spack recipe used.
-
-Git commit hash of checkout for pacakage:
-
-Pull request for Spack recipe changes:
+No changes were needed to compile Harminv
 
 ### Building Harminv
 
@@ -24,12 +19,62 @@ Pull request for Spack recipe changes:
 #### Compiler 1
 
 ```
-spack install <app>%<compiler1>
+spack install harminv@1.4%gcc@10.3.0 
 ```
 
 ```
-$ spack spec -Il <app>%<compiler1>
+$ spack spec -Il harminv@1.4%gcc@10.3.0
 
+```
+```
+Input spec
+--------------------------------
+ -   harminv@1.4%gcc@10.3.0
+
+Concretized
+--------------------------------
+[+]  qlbsovg  harminv@1.4%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  rv7gj6u      ^openblas@0.3.15%gcc@10.3.0~bignuma~consistent_fpcsr~ilp64+locking+pic+shared threads=none arch=linux-amzn2-graviton2
+[+]  4m7exgb          ^perl@5.32.1%gcc@10.3.0+cpanm+shared+threads arch=linux-amzn2-graviton2
+[+]  y42m6yr              ^berkeley-db@18.1.40%gcc@10.3.0+cxx~docs+stl patches=b231fcc4d5cff05e5c3a4814f6a5af0e9a966428dc2176540d2c05aff41de522 arch=linux-amzn2-graviton2
+[+]  rqrpmap              ^bzip2@1.0.8%gcc@10.3.0~debug~pic+shared arch=linux-amzn2-graviton2
+[+]  2w7bert                  ^diffutils@3.7%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  y5ei3cm                      ^libiconv@1.16%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  wjwqncx              ^gdbm@1.19%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  3zy7kxk                  ^readline@8.1%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  iwzirqc                      ^ncurses@6.2%gcc@10.3.0~symlinks+termlib abi=none arch=linux-amzn2-graviton2
+[+]  s4pw7zm                          ^pkgconf@1.7.4%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  qepjcvj              ^zlib@1.2.11%gcc@10.3.0+optimize+pic+shared arch=linux-amzn2-graviton2
+```
+#### Compiler 2
+```
+spack install harminv@1.4%arm@21.0.0.879
+```
+
+```
+spack spec -Il harminv@1.4%arm@21.0.0.879
+```
+
+```
+Input spec
+--------------------------------
+ -   harminv@1.4%arm@21.0.0.879
+
+Concretized
+--------------------------------
+==> Warning: arm@21.0.0.879 cannot build optimized binaries for "graviton2". Using best target possible: "aarch64"
+[+]  fx2jixh  harminv@1.4%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  cwuo4ek      ^openblas@0.3.15%arm@21.0.0.879~bignuma~consistent_fpcsr~ilp64+locking+pic+shared threads=none arch=linux-amzn2-aarch64
+[+]  vv6txro          ^perl@5.32.1%arm@21.0.0.879+cpanm+shared+threads arch=linux-amzn2-aarch64
+[+]  33wiajj              ^berkeley-db@18.1.40%arm@21.0.0.879+cxx~docs+stl patches=b231fcc4d5cff05e5c3a4814f6a5af0e9a966428dc2176540d2c05aff41de522 arch=linux-amzn2-aarch64
+[+]  z4ybgri              ^bzip2@1.0.8%arm@21.0.0.879~debug~pic+shared arch=linux-amzn2-aarch64
+[+]  adtc6yc                  ^diffutils@3.7%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  7vnthzn                      ^libiconv@1.16%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  645q4qj              ^gdbm@1.19%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  3haw5gt                  ^readline@8.1%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  uhtqtlb                      ^ncurses@6.2%arm@21.0.0.879~symlinks+termlib abi=none arch=linux-amzn2-aarch64
+[+]  zpuzm23                          ^pkgconf@1.7.4%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  puuxvg2              ^zlib@1.2.11%arm@21.0.0.879+optimize+pic+shared arch=linux-amzn2-aarch64
 ```
 
 ## Test Case 1
