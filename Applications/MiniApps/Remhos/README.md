@@ -181,7 +181,7 @@ Refer to [validation.txt](validation.txt) to check the Reframe Validation Output
 
 ### On-node Profiling Across Compilers and Test Cases
 
-We choose the execution time of the program as our metric. These data come with the validation script since we enable the performance report and set the corresponding reference and pattern. Refer to [perflogs/aws/c6gn/](perflogs/aws/c6gn/) and [validation.txt](validation.txt) to check the raw performance report. The following tables collect the results across different test cases, different compilers and different resourses, where the experiments are done on AWS C6gn.
+We choose the execution time of the program as our evaluation metric, that is to say, the wall clock time measured by the `time` command. These data come with the validation script since we enable the performance report and set the corresponding reference and pattern. Refer to [perflogs/aws/c6gn/](perflogs/aws/c6gn/) and [validation.txt](validation.txt) to check the raw performance report. The following tables collect the results across different test cases, different compilers and different resourses, where the experiments are done on AWS C6gn.
 
 #### Test Case 1: 2DRemap
 | Cores | `gcc@10.3.0` | `arm@21.0.0.879` | `nvhpc@21.2` |
@@ -451,66 +451,259 @@ The following tables collect the results across different test cases, different 
 | 4     |          8     |        32   |    5.20 s           |       5.25 s        |    6.00 s          |         5.80 s     |
 | 4     |         16     |        64   |    5.98 s           |       5.88 s        |    6.77 s          |         7.23 s     |
 
-## Optimisation
+### Math Library Analysis
+Refer to [profile/math/README.md](profile/math/README.md).
 
-Details of steps taken to optimise performance of the application.
-Please document work with compiler flags, maths libraries, system libraries, code optimisations, etc.
+## Optimization
+
+This section documents the optimizations investigated. Our optimization is built based on top of the `arm@21.0.0.879` compiler only.
 
 ### Compiler Flag Tuning
 
-Compiler flags before:
-```
-CFLAGS=
-FFLAGS=
-```
+Compiler flags before: N/A
 
 Compiler flags after:
 ```
-CFLAGS=
-FFLAGS=
+CPPFLAGS="-Ofast -mcpu=native -ffast-math"
 ```
 
-#### Compiler Flag Performance
+The new spec follows:
 
+```
+$ spack spec -Il remhos%arm cppflags="-Ofast -mcpu=native -ffast-math"
+
+[+]  orhbc67  remhos@1.0%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" +metis arch=linux-amzn2-aarch64
+[+]  u2tg3zf      ^mfem@4.2.0%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" ~amgx~conduit~cuda~debug~examples~gnutls~gslib~lapack~libceed~libunwind+metis~miniapps~mpfr+mpi~netcdf~occa~openmp~petsc~pumi~raja~rocm~shared~slepc+static~strumpack~suite-sparse~sundials~superlu-dist~threadsafe~umpire+zlib amdgpu_target=none cuda_arch=none timer=auto arch=linux-amzn2-aarch64
+[+]  q2gu25s          ^hypre@2.20.0%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059 arch=linux-amzn2-aarch64
+[+]  i46l5eb              ^openblas@0.3.15%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" ~bignuma~consistent_fpcsr~ilp64+locking+pic+shared threads=none arch=linux-amzn2-aarch64
+[+]  p7uaw25                  ^perl@5.32.1%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" +cpanm+shared+threads arch=linux-amzn2-aarch64
+[+]  7mvderd                      ^berkeley-db@18.1.40%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" +cxx~docs+stl patches=b231fcc4d5cff05e5c3a4814f6a5af0e9a966428dc2176540d2c05aff41de522 arch=linux-amzn2-aarch64
+[+]  ttje2sq                      ^bzip2@1.0.8%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" ~debug~pic+shared arch=linux-amzn2-aarch64
+[+]  qv2sfew                          ^diffutils@3.7%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math"  arch=linux-amzn2-aarch64
+[+]  sypqwhl                              ^libiconv@1.16%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math"  arch=linux-amzn2-aarch64
+[+]  5uow6s3                      ^gdbm@1.19%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math"  arch=linux-amzn2-aarch64
+[+]  nkfobxg                          ^readline@8.1%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math"  arch=linux-amzn2-aarch64
+[+]  czabsxq                              ^ncurses@6.2%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" ~symlinks+termlib abi=none arch=linux-amzn2-aarch64
+[+]  e4pstpv                                  ^pkgconf@1.7.4%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math"  arch=linux-amzn2-aarch64
+[+]  j4d42yr                      ^zlib@1.2.11%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" +optimize+pic+shared arch=linux-amzn2-aarch64
+[+]  plckrbo              ^openmpi@4.1.0%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" ~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=ofi patches=60ce20bc14d98c572ef7883b9fcd254c3f232c2f3a13377480f96466169ac4c8 schedulers=slurm arch=linux-amzn2-aarch64
+[+]  s7j4qdg                  ^hwloc@2.5.0%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" ~cairo~cuda~gl~libudev+libxml2~netloc~nvml+pci+shared arch=linux-amzn2-aarch64
+[+]  cyjh5h6                      ^libpciaccess@0.16%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math"  arch=linux-amzn2-aarch64
+[+]  bt5wqdq                          ^libtool@2.4.6%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math"  arch=linux-amzn2-aarch64
+[+]  dluio7u                              ^m4@1.4.18%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" +sigsegv patches=3877ab548f88597ab2327a2230ee048d2d07ace1062efe81fc92e91b7f39cd00,fc9b61654a3ba1a8d6cd78ce087e7c96366c290bc8d2c299f09828d793b853c8 arch=linux-amzn2-aarch64
+[+]  o72bjoq                                  ^libsigsegv@2.13%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math"  arch=linux-amzn2-aarch64
+[+]  kqiyoqw                          ^util-macros@1.19.3%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math"  arch=linux-amzn2-aarch64
+[+]  xlvd5pq                      ^libxml2@2.9.10%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" ~python arch=linux-amzn2-aarch64
+[+]  ossfhyo                          ^xz@5.2.5%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" ~pic libs=shared,static arch=linux-amzn2-aarch64
+[+]  7qyni2j                  ^libevent@2.1.12%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" +openssl arch=linux-amzn2-aarch64
+[+]  r53m53f                      ^openssl@1.1.1k%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" ~docs+systemcerts arch=linux-amzn2-aarch64
+[+]  7quo7ji                  ^libfabric@1.11.1-aws%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" ~debug~kdreg fabrics=sockets,tcp,udp arch=linux-amzn2-aarch64
+[+]  rqkb7li                  ^numactl@2.0.14%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math"  patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006 arch=linux-amzn2-aarch64
+[+]  u5xylza                      ^autoconf@2.69%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math"  arch=linux-amzn2-aarch64
+[+]  johgm4c                      ^automake@1.16.3%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math"  arch=linux-amzn2-aarch64
+[+]  zl4sgus                  ^openssh@8.5p1%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math"  arch=linux-amzn2-aarch64
+[+]  ugtc6o6                      ^libedit@3.1-20210216%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math"  arch=linux-amzn2-aarch64
+[+]  zw2agto                  ^slurm@20-02-4-1%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" ~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-aarch64
+[+]  2um6jwf          ^metis@5.1.0%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" ~gdb~int64~real64+shared build_type=Release patches=4991da938c1d3a1d3dea78e49bbebecba00273f98df2a656e38b83d55b281da1 arch=linux-amzn2-aarch64
+[+]  nqjpzbj              ^cmake@3.20.5%arm@21.0.0.879 cppflags="-Ofast -mcpu=native -ffast-math" ~doc+ncurses+openssl+ownlibs~qt build_type=Release arch=linux-amzn2-aarch64
+```
+
+Although the ffast-math flag is supposed to be turned on by Ofast, we get a better performance by explicitly specifying it.
+
+The ReFrame script can be found at [remhos_compiler_tuning.py](remhos_compiler_tuning.py) and results are in the following tables.
+
+#### Compiler Flag Performance Result
+
+##### Test Case 1: 2DRemap
 | Cores | Original Flags | New Flags |
 |-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+| 1     |       21.29 s  |   20.68 s |
+| 2     |       11.70 s  |   10.90 s |
+| 4     |        6.96 s  |    6.40 s |
+| 8     |        5.03 s  |    4.45 s |
+| 16    |        4.67 s  |    3.83 s |
+| 32    |        4.90 s  |    4.07 s |
+| 64    |        6.56 s  |    5.44 s |
 
+##### Test Case 2: 3DRemap
+| Cores | Original Flags | New Flags |
+|-------|----------------|-----------|
+| 1     |       11.84 s  |   11.38 s |
+| 2     |        6.51 s  |    6.27 s |
+| 4     |        3.91 s  |    3.82 s |
+| 8     |        2.68 s  |    2.97 s |
+| 16    |        2.27 s  |    2.23 s |
+| 32    |        2.53 s  |    2.45 s |
+| 64    |        3.27 s  |    3.24 s |
 
-### Maths Library Report
+##### Test Case 3: 2DTransport
+| Cores | Original Flags | New Flags |
+|-------|----------------|-----------|
+| 1     |        7.54 s  |    7.07 s |
+| 2     |        4.50 s  |    4.24 s |
+| 4     |        3.11 s  |    2.95 s |
+| 8     |        2.50 s  |    2.44 s |
+| 16    |        2.46 s  |    2.42 s |
+| 32    |        3.36 s  |    2.84 s |
+| 64    |        4.12 s  |    4.81 s |
 
-Report on use of maths library calls generated by (Perf Lib Tools)[https://github.com/ARM-software/perf-libs-tools].
-Please attach the corresponding apl files.
+##### Test Case 3: 3DTransport
+| Cores | Original Flags | New Flags |
+|-------|----------------|-----------|
+| 1     |       10.22 s  |    9.61 s |
+| 2     |        5.91 s  |    5.61 s |
+| 4     |        3.85 s  |    3.93 s |
+| 8     |        3.02 s  |    3.28 s |
+| 16    |        3.06 s  |    3.48 s |
+| 32    |        3.50 s  |    3.97 s |
+| 64    |        4.97 s  |    5.59 s |
 
+### Maths Library Optimization
 
-### Maths Library Optimisation
+Performance analysis of the use of different maths libraries. The original package is built on top of OpenBLAS, we try to compare its performace with ArmPL and BLIS. The new spec follows:
 
-Performance analysis of the use of different maths libraries.
+#### Remhos with ArmPL
 
+```
+$ spack spec -Il remhos%arm ^armpl
 
-| Cores | OpenBLAS | ArmPL | BLIS | 
-|-------|----------|-------| ---- |
-| 1     |          |       |      |
-| 2     |          |       |      |
-| 4     |          |       |      |
-| 8     |          |       |      |
-| 16    |          |       |      |
-| 32    |          |       |      |
-| 64    |          |       |      |
+[+]  26rm5xy  remhos@1.0%arm@21.0.0.879+metis arch=linux-amzn2-aarch64
+[+]  7wiytbd      ^mfem@4.2.0%arm@21.0.0.879~amgx~conduit~cuda~debug~examples~gnutls~gslib~lapack~libceed~libunwind+metis~miniapps~mpfr+mpi~netcdf~occa~openmp~petsc~pumi~raja~rocm~shared~slepc+static~strumpack~suite-sparse~sundials~superlu-dist~threadsafe~umpire+zlib amdgpu_target=none cuda_arch=none timer=auto arch=linux-amzn2-aarch64
+[+]  eufozbt          ^hypre@2.20.0%arm@21.0.0.879~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059 arch=linux-amzn2-aarch64
+[+]  5kqhnbj              ^armpl@21.0.0%arm@21.0.0.879~ilp64+shared~sve threads=none arch=linux-amzn2-aarch64
+[+]  6qibq66                  ^acfl@21.0%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  lmaoy5t              ^openmpi@4.1.0%arm@21.0.0.879~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=ofi patches=60ce20bc14d98c572ef7883b9fcd254c3f232c2f3a13377480f96466169ac4c8 schedulers=slurm arch=linux-amzn2-aarch64
+[+]  xl6anaa                  ^hwloc@2.5.0%arm@21.0.0.879~cairo~cuda~gl~libudev+libxml2~netloc~nvml+pci+shared arch=linux-amzn2-aarch64
+[+]  jueqz7p                      ^libpciaccess@0.16%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  e4ssqx6                          ^libtool@2.4.6%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  i2jmeo4                              ^m4@1.4.18%arm@21.0.0.879+sigsegv patches=3877ab548f88597ab2327a2230ee048d2d07ace1062efe81fc92e91b7f39cd00,fc9b61654a3ba1a8d6cd78ce087e7c96366c290bc8d2c299f09828d793b853c8 arch=linux-amzn2-aarch64
+[+]  6jhzlul                                  ^libsigsegv@2.13%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  zpuzm23                          ^pkgconf@1.7.4%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  uwcxkin                          ^util-macros@1.19.3%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  dypqz2i                      ^libxml2@2.9.10%arm@21.0.0.879~python arch=linux-amzn2-aarch64
+[+]  7vnthzn                          ^libiconv@1.16%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  zqsab4f                          ^xz@5.2.5%arm@21.0.0.879~pic libs=shared,static arch=linux-amzn2-aarch64
+[+]  puuxvg2                          ^zlib@1.2.11%arm@21.0.0.879+optimize+pic+shared arch=linux-amzn2-aarch64
+[+]  uhtqtlb                      ^ncurses@6.2%arm@21.0.0.879~symlinks+termlib abi=none arch=linux-amzn2-aarch64
+[+]  gonqskn                  ^libevent@2.1.12%arm@21.0.0.879+openssl arch=linux-amzn2-aarch64
+[+]  vc3waha                      ^openssl@1.1.1k%arm@21.0.0.879~docs+systemcerts arch=linux-amzn2-aarch64
+[+]  vv6txro                          ^perl@5.32.1%arm@21.0.0.879+cpanm+shared+threads arch=linux-amzn2-aarch64
+[+]  33wiajj                              ^berkeley-db@18.1.40%arm@21.0.0.879+cxx~docs+stl patches=b231fcc4d5cff05e5c3a4814f6a5af0e9a966428dc2176540d2c05aff41de522 arch=linux-amzn2-aarch64
+[+]  z4ybgri                              ^bzip2@1.0.8%arm@21.0.0.879~debug~pic+shared arch=linux-amzn2-aarch64
+[+]  adtc6yc                                  ^diffutils@3.7%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  645q4qj                              ^gdbm@1.19%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  3haw5gt                                  ^readline@8.1%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  qdn27nh                  ^libfabric@1.11.1-aws%arm@21.0.0.879~debug~kdreg fabrics=sockets,tcp,udp arch=linux-amzn2-aarch64
+[+]  mv2g7r5                  ^numactl@2.0.14%arm@21.0.0.879 patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006 arch=linux-amzn2-aarch64
+[+]  dcs645r                      ^autoconf@2.69%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  edezkz3                      ^automake@1.16.3%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  6vvthuo                  ^openssh@8.5p1%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  xe4evc4                      ^libedit@3.1-20210216%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  x5xehti                  ^slurm@20-02-4-1%arm@21.0.0.879~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-aarch64
+[+]  myrsq4g          ^metis@5.1.0%arm@21.0.0.879~gdb~int64~real64+shared build_type=Release patches=4991da938c1d3a1d3dea78e49bbebecba00273f98df2a656e38b83d55b281da1 arch=linux-amzn2-aarch64
+[+]  fqvybaf              ^cmake@3.20.5%arm@21.0.0.879~doc+ncurses+openssl+ownlibs~qt build_type=Release arch=linux-amzn2-aarch64
+```
 
+#### Remhos with BLIS
+
+```
+$ spack spec -Il remhos%arm ^blis%gcc
+
+[+]  3iu3o7u  remhos@1.0%arm@21.0.0.879+metis arch=linux-amzn2-aarch64
+[+]  w3nvk4p      ^mfem@4.2.0%arm@21.0.0.879~amgx~conduit~cuda~debug~examples~gnutls~gslib~lapack~libceed~libunwind+metis~miniapps~mpfr+mpi~netcdf~occa~openmp~petsc~pumi~raja~rocm~shared~slepc+static~strumpack~suite-sparse~sundials~superlu-dist~threadsafe~umpire+zlib amdgpu_target=none cuda_arch=none timer=auto arch=linux-amzn2-aarch64
+[+]  ijusmff          ^hypre@2.20.0%arm@21.0.0.879~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059 arch=linux-amzn2-aarch64
+[+]  lg3hvcd              ^amdlibflame@3.0%arm@21.0.0.879~debug+lapack2flame+shared+static patches=b3066e8ea70f9a59d1ce00330d72764482dd0faa57d185a45f73ce0effa2bc14 threads=none arch=linux-amzn2-aarch64
+[+]  segybc5                  ^blis@0.8.1%gcc@10.3.0+blas+cblas+shared+static threads=none arch=linux-amzn2-aarch64
+[+]  bddehrl                      ^python@3.8.11%gcc@10.3.0+bz2+ctypes+dbm~debug+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87 arch=linux-amzn2-aarch64
+[+]  z4ybgri                          ^bzip2@1.0.8%arm@21.0.0.879~debug~pic+shared arch=linux-amzn2-aarch64
+[+]  adtc6yc                              ^diffutils@3.7%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  7vnthzn                                  ^libiconv@1.16%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  oojnzo5                          ^expat@2.4.1%gcc@10.3.0+libbsd arch=linux-amzn2-aarch64
+[+]  eaxflf4                              ^libbsd@0.11.3%gcc@10.3.0 arch=linux-amzn2-aarch64
+[+]  kzqx7b7                                  ^libmd@1.0.3%gcc@10.3.0 arch=linux-amzn2-aarch64
+[+]  645q4qj                          ^gdbm@1.19%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  3haw5gt                              ^readline@8.1%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  uhtqtlb                                  ^ncurses@6.2%arm@21.0.0.879~symlinks+termlib abi=none arch=linux-amzn2-aarch64
+[+]  zpuzm23                                      ^pkgconf@1.7.4%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  zmjcmsi                          ^gettext@0.21%gcc@10.3.0+bzip2+curses+git~libunistring+libxml2+tar+xz arch=linux-amzn2-aarch64
+[+]  54hpjco                              ^libxml2@2.9.10%gcc@10.3.0~python arch=linux-amzn2-aarch64
+[+]  3dsbrtz                                  ^xz@5.2.5%gcc@10.3.0~pic libs=shared,static arch=linux-amzn2-aarch64
+[+]  puuxvg2                                  ^zlib@1.2.11%arm@21.0.0.879+optimize+pic+shared arch=linux-amzn2-aarch64
+[+]  v6qnj46                              ^tar@1.34%gcc@10.3.0 arch=linux-amzn2-aarch64
+[+]  iendo7v                          ^libffi@3.3%gcc@10.3.0 patches=26f26c6f29a7ce9bf370ad3ab2610f99365b4bdd7b82e7c31df41a3370d685c0 arch=linux-amzn2-aarch64
+[+]  vc3waha                          ^openssl@1.1.1k%arm@21.0.0.879~docs+systemcerts arch=linux-amzn2-aarch64
+[+]  vv6txro                              ^perl@5.32.1%arm@21.0.0.879+cpanm+shared+threads arch=linux-amzn2-aarch64
+[+]  33wiajj                                  ^berkeley-db@18.1.40%arm@21.0.0.879+cxx~docs+stl patches=b231fcc4d5cff05e5c3a4814f6a5af0e9a966428dc2176540d2c05aff41de522 arch=linux-amzn2-aarch64
+[+]  kvdwwnh                          ^sqlite@3.35.5%gcc@10.3.0+column_metadata+fts~functions~rtree arch=linux-amzn2-aarch64
+[+]  7y6zoue                          ^util-linux-uuid@2.36.2%gcc@10.3.0 arch=linux-amzn2-aarch64
+[+]  by6ul2r              ^openmpi@4.1.0%arm@21.0.0.879~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=ofi patches=60ce20bc14d98c572ef7883b9fcd254c3f232c2f3a13377480f96466169ac4c8 schedulers=slurm arch=linux-amzn2-aarch64
+[+]  fagl7pa                  ^hwloc@2.5.0%arm@21.0.0.879~cairo~cuda~gl~libudev+libxml2~netloc~nvml+pci+shared arch=linux-amzn2-aarch64
+[+]  jueqz7p                      ^libpciaccess@0.16%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  e4ssqx6                          ^libtool@2.4.6%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  i2jmeo4                              ^m4@1.4.18%arm@21.0.0.879+sigsegv patches=3877ab548f88597ab2327a2230ee048d2d07ace1062efe81fc92e91b7f39cd00,fc9b61654a3ba1a8d6cd78ce087e7c96366c290bc8d2c299f09828d793b853c8 arch=linux-amzn2-aarch64
+[+]  6jhzlul                                  ^libsigsegv@2.13%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  uwcxkin                          ^util-macros@1.19.3%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  gonqskn                  ^libevent@2.1.12%arm@21.0.0.879+openssl arch=linux-amzn2-aarch64
+[+]  qdn27nh                  ^libfabric@1.11.1-aws%arm@21.0.0.879~debug~kdreg fabrics=sockets,tcp,udp arch=linux-amzn2-aarch64
+[+]  mv2g7r5                  ^numactl@2.0.14%arm@21.0.0.879 patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006 arch=linux-amzn2-aarch64
+[+]  dcs645r                      ^autoconf@2.69%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  edezkz3                      ^automake@1.16.3%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  6vvthuo                  ^openssh@8.5p1%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  xe4evc4                      ^libedit@3.1-20210216%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  x5xehti                  ^slurm@20-02-4-1%arm@21.0.0.879~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-aarch64
+[+]  myrsq4g          ^metis@5.1.0%arm@21.0.0.879~gdb~int64~real64+shared build_type=Release patches=4991da938c1d3a1d3dea78e49bbebecba00273f98df2a656e38b83d55b281da1 arch=linux-amzn2-aarch64
+[+]  fqvybaf              ^cmake@3.20.5%arm@21.0.0.879~doc+ncurses+openssl+ownlibs~qt build_type=Release arch=linux-amzn2-aarch64
+```
+
+#### Math Library Optimization Performance Result
+
+The ReFrame script can be found at [remhos_math_library_tuning.py](remhos_math_library_tuning.py) and the results are in the following tables.
+
+##### Test Case 1: 2DRemap
+| Cores | OpenBLAS | ArmPL    | BLIS    | 
+|-------|----------|----------| ------- |
+| 1     |  21.14 s |  21.33 s | 20.67 s |
+| 2     |  11.51 s |  11.28 s | 11.10 s |
+| 4     |   6.96 s |   6.60 s |  6.49 s |
+| 8     |   5.26 s |   4.52 s |  4.44 s |
+| 16    |   4.77 s |   3.85 s |  3.87 s |
+| 32    |   4.90 s |   4.09 s |  4.10 s |
+| 64    |   6.54 s |   5.64 s |  5.46 s |
+
+##### Test Case 2: 3DRemap
+| Cores | OpenBLAS | ArmPL    | BLIS    | 
+|-------|----------|----------| ------- |
+| 1     |  11.85 s |  11.93 s | 11.86 s |
+| 2     |   6.50 s |   6.52 s |  6.52 s |
+| 4     |   3.91 s |   3.95 s |  3.94 s |
+| 8     |   2.67 s |   2.68 s |  2.72 s |
+| 16    |   2.30 s |   2.27 s |  2.30 s |
+| 32    |   2.44 s |   2.43 s |  2.46 s |
+| 64    |   3.45 s |   3.29 s |  3.50 s |
+
+##### Test Case 3: 2DTransport
+| Cores | OpenBLAS | ArmPL    | BLIS    | 
+|-------|----------|----------| ------- |
+| 1     |   7.55 s |   7.55 s |  7.70 s |
+| 2     |   4.51 s |   4.59 s |  4.51 s |
+| 4     |   3.08 s |   3.11 s |  3.07 s |
+| 8     |   2.49 s |   2.50 s |  2.48 s |
+| 16    |   2.46 s |   2.54 s |  2.97 s |
+| 32    |   2.88 s |   3.05 s |  3.40 s |
+| 64    |   4.25 s |   4.07 s |  4.14 s |
+
+##### Test Case 4: 3DTransport
+| Cores | OpenBLAS | ArmPL    | BLIS    | 
+|-------|----------|----------| ------- |
+| 1     |  10.21 s |  10.28 s | 10.19 s |
+| 2     |   5.91 s |   5.94 s |  6.09 s |
+| 4     |   3.94 s |   3.89 s |  3.87 s |
+| 8     |   3.04 s |   3.10 s |  3.34 s |
+| 16    |   3.06 s |   3.20 s |  3.50 s |
+| 32    |   3.47 s |   3.55 s |  4.01 s |
+| 64    |   4.98 s |   4.91 s |  5.24 s |
 
 ### Performance Regression
-
-How fast can you make the code?
-
-Use all of the above aproaches and any others to make the code as fast as possible.
-Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
 
 
 
@@ -527,4 +720,4 @@ Details of lessons from analysing the performance of the application.
 
 ### Optimisation Summary
 
-Details of lessons from performance optimising the application.
+We have not undertaken an optimization exercise yet.
