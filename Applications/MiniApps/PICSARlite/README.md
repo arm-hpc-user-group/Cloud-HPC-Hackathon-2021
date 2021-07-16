@@ -256,7 +256,7 @@ reframe -c picsarlite_homogeneous_plasma_lite.py -r --performance-report
 ```
 
 | Position | depth | Self  | Total | Child | MPI   | Overhead | Regions | Function                                               |
-|----------|-------|-------|-------|-------|–------|–---------|–--------|–-------------------------------------------------------|
+|----------|-------|-------|-------|-------|-------|----------|---------|--------------------------------------------------------|
 |  1       | 0     | 21.0% | 21.0% |       |       |          |         | depose_jxjyjz_scalar_1_1_1                             |
 |  2       | 0     | 12.8% | 12.8% |       |       | 12.8%    |         | GOMP_parallel                                          |
 |  3       | 0     | 12.6% | 12.6% |       | 12.6% |          |         | mpi_waitall                                            |
@@ -582,7 +582,7 @@ reframe -c picsarlite_test_hotspot_serial.py -r --performance-report
 The `map` profile does not show runtime in seconds:
 
 | Position | depth | Self | Total | Child | MPI | Overhead | Regions | Function |
-|----------|-------|------|-------|-------|–----|–---------|–--------|–---------|
+|----------|-------|------|-------|-------|-----|----------|---------|----------|
 |  1 | 0 | 26.9% | 26.9% |  |  |  |  | depose_jxjyjz_scalar_1_1_1 |
 |  2 | 0 | 16.7% | 16.7% |  |  |  |  | field_gathering_plus_particle_pusher_1_1_1_.1.L.LB11_729.preheader (OpenMP) |
 |  3 | 0 | 12.6% | 12.6% |  |  |  |  | __kmp_invoke_microtask |
@@ -605,18 +605,18 @@ reframe -c picsarlite_test_hotspot_fullnode.py -r --performance-report
 OMP threads = 1
 MPI processes  = 64
 
-| Position | depth | Self | Total | Child | MPI | Overhead | Regions | Function |
-|----------|-------|------|-------|-------|–----|–---------|–--------|–---------|
-|  1 | 0 | 67.9% | 67.9% |  |  |  |  | mpi_file_open_ |
-|  2 | 0 | 17.3% | 17.3% |  |  |  |  | mpi_file_close_ |
-|  3 | 0 | 2.9% | 2.9% |  | 2.9% |  |  | mpi_waitall_ |
-|  4 | 0 | 2.9% | 2.9% |  |  |  |  | mpi_file_write_all_ |
-|  5 | 0 | 1.7% | 1.7% |  |  |  |  | field_gathering_plus_particle_pusher_1_1_1_.1.L.LB11_729.preheader (OpenMP) |
-|  6 | 0 | 1.5% | 1.5% |  |  |  |  | depose_jxjyjz_scalar_1_1_1 |
-|  7 | 0 | 1.2% | 1.2% |  |  |  |  | __kmp_invoke_microtask |
-|  8 | 0 | 0.8% | 0.8% |  |  |  |  | pxr_boris_push_u_3d |
-|  9 | 0 | 0.8% | 0.8% |  | 0.8% |  |  | mpi_barrier_ |
-|  10| 0 | 0.4% | 0.4% |  | 0.4% |  |  | mpi_routines::mpi_minimal_init |
+| Position | depth | Self  | Total | Child | MPI  | Overhead | Regions | Function                                                                    |
+|----------|-------|-------|-------|-------|------|----------|---------|-----------------------------------------------------------------------------|
+|  1       | 0     | 67.9% | 67.9% |       |      |          |         | mpi_file_open_                                                              |
+|  2       | 0     | 17.3% | 17.3% |       |      |          |         | mpi_file_close_                                                             |
+|  3       | 0     |  2.9% |  2.9% |       | 2.9% |          |         | mpi_waitall_                                                                |
+|  4       | 0     |  2.9% |  2.9% |       |      |          |         | mpi_file_write_all_                                                         |
+|  5       | 0     |  1.7% |  1.7% |       |      |          |         | field_gathering_plus_particle_pusher_1_1_1_.1.L.LB11_729.preheader (OpenMP) |
+|  6       | 0     |  1.5% |  1.5% |       |      |          |         | depose_jxjyjz_scalar_1_1_1                                                  |
+|  7       | 0     |  1.2% |  1.2% |       |      |          |         | __kmp_invoke_microtask                                                      |
+|  8       | 0     |  0.8% |  0.8% |       |      |          |         | pxr_boris_push_u_3d                                                         |
+|  9       | 0     |  0.8% |  0.8% |       | 0.8% |          |         | mpi_barrier_                                                                |
+| 10       | 0     |  0.4% |  0.4% |       | 0.4% |          |         | mpi_routines::mpi_minimal_init                                              |
 
 ### Strong Scaling Study
 
