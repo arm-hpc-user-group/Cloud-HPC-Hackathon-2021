@@ -259,6 +259,10 @@ miniGMG_minigmg_on_node_test2_arm_minigmg_local_arm_21_0_0_879_N_1_MPI_1_OMP_64
 
 Performance comparison of two compilers.
 #### Test Case 1
+arm script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test1_arm.py)    
+gcc script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test1_gcc.py)  
 | Cores | arm | gcc |
 |-------|------------|------------|
 | 8     | 4.35 s           | 6.31 s           |
@@ -266,7 +270,11 @@ Performance comparison of two compilers.
 | 32    | 3.71 s           | 11.39 s           |
 | 64    | 3.91 s           | 18.33 s           |
 
-#### Test Case 3
+#### Test Case 2
+arm script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test2_arm.py)    
+gcc script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test2_gcc.py)   
 | Cores | arm | gcc |
 |-------|------------|------------|
 | 8     | 35.18 s           | 41.18 s           |
@@ -275,6 +283,10 @@ Performance comparison of two compilers.
 | 64    | 11.56 s           | 131.02 s           |
 
 #### Test Case 3
+arm script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test3_arm.py)    
+gcc script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test3_gcc.py) 
 | Cores | arm | gcc |
 |-------|------------|------------|
 | 8     | 273.77 s           | 314.23 s           |
@@ -283,6 +295,10 @@ Performance comparison of two compilers.
 | 64    | 81.45 s           | 1097.58 s           |
 
 #### Test Case 4
+arm script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test4_arm.py)    
+gcc script:   
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test4_gcc.py)  
 | Cores | arm | gcc |
 |-------|------------|------------|
 | 8     | 535.99 s           | 789.04 s           |
@@ -366,9 +382,9 @@ Profiling script:
 
 #### Test Case 1
 arm script:   
-[ReFrame Benchmark](#)    
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test1_arm.py)    
 gcc script:   
-[ReFrame Benchmark](#)    
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test1_gcc.py)    
 | Cores | arm | gcc |
 |-------|------------|------------|
 | 8     | 4.35 s           | 6.31 s           |
@@ -378,9 +394,9 @@ gcc script:
 
 #### Test Case 2
 arm script:   
-[ReFrame Benchmark](#)    
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test2_arm.py)    
 gcc script:   
-[ReFrame Benchmark](#)    
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test2_gcc.py)    
 | Cores | arm | gcc |
 |-------|------------|------------|
 | 8     | 35.18 s           | 41.18 s           |
@@ -390,9 +406,9 @@ gcc script:
 
 #### Test Case 3
 arm script:   
-[ReFrame Benchmark](#)    
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test3_arm.py)    
 gcc script:   
-[ReFrame Benchmark](#)    
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test3_gcc.py)    
 | Cores | arm | gcc |
 |-------|------------|------------|
 | 8     | 273.77 s           | 314.23 s           |
@@ -402,9 +418,9 @@ gcc script:
 
 #### Test Case 4
 arm script:   
-[ReFrame Benchmark](#)    
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test4_arm.py)    
 gcc script:   
-[ReFrame Benchmark](#)    
+[ReFrame Benchmark](reframe_scripts/benchmark_onnode_test4_gcc.py)    
 | Cores | arm | gcc |
 |-------|------------|------------|
 | 8     | 535.99 s           | 789.04 s            |
@@ -415,9 +431,11 @@ gcc script:
 #### Off-node scaling study for two compilers:
 #### Test Case 1
 arm script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark 1](reframe_scripts/benchmark_offnode1_test1_arm.py)  
+[ReFrame Benchmark 2](reframe_scripts/benchmark_offnode2_test1_arm.py)  
 gcc script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark 1](reframe_scripts/benchmark_offnode1_test1_gcc.py)  
+[ReFrame Benchmark 2](reframe_scripts/benchmark_offnode1_test1_gcc.py)  
 
 | Nodes | Cores | arm |  gcc |
 |-------|-------|------------|------------|
@@ -428,9 +446,11 @@ gcc script:
 
 #### Test Case 2
 arm script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark 1](reframe_scripts/benchmark_offnode1_test2_arm.py)  
+[ReFrame Benchmark 2](reframe_scripts/benchmark_offnode2_test2_arm.py)  
 gcc script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark 1](reframe_scripts/benchmark_offnode1_test2_gcc.py)  
+[ReFrame Benchmark 2](reframe_scripts/benchmark_offnode1_test2_gcc.py)  
 
 | Nodes | Cores | arm |  gcc |
 |-------|-------|------------|------------|
@@ -441,9 +461,11 @@ gcc script:
 
 #### Test Case 3
 arm script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark 1](reframe_scripts/benchmark_offnode1_test3_arm.py)  
+[ReFrame Benchmark 2](reframe_scripts/benchmark_offnode2_test3_arm.py)  
 gcc script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark 1](reframe_scripts/benchmark_offnode1_test3_gcc.py)  
+[ReFrame Benchmark 2](reframe_scripts/benchmark_offnode1_test3_gcc.py)  
 
 | Nodes | Cores | arm |  gcc |
 |-------|-------|------------|------------|
@@ -454,10 +476,11 @@ gcc script:
 
 #### Test Case 4
 arm script:  
-[ReFrame Benchmark](#)  
+[ReFrame Benchmark 1](reframe_scripts/benchmark_offnode1_test4_arm.py)  
+[ReFrame Benchmark 2](reframe_scripts/benchmark_offnode2_test4_arm.py)  
 gcc script:  
-[ReFrame Benchmark](#)  
-
+[ReFrame Benchmark 1](reframe_scripts/benchmark_offnode1_test4_gcc.py)  
+[ReFrame Benchmark 2](reframe_scripts/benchmark_offnode1_test4_gcc.py)  
 | Nodes | Cores | arm |  gcc |
 |-------|-------|------------|------------|
 | 1     | 32    | 535.99 s 	           | 789.04 s    |
