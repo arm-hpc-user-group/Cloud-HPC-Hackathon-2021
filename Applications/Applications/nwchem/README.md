@@ -374,8 +374,8 @@ Profile data
    - [rfm-khtkwb0p.log](./c240/mapping_hot_spot/rfm-khtkwb0p.log)
 
 List of top-10 functions / code locations from a full node profile.
-![Top MPI related functions](./c240/mapping_hot_spot/
-```
+![Top MPI related functions](./c240/mapping_hot_spot/c240_profile_128.png)
+
 Profiling command used:
 ```
 reframe -c DFT_mps.py -r --performance-report
