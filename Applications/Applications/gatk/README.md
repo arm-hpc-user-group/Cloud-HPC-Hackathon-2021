@@ -306,61 +306,86 @@ Performance comparison of two compilers.
 
 List of top-10 functions / code locations from a serial profile.
 
+For the C6gn (ARM) here are the top ten application routines, with associated % of runtime for arm. `taskset` is used to limit the JVM to one core. It by default will use and GATK didn't otherwise have a great way to constrain resources.
+
+For the C6gn (ARM) with `arm` compiler, here are the top ten application routines, with associated % of runtime. `taskset` is used to limit JVM/GATK to one core.
+
 Profiling command used:
 ```
-:
-```
+SPACK_DIR=': SPACK_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gperftoo
+ls-2.8.1-nlcrjyzchw37gafuffie7h5vapyl5uhg"
+env LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=gatk_arm_countreads_serial.profile taskset --cpu-list 0 gatk --java-options "-Xmx60g" CountReads -I /scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam
 
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
+# its just the JVM!
+which gatk
+GATK_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gatk-4.1.8.1
+-352aeokyfru4jfjog2pbfwyljkapm5e6/bin/gatk"
+
+JDIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/openjdk-1.8.0_191-b12-pp2djekneggf2gz7rejcjtdy67ejkuq6"
+
+
+pprof --text $JDIR/bin/java gatk_arm_countreads.profile | head -n 15
+
+Total: 398 samples
+      13   3.3%   3.3%       15   3.8% PhaseChaitin::Split
+      10   2.5%   5.8%       10   2.5% SymbolTable::lookup_only
+       7   1.8%   7.5%        7   1.8% ContiguousSpace::prepare_for_compaction
+       7   1.8%   9.3%        7   1.8% IndexSetIterator::advance_and_next
+       7   1.8%  11.1%        7   1.8% inflate_fast
+       5   1.3%  12.3%       10   2.5% PhaseChaitin::gather_lrg_masks [clone .constprop.229]
+       4   1.0%  13.3%        5   1.3% PhaseIdealLoop::build_loop_late
+       4   1.0%  14.3%        4   1.0% __libc_read
+       4   1.0%  15.3%        4   1.0% inflate_table
+       3   0.8%  16.1%        3   0.8% 0x0000ffff70212ec0
+       3   0.8%  16.8%        3   0.8% Arena::contains
+       3   0.8%  17.6%       10   2.5% ClassFileParser::parse_method
+       3   0.8%  18.3%        3   0.8% ClassFileParser::skip_over_field_signature
+       3   0.8%  19.1%        3   0.8% NodeHash::hash_delete
+```
 
 
 ### Full Node Hot-spot Profile
 
-TODO
 List of top-10 functions / code locations from a full node profile.
+
+For the C6gn (ARM) with `arm` compiler, here are the top ten application routines, with associated % of runtime. By default the JVM uses all cores for GATK.
 
 Profiling command used:
 ```
-:
-```
+SPACK_DIR=': SPACK_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gperftoo
+ls-2.8.1-nlcrjyzchw37gafuffie7h5vapyl5uhg"
+env LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=gatk_arm_countreads_full.profile gatk --java-options "-Xmx60g" CountReads -I /scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam
 
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
-| 10       |         |          |          |         |
+# its just the JVM!
+which gatk
+GATK_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gatk-4.1.8.1
+-352aeokyfru4jfjog2pbfwyljkapm5e6/bin/gatk"
+
+JDIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/openjdk-1.8.0_191-b12-pp2djekneggf2gz7rejcjtdy67ejkuq6"
+
+pprof --text $JDIR/bin/java gatk_arm_countreads_full.profile | head -n 15
+
+Total: 287 samples
+       9   3.1%   3.1%       10   3.5% SymbolTable::lookup_only
+       9   3.1%   6.3%        9   3.1% __pthread_cond_signal
+       6   2.1%   8.4%        6   2.1% inflate_fast
+       5   1.7%  10.1%        9   3.1% PhaseChaitin::Split
+       4   1.4%  11.5%        4   1.4% readCEN
+       3   1.0%  12.5%        3   1.0% 0x0000ffff904feb04
+       3   1.0%  13.6%        3   1.0% 0x0000ffffa1c4d48c
+       3   1.0%  14.6%        3   1.0% Compile::identify_useful_nodes
+       3   1.0%  15.7%        3   1.0% IndexSetIterator::advance_and_next
+       3   1.0%  16.7%        3   1.0% NTarjan::DFS
+       3   1.0%  17.8%        8   2.8% PhaseChaitin::build_ifg_physical
+       3   1.0%  18.8%        3   1.0% PhaseChaitin::elide_copy
+       3   1.0%  19.9%        3   1.0% PhaseChaitin::interfere_with_live
+       3   1.0%  20.9%        3   1.0% RegMask::Size
+
+```
 
 ### Strong Scaling Study
 
-On-node scaling study for two compilers.
-
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
+No strong study was done for GATK.
 
 
 ### Off-Node Scaling Study
@@ -481,61 +506,67 @@ GATK_gatk_countreadsspark_1000_genomes_high_coverage_gatk_4_1_8_1_gcc_10_3_0_N_1
 
 List of top-10 functions / code locations from a serial profile.
 
+For the C6gn (ARM) with `arm` compiler, here are the top ten application routines, with associated % of runtime. `taskset` is used to limit JVM/GATK to one core.
+
 Profiling command used:
 ```
-:
-```
+SPACK_DIR=': SPACK_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gperftoo
+ls-2.8.1-nlcrjyzchw37gafuffie7h5vapyl5uhg"
+env LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=gatk_arm_countreadsspark_serial.profile taskset --cpu-list 0 gatk --java-options "-Xmx60g" CountReadsSpark -I /scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam
 
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
+# its just the JVM!
+which gatk
+GATK_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gatk-4.1.8.1
+-352aeokyfru4jfjog2pbfwyljkapm5e6/bin/gatk"
+
+JDIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/openjdk-1.8.0_191-b12-pp2djekneggf2gz7rejcjtdy67ejkuq6"
+
+pprof --text $JDIR/bin/java gatk_arm_countreadsspark_serial.profile | h
+ead -n 15
+
+Total: 849 samples
+      28   3.3%   3.3%       28   3.3% inflate_fast
+      26   3.1%   6.4%       34   4.0% SymbolTable::lookup_only
+      21   2.5%   8.8%       25   2.9% PhaseChaitin::Split
+      14   1.6%  10.5%       14   1.6% __GI___clone
+      10   1.2%  11.7%       10   1.2% IndexSetIterator::advance_and_next
+       9   1.1%  12.7%        9   1.1% ContiguousSpace::prepare_for_compaction
+       9   1.1%  13.8%       13   1.5% PhaseChaitin::interfere_with_live
+       8   0.9%  14.7%       30   3.5% PhaseChaitin::build_ifg_physical
+       8   0.9%  15.7%       13   1.5% PhaseIdealLoop::build_loop_early
+       8   0.9%  16.6%        8   0.9% __libc_read
+       7   0.8%  17.4%        8   0.9% SymbolTable::lookup@8db5f0
+       6   0.7%  18.1%        6   0.7% Node_Backward_Iterator::next
+       6   0.7%  18.8%        6   0.7% PhaseChaitin::elide_copy
+       6   0.7%  19.6%       18   2.1% PhaseIdealLoop::build_loop_late
+```
 
 
 ### Full Node Hot-spot Profile
 
 List of top-10 functions / code locations from a full node profile.
 
+For the C6gn (ARM) with `arm` compiler, here are the top ten application routines, with associated % of runtime. By default the JVM uses all cores for GATK.
+
 Profiling command used:
 ```
-:
-```
+SPACK_DIR=': SPACK_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gperftoo
+ls-2.8.1-nlcrjyzchw37gafuffie7h5vapyl5uhg"
+env LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=gatk_arm_countreads_full.profile gatk --java-options "-Xmx60g" CountReads -I /scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam
 
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
-| 10       |         |          |          |         |
+# its just the JVM!
+which gatk
+GATK_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gatk-4.1.8.1
+-352aeokyfru4jfjog2pbfwyljkapm5e6/bin/gatk"
+
+JDIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/openjdk-1.8.0_191-b12-pp2djekneggf2gz7rejcjtdy67ejkuq6"
+
+
+```
 
 ### Strong Scaling Study
 
-On-node scaling study for two compilers.
-
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
-
+Strong scaling study was not performed.
 
 ### Off-Node Scaling Study
 
@@ -921,6 +952,142 @@ WIP: can scale using taskset
 | 16    |                |           |
 | 32    |                |           |
 | 64    |                |           |
+
+## Test Case 5
+
+This confirms that GATK is working by doing a common quality control cleanup of a BAM file using the `MarkDuplicatesSpark` tool that has always been available in GATK. This is run against the small, medium and large sequencing runs noted in the description. This is run on both the ARM and x86 HPC. Both C5n and C6gn.
+
+```
+reframe -c gatk_dedup_small.py -r --performance-report
+reframe -c gatk_dedup_medium.py -r --performance-report
+reframe -c gatk_dedup_large.py -r --performance-report
+```
+
+### Validation
+
+The ReFrame test looks for the sucess status of the de-duplication run. Manual analysis was also done to verify that metrics files are produced correctly.
+
+### ReFrame Output
+
+ARM HPC output 
+```
+
+```
+
+x86 HPC output
+
+```
+
+```
+
+### On-node Compiler Comparison
+
+Performance comparison of two compilers. 
+
+TODO
+| BAM | gcc        | arm        |
+|-------|------------|------------|
+| small   | < sec      |   < sec    |
+| medium   |  414 s    |   408 s   |
+| large   |   4488 s     |  4488 s  |
+
+
+### Serial Hot-spot Profile
+
+List of top-10 functions / code locations from a serial profile.
+
+For the C6gn (ARM) here are the top ten application routines, with associated % of runtime for arm. `taskset` is used to limit the JVM to one core. It by default will use and GATK didn't otherwise have a great way to constrain resources.
+
+Profiling command used:
+```
+SPACK_DIR=': SPACK_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gperftoo
+ls-2.8.1-nlcrjyzchw37gafuffie7h5vapyl5uhg"
+env LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=gatk_arm.profile taskset --cpu-list 0 gatk --java-options "-Xmx60g" MarkDuplicatesSpark -I /scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam -O test.bam -M test_metrics.txt
+
+# its just the JVM!
+which gatk
+GATK_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gatk-4.1.8.1
+-352aeokyfru4jfjog2pbfwyljkapm5e6/bin/gatk"
+
+JDIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/openjdk-1.8.0_191-b12-pp2djekneggf2gz7rejcjtdy67ejkuq6"
+
+pprof --text $JDIR/bin/java gatk_arm.profile | head -n 15
+
+Total: 1225 samples
+      32   2.6%   2.6%       42   3.4% SymbolTable::lookup_only
+      31   2.5%   5.1%       31   2.5% __GI___clone
+      27   2.2%   7.3%       27   2.2% PhaseIdealLoop::is_dominator
+      27   2.2%   9.6%       27   2.2% inflate_fast
+      25   2.0%  11.6%       34   2.8% PhaseChaitin::Split
+      23   1.9%  13.5%       23   1.9% IndexSetIterator::advance_and_next
+      16   1.3%  14.8%       43   3.5% PhaseChaitin::build_ifg_physical
+      16   1.3%  16.1%       19   1.6% PhaseChaitin::interfere_with_live
+      16   1.3%  17.4%       16   1.3% Symbol::equals
+      15   1.2%  18.6%       17   1.4% PhaseChaitin::elide_copy
+      12   1.0%  19.6%       13   1.1% PhaseIdealLoop::build_loop_early
+      11   0.9%  20.5%       20   1.6% PhaseLive::compute
+      10   0.8%  21.3%       10   0.8% __GI_memset
+      10   0.8%  22.1%       10   0.8% longest_match
+```
+
+
+### Full Node Hot-spot Profile
+
+List of top-10 functions / code locations from a full node profile.
+
+For the C6gn (ARM) here are the top ten application routines, with associated % of runtime for arm. By default the JVM uses all cores for GATK.
+
+Profiling command used:
+```
+SPACK_DIR=': SPACK_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gperftoo
+ls-2.8.1-nlcrjyzchw37gafuffie7h5vapyl5uhg"
+env LD_PRELOAD=$SPACK_DIR/lib/libprofiler.so CPUPROFILE=gatk_arm.profile gatk --java-options "-Xmx60g" MarkDuplicatesSpark -I /scratch/home/jayson/gatk-data/H06HDADXX130110.1.ATCACGAT.20k_reads.bam -O test.bam -M test_metrics.txt
+
+# its just the JVM!
+which gatk
+GATK_DIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gatk-4.1.8.1
+-352aeokyfru4jfjog2pbfwyljkapm5e6/bin/gatk"
+
+JDIR="/scratch/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/openjdk-1.8.0_191-b12-pp2djekneggf2gz7rejcjtdy67ejkuq6"
+
+pprof --text $JDIR/bin/java gatk_arm.profile | head -n 15
+
+Total: 835 samples
+      34   4.1%   4.1%       37   4.4% SymbolTable::lookup_only
+      20   2.4%   6.5%       34   4.1% PhaseChaitin::Split
+      20   2.4%   8.9%       22   2.6% __pthread_cond_signal
+      17   2.0%  10.9%       17   2.0% IndexSetIterator::advance_and_next
+      13   1.6%  12.5%       13   1.6% inflate_fast
+      12   1.4%  13.9%       12   1.4% PhaseIdealLoop::is_dominator
+      10   1.2%  15.1%       12   1.4% PhaseChaitin::elide_copy
+       9   1.1%  16.2%        9   1.1% __GI_memset
+       8   1.0%  17.1%       11   1.3% PhaseIdealLoop::build_loop_early
+       8   1.0%  18.1%       10   1.2% PhaseLive::compute
+       8   1.0%  19.0%        8   1.0% RegMask::Size
+       8   1.0%  20.0%        8   1.0% RelocIterator::set_limits
+       7   0.8%  20.8%       10   1.2% PhaseChaitin::interfere_with_live
+       7   0.8%  21.7%       21   2.5% PhaseChaitin::post_allocate_copy_removal
+```
+
+### Strong Scaling Study
+
+No strong study was done for GATK.
+
+
+### Off-Node Scaling Study
+
+Off-node scaling study was not performed.
+
+### On-Node Architecture Comparison
+
+On-node scaling study for two architectures.
+
+TODO
+| Cores | C6gn (Aarch64) | C5n (X86) |
+|-------|------------|------------|
+| small   | < sec      |   < sec    |
+| medium   |  414 s    |  384 s   |
+| large   |   4488 s     |  3630 s  |
 
 
 ## Optimisation
