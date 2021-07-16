@@ -164,18 +164,67 @@ Profiling script:
 ![w4a](pictures/w4a.png)
 
 ### Strong Scaling Study
-
 On-node scaling study for two compilers.
 
+#### Test Case 1
+arm script:   
+[ReFrame Benchmark](#)    
+gcc script:   
+[ReFrame Benchmark](#)    
 | Cores | arm | gcc |
 |-------|------------|------------|
-| 1     | 17.19 s           |            |
-| 2     | 9.95 s           |            |
-| 4     | 5.98 s           |            |
-| 8     | 4.35 s           |            |
-| 16    | 3.58 s           |            |
-| 32    | 3.71 s           |            |
-| 64    | 3.91 s           |            |
+| 1     | 17.19 s           | 17.18 s           |
+| 2     | 9.95 s           | 11.57 s           |
+| 4     | 5.98 s           | 7.33 s           |
+| 8     | 4.35 s           | 6.31 s           |
+| 16    | 3.58 s           | 7.81 s           |
+| 32    | 3.71 s           | 11.39 s           |
+| 64    | 3.91 s           | 19.33 s           |
+
+#### Test Case 2
+arm script:   
+[ReFrame Benchmark](#)    
+gcc script:   
+[ReFrame Benchmark](#)    
+| Cores | arm | gcc |
+|-------|------------|------------|
+| 1     | 124.5 s           | 127.3 s           |
+| 2     | 83.3 s           | 84.14 s           |
+| 4     | 52.5 s            | 52.06 s           |
+| 8     | 35.18 s           | 41.18 s           |
+| 16    | 25.2 s           | 51.58 s           |
+| 32    | 18.27 s           | 82.87 s           |
+| 64    | 11.56 s           | 131.02 s           |
+
+#### Test Case 3
+arm script:   
+[ReFrame Benchmark](#)    
+gcc script:   
+[ReFrame Benchmark](#)    
+| Cores | arm | gcc |
+|-------|------------|------------|
+| 1     |            | 1060.55 s           |
+| 2     |            | 643.84 s           |
+| 4     |            | 401.97 s           |
+| 8     |            | 314.23 s           |
+| 16    |            | 418.16 s           |
+| 32    |            | 686.54 s           |
+| 64    |            | 1097.58 s           |
+
+#### Test Case 4
+arm script:   
+[ReFrame Benchmark](#)    
+gcc script:   
+[ReFrame Benchmark](#)    
+| Cores | arm | gcc |
+|-------|------------|------------|
+| 1     |            |         |
+| 2     |            | 1733.35 s             |
+| 4     |            | 990.99 s           |
+| 8     |            | 789.04 s            |
+| 16    |            | 1048.72 s          |
+| 32    |            | 1906.81 s           |
+| 64    |            |            |
 
 ### On-Node Architecture Comparison
 
