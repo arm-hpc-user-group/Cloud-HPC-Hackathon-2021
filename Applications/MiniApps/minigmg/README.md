@@ -383,8 +383,7 @@ Profiling script:
 ![w3g](pictures/w3g.png)
 
 #### Test Case 4
-Profiling script:  
-[ReFrame Benchmark](reframe_scripts/benchmark_p5_test4_gcc.py)  
+ 
 ![w4g](pictures/w4g.png)
 
 #### arm
