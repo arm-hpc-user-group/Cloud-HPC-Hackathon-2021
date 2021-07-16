@@ -69,11 +69,11 @@ $ spack spec -Il minigmg@local%gcc@10.3.0
 #### ARM 21.0.0.879
 
 ```
-spack install -j 64 minigmg@local%arm
+spack install -j 64 minigmg@local%arm@21.0.0.879
 ```
 
 ```
-$ spack spec -Il minigmg@local%arm
+$ spack spec -Il minigmg@local%arm@21.0.0.879
 
  -   33ilsbt  minigmg@local%arm@21.0.0.879~debug~opt~simde arch=linux-amzn2-graviton2
 [+]  huifkle      ^openmpi@4.1.0%arm@21.0.0.879~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=ofi patches=60ce20bc14d98c572ef7883b9fcd254c3f232c2f3a13377480f96466169ac4c8 schedulers=slurm arch=linux-amzn2-graviton2
@@ -109,11 +109,11 @@ $ spack spec -Il minigmg@local%arm
 #### NVHPC 21.2
 
 ```
-spack install -j 64 minigmg@local%nvhpc
+spack install -j 64 minigmg@local%nvhpc@21.2
 ```
 
 ```
-$ spack spec -Il minigmg@local%nvhpc
+$ spack spec -Il minigmg@local%nvhpc@21.2
 
  -   fjnn2h7  minigmg@local%nvhpc@21.2~debug~opt~simde arch=linux-amzn2-graviton2
 [+]  krxyvbc      ^openmpi@4.1.0%nvhpc@21.2~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=ofi patches=60ce20bc14d98c572ef7883b9fcd254c3f232c2f3a13377480f96466169ac4c8,fba0d3a784a9723338722b48024a22bb32f6a951db841a4e9f08930a93f41d7a schedulers=slurm arch=linux-amzn2-graviton2
