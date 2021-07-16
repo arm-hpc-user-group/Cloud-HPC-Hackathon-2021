@@ -121,21 +121,46 @@ Profiling script:
 
 List of top-10 functions / code locations from a full node profile.
 
+#### gcc
 #### Test Case 1  
 Profiling script:  
 [ReFrame Benchmark](#)
+![w1g](pictures/w1g.png)
 
 #### Test Case 2
 Profiling script:  
 [ReFrame Benchmark](#)
+![w2g](pictures/w2g.png)
 
 #### Test Case 3
 Profiling script:  
 [ReFrame Benchmark](#)
+![w3g](pictures/w3g.png)
 
 #### Test Case 4
 Profiling script:  
 [ReFrame Benchmark](#)
+
+#### arm
+#### Test Case 1  
+Profiling script:  
+[ReFrame Benchmark](#)
+![w1a](pictures/w1a.png)
+
+#### Test Case 2
+Profiling script:  
+[ReFrame Benchmark](#)
+![w2a](pictures/w2a.png)
+
+#### Test Case 3
+Profiling script:  
+[ReFrame Benchmark](#)
+![w3a](pictures/w3a.png)
+
+#### Test Case 4
+Profiling script:  
+[ReFrame Benchmark](#)
+![w4a](pictures/w4a.png)
 
 ### Strong Scaling Study
 
