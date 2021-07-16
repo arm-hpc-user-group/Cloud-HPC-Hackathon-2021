@@ -10,7 +10,7 @@ from reframe.core.launchers import LauncherWrapper
 
 
 # Where to run the binaries 'aws:c6gn' on Arm or 'aws:c5n' on Intel
-my_valid_systems = ['aws:c6gn']
+my_valid_systems = ['aws:c5n' if os.uname().machine == 'x86_64' else 'aws:c6gn']
 
 # Logging Variables
 my_log_team_name = 'TeamEPCC'
@@ -38,6 +38,15 @@ my_spec = [
 
 # Parameters - MPI / Threads - Used for scaling studies
 my_parallelism = [
+    { 'nodes' : 1, 'mpi' :  3, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' :  9, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' : 18, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' : 36, 'omp' : 1},
+    { 'nodes' : 1, 'mpi' : 72, 'omp' : 1},
+    { 'nodes' : 2, 'mpi' : 72, 'omp' : 1},
+    { 'nodes' : 4, 'mpi' : 72, 'omp' : 1},
+    { 'nodes' : 8, 'mpi' : 72, 'omp' : 1},
+] if 'aws:c5n' in my_valid_systems else [
     { 'nodes' : 1, 'mpi' :  1, 'omp' : 1},
     { 'nodes' : 1, 'mpi' :  2, 'omp' : 1},
     { 'nodes' : 1, 'mpi' :  4, 'omp' : 1},
