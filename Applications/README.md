@@ -9,50 +9,50 @@ As they tend to be larger, and more complex, they are also likely to be harder t
 
 ## MiniApps
 
-| Code                                              | Team Assigned                 | Porting Status |
-|---------------------------------------------------|-------------------------------|----------------|
-| [BookLeaf-cpp](MiniApps/BookLeaf-cpp/README.md)   | DeepNeuron Blue               |                |
-| [CCS-QCD](MiniApps/ccs-qcd/README.md)             | KeyzerSozeHPC                 |                |
-| [CloverLeaf3D](MiniApps/CloverLeaf3D/README.md)   | C-unMake                      | **Merged**     |
-| [CoEVP](MiniApps/CoEVP/README.md)                 | Top Gun                       |                |
-| [CoHMM](MiniApps/CoHMM/README.md)                 | Serendipity                   |                |
-| [COMD](MiniApps/comd/README.md)                   | Falkners                      | **Merged**     |
-| [ExaMiniMD](MiniApps/ExaMiniMD/README.md)         | MexicanWolf                   |                |
-| [ExaMPM](MiniApps/ExaMPM/README.md)               | Firefly                       |                |
-| [ExaSP2](MiniApps/ExaSP2/README.md)               | CloudHPC                      | **Merged**     |
-| [GAMESS-RI-MP2](MiniApps/GAMESS-RI-MP2/README.md) | neuralmimicry                 |                |
-| [Harminv](MiniApps/harminv/README.md)             | QMLab                         |                |
-| [HPCCG](MiniApps/HPCCG/README.md)                 | SPEED                         |                |
-| [HPCG](MiniApps/HPCG/README.md)                   | HPC-LUL                       |                |
-| [Kripke](MiniApps/kripke/README.md)               | DogeCoinToTheMoon             | **Merged**     |
-| [Laghos](MiniApps/laghos/README.md)               | Iman                          | **Merged**     |
-| [LULESH](MiniApps/LULESH/README.md)               | Calligo HPC Cluster Team      |                |
-| [MACSio](MiniApps/MACSio/README.md)               | Fast Solvers with Firedrake   |                |
-| [miniAero](MiniApps/miniAero/README.md)           | Team Joe                      | Logging        |
-| [miniAMR](MiniApps/miniAMR/README.md)             | TPPU                          |                |
-| [miniFE](MiniApps/miniFE/README.md)               | Karthikeyan                   |                |
-| [miniGhost](MiniApps/miniGhost/README.md)         | Quantori                      |                |
-| [miniGMG](Applications/minigmg/README.md)         | Wolfpack                      | Logging        |
-| [miniMD](MiniApps/miniMD/README.md)               | Alejandro Ruiz                |                |
-| [miniQMC](MiniApps/miniQMC/README.md)             | Team Phoenix                  |                |
-| [miniSMAC2D](MiniApps/miniSMAC2D/README.md)       | Explorer                      |                |
-| [miniTri](MiniApps/miniTri/README.md)             | HPCNepal                      | **Merged**     |
-| [miniVite](MiniApps/miniVite/README.md)           | Garotes de Premià             | Logging        |
-| [miniXyce](MiniApps/miniXyce/README.md)           | SGHackers                     | Logging        |
-| [Nekbone](MiniApps/nekbone/README.md)             | RISCy Business                |                |
-| [PENNANT](MiniApps/PENNANT/README.md)             | HPC Matrix                    |                |
-| [PICSARlite](MiniApps/PICSARlite/README.md)       | TeamEPCC                      | Logging        |
-| [Quicksilver](MiniApps/Quicksilver/README.md)     | Fidesys                       |                |
-| [Remhos](MiniApps/Remhos/README.md)               | C3SR                          | **Merged**     |
-| [RSBench](MiniApps/RSBench/README.md)             | DeepNeuron Purple             | Logging        |
-| [SimpleMOC](MiniApps/SimpleMOC/README.md)         | BlueHPCHens                   |                |
-| [SNAP](MiniApps/SNAP/README.md)                   | X-Factor                      |                |
-| [Sombrero](MiniApps/sombrero/README.md)           | ARC-wolves                    |                |
-| [swfft](MiniApps/swfft/README.md)                 | ElkNet                        | **Merged**     |
-| [Tealeaf](MiniApps/Tealeaf/README.md)             | Master of puppets             |                |
-| [thornado-mini](MiniApps/thornado-mini/README.md) | Clangers                      |                |
-| [Tycho2](MiniApps/tycho2/README.md)               | Harry Porters                 |                |
-| [XSBench](MiniApps/XSBench/README.md)             | Gopher HPC                    |                |
+| Code                                              | Team Assigned               | Porting Status |
+| ------------------------------------------------- | --------------------------- | -------------- |
+| [BookLeaf-cpp](MiniApps/BookLeaf-cpp/README.md)   | DeepNeuron Blue             |                |
+| [CCS-QCD](MiniApps/ccs-qcd/README.md)             | KeyzerSozeHPC               |                |
+| [CloverLeaf3D](MiniApps/CloverLeaf3D/README.md)   | C-unMake                    | **Merged**     |
+| [CoEVP](MiniApps/CoEVP/README.md)                 | Top Gun                     |                |
+| [CoHMM](MiniApps/CoHMM/README.md)                 | Serendipity                 |                |
+| [COMD](MiniApps/comd/README.md)                   | Falkners                    | **Merged**     |
+| [ExaMiniMD](MiniApps/ExaMiniMD/README.md)         | MexicanWolf                 |                |
+| [ExaMPM](MiniApps/ExaMPM/README.md)               | Firefly                     |                |
+| [ExaSP2](MiniApps/ExaSP2/README.md)               | CloudHPC                    | **Merged**     |
+| [GAMESS-RI-MP2](MiniApps/GAMESS-RI-MP2/README.md) | neuralmimicry               |                |
+| [Harminv](MiniApps/harminv/README.md)             | QMLab                       |                |
+| [HPCCG](MiniApps/HPCCG/README.md)                 | SPEED                       |                |
+| [HPCG](MiniApps/HPCG/README.md)                   | HPC-LUL                     |                |
+| [Kripke](MiniApps/kripke/README.md)               | DogeCoinToTheMoon           | **Merged**     |
+| [Laghos](MiniApps/laghos/README.md)               | Iman                        | **Merged**     |
+| [LULESH](MiniApps/LULESH/README.md)               | Calligo HPC Cluster Team    |                |
+| [MACSio](MiniApps/MACSio/README.md)               | Fast Solvers with Firedrake |                |
+| [miniAero](MiniApps/miniAero/README.md)           | Team Joe                    | Logging        |
+| [miniAMR](MiniApps/miniAMR/README.md)             | TPPU                        |                |
+| [miniFE](MiniApps/miniFE/README.md)               | Karthikeyan                 |                |
+| [miniGhost](MiniApps/miniGhost/README.md)         | Quantori                    |                |
+| [miniGMG](MiniApps/minigmg/README.md)             | Wolfpack                    | Logging        |
+| [miniMD](MiniApps/miniMD/README.md)               | Alejandro Ruiz              |                |
+| [miniQMC](MiniApps/miniQMC/README.md)             | Team Phoenix                |                |
+| [miniSMAC2D](MiniApps/miniSMAC2D/README.md)       | Explorer                    |                |
+| [miniTri](MiniApps/miniTri/README.md)             | HPCNepal                    | **Merged**     |
+| [miniVite](MiniApps/miniVite/README.md)           | Garotes de Premià           | Logging        |
+| [miniXyce](MiniApps/miniXyce/README.md)           | SGHackers                   | Logging        |
+| [Nekbone](MiniApps/nekbone/README.md)             | RISCy Business              |                |
+| [PENNANT](MiniApps/PENNANT/README.md)             | HPC Matrix                  |                |
+| [PICSARlite](MiniApps/PICSARlite/README.md)       | TeamEPCC                    | Logging        |
+| [Quicksilver](MiniApps/Quicksilver/README.md)     | Fidesys                     |                |
+| [Remhos](MiniApps/Remhos/README.md)               | C3SR                        | **Merged**     |
+| [RSBench](MiniApps/RSBench/README.md)             | DeepNeuron Purple           | Logging        |
+| [SimpleMOC](MiniApps/SimpleMOC/README.md)         | BlueHPCHens                 |                |
+| [SNAP](MiniApps/SNAP/README.md)                   | X-Factor                    |                |
+| [Sombrero](MiniApps/sombrero/README.md)           | ARC-wolves                  |                |
+| [swfft](MiniApps/swfft/README.md)                 | ElkNet                      | **Merged**     |
+| [Tealeaf](MiniApps/Tealeaf/README.md)             | Master of puppets           |                |
+| [thornado-mini](MiniApps/thornado-mini/README.md) | Clangers                    |                |
+| [Tycho2](MiniApps/tycho2/README.md)               | Harry Porters               |                |
+| [XSBench](MiniApps/XSBench/README.md)             | Gopher HPC                  |                |
 
 
 
