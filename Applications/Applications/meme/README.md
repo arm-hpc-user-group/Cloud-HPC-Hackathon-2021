@@ -1,10 +1,10 @@
-# meme 
+# meme
 
 **Description:** The MEME Suite allows the biologist to discover novel motifs in collections of unaligned nucleotide or protein sequences, and to perform a wide variety of other motif-based analyses.
 
 **URL:** http://meme-suite.org
 
-**Team:**  
+**Team:** TeamEPCC
 
 ## Compilation
 
@@ -18,13 +18,43 @@
   - `spack libxslt` has to be patched for `nvhpc`
     - https://github.com/spack/spack/pull/24873
 
-These patches are also included below.
+These patches are included below.
 
 ### Building meme
 
-#### Arm
+  - Our `packages.yaml`
 
-  - `meme` does not build due to the way some inline functions are declared, so we patched it as below (probably will try to get this included upstream).
+```
+$ cat ~/.spack/packages.yaml
+packages:
+  libfabric:
+    buildable: false
+    externals:
+    - spec: libfabric@1.11.1-aws
+      prefix: /opt/amazon/efa/
+  slurm:
+    buildable: false
+    externals:
+    - spec: slurm@20-02-4-1
+      prefix: /opt/slurm/
+  openmpi:
+    variants: +pmi fabrics=ofi schedulers=slurm
+    version:
+       - 4.1.0
+  perl:
+    version:
+       - 5.32.1
+  python:
+    externals:
+    - spec: python@2.7.18+bz2+ctypes+dbm+lzma+nis+pyexpat+readline+sqlite3+ssl~tix~tkinter+uuid+zlib
+      prefix: /usr
+    - spec: python@3.7.10+bz2+ctypes+dbm+lzma+nis+pyexpat+readline+sqlite3+ssl~tix~tkinter+uuid+zlib
+      prefix: /usr
+```
+
+### Arm
+
+  - By default `meme` does not build due to the way some inline functions are declared, so we patched it as below (probably will try to get this included upstream).
 
 ```
 --- a/src/mtwist.h	2021-07-14 12:18:25.848290454 +0000
@@ -42,7 +72,7 @@ These patches are also included below.
  					/* Slower, with 64-bit precision */
  #endif
 +#endif
- 
+
  /*
   * Tempering parameters.  These are perhaps the most magic of all the magic
 @@ -381,10 +383,14 @@
@@ -65,7 +95,7 @@ These patches are also included below.
  #endif /* MT_EXTERN */
 ```
 
-  - Here's the patched `spack meme` package, including the changes required to compile `nvhpc` (see below).
+  - Here's the patch for `spack`'s `meme` package, including the changes required to compile with `nvhpc` as well (see below).
 
 ```
 diff --git a/var/spack/repos/builtin/packages/meme/package.py b/var/spack/repos/builtin/packages/meme/package.py
@@ -80,7 +110,7 @@ index 78e21ca595..f61b014d07 100644
 +    depends_on('libxslt', type=('build', 'run'))
 +
 +    patch('arm.patch', when='%arm')
- 
+
      def url_for_version(self, version):
          url = 'http://meme-suite.org/meme-software/{0}/meme{1}{2}.tar.gz'
 @@ -40,7 +44,14 @@ def url_for_version(self, version):
@@ -101,24 +131,20 @@ index 78e21ca595..f61b014d07 100644
 +            filter_file('-Wno-unused', '', 'configure')
 ```
 
-  - `perl@5.32.1` was used as suggested on slack.
-  - We used external `python` to speedup the compilation.
-
 ```
-spack external find python
+$ spack install meme%arm
 ```
 
 ```
-$ spack spec -Il meme%arm ^perl@5.32.1
+$ spack spec -Il meme%arm
 Input spec
 --------------------------------
  -   meme%arm
- -       ^perl@5.32.1
 
 Concretized
 --------------------------------
 ==> Warning: arm@21.0.0.879 cannot build optimized binaries for "graviton2". Using best target possible: "aarch64"
-[+]  425o2yr  meme@5.3.0%arm@21.0.0.879~image-magick+mpi patches=5007c0d69900e6bfcb06fce5385670ab153f01de1aea9f62220c20e0497a2ba2 arch=linux-amzn2-aarch64
+[+]  csigtg7  meme@5.3.0%arm@21.0.0.879~image-magick+mpi patches=5007c0d69900e6bfcb06fce5385670ab153f01de1aea9f62220c20e0497a2ba2 arch=linux-amzn2-aarch64
 [+]  xc6udaz      ^libgcrypt@1.9.3%arm@21.0.0.879 arch=linux-amzn2-aarch64
 [+]  45e7cf6          ^libgpg-error@1.42%arm@21.0.0.879 arch=linux-amzn2-aarch64
 [+]  r5sadrn              ^gawk@5.1.0%arm@21.0.0.879 arch=linux-amzn2-aarch64
@@ -146,15 +172,17 @@ Concretized
 [+]  36hcfzw                      ^autoconf-archive@2019.01.06%arm@21.0.0.879 arch=linux-amzn2-aarch64
 [+]  wqpjcrw                      ^texinfo@6.5%arm@21.0.0.879 patches=12f6edb0c6b270b8c8dba2ce17998c580db01182d871ee32b7b6e4129bd1d23a,1732115f651cff98989cb0215d8f64da5e0f7911ebf0c13b064920f088f2ffe1 arch=linux-amzn2-aarch64
 [+]  jaizlxa      ^libxslt@1.1.33%arm@21.0.0.879+crypto~python arch=linux-amzn2-aarch64
-[+]  eqxgd55      ^openmpi@4.1.1%arm@21.0.0.879~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=none schedulers=none arch=linux-amzn2-aarch64
+[+]  lmaoy5t      ^openmpi@4.1.0%arm@21.0.0.879~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=ofi patches=60ce20bc14d98c572ef7883b9fcd254c3f232c2f3a13377480f96466169ac4c8 schedulers=slurm arch=linux-amzn2-aarch64
 [+]  xl6anaa          ^hwloc@2.5.0%arm@21.0.0.879~cairo~cuda~gl~libudev+libxml2~netloc~nvml+pci+shared arch=linux-amzn2-aarch64
 [+]  jueqz7p              ^libpciaccess@0.16%arm@21.0.0.879 arch=linux-amzn2-aarch64
 [+]  uwcxkin                  ^util-macros@1.19.3%arm@21.0.0.879 arch=linux-amzn2-aarch64
 [+]  gonqskn          ^libevent@2.1.12%arm@21.0.0.879+openssl arch=linux-amzn2-aarch64
 [+]  vc3waha              ^openssl@1.1.1k%arm@21.0.0.879~docs+systemcerts arch=linux-amzn2-aarch64
+[+]  qdn27nh          ^libfabric@1.11.1-aws%arm@21.0.0.879~debug~kdreg fabrics=sockets,tcp,udp arch=linux-amzn2-aarch64
 [+]  mv2g7r5          ^numactl@2.0.14%arm@21.0.0.879 patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006 arch=linux-amzn2-aarch64
 [+]  6vvthuo          ^openssh@8.5p1%arm@21.0.0.879 arch=linux-amzn2-aarch64
 [+]  xe4evc4              ^libedit@3.1-20210216%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  x5xehti          ^slurm@20-02-4-1%arm@21.0.0.879~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-aarch64
 [+]  abuse3a      ^perl-xml-parser@2.44%arm@21.0.0.879 arch=linux-amzn2-aarch64
 [+]  oyfuwk3          ^expat@2.4.1%arm@21.0.0.879+libbsd arch=linux-amzn2-aarch64
 [+]  5q4lmyg              ^libbsd@0.11.3%arm@21.0.0.879 arch=linux-amzn2-aarch64
@@ -181,111 +209,28 @@ Concretized
 [+]  f7wxi23              ^perl-http-negotiate@6.01%arm@21.0.0.879 arch=linux-amzn2-aarch64
 [+]  gzm6crb              ^perl-net-http@6.17%arm@21.0.0.879 arch=linux-amzn2-aarch64
 [+]  kwobb4g              ^perl-www-robotrules@6.02%arm@21.0.0.879 arch=linux-amzn2-aarch64
+[+]  lijfbsl      ^perl-xml-simple@2.24%arm@21.0.0.879 arch=linux-amzn2-aarch64
 [+]  ck4dsab      ^python@3.7.10%arm@21.0.0.879+bz2+ctypes+dbm~debug+libxml2+lzma+nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87 arch=linux-amzn2-aarch64
 ```
 
-```
-$ spack install meme%arm ^perl@5.32.1
-==> Warning: arm@21.0.0.879 cannot build optimized binaries for "graviton2". Using best target possible: "aarch64"
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/libiconv-1.16-7vnthznb6f3xn2hyykrin45yeymts6fb
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/pkgconf-1.7.4-zpuzm23bl335qaqoszzhkd6wep7i4ml2
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/xz-5.2.5-zqsab4fq32x3k7df6idvkhvceugzp4gq
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/zlib-1.2.11-puuxvg25icc6pdyssc4sgi5oskrliz4k
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/libsigsegv-2.13-6jhzlulucoiy7gufglfbwhx7rki775wx
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/berkeley-db-18.1.40-33wiajjxmksgrm2umgyrld5olisskwdz
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/autoconf-archive-2019.01.06-36hcfzw3xddhyrf3exbf5jrs2akskocu
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/util-macros-1.19.3-uwcxkinw2672z53papss7tm74wtwlab7
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/libmd-1.0.3-srfepw2slm577yf3ndnqfvegxd5wc47s
-[+] /usr (external python-3.7.10-ck4dsablke42vizpgmkx33s47yewaxkd)
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/tar-1.34-fohku26jzkjq5gkbgcu6t6vikmnflf4g
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/diffutils-3.7-adtc6ycofvxn36pnti4rjpbvpqpy7zzq
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/ncurses-6.2-uhtqtlbyo7yigh35us6kaqq3f5vgshyf
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/libxml2-2.9.10-dypqz2im5bj62zkyxk7ahsm7z4yqslle
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/m4-1.4.19-lnai6aqtcgccuundb6iszo6lsfe5ingi
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/libbsd-0.11.3-5q4lmygjonvmdncgynk2sxv2irlx5ehf
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/bzip2-1.0.8-z4ybgriwwt7xs5ous57y47rne7dx7jvb
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/libedit-3.1-20210216-xe4evc4smpyo4hr6wb4ykjzgufoavn4u
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/readline-8.1-3haw5gtwq4xn5uftetwf74ykypck3ttj
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/libtool-2.4.6-e4ssqx6phoexdyix2ffpbperalwklkuo
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/expat-2.4.1-oyfuwk3dgqeglx4xk5q3qtwwf4orsbrq
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gettext-0.21-rl3qj47kiajnxqhdfoaqsewha3hj5bvv
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gdbm-1.19-645q4qjl2yh5azskbbng3ev4ok5py7cz
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/libpciaccess-0.16-jueqz7pr2i5327di7dtfgnss7xj5bdgo
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-5.32.1-vv6txro26vz6rei7rfene7djrlddrll2
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/hwloc-2.5.0-xl6anaasg27j4uw672jn7z5pvibb4qfg
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-try-tiny-0.28-63xetxbh3jkgddtpv6pygikfqjklryf3
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-extutils-helpers-0.026-nmupwpidxxq56tvqltkzeucodaxw2v4t
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-lwp-mediatypes-6.02-2p4t5hi7knbopc3f2k2o4kmdcr32oxfq
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-test-needs-0.002005-hlpexymfjgaqazpgotf4nmyzhq5zbsm7
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-html-tagset-3.20-plc6lno7wezhxenwlro4ieo3yhncrbxj
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-extutils-installpaths-0.012-e7eeriokslvqicpw5pndx4gibcyihn3f
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-http-date-6.02-gnnb256fp7shtixenpnw3syoy3yybfbg
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/autoconf-2.69-par2wrm6wxctmbtzbz7yqshoqaozofec
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-extutils-config-0.008-h5t34a42it6qceye3hg4hwadtc4zvsof
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/openssl-1.1.1k-vc3wahacaffdv4csjq5enxyyqtzfppxj
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-io-html-1.001-fbhtyzq22mubjmdstq4x3fdkq7jgvwsq
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/texinfo-6.5-wqpjcrwgau4ashd3rgykstsvsp5vb66y
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-module-build-0.4224-ec7ahmpc2tq7qfq3soqqmpwlgzexp5hs
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-encode-locale-1.05-miszmcndqoaqt6i4wckypjw3o44aqpx2
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-uri-1.72-ardflxywajjrqwc56x3qg6wmupdl5rej
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-html-parser-3.72-pkjgw5vjbyt7lrpq4stcanf5exaxtui2
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-file-listing-6.04-qppjxlcf2msuzhqdhmnkndqbrhbmgsgg
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/automake-1.16.3-edezkz3kir457u7yc554afjbfd42oveb
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/openssh-8.5p1-6vvthuodratjaerhyrjlkmoz722xt575
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/libevent-2.1.12-gonqskn2pxdwfefom4uxlgy6qgxxtmsf
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-module-build-tiny-0.039-d6j4vei2k4uolbiwi7tvalf5za74xmdj
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-http-message-6.13-tjhb3pitkhqe5qchmwq2hfhd5zihj52s
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-net-http-6.17-gzm6crbpaw46p5luzkk6rjp4hdc5mjuv
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-www-robotrules-6.02-kwobb4g7qolx2xvlabnhotk6ceisnhu7
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gmp-6.2.1-y7o4xcemclbfe77vaqo3mu7vaanorkji
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/numactl-2.0.14-mv2g7r5fxdbopfvogpibbaqdgnbrcedc
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-http-negotiate-6.01-f7wxi23k63wkt64rbcqd7kcjngenyame
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-http-daemon-6.01-zrmw65nybzqdqcj5jdidvzhx6xja4f5p
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-http-cookies-6.04-dwuwymubilhdsiyhamshd7zgzac3jmgs
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/mpfr-4.1.0-s55efueyvfqhnctcgmwtu4zr6vlfrnst
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/openmpi-4.1.1-eqxgd55t743v4nns6wf5ionyie2iioaj
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-libwww-perl-6.33-yigrrtoybywma5z52pizdgzyspb4lc33
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/gawk-5.1.0-r5sadrnilf7xvmf5oomuhugopdmdy7cu
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/perl-xml-parser-2.44-abuse3azatsv3azyoksyptg7gzforhw5
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/libgpg-error-1.42-45e7cf62wlkleklnwmtfq3r73w4phxib
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/libgcrypt-1.9.3-xc6udazenhyeaitpxdnb4wvg52winodb
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/libxslt-1.1.33-jaizlxa53c45c4wcvjof2psbqbqu5446
-==> Installing meme-5.3.0-425o2yrunny2fimknk2gf4axdf7p7mic
-==> No binary for meme-5.3.0-425o2yrunny2fimknk2gf4axdf7p7mic found: installing from source
-==> Using cached archive: /home/rjj/spack/var/spack/cache/_source-cache/archive/b2/b2ddec9db972fcf77b29c7deb62df8b1dd8a6638c13c1aa06a5d563c4a7ff756.tar.gz
-==> Applied patch /home/rjj/spack/var/spack/repos/builtin/packages/meme/arm.patch
-==> Ran patch() for meme
-==> meme: Executing phase: 'autoreconf'
-==> meme: Executing phase: 'configure'
-==> meme: Executing phase: 'build'
-==> meme: Executing phase: 'install'
-==> meme: Successfully installed meme-5.3.0-425o2yrunny2fimknk2gf4axdf7p7mic
-  Fetch: 0.04s.  Build: 17.37s.  Total: 17.41s.
-[+] /home/rjj/spack/opt/spack/linux-amzn2-aarch64/arm-21.0.0.879/meme-5.3.0-425o2yrunny2fimknk2gf4axdf7p7mic
-==> Updating view at /home/rjj/meme-arm/.spack-env/view
-==> Warning: [/home/rjj/meme-arm/.spack-env/._view/62zg2tww4xe4wgpwihg2zzhx3k2qtgsu] Skipping external package: python@3.7.10%arm@21.0.0.879+bz2+ctypes+dbm~debug+libxml2+lzma+nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87 arch=linux-amzn2-aarch64/ck4dsab
-```
-
-#### GCC
+### GCC
 
   - No major errors were detected when building with `gcc`.
-  - We use `perl@5.32.1` as suggested on slack.
-  - We use external `python` to speedup the compilation.
+
 
 ```
-spack external find python
+$ spack install meme%gcc
 ```
 
 ```
-$ spack spec -Il meme%gcc ^perl@5.32.1
+$ spack spec -Il meme%gcc
 Input spec
 --------------------------------
  -   meme%gcc
- -       ^perl@5.32.1
 
 Concretized
 --------------------------------
-[+]  gl7hp6y  meme@5.3.0%gcc@10.3.0~image-magick+mpi arch=linux-amzn2-graviton2
+[+]  xzjirlu  meme@5.3.0%gcc@10.3.0~image-magick+mpi arch=linux-amzn2-graviton2
 [+]  equosbj      ^libgcrypt@1.9.3%gcc@10.3.0 arch=linux-amzn2-graviton2
 [+]  hjnbovy          ^libgpg-error@1.42%gcc@10.3.0 arch=linux-amzn2-graviton2
 [+]  wbcp5ow              ^gawk@5.1.0%gcc@10.3.0 arch=linux-amzn2-graviton2
@@ -313,15 +258,17 @@ Concretized
 [+]  yutdrfy                      ^autoconf-archive@2019.01.06%gcc@10.3.0 arch=linux-amzn2-graviton2
 [+]  egfqbtl                      ^texinfo@6.5%gcc@10.3.0 patches=12f6edb0c6b270b8c8dba2ce17998c580db01182d871ee32b7b6e4129bd1d23a,1732115f651cff98989cb0215d8f64da5e0f7911ebf0c13b064920f088f2ffe1 arch=linux-amzn2-graviton2
 [+]  vapzblj      ^libxslt@1.1.33%gcc@10.3.0+crypto~python arch=linux-amzn2-graviton2
-[+]  l7oony6      ^openmpi@4.1.1%gcc@10.3.0~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=none schedulers=none arch=linux-amzn2-graviton2
+[+]  zvamksn      ^openmpi@4.1.0%gcc@10.3.0~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=ofi patches=60ce20bc14d98c572ef7883b9fcd254c3f232c2f3a13377480f96466169ac4c8 schedulers=slurm arch=linux-amzn2-graviton2
 [+]  cukmqbg          ^hwloc@2.5.0%gcc@10.3.0~cairo~cuda~gl~libudev+libxml2~netloc~nvml+pci+shared arch=linux-amzn2-graviton2
 [+]  asgtk6a              ^libpciaccess@0.16%gcc@10.3.0 arch=linux-amzn2-graviton2
 [+]  4xr3hhh                  ^util-macros@1.19.3%gcc@10.3.0 arch=linux-amzn2-graviton2
 [+]  tadxrfp          ^libevent@2.1.12%gcc@10.3.0+openssl arch=linux-amzn2-graviton2
 [+]  5i3lgfb              ^openssl@1.1.1k%gcc@10.3.0~docs+systemcerts arch=linux-amzn2-graviton2
+[+]  72f5gvk          ^libfabric@1.11.1-aws%gcc@10.3.0~debug~kdreg fabrics=sockets,tcp,udp arch=linux-amzn2-graviton2
 [+]  mhav5gn          ^numactl@2.0.14%gcc@10.3.0 patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006 arch=linux-amzn2-graviton2
 [+]  wturp6c          ^openssh@8.5p1%gcc@10.3.0 arch=linux-amzn2-graviton2
 [+]  ivotdt7              ^libedit@3.1-20210216%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  wqpuvmh          ^slurm@20-02-4-1%gcc@10.3.0~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-graviton2
 [+]  lqb6dym      ^perl-xml-parser@2.44%gcc@10.3.0 arch=linux-amzn2-graviton2
 [+]  ychdz7l          ^expat@2.4.1%gcc@10.3.0+libbsd arch=linux-amzn2-graviton2
 [+]  ourxkez              ^libbsd@0.11.3%gcc@10.3.0 arch=linux-amzn2-graviton2
@@ -348,115 +295,34 @@ Concretized
 [+]  memap53              ^perl-http-negotiate@6.01%gcc@10.3.0 arch=linux-amzn2-graviton2
 [+]  jp2quri              ^perl-net-http@6.17%gcc@10.3.0 arch=linux-amzn2-graviton2
 [+]  ojglnnz              ^perl-www-robotrules@6.02%gcc@10.3.0 arch=linux-amzn2-graviton2
+[+]  fkruvr4      ^perl-xml-simple@2.24%gcc@10.3.0 arch=linux-amzn2-graviton2
 [+]  gcliuat      ^python@3.7.10%gcc@10.3.0+bz2+ctypes+dbm~debug+libxml2+lzma+nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87 arch=linux-amzn2-graviton2
 ```
 
-```
-$ spack install meme%gcc ^perl@5.32.1
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libiconv-1.16-y5ei3cmj2tgxpgnr6igh5fziwnnbi7a3
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/pkgconf-1.7.4-s4pw7zmcaf2rh6xuc22jp66cg3npx4nz
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/xz-5.2.5-ye3kcvvokl2a3pdn6lkab7j7rzpxggpi
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/zlib-1.2.11-qepjcvjpz2nwtm4zbaz2br33bwvy23tx
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libsigsegv-2.13-ltbv6bkcmvubbgixriiwzbqudh6fkazl
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/berkeley-db-18.1.40-y42m6yrtdnsuoh45fi5jfx4yerisdxrk
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/autoconf-archive-2019.01.06-yutdrfyi3gkgdz7gmqa5efgofx5ozdfn
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/util-macros-1.19.3-4xr3hhh6aikjhwk5woa5uhbaro6srjbg
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libmd-1.0.3-nssrqfcpfcpomxqfhbdr3ptjjp2nd6xd
-[+] /usr (external python-3.7.10-gcliuatsk3ithegvhwy4ifly5m3y6vtz)
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/tar-1.34-v6cutkhxah5zju5ndfmzq465bdptkgo6
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/diffutils-3.7-2w7bert4g2o7lucct63fowxxj2vsqkvt
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/ncurses-6.2-iwzirqcp76atpg62xlcu46dh2yjddw3j
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libxml2-2.9.10-iyhm3wilqssofsggowwbfxun7niccvhf
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/m4-1.4.19-3mz7xytiqgkfu67nm2ebstep6sgkzxwb
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libbsd-0.11.3-ourxkez44ksg5ciapptjeaxjzrulu5hy
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/bzip2-1.0.8-rqrpmaprfygdmjxct4442op7bbj5e56h
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/readline-8.1-3zy7kxkw67essppq4knw2gvklra5ygs4
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libedit-3.1-20210216-ivotdt7lhwaqswzxiytqy6doasslbljt
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libtool-2.4.6-z2uysov7wn6lxgyfytyhgulaaz6zijfm
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/expat-2.4.1-ychdz7licpqsyebds6d3dbxquxz2ew7r
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/gettext-0.21-fqlpcslnophdmhn2lhhqlvjxnguwzlpb
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/gdbm-1.19-wjwqncxnsbjbrwsvfedxdtxinvrmjryv
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libpciaccess-0.16-asgtk6aydbyop2sv7wornerzw6y4mjre
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-5.32.1-4m7exgbhfvcb5wlifx6o4ngpphbjjphb
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/hwloc-2.5.0-cukmqbgswpp2d2a6yftqywlujkorlpbq
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-module-build-0.4224-l3vxnlnqyoatmq5zw3t2aa7c27cjxc5w
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-lwp-mediatypes-6.02-uwpw4jbqjhsicxv4jicqpmoxcjnjzu23
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/autoconf-2.69-djnylognarbxzwpvmlp6yoqnx2sklt2l
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-test-needs-0.002005-ilcgd4pnf32x367kj5rncepi27pbqcuz
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-extutils-installpaths-0.012-3bmurgvfx65rj4ussctrlijedbl5rv5x
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-io-html-1.001-cw4yunqrs6kkyvwjn4f2vrjfet2u4vf4
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-http-date-6.02-iel7364fqqw34marxs2bhiz2ryp3wfo7
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-try-tiny-0.28-lbi5zlwstshiobnfkih7fh6y6azogyui
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-html-tagset-3.20-5356pecizzclskqxkgx2rtzjelkhzkdu
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-extutils-helpers-0.026-oaj7c6lrawhr3i6lv7ew3iwilvh5zfvl
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-encode-locale-1.05-7bktzwyklvwp557nru2vwv5owpngzlxg
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-extutils-config-0.008-2nu5ktnrxzmegyellhxckwssg3eaub64
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/texinfo-6.5-egfqbtluucpkgtbqrvo5j3fcf6c5l4pj
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/openssl-1.1.1k-5i3lgfbcbweivvoiqxg4jckshtmlyhkb
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/automake-1.16.3-xb2w5ncoqrjpbhbdnilr4uxm34q6mu4i
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-uri-1.72-mwjmhxr4xsunndhk2ujqb7tdy7m6xio2
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-file-listing-6.04-ng42qsj7uptj6flp3q45thamvk2673ga
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-html-parser-3.72-6c5zqpyelmbdyj5jl22qcueul3xvy2dk
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-module-build-tiny-0.039-n2pgdkj5b6uruq3xvpr46xibfvmuepsl
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/openssh-8.5p1-wturp6cp4ypasvbcyn7qx7rgagdak7kc
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libevent-2.1.12-tadxrfpeo27q5qow6wzvlsmyhv6kud4q
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/gmp-6.2.1-rego5fd26ydvr4nmx6kgf73kysxinrz5
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/numactl-2.0.14-mhav5gnwdad3th2hgidiuzepv7tmdekn
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-net-http-6.17-jp2quripysc2jg3hsxct5ttyaurxddez
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-www-robotrules-6.02-ojglnnz65ifhxqo42qo36bfnclklu5yo
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-http-message-6.13-lzhpg5e3ksypt4gqxus3yumb7ysftaqw
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/mpfr-4.1.0-4jwrra6yu5p4megbbvklajihvfhzln44
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/openmpi-4.1.1-l7oony6qix6xuddtdfcjeeeyrh5x536d
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-http-negotiate-6.01-memap537wakso4d467fb2fg3om7nyk3g
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-http-cookies-6.04-rn72djeoblr6bgm3glkxizssluph5t7b
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-http-daemon-6.01-kqe5fq4uxoz7eg3ou35uttcbcbenvjv3
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/gawk-5.1.0-wbcp5owlgdkqftwpad3epklp6t7auhfp
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-libwww-perl-6.33-f5v6774ieoy4kpgciwqsoj4745lgmhv4
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libgpg-error-1.42-hjnbovy4wzj4vwpvb3zjldambls2sri4
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/perl-xml-parser-2.44-lqb6dymrnsfobtx44rfpvdvy5ppo2hdj
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libgcrypt-1.9.3-equosbjd7u25gi5ytpzyge37uxiqwlcn
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libxslt-1.1.33-vapzbljmokpq4jwaavjxip3tfnsd3e7w
-==> Installing meme-5.3.0-gl7hp6ygegwney5mpaestizwmpptva3t
-==> No binary for meme-5.3.0-gl7hp6ygegwney5mpaestizwmpptva3t found: installing from source
-==> Using cached archive: /home/rjj/spack/var/spack/cache/_source-cache/archive/b2/b2ddec9db972fcf77b29c7deb62df8b1dd8a6638c13c1aa06a5d563c4a7ff756.tar.gz
-==> Ran patch() for meme
-==> meme: Executing phase: 'autoreconf'
-==> meme: Executing phase: 'configure'
-==> meme: Executing phase: 'build'
-==> meme: Executing phase: 'install'
-==> meme: Successfully installed meme-5.3.0-gl7hp6ygegwney5mpaestizwmpptva3t
-  Fetch: 0.04s.  Build: 17.71s.  Total: 17.74s.
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/meme-5.3.0-gl7hp6ygegwney5mpaestizwmpptva3t
-==> Updating view at /home/rjj/meme-gcc/.spack-env/view
-==> Warning: [/home/rjj/meme-gcc/.spack-env/._view/thngqlmneanmqdvj3otgio4rjbr4ndlb] Skipping external package: python@3.7.10%gcc@10.3.0+bz2+ctypes+dbm~debug+libxml2+lzma+nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87 arch=linux-amzn2-graviton2/gcliuat
-```
-
-#### NVHPC
+### NVHPC
 
   - `nvhpc` conflicts with `python`.
     - Can be fixed by using the external `python`.
-
-```
-spack external find python
-```
-
-  - Various dependencies of `libgcrypt` do not compile with `nvhpc`. As a work around, we build them with `gcc`.
+  - Various dependencies of `libgcrypt` do not compile with `nvhpc`.
+    - As a work around, we build them with `gcc`.
   - `libbsd-0.11.3` doesn't build, initially because the current patch included in the package does not apply, but other errors emerge after fixing the patch.
     - Using `libbsd@0.10.0` works.
-  - `perl@5.34.0` hangs during compilation, so we use `perl@5.32.1`.
 
 ```
-$ spack spec -Il meme%nvhpc ^libgcrypt%gcc ^libbsd@0.10.0 ^perl@5.32.1
+$ spack install meme%nvhpc ^libgcrypt%gcc ^libbsd@0.10.0
+```
+
+```
+$ spack spec -Il meme%nvhpc ^libgcrypt%gcc ^libbsd@0.10.0
 Input spec
 --------------------------------
  -   meme%nvhpc
  -       ^libbsd@0.10.0
  -       ^libgcrypt%gcc
- -       ^perl@5.32.1
 
 Concretized
 --------------------------------
-[+]  k63vfh6  meme@5.3.0%nvhpc@21.2~image-magick+mpi arch=linux-amzn2-graviton2
+[+]  fifpy6p  meme@5.3.0%nvhpc@21.2~image-magick+mpi arch=linux-amzn2-graviton2
 [+]  equosbj      ^libgcrypt@1.9.3%gcc@10.3.0 arch=linux-amzn2-graviton2
 [+]  hjnbovy          ^libgpg-error@1.42%gcc@10.3.0 arch=linux-amzn2-graviton2
 [+]  23u7l5k              ^gawk@5.1.0%gcc@10.3.0 arch=linux-amzn2-graviton2
@@ -484,15 +350,17 @@ Concretized
 [+]  yutdrfy                      ^autoconf-archive@2019.01.06%gcc@10.3.0 arch=linux-amzn2-graviton2
 [+]  njydrqj                      ^texinfo@6.5%gcc@10.3.0 patches=12f6edb0c6b270b8c8dba2ce17998c580db01182d871ee32b7b6e4129bd1d23a,1732115f651cff98989cb0215d8f64da5e0f7911ebf0c13b064920f088f2ffe1 arch=linux-amzn2-graviton2
 [+]  r3qewtm      ^libxslt@1.1.33%nvhpc@21.2+crypto~python arch=linux-amzn2-graviton2
-[+]  oof4r4k      ^openmpi@4.1.1%nvhpc@21.2~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=none patches=fba0d3a784a9723338722b48024a22bb32f6a951db841a4e9f08930a93f41d7a schedulers=none arch=linux-amzn2-graviton2
+[+]  krxyvbc      ^openmpi@4.1.0%nvhpc@21.2~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=ofi patches=60ce20bc14d98c572ef7883b9fcd254c3f232c2f3a13377480f96466169ac4c8,fba0d3a784a9723338722b48024a22bb32f6a951db841a4e9f08930a93f41d7a schedulers=slurm arch=linux-amzn2-graviton2
 [+]  jroqews          ^hwloc@2.5.0%nvhpc@21.2~cairo~cuda~gl~libudev+libxml2~netloc~nvml+pci+shared arch=linux-amzn2-graviton2
 [+]  e4m4ued              ^libpciaccess@0.16%nvhpc@21.2 patches=6e08dc445ece06e9e8b1344397f2d3f169005703ddc0f2ae24f366cde78c7377 arch=linux-amzn2-graviton2
 [+]  4imdwuy                  ^util-macros@1.19.3%nvhpc@21.2 arch=linux-amzn2-graviton2
 [+]  uttaumr          ^libevent@2.1.12%nvhpc@21.2+openssl arch=linux-amzn2-graviton2
 [+]  j2qhi7h              ^openssl@1.1.1k%nvhpc@21.2~docs+systemcerts arch=linux-amzn2-graviton2
+[+]  xl6zavq          ^libfabric@1.11.1-aws%nvhpc@21.2~debug~kdreg fabrics=sockets,tcp,udp arch=linux-amzn2-graviton2
 [+]  5yq4tpw          ^numactl@2.0.14%nvhpc@21.2 patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006 arch=linux-amzn2-graviton2
 [+]  cl3ohqo          ^openssh@8.5p1%nvhpc@21.2 arch=linux-amzn2-graviton2
 [+]  yvqpq74              ^libedit@3.1-20210216%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  zehhooy          ^slurm@20-02-4-1%nvhpc@21.2~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc arch=linux-amzn2-graviton2
 [+]  5qlgjmf      ^perl-xml-parser@2.44%nvhpc@21.2 arch=linux-amzn2-graviton2
 [+]  ucobzs7          ^expat@2.4.1%nvhpc@21.2+libbsd arch=linux-amzn2-graviton2
 [+]  kevfo4m              ^libbsd@0.10.0%nvhpc@21.2 patches=bd4ed3549fde8870ac82cdc5778d91f907131587d31eedcd023dd13594dc39ad arch=linux-amzn2-graviton2
@@ -518,10 +386,11 @@ Concretized
 [+]  s3lbu5y              ^perl-http-negotiate@6.01%nvhpc@21.2 arch=linux-amzn2-graviton2
 [+]  7nwrfth              ^perl-net-http@6.17%nvhpc@21.2 arch=linux-amzn2-graviton2
 [+]  5cr5u6d              ^perl-www-robotrules@6.02%nvhpc@21.2 arch=linux-amzn2-graviton2
+[+]  na6lwdz      ^perl-xml-simple@2.24%nvhpc@21.2 arch=linux-amzn2-graviton2
 [+]  6pt5n5r      ^python@3.7.10%nvhpc@21.2+bz2+ctypes+dbm~debug+libxml2+lzma+nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87 arch=linux-amzn2-graviton2
 ```
 
-  - The default `spack meme` package generates `xml` link errors.
+  - The default `spack` `meme` package generates `xml` link errors.
     - Installing `libxml2` and `libxslt` as `spack` packages and building `meme` against them solves this problem (requires changes to `spack`'s `meme` package).
   - Some of the compilation flags used by `meme` and `libxmlst` are not supported by `nvhpc`, but they can be easily patched out.
 
@@ -546,206 +415,485 @@ diff --git a/var/spack/repos/builtin/packages/meme/package.py b/var/spack/repos/
 # See Arm's build section for the changes required to this file.
 ```
 
-```
-$ spack install meme%nvhpc ^libgcrypt%gcc ^libbsd@0.10.0 ^perl@5.32.1
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/libiconv-1.16-r7mmkdpt4wbubln5d2qfg3gnwoa7jwup
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/pkgconf-1.7.4-vtiml6gd4tq2n2weyfyyxl75p76fso36
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/xz-5.2.5-br733tn7u7m7bkzoqki4t6mkwqe37kcc
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/zlib-1.2.11-4js6ectch4sma7o6s4c3wdnknse53stu
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libsigsegv-2.13-ltbv6bkcmvubbgixriiwzbqudh6fkazl
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/berkeley-db-18.1.40-5uyf3k42277wtheux4xkcqetv52ifecq
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/autoconf-archive-2019.01.06-yutdrfyi3gkgdz7gmqa5efgofx5ozdfn
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/util-macros-1.19.3-4imdwuyb6nnch2eduhl7mfdb5awa6sgl
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/libbsd-0.10.0-kevfo4mlgq6aehvphjgobdmxv2nalusd
-[+] /usr (external python-3.7.10-6pt5n5r5czl5gduqyhnpd6birqvvyjgg)
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/tar-1.34-ugpacicagphjnlzbpvrznxd5emylwlmn
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/diffutils-3.7-s4mb5noxg5nn4i6x22fcjugursbtxgxo
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/ncurses-6.2-asgm7mtatrjw36ttfk3g5vxfxz5ybj7h
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/libxml2-2.9.10-wo4l72sljq27vlflhhnbftrnwo6qfuph
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/m4-1.4.19-3mz7xytiqgkfu67nm2ebstep6sgkzxwb
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/expat-2.4.1-ucobzs7xoo25m4j4yopd2qplgs22o7xg
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/bzip2-1.0.8-wsi7g3j4vytltkoudzfoghkb5v7wwnel
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/readline-8.1-zori3wfcaqyec26duh45loktzyovwj6b
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/libedit-3.1-20210216-yvqpq74ewuievw5qv774ce4ctb2aop5v
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libtool-2.4.6-z2uysov7wn6lxgyfytyhgulaaz6zijfm
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/gettext-0.21-klmvhilfcfswnm2vkekesjx6aquoadwx
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/gdbm-1.19-m2wdbeocflxsyohvv3mppfhnp2fzoklm
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/libpciaccess-0.16-e4m4uedp2o6ltanfegdoaa4a3c4mv6qv
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-5.32.1-gn4fgp5ygy6wuv3wmnarrir5vwtwauw7
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/hwloc-2.5.0-jroqewsmhchutjwtj7fl4pfphrbletj3
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/openssl-1.1.1k-j2qhi7harygj5remm5a37zqehpj5uqzm
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-extutils-config-0.008-b2izmfns55z6qhogxlctjwyzgkvjxonh
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/autoconf-2.69-mzhxqyz6om765zbxioydxy4x2ichxt5r
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-module-build-0.4224-uz3v4epjz7xksyix4gntgatgg66743zy
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-extutils-helpers-0.026-yevyfn2oidprezjex74zyu4k6ilfkvue
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-test-needs-0.002005-lwbdujw3qfikbsjszbmgwmr54tujp7pb
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-http-date-6.02-7kcrousikltzvyqssz7mfbyjyi4tbrze
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-io-html-1.001-hnhjgh2q6rquikhsa7htg2foldelhdxc
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-lwp-mediatypes-6.02-wsgcrtfuiizht5ws5slgzruo6hwhvzvb
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-encode-locale-1.05-bzw6yvxcx6gqbkppthsqgvqjf4yzjhba
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-try-tiny-0.28-olvr6oso5bcjwagm2adpufuw5msjaldn
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/texinfo-6.5-njydrqj6o7gg4liuotwmwdswdqz5adwp
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-html-tagset-3.20-5yqmhosygagckbumadyyqdvhdvocjtbn
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-extutils-installpaths-0.012-nnkzejgr6yxdxusmpnomqkz3wjg5g52n
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/openssh-8.5p1-cl3ohqoeab4gbj7wlk3pvlyaawkykq3m
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/libevent-2.1.12-uttaumroxxwuv2nkijr3cabjygz3vw5q
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/automake-1.16.3-q5y3rsfftyeso67bw64e5t7liqqpenja
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-uri-1.72-hs4cjs3gzrldtachwypihikta2f7vnnz
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-file-listing-6.04-liqnsqwwgozvhoa4nl7cup6dvnpxj4pp
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-html-parser-3.72-wq24kahn4i6eonetkl7d574cradpacvi
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-module-build-tiny-0.039-mevsuodqjqhu4kpqnakaawdovparf4cr
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/numactl-2.0.14-5yq4tpwoq3pckv44wbxc4bauau7pictt
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/gmp-6.2.1-rego5fd26ydvr4nmx6kgf73kysxinrz5
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-net-http-6.17-7nwrfth5va3n3xtxdn46b3grnjxf2c73
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-http-message-6.13-nruhydygzszlz7jcqoealeww3rnt6kvf
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-www-robotrules-6.02-5cr5u6dgx23c7lyrk3vdmwbf3xmlykoa
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/openmpi-4.1.1-oof4r4k2xcglcuutsmzkimahaf6npgnd
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/mpfr-4.1.0-4jwrra6yu5p4megbbvklajihvfhzln44
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-http-cookies-6.04-wbgtlcou2fm462kufmvlf6lgp4udtkxy
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-http-daemon-6.01-6iouolgdb73oure5mhc64ewdumtvkunb
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-http-negotiate-6.01-s3lbu5ym44uwlcgmciyxx4b4mrskbzow
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/gawk-5.1.0-23u7l5kfg7tceadziqilrttxkoarvuym
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-libwww-perl-6.33-y2t47lvvdq7vfulx3mc72tf6zddzwkgi
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libgpg-error-1.42-hjnbovy4wzj4vwpvb3zjldambls2sri4
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/perl-xml-parser-2.44-5qlgjmfmjqojelc2ptxzfgru5rhmpw6a
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/libgcrypt-1.9.3-equosbjd7u25gi5ytpzyge37uxiqwlcn
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/libxslt-1.1.33-r3qewtmebps5w7yowpgb34rqyego4rz4
-==> Installing meme-5.3.0-k63vfh6k5iavtvb3vzwzhxobd7t6c5g3
-==> No binary for meme-5.3.0-k63vfh6k5iavtvb3vzwzhxobd7t6c5g3 found: installing from source
-==> Using cached archive: /home/rjj/spack/var/spack/cache/_source-cache/archive/b2/b2ddec9db972fcf77b29c7deb62df8b1dd8a6638c13c1aa06a5d563c4a7ff756.tar.gz
-==> Ran patch() for meme
-==> meme: Executing phase: 'autoreconf'
-==> meme: Executing phase: 'configure'
-==> meme: Executing phase: 'build'
-==> meme: Executing phase: 'install'
-==> meme: Successfully installed meme-5.3.0-k63vfh6k5iavtvb3vzwzhxobd7t6c5g3
-  Fetch: 0.04s.  Build: 31.63s.  Total: 31.67s.
-[+] /home/rjj/spack/opt/spack/linux-amzn2-graviton2/nvhpc-21.2/meme-5.3.0-k63vfh6k5iavtvb3vzwzhxobd7t6c5g3
-==> Updating view at /home/rjj/meme-nvhpc/.spack-env/view
-==> Warning: [/home/rjj/meme-nvhpc/.spack-env/._view/ha6aeh7czi6oapnfqunxtrmn4lep3z24] Skipping external package: python@3.7.10%nvhpc@21.2+bz2+ctypes+dbm~debug+libxml2+lzma+nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87 arch=linux-amzn2-graviton2/6pt5n5r
-```
-
 ## Test Case 1
 
-[ReFrame Benchmark 1](#)
+[ReFrame Test 1](meme-lex0-small.py)
+
+Small test from [MEME](https://meme-suite.org/meme/doc/examples/meme_example_output_files/meme.html) that checkes if the output generated by the local build matches the reference output provided. We use this test to evaluate the correctness of the installation, not to measure performance.
 
 ```
-../bin/reframe -c benchmark.py -r --performance-report
+reframe -c meme-lex0-small.py -r
 ```
 
 ### Validation
 
-Details of the validation for `Test Case 1`.
-
+The output of the command
+```
+meme lex0.fna -oc lex0.fna.d -dna -mod zoops -nmotifs 3 -revcomp
+```
+is matched against [the reference output from MEME](https://meme-suite.org/meme/doc/examples/meme_example_output_files/meme.txt). This comparison is performed after stripping the output from run/platform specific data, such as timing or hostname information.
 
 ### ReFrame Output
 
+#### Arm
+
 ```
+----------] waiting for spawned checks to finish
+[       OK ] ( 1/30) meme_-lex0-small_meme_csigtg7_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.709s total: 7.730s]
+[       OK ] ( 2/30) meme_-lex0-small_meme_csigtg7_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 8.670s total: 8.690s]
+[       OK ] ( 3/30) meme_-lex0-small_meme_csigtg7_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 8.988s total: 9.008s]
+[       OK ] ( 4/30) meme_-lex0-small_meme_csigtg7_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 8.900s total: 8.921s]
+[       OK ] ( 5/30) meme_-lex0-small_meme_csigtg7_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 10.111s total: 10.131s]
+[       OK ] ( 6/30) meme_-lex0-small_meme_csigtg7_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 11.420s total: 11.440s]
+[       OK ] ( 7/30) meme_-lex0-small_meme_csigtg7_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 10.639s total: 10.660s]
+[       OK ] ( 8/30) meme_-lex0-small_meme_csigtg7_N_2_MPI_128_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 12.273s total: 12.293s]
+[       OK ] ( 9/30) meme_-lex0-small_meme_fifpy6p_N_8_MPI_512_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 16.798s total: 18.739s]
+[       OK ] (10/30) meme_-lex0-small_meme_fifpy6p_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 19.708s total: 24.713s]
+[       OK ] (11/30) meme_-lex0-small_meme_fifpy6p_N_2_MPI_128_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 20.934s total: 25.178s]
+[       OK ] (12/30) meme_-lex0-small_meme_fifpy6p_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 20.097s total: 26.112s]
+[       OK ] (13/30) meme_-lex0-small_meme_fifpy6p_N_4_MPI_256_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 23.825s total: 26.524s]
+[       OK ] (14/30) meme_-lex0-small_meme_fifpy6p_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 22.953s total: 29.736s]
+[       OK ] (15/30) meme_-lex0-small_meme_fifpy6p_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 22.934s total: 30.508s]
+[       OK ] (16/30) meme_-lex0-small_meme_fifpy6p_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 21.577s total: 31.307s]
+[       OK ] (17/30) meme_-lex0-small_meme_fifpy6p_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 16.944s total: 36.988s]
+[       OK ] (18/30) meme_-lex0-small_meme_fifpy6p_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 12.556s total: 38.256s]
+[       OK ] (19/30) meme_-lex0-small_meme_xzjirlu_N_8_MPI_512_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 21.296s total: 47.762s]
+[       OK ] (20/30) meme_-lex0-small_meme_xzjirlu_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 22.054s total: 53.879s]
+[       OK ] (21/30) meme_-lex0-small_meme_xzjirlu_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 23.280s total: 54.345s]
+[       OK ] (22/30) meme_-lex0-small_meme_xzjirlu_N_2_MPI_128_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 26.504s total: 54.814s]
+[       OK ] (23/30) meme_-lex0-small_meme_xzjirlu_N_4_MPI_256_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 28.785s total: 56.039s]
+[       OK ] (24/30) meme_-lex0-small_meme_xzjirlu_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 25.740s total: 58.355s]
+[       OK ] (25/30) meme_-lex0-small_meme_xzjirlu_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 20.733s total: 59.009s]
+[       OK ] (26/30) meme_-lex0-small_meme_xzjirlu_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 20.381s total: 59.925s]
+[       OK ] (27/30) meme_-lex0-small_meme_xzjirlu_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 12.311s total: 61.370s]
+[       OK ] (28/30) meme_-lex0-small_meme_xzjirlu_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 9.337s total: 64.012s]
+[       OK ] (29/30) meme_-lex0-small_meme_csigtg7_N_8_MPI_512_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 18.424s total: 73.884s]
+[       OK ] (30/30) meme_-lex0-small_meme_csigtg7_N_4_MPI_256_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 26.543s total: 82.800s]
+[----------] all spawned checks have finished
+
+[  PASSED  ] Ran 30/30 test case(s) from 30 check(s) (0 failure(s), 0 skipped)
+[==========] Finished on Fri Jul 16 16:28:11 2021 
+```
+
+#### Intel
+
+```
+[----------] waiting for spawned checks to finish
+[       OK ] ( 1/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_1_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 10.058s total: 10.079s]
+[       OK ] ( 2/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_9_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 10.536s total: 10.557s]
+[       OK ] ( 3/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_3_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 11.444s total: 11.465s]
+[       OK ] ( 4/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_18_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 13.744s total: 13.764s]
+[       OK ] ( 5/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_36_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 16.376s total: 16.395s]
+[       OK ] ( 6/18) meme_-lex0-small_meme_ylex6xs_N_1_MPI_72_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 16.694s total: 16.713s]
+[       OK ] ( 7/18) meme_-lex0-small_meme_ylex6xs_N_2_MPI_144_OMP_1 on aws:c5n using builtin [compile: 0.004s run: 23.544s total: 23.563s]
+[       OK ] ( 8/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_72_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 13.358s total: 24.686s]
+[       OK ] ( 9/18) meme_-lex0-small_meme_ucxv6oz_N_2_MPI_144_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 46.702s total: 54.964s]
+[       OK ] (10/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_36_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 41.446s total: 55.864s]
+[       OK ] (11/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_3_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 58.899s total: 84.183s]
+[       OK ] (12/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_18_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 68.734s total: 83.917s]
+[       OK ] (13/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_9_OMP_1 on aws:c5n using builtin [compile: 0.007s run: 61.846s total: 84.347s]
+[       OK ] (14/18) meme_-lex0-small_meme_ylex6xs_N_4_MPI_288_OMP_1 on aws:c5n using builtin [compile: 0.004s run: 103.813s total: 103.830s]
+[       OK ] (15/18) meme_-lex0-small_meme_ucxv6oz_N_1_MPI_1_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 58.300s total: 114.149s]
+[       OK ] (16/18) meme_-lex0-small_meme_ucxv6oz_N_4_MPI_288_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 107.752s total: 115.267s]
+[       OK ] (17/18) meme_-lex0-small_meme_ucxv6oz_N_8_MPI_576_OMP_1 on aws:c5n using builtin [compile: 0.005s run: 130.548s total: 136.818s]
+[       OK ] (18/18) meme_-lex0-small_meme_ylex6xs_N_8_MPI_576_OMP_1 on aws:c5n using builtin [compile: 0.006s run: 90.118s total: 146.735s]
+[----------] all spawned checks have finished
+
+[  PASSED  ] Ran 18/18 test case(s) from 18 check(s) (0 failure(s), 0 skipped)
+[==========] Finished on Fri Jul 16 16:33:40 2021 
+```
+
+## Test Case 2
+
+[ReFrame Test 2](meme-Klf1-large.py.py)
+
+A performance-oriented test built by us [using a larger dataset from MEME](https://meme-suite.org/meme/doc/examples/example-datasets/Klf1.fna) [and sample arguments from a Bioinformatics performance question](https://www.biostars.org/p/65594/).
+
+```
+reframe -c meme-Klf1-large.py -r --performance-report
+```
+
+### Validation
+
+The output of the command
+```
+meme Klf1.fna -oc Klf1.fa.meme -dna -text -nmotifs 16 -maxsize 100000000 -maxw 25
+```
+is matched against [reference output generated by us](outputs/Klf1.fna.txt). As
+before, this comparison is performed after stripping the output from
+run/platform specific data.
+
+### ReFrame Output
+
+#### Arm
+
+```
+[  PASSED  ] Ran 30/30 test case(s) from 30 check(s) (0 failure(s), 0 skipped)
+[==========] Finished on Fri Jul 16 15:12:42 2021
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-     **** 
+meme_-Klf1-large_meme_csigtg7_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1973.33 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_csigtg7_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 1003.21 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_csigtg7_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 498.16 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_csigtg7_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 253.51 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_csigtg7_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 133.31 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_csigtg7_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 73.81 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_csigtg7_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 44.47 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_csigtg7_N_2_MPI_128_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 128
+      * Total Time: 33.54 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_csigtg7_N_4_MPI_256_OMP_1
+   - builtin
+      * num_tasks: 256
+      * Total Time: 30.08 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_csigtg7_N_8_MPI_512_OMP_1
+   - builtin
+      * num_tasks: 512
+      * Total Time: 29.42 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_xzjirlu_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1954.61 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_xzjirlu_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 994.1 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_xzjirlu_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 499.94 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_xzjirlu_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 251.54 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_xzjirlu_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 132.87 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_xzjirlu_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 74.45 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_xzjirlu_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 45.0 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_xzjirlu_N_2_MPI_128_OMP_1
+   - builtin
+      * num_tasks: 128
+      * Total Time: 34.42 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_xzjirlu_N_4_MPI_256_OMP_1
+   - builtin
+      * num_tasks: 256
+      * Total Time: 32.33 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_xzjirlu_N_8_MPI_512_OMP_1
+   - builtin
+      * num_tasks: 512
+      * Total Time: 31.34 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_fifpy6p_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 2216.7 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_fifpy6p_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 1118.03 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_fifpy6p_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 570.22 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_fifpy6p_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 296.85 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_fifpy6p_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 170.7 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_fifpy6p_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 109.83 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_fifpy6p_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 81.18 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_fifpy6p_N_2_MPI_128_OMP_1
+   - builtin
+      * num_tasks: 128
+      * Total Time: 71.62 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_fifpy6p_N_4_MPI_256_OMP_1
+   - builtin
+      * num_tasks: 256
+      * Total Time: 75.75 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_fifpy6p_N_8_MPI_512_OMP_1
+   - builtin
+      * num_tasks: 512
+      * Total Time: 78.88 s
 ------------------------------------------------------------------------------
 ```
 
-### On-node Compiler Comparison
+#### Intel
 
-Performance comparison of two compilers.
+```
+[  PASSED  ] Ran 18/18 test case(s) from 18 check(s) (0 failure(s), 0 skipped)
+[==========] Finished on Fri Jul 16 15:12:29 2021
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ylex6xs_N_1_MPI_1_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1416.1 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ylex6xs_N_1_MPI_3_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 3
+      * Total Time: 484.2 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ylex6xs_N_1_MPI_9_OMP_1
+   - builtin
+      * num_tasks: 9
+      * Total Time: 169.09 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ylex6xs_N_1_MPI_18_OMP_1
+   - builtin
+      * num_tasks: 18
+      * Total Time: 91.34 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ylex6xs_N_1_MPI_36_OMP_1
+   - builtin
+      * num_tasks: 36
+      * Total Time: 54.62 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ylex6xs_N_1_MPI_72_OMP_1
+   - builtin
+      * num_tasks: 72
+      * Total Time: 57.42 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ylex6xs_N_2_MPI_144_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 144
+      * Total Time: 43.35 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ylex6xs_N_4_MPI_288_OMP_1
+   - builtin
+      * num_tasks: 288
+      * Total Time: 40.12 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ylex6xs_N_8_MPI_576_OMP_1
+- aws:c5n
+   - builtin
+      * num_tasks: 576
+      * Total Time: 37.12 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ucxv6oz_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 1705.14 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ucxv6oz_N_1_MPI_3_OMP_1
+   - builtin
+      * num_tasks: 3
+      * Total Time: 588.09 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ucxv6oz_N_1_MPI_9_OMP_1
+   - builtin
+      * num_tasks: 9
+      * Total Time: 204.78 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ucxv6oz_N_1_MPI_18_OMP_1
+   - builtin
+      * num_tasks: 18
+      * Total Time: 109.71 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ucxv6oz_N_1_MPI_36_OMP_1
+   - builtin
+      * num_tasks: 36
+      * Total Time: 64.38 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ucxv6oz_N_1_MPI_72_OMP_1
+   - builtin
+      * num_tasks: 72
+      * Total Time: 66.15 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ucxv6oz_N_2_MPI_144_OMP_1
+   - builtin
+      * num_tasks: 144
+      * Total Time: 47.92 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ucxv6oz_N_4_MPI_288_OMP_1
+   - builtin
+      * num_tasks: 288
+      * Total Time: 39.39 s
+------------------------------------------------------------------------------
+meme_-Klf1-large_meme_ucxv6oz_N_8_MPI_576_OMP_1
+   - builtin
+      * num_tasks: 576
+      * Total Time: 37.88 s
+------------------------------------------------------------------------------
+```
 
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-|       |            |            |
+### On-node Strong Scaling Study
 
+| Cores |   Arm 21.0 |   Gnu 10.3 | Nvidia 21.2 |
+|-------|------------|------------|-------------|
+|     1 |  1973.33 s |  1954.61 s |   2216.7  s |
+|     2 |  1003.21 s |   994.1  s |   1118.03 s |
+|     4 |   498.16 s |   499.94 s |    570.22 s |
+|     8 |   253.51 s |   251.54 s |    296.85 s |
+|    16 |   133.31 s |   132.87 s |    170.7  s |
+|    32 |    73.81 s |    74.45 s |    109.83 s |
+|    64 |    44.47 s |    45.0  s |     81.18 s |
 
 ### Serial Hot-spot Profile
 
-List of top-10 functions / code locations from a serial profile.
+List of top-10 functions/code locations from a serial profile (C6gn with `meme`
+compiled with GCC). Collected with `reframe` by prepending `map --profile
+--export-functions=prof.csv` to the job specification.
 
-Profiling command used:
-```
-:
-```
-
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
-
+| Position | Routine                 | Time (%) |
+|----------|-------------------------|----------|
+|  1       |  next_pY                |   34.6%  |
+|  2       |  global_max             |   33.3%  |
+|  3       |  align_top_subsequences |    5.2%  |
+|  4       |  m_step                 |    5.1%  |
+|  5       |  __log_finite           |    4.3%  |
+|  6       |  e_step                 |    4.2%  |
+|  7       |  exp                    |    3.6%  |
+|  8       |  __exp_finite           |    1.8%  |
+|  9       |  pY_compare             |    1.6%  |
+| 10       |  msort_with_tmp.part    |    1.3%  |
 
 ### Full Node Hot-spot Profile
 
-List of top-10 functions / code locations from a full node profile.
+List of top-10 functions/code locations from a full node profile (C6gn with
+`meme` compiled with GCC). Collected with `reframe` by prepending `map
+--profile --export-functions=prof.csv` to the job specification.
 
-Profiling command used:
-```
-:
-```
-
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
-| 10       |         |          |          |         |
-
-### Strong Scaling Study
-
-On-node scaling study for two compilers.
-
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
-
-
-### Off-Node Scaling Study
-
-Off-node scaling study comparing C6g and C6gn instances.
-
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
-
+| Position | Routine                | Time (%) | MPI (%) |
+|----------|------------------------|----------|---------|
+|  1       | next_pY                |   23.7%  |         |
+|  2       | global_max             |   23.6%  |         |
+|  3       | MPI_Allreduce          |   15.6%  |  15.6%  |
+|  4       | m_step                 |    6.8%  |         |
+|  5       | align_top_subsequences |    6.5%  |         |
+|  6       | e_step                 |    5.3%  |         |
+|  7       | __log_finite           |    3.6%  |         |
+|  8       | exp                    |    3.3%  |         |
+|  9       | __exp_finite           |    2.7%  |         |
+| 10       | pY_compare             |    0.8%  |         |
 
 ### On-Node Architecture Comparison
 
-On-node scaling study for two architectures.
+#### C6gn instances
 
-| Cores | C6gn (Aarch64) | C5n (X86) |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+| Cores |   Arm 21.0 |   Gnu 10.3 | Nvidia 21.2 |
+|-------|------------|------------|-------------|
+|     1 |  1973.33 s |  1954.61 s |   2216.7  s |
+|     2 |  1003.21 s |   994.1  s |   1118.03 s |
+|     4 |   498.16 s |   499.94 s |    570.22 s |
+|     8 |   253.51 s |   251.54 s |    296.85 s |
+|    16 |   133.31 s |   132.87 s |    170.7  s |
+|    32 |    73.81 s |    74.45 s |    109.83 s |
+|    64 |    44.47 s |    45.0  s |     81.18 s |
 
+#### C5n instances
+
+| Nodes | Hardware threads |  Gnu 10.3 | Nvidia 21.2 |
+|-------|------------------|-----------|-------------|
+| 1     |               1  | 1416.1  s |   1705.14 s |
+| 1     |               3  |  484.2  s |    588.09 s |
+| 1     |               9  |  169.09 s |    204.78 s |
+| 1     |              18  |   91.34 s |    109.71 s |
+| 1     |              36  |   54.62 s |     64.38 s |
+| 1     |              72  |   57.42 s |     66.15 s |
+
+### Off-Node Scaling Study
+
+#### C6gn instances
+
+| Nodes | Cores | Arm 21.0 | Gnu 10.3 | Nvidia 21.2 |
+|-------|-------|----------|----------|-------------|
+| 1     |    8  | 253.51 s | 251.54 s |    296.85 s |
+| 1     |   16  | 133.31 s | 132.87 s |    170.7  s |
+| 1     |   32  |  73.81 s |  74.45 s |    109.83 s |
+| 1     |   64  |  44.47 s |  45.0  s |     81.18 s |
+| 2     |  128  |  33.54 s |  34.42 s |     71.62 s |
+| 4     |  256  |  30.08 s |  32.33 s |     75.75 s |
+| 8     |  512  |  29.42 s |  31.34 s |     78.88 s |
+
+#### C5n instances
+
+| Nodes | Hardware threads | Gnu 10.3 | Nvidia 21.2 |
+|-------|------------------|----------|-------------|
+| 1     |               9  | 169.09 s |    204.78 s |
+| 1     |              18  |  91.34 s |    109.71 s |
+| 1     |              36  |  54.62 s |     64.38 s |
+| 1     |              72  |  57.42 s |     66.15 s |
+| 2     |             144  |  43.35 s |     47.92 s |
+| 4     |             288  |  40.12 s |     39.39 s |
+| 8     |             576  |  37.12 s |     37.88 s |
+
+N.B. The last run with 576 MPI processes has to be run without the `map`
+profiling, since the Arm licence installed only supported up to 512 processes.
 
 ## Optimisation
 
@@ -754,73 +902,65 @@ Please document work with compiler flags, maths libraries, system libraries, cod
 
 ### Compiler Flag Tuning
 
+For this test we used the Arm compiler.
+
 Compiler flags before:
 ```
-CFLAGS=
-FFLAGS=
+CFLAGS=-O3
 ```
 
 Compiler flags after:
 ```
-CFLAGS=
-FFLAGS=
+CFLAGS=-O3 -mcpu=native -funroll-loops
 ```
 
 #### Compiler Flag Performance
 
 | Cores | Original Flags | New Flags |
 |-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
-
-
-### Maths Library Report
-
-Report on use of maths library calls generated by (Perf Lib Tools)[https://github.com/ARM-software/perf-libs-tools].
-Please attach the corresponding apl files.
-
-
-### Maths Library Optimisation
-
-Performance analysis of the use of different maths libraries.
-
-
-| Cores | OpenBLAS | ArmPL | BLIS | 
-|-------|----------|-------| ---- |
-| 1     |          |       |      |
-| 2     |          |       |      |
-| 4     |          |       |      |
-| 8     |          |       |      |
-| 16    |          |       |      |
-| 32    |          |       |      |
-| 64    |          |       |      |
-
-
-### Performance Regression
-
-How fast can you make the code?
-
-Use all of the above aproaches and any others to make the code as fast as possible.
-Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
-
-
+| 1     |    1973.33 s   | 1991.99 s |
+| 2     |    1003.21 s   |  994.8  s |
+| 4     |     498.16 s   |  503.03 s |
+| 8     |     253.51 s   |  254.46 s |
+| 16    |     133.31 s   |  132.63 s |
+| 32    |      73.81 s   |   73.24 s |
+| 64    |      44.47 s   |   43.98 s |
 
 ## Report
 
 ### Compilation Summary
 
-Details of lessons from compiling the application.
+As expected, building with `gcc` was extremely straightfoward, requiring no
+changes to packages whatsoever. The major issues with building `meme` with
+compilers other than `gcc` related mostly with ``GNU-isms'' that the Arm and
+Nvidia compilers do not implement, or implement differently. More specifically,
+the major issue with the Arm compiler was related to the way it deals with
+inline functions---in `meme`, several inline functions were declared `extern
+inline`, which was causing the Arm compiler to emit multiple definitions of the
+same function, which eventually would lead to linkage errors. Changing these
+declarations to `static inline` solved the problem. Meanwhile, the major issues
+with the Nvidia compiler were related with the lack of support for 128-bit
+integers, as well as unrecognised compilation flags. To solve the former issue,
+we resorted to compiling the affected dependencies with GCC. To solve the
+latter, we had to inspect the flags generating errors one by one, and determine
+whether or not it was safe to remove them. Since most of them were warning,
+this was a relatively simple procedure.
 
 ### Performance Summary
 
-Details of lessons from analysing the performance of the application.
-
+In our experiments, the fastest compilers turned out to be Arm and GCC. The
+former is slightly faster for a larger number of nodes, whilst the latter is
+faster for smaller runs. Meanwhile, for larger runs on C6gn nodes (e.g. 8 nodes
+with 64 MPI processes per node) the Nvidia compiler is more than 2x slower than
+Arm and GCC. However, this descrepancy does not emerge on C5n nodes.
 
 ### Optimisation Summary
 
-Details of lessons from performance optimising the application.
+In our (limited) tests, we haven't been able to improve performance by tweaking
+with compiler flags. This may happen because `meme` by default builds with a
+flag [`--enable-opt`](https://meme-suite.org/meme/doc/install.html), which
+builds an executable with optimization. Furthermore, as the hot-spot analysis
+reveals, `meme` does not employ linear algebra routines, and the math functions
+it calls are not the bottleneck. Consequently, it is not possible to optimise
+it significantly with the usage of optimised math libraries. Using OpenMP in
+certain loops seems to be a more promising approach.
