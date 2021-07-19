@@ -1,0 +1,3201 @@
+Reading configuration parameters (pism_config) from file '/scratch/opt/spack/linux-amzn2-graviton2/gcc-10.3.0/pism-1.1.4-cijv4kntkcviow7v3wab42qtp457ssog/share/pism/pism_config.nc'.
+PISMV (verification mode) stable no-version-control
+starting Test C ...
+* Run time: [0.000, 15208.000]  (15208.000 years, using the 'none' calendar)
+# Allocating the geometry evolution model...
+# Allocating an iceberg remover (part of a calving model)...
+# Allocating a stress balance model...
+# Allocating an energy balance model...
+# Allocating a subglacial hydrology model...
+# Allocating a basal yield stress model...
+# Allocating a bed deformation model...
+* Using constant (zero) sea level...
+* Initializing the dummy (no-op) bed deformation model...
+* Initializing the null-transport (till only) subglacial hydrology model ...
+* Initializing the minimal model for lithosphere:
+  stored time-independent geothermal flux applied to ice base...
+  using constant geothermal flux 0.042000 W m-2 ...
+* Bootstrapping the temperature-based energy balance model...
+ - Filling 3D ice temperatures using surface temperature (and mass balance for velocity estimate)...
+* Initializing the SIA stress balance modifier...
+  [using the isothermal Glen flow law]
+computational domain and grid:
+                grid size   61 x 61 x 11
+           spatial domain   2000.00 km x 2000.00 km x 4000.00 m
+     horizontal grid cell   33333 m x 33333 m
+  vertical spacing in ice   uneven, 11 levels, 130.000 m < dz < 670.000 m
+
+WARNING: output variables bwatvel,tauc are not available!
+
+running forward ...
+P         time:       ivol      iarea  max_diffusivity  max_hor_vel
+U         year   10^6_km^3  10^6_km^2         m^2 s^-1       m/year
+S        0.000:    0.00000    4.13444          0.00000      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S       60.000:    0.00008    4.13444          0.00000      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S      120.000:    0.00016    4.13444          0.00000      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S      180.000:    0.00024    4.13444          0.00000      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S      240.000:    0.00032    4.13444          0.00000      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S      300.000:    0.00039    4.13444          0.00001      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S      360.000:    0.00047    4.13444          0.00003      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S      420.000:    0.00055    4.13444          0.00010      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S      480.000:    0.00063    4.13444          0.00027      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S      540.000:    0.00071    4.13444          0.00065      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S      600.000:    0.00079    4.13444          0.00141      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S      660.000:    0.00087    4.13444          0.00272      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S      720.000:    0.00095    4.13444          0.00467      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S      780.000:    0.00103    4.13444          0.00711      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S      840.000:    0.00110    4.13444          0.00954      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S      900.000:    0.00118    4.13444          0.01142      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S      960.000:    0.00126    4.13444          0.01261      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1020.000:    0.00134    4.13444          0.01333      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1080.000:    0.00142    4.13444          0.01381      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1140.000:    0.00150    4.13444          0.01420      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1200.000:    0.00158    4.13444          0.01455      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1260.000:    0.00166    4.13444          0.01489      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1320.000:    0.00174    4.13444          0.01524      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1380.000:    0.00181    4.13444          0.01559      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1440.000:    0.00189    4.13444          0.01596      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1500.000:    0.00197    4.13444          0.01633      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1560.000:    0.00205    4.13444          0.01671      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1620.000:    0.00213    4.13444          0.01710      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1680.000:    0.00221    4.13444          0.01751      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1740.000:    0.00229    4.13444          0.01792      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1800.000:    0.00237    4.13444          0.01832      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1860.000:    0.00245    4.13444          0.01874      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1920.000:    0.00252    4.13444          0.01917      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     1980.000:    0.00260    4.13444          0.01961      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2040.000:    0.00268    4.13444          0.02006      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2100.000:    0.00276    4.13444          0.02053      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2160.000:    0.00284    4.13444          0.02100      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2220.000:    0.00292    4.13444          0.02148      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2280.000:    0.00300    4.13444          0.02197      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2340.000:    0.00308    4.13444          0.02247      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2400.000:    0.00316    4.13444          0.02298      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2460.000:    0.00324    4.13444          0.02350      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2520.000:    0.00331    4.13444          0.02403      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2580.000:    0.00339    4.13444          0.02457      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2640.000:    0.00347    4.13444          0.02512      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2700.000:    0.00355    4.13444          0.02567      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2760.000:    0.00363    4.13444          0.02623      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2820.000:    0.00371    4.13444          0.02680      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2880.000:    0.00379    4.13444          0.02738      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     2940.000:    0.00387    4.13444          0.02795      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3000.000:    0.00395    4.13444          0.02853      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3060.000:    0.00402    4.13444          0.02911      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3120.000:    0.00410    4.13444          0.02969      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3180.000:    0.00418    4.13444          0.03025      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3240.000:    0.00426    4.13444          0.03080      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3300.000:    0.00441    4.13444          0.03134      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3360.000:    0.00459    4.13444          0.03010      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3420.000:    0.00479    4.13444          0.03008      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3480.000:    0.00502    4.13444          0.03080      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3540.000:    0.00525    4.13444          0.03204      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3600.000:    0.00550    4.13444          0.03373      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3660.000:    0.00576    4.13444          0.03570      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3720.000:    0.00603    4.13444          0.03770      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3780.000:    0.00630    4.13444          0.03944      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3840.000:    0.00658    4.13444          0.04072      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3900.000:    0.00693    4.13444          0.04151      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     3960.000:    0.00731    4.13444          0.04189      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     4020.000:    0.00773    4.13444          0.04195      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     4080.000:    0.00816    4.13444          0.04167      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     4140.000:    0.00862    4.13444          0.04401      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     4200.000:    0.00909    4.13444          0.05119      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     4260.000:    0.00957    4.13444          0.06046      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=58.65939)
+S     4318.659:    0.01006    4.13444          0.07203      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=49.83155)
+S     4368.491:    0.01048    4.13444          0.08479      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=44.45663)
+S     4412.948:    0.01086    4.13444          0.09504      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=41.29372)
+S     4454.241:    0.01122    4.13444          0.10232      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=39.52252)
+S     4493.764:    0.01157    4.13444          0.10691      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=38.69262)
+S     4532.456:    0.01191    4.13444          0.10920      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=38.53891)
+S     4570.995:    0.01226    4.13444          0.10963      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=38.89751)
+S     4609.893:    0.01265    4.13444          0.10862      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=40.08891)
+S     4649.982:    0.01307    4.13444          0.10539      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=41.71813)
+S     4691.700:    0.01352    4.13444          0.10128      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=43.66179)
+S     4735.362:    0.01401    4.13444          0.09677      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=45.76983)
+S     4781.132:    0.01453    4.13444          0.09231      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=47.85482)
+S     4828.986:    0.01509    4.13444          0.08829      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=49.70080)
+S     4878.687:    0.01578    4.13444          0.08501      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=51.89904)
+S     4930.586:    0.01655    4.13444          0.08141      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=53.93071)
+S     4984.517:    0.01740    4.13444          0.07834      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=55.72281)
+S     5040.240:    0.01831    4.13444          0.07582      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=57.39159)
+S     5097.631:    0.01929    4.13444          0.07362      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=59.25826)
+S     5156.890:    0.02033    4.13444          0.07130      0.00000
+$v$Eh  energy (overrides max) (dt=60.00000)
+S     5216.890:    0.02141    4.13444          0.06863      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=54.28292)
+S     5271.172:    0.02242    4.13444          0.07784      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=42.30410)
+S     5313.477:    0.02322    4.13444          0.09988      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=35.53286)
+S     5349.009:    0.02390    4.13444          0.11891      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=31.38364)
+S     5380.393:    0.02451    4.13444          0.13463      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=28.71264)
+S     5409.106:    0.02507    4.13444          0.14715      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=26.93741)
+S     5436.043:    0.02562    4.13444          0.15685      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=25.75533)
+S     5461.798:    0.02616    4.13444          0.16405      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=24.99557)
+S     5486.794:    0.02669    4.13444          0.16904      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=24.54714)
+S     5511.341:    0.02722    4.13444          0.17212      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=24.33254)
+S     5535.674:    0.02775    4.13444          0.17364      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=24.28983)
+S     5559.964:    0.02828    4.13444          0.17395      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=24.37060)
+S     5584.334:    0.02883    4.13444          0.17337      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=24.59728)
+S     5608.931:    0.02941    4.13444          0.17177      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=24.93708)
+S     5633.868:    0.03000    4.13444          0.16943      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=25.34342)
+S     5659.212:    0.03061    4.13444          0.16672      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=25.78894)
+S     5685.001:    0.03124    4.13444          0.16384      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=26.25405)
+S     5711.255:    0.03189    4.13444          0.16093      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=26.72539)
+S     5737.980:    0.03259    4.13444          0.15810      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=27.28864)
+S     5765.269:    0.03334    4.13444          0.15483      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=27.92895)
+S     5793.198:    0.03412    4.13444          0.15128      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=28.63256)
+S     5821.830:    0.03494    4.13444          0.14757      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=29.40712)
+S     5851.238:    0.03580    4.13444          0.14368      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=30.26978)
+S     5881.507:    0.03670    4.13444          0.13958      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=31.24294)
+S     5912.750:    0.03764    4.13444          0.13524      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=31.29294)
+S     5944.043:    0.03860    4.13444          0.13502      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=31.32295)
+S     5975.366:    0.03958    4.13444          0.13489      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=31.65916)
+S     6007.025:    0.04058    4.13444          0.13346      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=32.16918)
+S     6039.194:    0.04161    4.13444          0.13134      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=32.73052)
+S     6071.925:    0.04267    4.13444          0.12909      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=33.22900)
+S     6105.154:    0.04376    4.13444          0.12715      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=33.57047)
+S     6138.724:    0.04492    4.13444          0.12586      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=33.90152)
+S     6172.626:    0.04612    4.13444          0.12463      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=34.10247)
+S     6206.728:    0.04736    4.13444          0.12390      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=31.26231)
+S     6237.991:    0.04852    4.13444          0.13515      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=27.67721)
+S     6265.668:    0.04956    4.13444          0.15266      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=25.40631)
+S     6291.074:    0.05053    4.13444          0.16630      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=23.86264)
+S     6314.937:    0.05144    4.13444          0.17706      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=22.76231)
+S     6337.699:    0.05233    4.13444          0.18562      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=21.94743)
+S     6359.647:    0.05319    4.13444          0.19251      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=21.32354)
+S     6380.970:    0.05403    4.13444          0.19815      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=20.83130)
+S     6401.802:    0.05486    4.13444          0.20283      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=20.43225)
+S     6422.234:    0.05568    4.13444          0.20679      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=20.10117)
+S     6442.335:    0.05650    4.13444          0.21020      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.86188)
+S     6462.197:    0.05732    4.13444          0.21273      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.68595)
+S     6481.883:    0.05814    4.13444          0.21463      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.55884)
+S     6501.442:    0.05897    4.13444          0.21602      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.47508)
+S     6520.917:    0.05980    4.13444          0.21695      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.43405)
+S     6540.351:    0.06065    4.13444          0.21741      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.48162)
+S     6559.832:    0.06152    4.13444          0.21688      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.60462)
+S     6579.437:    0.06241    4.13444          0.21552      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.80399)
+S     6599.241:    0.06332    4.13444          0.21335      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=20.08568)
+S     6619.327:    0.06426    4.13444          0.21036      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=20.45627)
+S     6639.783:    0.06523    4.13444          0.20655      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=20.92151)
+S     6660.704:    0.06624    4.13444          0.20195      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=21.45898)
+S     6682.163:    0.06729    4.13444          0.19690      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=21.66294)
+S     6703.826:    0.06837    4.13444          0.19504      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=21.97079)
+S     6725.797:    0.06947    4.13444          0.19231      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=22.34874)
+S     6748.146:    0.07060    4.13444          0.18906      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=22.76512)
+S     6770.911:    0.07176    4.13444          0.18560      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=23.19087)
+S     6794.102:    0.07296    4.13444          0.18219      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=23.60069)
+S     6817.703:    0.07421    4.13444          0.17903      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=24.05424)
+S     6841.757:    0.07552    4.13444          0.17565      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=24.50430)
+S     6866.261:    0.07687    4.13444          0.17243      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=24.93347)
+S     6891.195:    0.07826    4.13444          0.16946      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=25.33680)
+S     6916.531:    0.07969    4.13444          0.16676      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=25.71410)
+S     6942.245:    0.08116    4.13444          0.16431      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=26.07753)
+S     6968.323:    0.08267    4.13444          0.16202      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=26.44550)
+S     6994.769:    0.08421    4.13444          0.15977      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=26.60138)
+S     7021.370:    0.08578    4.13444          0.15883      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=25.77581)
+S     7047.146:    0.08732    4.13444          0.16392      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=23.28085)
+S     7070.427:    0.08872    4.13444          0.18149      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=21.54832)
+S     7091.975:    0.09002    4.13444          0.19608      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=20.26730)
+S     7112.242:    0.09125    4.13444          0.20847      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.27545)
+S     7131.518:    0.09244    4.13444          0.21920      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=18.48075)
+S     7149.998:    0.09357    4.13444          0.22863      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=17.82847)
+S     7167.827:    0.09468    4.13444          0.23699      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=17.28543)
+S     7185.112:    0.09575    4.13444          0.24444      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=16.83158)
+S     7201.944:    0.09684    4.13444          0.25103      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=16.48698)
+S     7218.431:    0.09791    4.13444          0.25627      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=16.22225)
+S     7234.653:    0.09898    4.13444          0.26046      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=16.03121)
+S     7250.684:    0.10004    4.13444          0.26356      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.91097)
+S     7266.595:    0.10113    4.13444          0.26555      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.88553)
+S     7282.481:    0.10222    4.13444          0.26598      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.93952)
+S     7298.420:    0.10333    4.13444          0.26508      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=16.06876)
+S     7314.489:    0.10447    4.13444          0.26294      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=16.27103)
+S     7330.760:    0.10562    4.13444          0.25967      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=16.54448)
+S     7347.305:    0.10681    4.13444          0.25538      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=16.88725)
+S     7364.192:    0.10803    4.13444          0.25020      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=17.29722)
+S     7381.489:    0.10929    4.13444          0.24427      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=17.77184)
+S     7399.261:    0.11060    4.13444          0.23775      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=18.30784)
+S     7417.569:    0.11195    4.13444          0.23078      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=18.49903)
+S     7436.068:    0.11333    4.13444          0.22840      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=18.63710)
+S     7454.705:    0.11473    4.13444          0.22671      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=18.77708)
+S     7473.482:    0.11617    4.13444          0.22502      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=18.96074)
+S     7492.443:    0.11764    4.13444          0.22284      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.16248)
+S     7511.605:    0.11915    4.13444          0.22049      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.38047)
+S     7530.986:    0.12068    4.13444          0.21801      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.61827)
+S     7550.604:    0.12225    4.13444          0.21537      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.83664)
+S     7570.441:    0.12385    4.13444          0.21300      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.81322)
+S     7590.254:    0.12546    4.13444          0.21325      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.80767)
+S     7610.061:    0.12708    4.13444          0.21331      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.77886)
+S     7629.840:    0.12871    4.13444          0.21362      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.75321)
+S     7649.593:    0.13036    4.13444          0.21390      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.73293)
+S     7669.326:    0.13202    4.13444          0.21412      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.71500)
+S     7689.041:    0.13369    4.13444          0.21431      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.69711)
+S     7708.739:    0.13538    4.13444          0.21451      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.67693)
+S     7728.415:    0.13707    4.13444          0.21473      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.65209)
+S     7748.068:    0.13878    4.13444          0.21500      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.61991)
+S     7767.687:    0.14050    4.13444          0.21535      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=19.57796)
+S     7787.265:    0.14225    4.13444          0.21581      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=18.33896)
+S     7805.604:    0.14390    4.13444          0.23039      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=17.27568)
+S     7822.880:    0.14547    4.13444          0.24457      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=16.43810)
+S     7839.318:    0.14698    4.13444          0.25704      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.76686)
+S     7855.085:    0.14843    4.13444          0.26798      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.22579)
+S     7870.311:    0.14984    4.13444          0.27750      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=14.80129)
+S     7885.112:    0.15123    4.13444          0.28546      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=14.48259)
+S     7899.595:    0.15260    4.13444          0.29174      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=14.24948)
+S     7913.844:    0.15395    4.13444          0.29651      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=14.09170)
+S     7927.936:    0.15530    4.13444          0.29983      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=14.01665)
+S     7941.953:    0.15667    4.13444          0.30144      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=14.01230)
+S     7955.965:    0.15804    4.13444          0.30153      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=14.07078)
+S     7970.036:    0.15943    4.13444          0.30028      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=14.18730)
+S     7984.223:    0.16084    4.13444          0.29781      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=14.35819)
+S     7998.581:    0.16227    4.13444          0.29427      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=14.58044)
+S     8013.162:    0.16374    4.13444          0.28978      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=14.85140)
+S     8028.013:    0.16524    4.13444          0.28450      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.16860)
+S     8043.182:    0.16678    4.13444          0.27855      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.52957)
+S     8058.711:    0.16837    4.13444          0.27207      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.68692)
+S     8074.398:    0.16998    4.13444          0.26934      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.70742)
+S     8090.105:    0.17162    4.13444          0.26899      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.77280)
+S     8105.878:    0.17328    4.13444          0.26788      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.87193)
+S     8121.750:    0.17496    4.13444          0.26620      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=16.00671)
+S     8137.757:    0.17669    4.13444          0.26396      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=16.18155)
+S     8153.938:    0.17845    4.13444          0.26111      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=16.12637)
+S     8170.065:    0.18022    4.13444          0.26200      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=16.00540)
+S     8186.070:    0.18199    4.13444          0.26398      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.89794)
+S     8201.968:    0.18376    4.13444          0.26577      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.80316)
+S     8217.771:    0.18554    4.13444          0.26736      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.72027)
+S     8233.492:    0.18731    4.13444          0.26877      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.64865)
+S     8249.140:    0.18909    4.13444          0.27000      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.58766)
+S     8264.728:    0.19088    4.13444          0.27106      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.53667)
+S     8280.265:    0.19266    4.13444          0.27195      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.49489)
+S     8295.759:    0.19445    4.13444          0.27268      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.46132)
+S     8311.221:    0.19625    4.13444          0.27327      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.43488)
+S     8326.656:    0.19807    4.13444          0.27374      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.41439)
+S     8342.070:    0.19989    4.13444          0.27411      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.39855)
+S     8357.469:    0.20173    4.13444          0.27439      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.38608)
+S     8372.855:    0.20358    4.13444          0.27461      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.37570)
+S     8388.230:    0.20544    4.13444          0.27480      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.36613)
+S     8403.596:    0.20731    4.13444          0.27497      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.35611)
+S     8418.953:    0.20919    4.13444          0.27515      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.34441)
+S     8434.297:    0.21108    4.13444          0.27536      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.32977)
+S     8449.627:    0.21297    4.13444          0.27562      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=15.31095)
+S     8464.938:    0.21488    4.13444          0.27596      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=14.70187)
+S     8479.640:    0.21671    4.13444          0.28739      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=14.13007)
+S     8493.770:    0.21848    4.13444          0.29902      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.67691)
+S     8507.447:    0.22021    4.13444          0.30893      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.33700)
+S     8520.784:    0.22190    4.13444          0.31680      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.08328)
+S     8533.867:    0.22357    4.13444          0.32294      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.90222)
+S     8546.769:    0.22524    4.13444          0.32748      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.79709)
+S     8559.566:    0.22691    4.13444          0.33017      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.75310)
+S     8572.319:    0.22858    4.13444          0.33131      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.76273)
+S     8585.082:    0.23027    4.13444          0.33106      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.82094)
+S     8597.903:    0.23197    4.13444          0.32955      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.92394)
+S     8610.827:    0.23370    4.13444          0.32693      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.06884)
+S     8623.896:    0.23546    4.13444          0.32330      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.25338)
+S     8637.149:    0.23726    4.13444          0.31880      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.47578)
+S     8650.625:    0.23910    4.13444          0.31354      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.70090)
+S     8664.326:    0.24099    4.13444          0.30839      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.68047)
+S     8678.006:    0.24290    4.13444          0.30885      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.71466)
+S     8691.721:    0.24483    4.13444          0.30808      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.79286)
+S     8705.514:    0.24679    4.13444          0.30633      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.70193)
+S     8719.216:    0.24874    4.13444          0.30836      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.58724)
+S     8732.803:    0.25069    4.13444          0.31097      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.47937)
+S     8746.282:    0.25264    4.13444          0.31345      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.37847)
+S     8759.661:    0.25458    4.13444          0.31582      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.28457)
+S     8772.945:    0.25652    4.13444          0.31805      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.19755)
+S     8786.143:    0.25845    4.13444          0.32015      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.11734)
+S     8799.260:    0.26038    4.13444          0.32211      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=13.04380)
+S     8812.304:    0.26231    4.13444          0.32392      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.97688)
+S     8825.281:    0.26424    4.13444          0.32559      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.91636)
+S     8838.197:    0.26617    4.13444          0.32712      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.86196)
+S     8851.059:    0.26809    4.13444          0.32850      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.81334)
+S     8863.873:    0.27003    4.13444          0.32975      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.77017)
+S     8876.643:    0.27197    4.13444          0.33086      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.73203)
+S     8889.375:    0.27391    4.13444          0.33185      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.69844)
+S     8902.073:    0.27587    4.13444          0.33273      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.66890)
+S     8914.742:    0.27782    4.13444          0.33351      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.64288)
+S     8927.385:    0.27978    4.13444          0.33419      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.61984)
+S     8940.005:    0.28175    4.13444          0.33480      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.59922)
+S     8952.604:    0.28372    4.13444          0.33535      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.58047)
+S     8965.185:    0.28569    4.13444          0.33585      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.56303)
+S     8977.748:    0.28768    4.13444          0.33632      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.54634)
+S     8990.294:    0.28968    4.13444          0.33677      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.52988)
+S     9002.824:    0.29169    4.13444          0.33721      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.51312)
+S     9015.337:    0.29370    4.13444          0.33766      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.49560)
+S     9027.833:    0.29572    4.13444          0.33813      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.47684)
+S     9040.309:    0.29775    4.13444          0.33864      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.45645)
+S     9052.766:    0.29978    4.13444          0.33920      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.43405)
+S     9065.200:    0.30182    4.13444          0.33981      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.40932)
+S     9077.609:    0.30386    4.13444          0.34048      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.38196)
+S     9089.991:    0.30591    4.13444          0.34124      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.35172)
+S     9102.343:    0.30796    4.13444          0.34207      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=12.15482)
+S     9114.498:    0.30999    4.13444          0.34761      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.96065)
+S     9126.458:    0.31201    4.13444          0.35326      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.83778)
+S     9138.296:    0.31403    4.13444          0.35692      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.77031)
+S     9150.066:    0.31605    4.13444          0.35897      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.75138)
+S     9161.818:    0.31808    4.13444          0.35955      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.77619)
+S     9173.594:    0.32013    4.13444          0.35879      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.84125)
+S     9185.435:    0.32219    4.13444          0.35682      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.94401)
+S     9197.379:    0.32428    4.13444          0.35375      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.94145)
+S     9209.321:    0.32639    4.13444          0.35382      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.88034)
+S     9221.201:    0.32849    4.13444          0.35564      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.81733)
+S     9233.018:    0.33060    4.13444          0.35754      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.75286)
+S     9244.771:    0.33271    4.13444          0.35950      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.68734)
+S     9256.459:    0.33482    4.13444          0.36152      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.62118)
+S     9268.080:    0.33693    4.13444          0.36357      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.55479)
+S     9279.635:    0.33903    4.13444          0.36566      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.48163)
+S     9291.116:    0.34113    4.13444          0.36799      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.40798)
+S     9302.524:    0.34322    4.13444          0.37037      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.33571)
+S     9313.860:    0.34531    4.13444          0.37273      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.26523)
+S     9325.125:    0.34740    4.13444          0.37506      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.19694)
+S     9336.322:    0.34947    4.13444          0.37735      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.13118)
+S     9347.453:    0.35155    4.13444          0.37958      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.06826)
+S     9358.521:    0.35362    4.13444          0.38174      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=11.00843)
+S     9369.530:    0.35569    4.13444          0.38381      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.95188)
+S     9380.482:    0.35776    4.13444          0.38579      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.89878)
+S     9391.381:    0.35983    4.13444          0.38767      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.84918)
+S     9402.230:    0.36191    4.13444          0.38945      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.80310)
+S     9413.033:    0.36398    4.13444          0.39111      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.76054)
+S     9423.793:    0.36607    4.13444          0.39265      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.72142)
+S     9434.515:    0.36816    4.13444          0.39409      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.68561)
+S     9445.200:    0.37025    4.13444          0.39541      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.65295)
+S     9455.853:    0.37235    4.13444          0.39662      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.62326)
+S     9466.477:    0.37444    4.13444          0.39773      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.59632)
+S     9477.073:    0.37655    4.13444          0.39874      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.57190)
+S     9487.645:    0.37865    4.13444          0.39966      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.54975)
+S     9498.195:    0.38076    4.13444          0.40050      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.52963)
+S     9508.724:    0.38287    4.13444          0.40126      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.51128)
+S     9519.235:    0.38498    4.13444          0.40197      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.49446)
+S     9529.730:    0.38710    4.13444          0.40261      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.47892)
+S     9540.209:    0.38923    4.13444          0.40321      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.46442)
+S     9550.673:    0.39135    4.13444          0.40377      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.45073)
+S     9561.124:    0.39348    4.13444          0.40429      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.43761)
+S     9571.562:    0.39562    4.13444          0.40480      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.42482)
+S     9581.986:    0.39775    4.13444          0.40530      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.41214)
+S     9592.399:    0.39990    4.13444          0.40579      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.39934)
+S     9602.798:    0.40205    4.13444          0.40629      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.38620)
+S     9613.184:    0.40420    4.13444          0.40681      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.37251)
+S     9623.557:    0.40637    4.13444          0.40734      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.35805)
+S     9633.915:    0.40854    4.13444          0.40791      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.34264)
+S     9644.257:    0.41072    4.13444          0.40852      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.32608)
+S     9654.583:    0.41290    4.13444          0.40917      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.30822)
+S     9664.892:    0.41510    4.13444          0.40988      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.28892)
+S     9675.181:    0.41730    4.13444          0.41065      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.26804)
+S     9685.449:    0.41950    4.13444          0.41149      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.24551)
+S     9695.694:    0.42171    4.13444          0.41239      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.22125)
+S     9705.915:    0.42393    4.13444          0.41337      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.19520)
+S     9716.111:    0.42614    4.13444          0.41443      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.16735)
+S     9726.278:    0.42836    4.13444          0.41556      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.13769)
+S     9736.416:    0.43058    4.13444          0.41678      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.10627)
+S     9746.522:    0.43281    4.13444          0.41807      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.07310)
+S     9756.595:    0.43504    4.13444          0.41945      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.03826)
+S     9766.633:    0.43728    4.13444          0.42091      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=10.00184)
+S     9776.635:    0.43953    4.13444          0.42244      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.96394)
+S     9786.599:    0.44177    4.13444          0.42405      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.92472)
+S     9796.524:    0.44401    4.13444          0.42572      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.88434)
+S     9806.408:    0.44626    4.13444          0.42746      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.84300)
+S     9816.251:    0.44850    4.13444          0.42926      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.80092)
+S     9826.052:    0.45074    4.13444          0.43110      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.75058)
+S     9835.803:    0.45298    4.13444          0.43332      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.70011)
+S     9845.503:    0.45521    4.13444          0.43558      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.65049)
+S     9855.153:    0.45744    4.13444          0.43782      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.60194)
+S     9864.755:    0.45967    4.13444          0.44003      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.55468)
+S     9874.310:    0.46190    4.13444          0.44221      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.50890)
+S     9883.819:    0.46412    4.13444          0.44434      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.46477)
+S     9893.283:    0.46636    4.13444          0.44641      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.42241)
+S     9902.706:    0.46859    4.13444          0.44842      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.38193)
+S     9912.088:    0.47082    4.13444          0.45035      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.34340)
+S     9921.431:    0.47305    4.13444          0.45221      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.30688)
+S     9930.738:    0.47528    4.13444          0.45398      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.27238)
+S     9940.010:    0.47751    4.13444          0.45567      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.23987)
+S     9949.250:    0.47974    4.13444          0.45728      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.20936)
+S     9958.460:    0.48197    4.13444          0.45879      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.18078)
+S     9967.640:    0.48420    4.13444          0.46022      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.15406)
+S     9976.795:    0.48642    4.13444          0.46156      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.12913)
+S     9985.924:    0.48865    4.13444          0.46282      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.10587)
+S     9995.030:    0.49088    4.13444          0.46400      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.08420)
+S    10004.114:    0.49311    4.13444          0.46511      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.06400)
+S    10013.178:    0.49534    4.13444          0.46615      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.04517)
+S    10022.223:    0.49758    4.13444          0.46712      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.02758)
+S    10031.250:    0.49981    4.13444          0.46803      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=9.01113)
+S    10040.262:    0.50205    4.13444          0.46888      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.99570)
+S    10049.257:    0.50428    4.13444          0.46969      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.98118)
+S    10058.238:    0.50652    4.13444          0.47045      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.96746)
+S    10067.206:    0.50876    4.13444          0.47117      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.95441)
+S    10076.160:    0.51101    4.13444          0.47185      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.94192)
+S    10085.102:    0.51326    4.13444          0.47251      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.92988)
+S    10094.032:    0.51552    4.13444          0.47315      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.91816)
+S    10102.950:    0.51779    4.13444          0.47377      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.90666)
+S    10111.857:    0.52005    4.13444          0.47438      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.89525)
+S    10120.752:    0.52233    4.13444          0.47499      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.88382)
+S    10129.636:    0.52460    4.13444          0.47560      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.87226)
+S    10138.508:    0.52688    4.13444          0.47622      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.86047)
+S    10147.369:    0.52917    4.13444          0.47686      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.84832)
+S    10156.217:    0.53146    4.13444          0.47751      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.83573)
+S    10165.053:    0.53376    4.13444          0.47819      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.82259)
+S    10173.875:    0.53607    4.13444          0.47890      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.80883)
+S    10182.684:    0.53839    4.13444          0.47965      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.79434)
+S    10191.479:    0.54072    4.13444          0.48044      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.77906)
+S    10200.258:    0.54305    4.13444          0.48128      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.76293)
+S    10209.021:    0.54538    4.13444          0.48216      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.74588)
+S    10217.766:    0.54771    4.13444          0.48310      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.72788)
+S    10226.494:    0.55005    4.13444          0.48410      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.70890)
+S    10235.203:    0.55239    4.13444          0.48516      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.68892)
+S    10243.892:    0.55473    4.13444          0.48627      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.66794)
+S    10252.560:    0.55708    4.13444          0.48745      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.64598)
+S    10261.206:    0.55943    4.13444          0.48869      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.62304)
+S    10269.829:    0.56178    4.13444          0.48999      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.59917)
+S    10278.428:    0.56414    4.13444          0.49135      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.57441)
+S    10287.003:    0.56649    4.13444          0.49277      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.54881)
+S    10295.551:    0.56885    4.13444          0.49424      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.52244)
+S    10304.074:    0.57121    4.13444          0.49577      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.49539)
+S    10312.569:    0.57357    4.13444          0.49735      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.46773)
+S    10321.037:    0.57593    4.13444          0.49897      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.43957)
+S    10329.477:    0.57829    4.13444          0.50064      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.41103)
+S    10337.888:    0.58065    4.13444          0.50234      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.38219)
+S    10346.270:    0.58301    4.13444          0.50406      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.35319)
+S    10354.623:    0.58537    4.13444          0.50582      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.32412)
+S    10362.947:    0.58772    4.13444          0.50758      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.29512)
+S    10371.242:    0.59008    4.13444          0.50936      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.26629)
+S    10379.509:    0.59244    4.13444          0.51113      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.23773)
+S    10387.746:    0.59479    4.13444          0.51290      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.20955)
+S    10395.956:    0.59715    4.13444          0.51467      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.18183)
+S    10404.138:    0.59951    4.13444          0.51641      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.15466)
+S    10412.292:    0.60186    4.13444          0.51813      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.12648)
+S    10420.419:    0.60421    4.13444          0.51993      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.09907)
+S    10428.518:    0.60656    4.13444          0.52169      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.07257)
+S    10436.590:    0.60891    4.13444          0.52340      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.04701)
+S    10444.637:    0.61126    4.13444          0.52506      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=8.02241)
+S    10452.660:    0.61360    4.13444          0.52667      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.99877)
+S    10460.659:    0.61594    4.13444          0.52823      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.97608)
+S    10468.635:    0.61829    4.13444          0.52973      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.95435)
+S    10476.589:    0.62064    4.13444          0.53118      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.93356)
+S    10484.523:    0.62299    4.13444          0.53257      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.91370)
+S    10492.436:    0.62534    4.13444          0.53391      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.89474)
+S    10500.331:    0.62769    4.13444          0.53519      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.87667)
+S    10508.208:    0.63004    4.13444          0.53642      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.85946)
+S    10516.067:    0.63239    4.13444          0.53759      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.84309)
+S    10523.910:    0.63474    4.13444          0.53871      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.82752)
+S    10531.738:    0.63709    4.13444          0.53978      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.81273)
+S    10539.551:    0.63945    4.13444          0.54081      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.79869)
+S    10547.349:    0.64181    4.13444          0.54178      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.78535)
+S    10555.135:    0.64418    4.13444          0.54271      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.77267)
+S    10562.907:    0.64655    4.13444          0.54359      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.76061)
+S    10570.668:    0.64893    4.13444          0.54444      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.74912)
+S    10578.417:    0.65131    4.13444          0.54525      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.73814)
+S    10586.155:    0.65369    4.13444          0.54602      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.72763)
+S    10593.883:    0.65608    4.13444          0.54676      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.71752)
+S    10601.600:    0.65846    4.13444          0.54748      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.70777)
+S    10609.308:    0.66086    4.13444          0.54817      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.69829)
+S    10617.006:    0.66325    4.13444          0.54884      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.68904)
+S    10624.695:    0.66565    4.13444          0.54951      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.67995)
+S    10632.375:    0.66805    4.13444          0.55016      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.67096)
+S    10640.046:    0.67045    4.13444          0.55080      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.66200)
+S    10647.708:    0.67285    4.13444          0.55144      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.65301)
+S    10655.361:    0.67526    4.13444          0.55209      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.64393)
+S    10663.005:    0.67768    4.13444          0.55275      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.63469)
+S    10670.640:    0.68010    4.13444          0.55342      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.62523)
+S    10678.265:    0.68252    4.13444          0.55410      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.61551)
+S    10685.881:    0.68495    4.13444          0.55481      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.60546)
+S    10693.486:    0.68738    4.13444          0.55554      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.59504)
+S    10701.081:    0.68982    4.13444          0.55631      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.58419)
+S    10708.665:    0.69226    4.13444          0.55710      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.57289)
+S    10716.238:    0.69469    4.13444          0.55793      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.56108)
+S    10723.799:    0.69713    4.13444          0.55880      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.54875)
+S    10731.348:    0.69958    4.13444          0.55972      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.53586)
+S    10738.884:    0.70204    4.13444          0.56067      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.52240)
+S    10746.406:    0.70450    4.13444          0.56168      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.50836)
+S    10753.915:    0.70696    4.13444          0.56273      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.49372)
+S    10761.408:    0.70943    4.13444          0.56383      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.47848)
+S    10768.887:    0.71189    4.13444          0.56498      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.46267)
+S    10776.350:    0.71436    4.13444          0.56617      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.44629)
+S    10783.796:    0.71683    4.13444          0.56742      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.42937)
+S    10791.225:    0.71929    4.13444          0.56871      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.41194)
+S    10798.637:    0.72177    4.13444          0.57005      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.39403)
+S    10806.031:    0.72424    4.13444          0.57143      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.37570)
+S    10813.407:    0.72671    4.13444          0.57285      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.35699)
+S    10820.764:    0.72918    4.13444          0.57431      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.33795)
+S    10828.102:    0.73165    4.13444          0.57580      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.31863)
+S    10835.420:    0.73412    4.13444          0.57732      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.29910)
+S    10842.720:    0.73660    4.13444          0.57886      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.27941)
+S    10849.999:    0.73908    4.13444          0.58043      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.25962)
+S    10857.259:    0.74157    4.13444          0.58201      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.23978)
+S    10864.498:    0.74405    4.13444          0.58360      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.21995)
+S    10871.718:    0.74653    4.13444          0.58521      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.20019)
+S    10878.918:    0.74901    4.13444          0.58681      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.18053)
+S    10886.099:    0.75149    4.13444          0.58842      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.16104)
+S    10893.260:    0.75397    4.13444          0.59002      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.14174)
+S    10900.402:    0.75645    4.13444          0.59162      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.12269)
+S    10907.524:    0.75893    4.13444          0.59320      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.10391)
+S    10914.628:    0.76141    4.13444          0.59477      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.08549)
+S    10921.714:    0.76388    4.13444          0.59631      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.06742)
+S    10928.781:    0.76636    4.13444          0.59784      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.04973)
+S    10935.831:    0.76883    4.13444          0.59934      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.03244)
+S    10942.863:    0.77130    4.13444          0.60081      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=7.01557)
+S    10949.879:    0.77377    4.13444          0.60226      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.99871)
+S    10956.878:    0.77624    4.13444          0.60371      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.98220)
+S    10963.860:    0.77872    4.13444          0.60513      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.96632)
+S    10970.826:    0.78119    4.13444          0.60651      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.95106)
+S    10977.777:    0.78367    4.13444          0.60785      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.93641)
+S    10984.714:    0.78615    4.13444          0.60913      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.92236)
+S    10991.636:    0.78863    4.13444          0.61037      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.90890)
+S    10998.545:    0.79112    4.13444          0.61155      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.89603)
+S    11005.441:    0.79360    4.13444          0.61270      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.88371)
+S    11012.325:    0.79609    4.13444          0.61379      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.87193)
+S    11019.197:    0.79857    4.13444          0.61484      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.86066)
+S    11026.057:    0.80106    4.13444          0.61585      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.84989)
+S    11032.907:    0.80355    4.13444          0.61682      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.83959)
+S    11039.747:    0.80604    4.13444          0.61775      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.82972)
+S    11046.577:    0.80853    4.13444          0.61864      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.82025)
+S    11053.397:    0.81103    4.13444          0.61950      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.81116)
+S    11060.208:    0.81352    4.13444          0.62033      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.80237)
+S    11067.010:    0.81602    4.13444          0.62113      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.79376)
+S    11073.804:    0.81852    4.13444          0.62192      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.78546)
+S    11080.590:    0.82102    4.13444          0.62268      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.77743)
+S    11087.367:    0.82352    4.13444          0.62342      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.76964)
+S    11094.137:    0.82602    4.13444          0.62413      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.76207)
+S    11100.899:    0.82852    4.13444          0.62483      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.75468)
+S    11107.653:    0.83103    4.13444          0.62552      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.74744)
+S    11114.401:    0.83354    4.13444          0.62619      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.74009)
+S    11121.141:    0.83605    4.13444          0.62687      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.73271)
+S    11127.874:    0.83856    4.13444          0.62756      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.72529)
+S    11134.599:    0.84108    4.13444          0.62825      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.71780)
+S    11141.317:    0.84360    4.13444          0.62895      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.71019)
+S    11148.027:    0.84614    4.13444          0.62966      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.70244)
+S    11154.729:    0.84867    4.13444          0.63039      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.69452)
+S    11161.424:    0.85121    4.13444          0.63114      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.68640)
+S    11168.110:    0.85376    4.13444          0.63191      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.67804)
+S    11174.788:    0.85631    4.13444          0.63270      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.66944)
+S    11181.458:    0.85886    4.13444          0.63351      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.66055)
+S    11188.118:    0.86142    4.13444          0.63436      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.65137)
+S    11194.770:    0.86398    4.13444          0.63523      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.64187)
+S    11201.412:    0.86654    4.13444          0.63614      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.63205)
+S    11208.044:    0.86911    4.13444          0.63708      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.62188)
+S    11214.665:    0.87168    4.13444          0.63806      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.61137)
+S    11221.277:    0.87426    4.13444          0.63908      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.60050)
+S    11227.877:    0.87684    4.13444          0.64013      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.58927)
+S    11234.467:    0.87942    4.13444          0.64122      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.57769)
+S    11241.044:    0.88200    4.13444          0.64235      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.56575)
+S    11247.610:    0.88458    4.13444          0.64352      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.55348)
+S    11254.163:    0.88717    4.13444          0.64472      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.54087)
+S    11260.704:    0.88975    4.13444          0.64596      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.52795)
+S    11267.232:    0.89234    4.13444          0.64724      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.51474)
+S    11273.747:    0.89492    4.13444          0.64856      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.50126)
+S    11280.248:    0.89751    4.13444          0.64990      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.48753)
+S    11286.736:    0.90010    4.13444          0.65128      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.47357)
+S    11293.209:    0.90269    4.13444          0.65268      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.45943)
+S    11299.669:    0.90528    4.13444          0.65411      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.44512)
+S    11306.114:    0.90787    4.13444          0.65556      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.43068)
+S    11312.545:    0.91046    4.13444          0.65703      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.41614)
+S    11318.961:    0.91304    4.13444          0.65852      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.40153)
+S    11325.362:    0.91563    4.13444          0.66002      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.38689)
+S    11331.749:    0.91822    4.13444          0.66154      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.37224)
+S    11338.121:    0.92080    4.13444          0.66306      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.35762)
+S    11344.479:    0.92339    4.13444          0.66458      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.34305)
+S    11350.822:    0.92597    4.13444          0.66611      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.32856)
+S    11357.151:    0.92856    4.13444          0.66764      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.31418)
+S    11363.465:    0.93114    4.13444          0.66916      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.29994)
+S    11369.765:    0.93373    4.13444          0.67067      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.28585)
+S    11376.051:    0.93631    4.13444          0.67217      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.27195)
+S    11382.323:    0.93889    4.13444          0.67366      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.25825)
+S    11388.581:    0.94148    4.13444          0.67514      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.24478)
+S    11394.826:    0.94406    4.13444          0.67659      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.23155)
+S    11401.057:    0.94664    4.13444          0.67803      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.21857)
+S    11407.276:    0.94922    4.13444          0.67944      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.20587)
+S    11413.482:    0.95181    4.13444          0.68083      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.19345)
+S    11419.675:    0.95439    4.13444          0.68220      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.18133)
+S    11425.856:    0.95697    4.13444          0.68354      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.16951)
+S    11432.026:    0.95956    4.13444          0.68485      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.15800)
+S    11438.184:    0.96214    4.13444          0.68613      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.14681)
+S    11444.331:    0.96473    4.13444          0.68738      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.13593)
+S    11450.467:    0.96731    4.13444          0.68859      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.12537)
+S    11456.592:    0.96990    4.13444          0.68978      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.11513)
+S    11462.707:    0.97249    4.13444          0.69094      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.10521)
+S    11468.812:    0.97507    4.13444          0.69206      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.09559)
+S    11474.908:    0.97766    4.13444          0.69315      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.08629)
+S    11480.994:    0.98025    4.13444          0.69421      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.07728)
+S    11487.072:    0.98285    4.13444          0.69524      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.06856)
+S    11493.140:    0.98544    4.13444          0.69624      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.06013)
+S    11499.200:    0.98804    4.13444          0.69721      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.05197)
+S    11505.252:    0.99064    4.13444          0.69815      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.04407)
+S    11511.296:    0.99324    4.13444          0.69906      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.03641)
+S    11517.333:    0.99584    4.13444          0.69995      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.02898)
+S    11523.362:    0.99844    4.13444          0.70081      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.02177)
+S    11529.383:    1.00104    4.13444          0.70165      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.01476)
+S    11535.398:    1.00365    4.13444          0.70247      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.00794)
+S    11541.406:    1.00625    4.13444          0.70326      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=6.00128)
+S    11547.407:    1.00886    4.13444          0.70404      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.99478)
+S    11553.402:    1.01147    4.13444          0.70481      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.98842)
+S    11559.391:    1.01408    4.13444          0.70556      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.98218)
+S    11565.373:    1.01669    4.13444          0.70629      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.97605)
+S    11571.349:    1.01931    4.13444          0.70702      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.97000)
+S    11577.319:    1.02193    4.13444          0.70773      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.96402)
+S    11583.283:    1.02456    4.13444          0.70844      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.95811)
+S    11589.241:    1.02719    4.13444          0.70915      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.95222)
+S    11595.193:    1.02983    4.13444          0.70985      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.94636)
+S    11601.140:    1.03247    4.13444          0.71055      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.94051)
+S    11607.080:    1.03511    4.13444          0.71125      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.93465)
+S    11613.015:    1.03776    4.13444          0.71195      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.92876)
+S    11618.943:    1.04041    4.13444          0.71266      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.92283)
+S    11624.866:    1.04307    4.13444          0.71337      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.91684)
+S    11630.783:    1.04572    4.13444          0.71409      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.91078)
+S    11636.694:    1.04839    4.13444          0.71482      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.90427)
+S    11642.598:    1.05105    4.13444          0.71561      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.89747)
+S    11648.496:    1.05372    4.13444          0.71644      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.89052)
+S    11654.386:    1.05639    4.13444          0.71728      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.88340)
+S    11660.270:    1.05906    4.13444          0.71815      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.87611)
+S    11666.146:    1.06173    4.13444          0.71904      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.86864)
+S    11672.014:    1.06441    4.13444          0.71996      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.86099)
+S    11677.875:    1.06708    4.13444          0.72090      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.85313)
+S    11683.728:    1.06976    4.13444          0.72186      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.84508)
+S    11689.574:    1.07244    4.13444          0.72286      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.83682)
+S    11695.410:    1.07512    4.13444          0.72388      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.82836)
+S    11701.239:    1.07780    4.13444          0.72493      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.81970)
+S    11707.058:    1.08048    4.13444          0.72601      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.81083)
+S    11712.869:    1.08316    4.13444          0.72712      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.80177)
+S    11718.671:    1.08584    4.13444          0.72825      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.79252)
+S    11724.464:    1.08852    4.13444          0.72942      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.78309)
+S    11730.247:    1.09121    4.13444          0.73061      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.77348)
+S    11736.020:    1.09389    4.13444          0.73182      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.76371)
+S    11741.784:    1.09658    4.13444          0.73306      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.75378)
+S    11747.538:    1.09926    4.13444          0.73433      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.74371)
+S    11753.281:    1.10195    4.13444          0.73562      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.73352)
+S    11759.015:    1.10464    4.13444          0.73692      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.72321)
+S    11764.738:    1.10733    4.13444          0.73825      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.71281)
+S    11770.451:    1.11002    4.13444          0.73960      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.70233)
+S    11776.153:    1.11272    4.13444          0.74095      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.69178)
+S    11781.845:    1.11541    4.13444          0.74233      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.68119)
+S    11787.526:    1.11810    4.13444          0.74371      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.67057)
+S    11793.197:    1.12080    4.13444          0.74511      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.65993)
+S    11798.857:    1.12349    4.13444          0.74651      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.64930)
+S    11804.506:    1.12618    4.13444          0.74791      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.63869)
+S    11810.145:    1.12888    4.13444          0.74932      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.62812)
+S    11815.773:    1.13157    4.13444          0.75072      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.61761)
+S    11821.390:    1.13426    4.13444          0.75213      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.60717)
+S    11826.998:    1.13695    4.13444          0.75353      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.59682)
+S    11832.594:    1.13964    4.13444          0.75492      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.58657)
+S    11838.181:    1.14234    4.13444          0.75631      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.57644)
+S    11843.757:    1.14504    4.13444          0.75768      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.56644)
+S    11849.324:    1.14774    4.13444          0.75904      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.55658)
+S    11854.880:    1.15044    4.13444          0.76039      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.54688)
+S    11860.427:    1.15314    4.13444          0.76172      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.53733)
+S    11865.965:    1.15583    4.13444          0.76303      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.52796)
+S    11871.493:    1.15853    4.13444          0.76433      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.51877)
+S    11877.011:    1.16123    4.13444          0.76560      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.50976)
+S    11882.521:    1.16393    4.13444          0.76685      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.50095)
+S    11888.022:    1.16663    4.13444          0.76808      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.49233)
+S    11893.514:    1.16933    4.13444          0.76929      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.48390)
+S    11898.998:    1.17203    4.13444          0.77047      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.47567)
+S    11904.474:    1.17473    4.13444          0.77163      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.46764)
+S    11909.942:    1.17743    4.13444          0.77276      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.45981)
+S    11915.401:    1.18013    4.13444          0.77387      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.45217)
+S    11920.854:    1.18283    4.13444          0.77495      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.44473)
+S    11926.298:    1.18553    4.13444          0.77601      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.43748)
+S    11931.736:    1.18823    4.13444          0.77704      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.43042)
+S    11937.166:    1.19093    4.13444          0.77806      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.42354)
+S    11942.590:    1.19363    4.13444          0.77904      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.41684)
+S    11948.007:    1.19633    4.13444          0.78001      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.41031)
+S    11953.417:    1.19903    4.13444          0.78095      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.40396)
+S    11958.821:    1.20174    4.13444          0.78187      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.39776)
+S    11964.219:    1.20444    4.13444          0.78276      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.39172)
+S    11969.610:    1.20715    4.13444          0.78364      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.38582)
+S    11974.996:    1.20986    4.13444          0.78450      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.38007)
+S    11980.376:    1.21258    4.13444          0.78534      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.37445)
+S    11985.751:    1.21529    4.13444          0.78616      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.36895)
+S    11991.120:    1.21801    4.13444          0.78696      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.36358)
+S    11996.483:    1.22073    4.13444          0.78775      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.35831)
+S    12001.841:    1.22345    4.13444          0.78853      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.35314)
+S    12007.195:    1.22617    4.13444          0.78929      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.34806)
+S    12012.543:    1.22890    4.13444          0.79004      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.34307)
+S    12017.886:    1.23163    4.13444          0.79078      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.33814)
+S    12023.224:    1.23436    4.13444          0.79151      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.33328)
+S    12028.557:    1.23710    4.13444          0.79223      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.32846)
+S    12033.886:    1.23983    4.13444          0.79294      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.32369)
+S    12039.209:    1.24257    4.13444          0.79365      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.31895)
+S    12044.528:    1.24531    4.13444          0.79436      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.31423)
+S    12049.843:    1.24806    4.13444          0.79507      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.30951)
+S    12055.152:    1.25080    4.13444          0.79577      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.30480)
+S    12060.457:    1.25355    4.13444          0.79648      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.30007)
+S    12065.757:    1.25630    4.13444          0.79719      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.29532)
+S    12071.052:    1.25905    4.13444          0.79791      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.29054)
+S    12076.343:    1.26181    4.13444          0.79863      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.28571)
+S    12081.628:    1.26457    4.13444          0.79936      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.28083)
+S    12086.909:    1.26733    4.13444          0.80010      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.27589)
+S    12092.185:    1.27010    4.13444          0.80084      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.27088)
+S    12097.456:    1.27287    4.13444          0.80161      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.26579)
+S    12102.722:    1.27564    4.13444          0.80238      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.26062)
+S    12107.982:    1.27841    4.13444          0.80317      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.25535)
+S    12113.238:    1.28119    4.13444          0.80398      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.24998)
+S    12118.488:    1.28396    4.13444          0.80480      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.24451)
+S    12123.732:    1.28674    4.13444          0.80564      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.23892)
+S    12128.971:    1.28952    4.13444          0.80650      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.23270)
+S    12134.204:    1.29230    4.13444          0.80746      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.22596)
+S    12139.430:    1.29509    4.13444          0.80850      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.21908)
+S    12144.649:    1.29788    4.13444          0.80956      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.21206)
+S    12149.861:    1.30067    4.13444          0.81065      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.20491)
+S    12155.066:    1.30346    4.13444          0.81177      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.19763)
+S    12160.264:    1.30625    4.13444          0.81290      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.19021)
+S    12165.454:    1.30905    4.13444          0.81406      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.18268)
+S    12170.636:    1.31184    4.13444          0.81525      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.17503)
+S    12175.812:    1.31464    4.13444          0.81645      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.16728)
+S    12180.979:    1.31743    4.13444          0.81768      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.15942)
+S    12186.138:    1.32023    4.13444          0.81892      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.15148)
+S    12191.290:    1.32303    4.13444          0.82019      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.14345)
+S    12196.433:    1.32583    4.13444          0.82147      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.13536)
+S    12201.568:    1.32863    4.13444          0.82276      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.12720)
+S    12206.696:    1.33143    4.13444          0.82407      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.11900)
+S    12211.815:    1.33423    4.13444          0.82539      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.11075)
+S    12216.925:    1.33703    4.13444          0.82672      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.10249)
+S    12222.028:    1.33983    4.13444          0.82806      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.09420)
+S    12227.122:    1.34263    4.13444          0.82941      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.08591)
+S    12232.208:    1.34543    4.13444          0.83076      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.07763)
+S    12237.286:    1.34822    4.13444          0.83211      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.06936)
+S    12242.355:    1.35102    4.13444          0.83347      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.06113)
+S    12247.416:    1.35382    4.13444          0.83483      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.05293)
+S    12252.469:    1.35662    4.13444          0.83618      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.04479)
+S    12257.514:    1.35942    4.13444          0.83753      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.03670)
+S    12262.551:    1.36222    4.13444          0.83888      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.02869)
+S    12267.579:    1.36502    4.13444          0.84021      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.02075)
+S    12272.600:    1.36782    4.13444          0.84154      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.01290)
+S    12277.613:    1.37062    4.13444          0.84286      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=5.00514)
+S    12282.618:    1.37342    4.13444          0.84417      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.99749)
+S    12287.616:    1.37621    4.13444          0.84546      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.98994)
+S    12292.605:    1.37901    4.13444          0.84674      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.98250)
+S    12297.588:    1.38181    4.13444          0.84800      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.97518)
+S    12302.563:    1.38460    4.13444          0.84925      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.96798)
+S    12307.531:    1.38740    4.13444          0.85048      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.96091)
+S    12312.492:    1.39019    4.13444          0.85169      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.95396)
+S    12317.446:    1.39298    4.13444          0.85289      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.94715)
+S    12322.393:    1.39578    4.13444          0.85406      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.94046)
+S    12327.334:    1.39857    4.13444          0.85522      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.93391)
+S    12332.268:    1.40137    4.13444          0.85635      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.92750)
+S    12337.195:    1.40416    4.13444          0.85747      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.92121)
+S    12342.116:    1.40696    4.13444          0.85856      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.91506)
+S    12347.031:    1.40976    4.13444          0.85964      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.90904)
+S    12351.940:    1.41256    4.13444          0.86069      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.90316)
+S    12356.844:    1.41535    4.13444          0.86172      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.89740)
+S    12361.741:    1.41815    4.13444          0.86274      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.89177)
+S    12366.633:    1.42095    4.13444          0.86373      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.88626)
+S    12371.519:    1.42375    4.13444          0.86470      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.88087)
+S    12376.400:    1.42656    4.13444          0.86566      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.87561)
+S    12381.275:    1.42937    4.13444          0.86659      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.87046)
+S    12386.146:    1.43217    4.13444          0.86751      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.86542)
+S    12391.011:    1.43498    4.13444          0.86841      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.86048)
+S    12395.872:    1.43780    4.13444          0.86929      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.85565)
+S    12400.727:    1.44061    4.13444          0.87015      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.85092)
+S    12405.578:    1.44342    4.13444          0.87100      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.84628)
+S    12410.425:    1.44624    4.13444          0.87184      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.84173)
+S    12415.266:    1.44905    4.13444          0.87266      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.83727)
+S    12420.104:    1.45187    4.13444          0.87346      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.83288)
+S    12424.937:    1.45469    4.13444          0.87426      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.82856)
+S    12429.765:    1.45751    4.13444          0.87504      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.82431)
+S    12434.589:    1.46034    4.13444          0.87581      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.82012)
+S    12439.409:    1.46317    4.13444          0.87657      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.81598)
+S    12444.225:    1.46600    4.13444          0.87732      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.81189)
+S    12449.037:    1.46883    4.13444          0.87807      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.80784)
+S    12453.845:    1.47167    4.13444          0.87881      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.80382)
+S    12458.649:    1.47451    4.13444          0.87954      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.79984)
+S    12463.449:    1.47735    4.13444          0.88027      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.79587)
+S    12468.245:    1.48019    4.13444          0.88100      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.79192)
+S    12473.037:    1.48304    4.13444          0.88173      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.78797)
+S    12477.825:    1.48588    4.13444          0.88246      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.78402)
+S    12482.609:    1.48873    4.13444          0.88318      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.78007)
+S    12487.389:    1.49159    4.13444          0.88391      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.77611)
+S    12492.165:    1.49444    4.13444          0.88465      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.77212)
+S    12496.937:    1.49729    4.13444          0.88539      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.76811)
+S    12501.705:    1.50015    4.13444          0.88613      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.76407)
+S    12506.469:    1.50301    4.13444          0.88688      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.76000)
+S    12511.229:    1.50587    4.13444          0.88764      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.75588)
+S    12515.985:    1.50873    4.13444          0.88841      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.75171)
+S    12520.737:    1.51160    4.13444          0.88919      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.74750)
+S    12525.484:    1.51446    4.13444          0.88998      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.74323)
+S    12530.227:    1.51733    4.13444          0.89078      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.73889)
+S    12534.966:    1.52020    4.13444          0.89159      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.73450)
+S    12539.701:    1.52308    4.13444          0.89242      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.73003)
+S    12544.431:    1.52596    4.13444          0.89326      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.72550)
+S    12549.156:    1.52884    4.13444          0.89412      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.72090)
+S    12553.877:    1.53172    4.13444          0.89499      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.71622)
+S    12558.593:    1.53460    4.13444          0.89588      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.71146)
+S    12563.305:    1.53749    4.13444          0.89678      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.70664)
+S    12568.012:    1.54038    4.13444          0.89770      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.70173)
+S    12572.713:    1.54327    4.13444          0.89864      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.69630)
+S    12577.410:    1.54616    4.13444          0.89968      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.69075)
+S    12582.100:    1.54905    4.13444          0.90074      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.68512)
+S    12586.785:    1.55194    4.13444          0.90183      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.67941)
+S    12591.465:    1.55483    4.13444          0.90293      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.67363)
+S    12596.139:    1.55772    4.13444          0.90404      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.66778)
+S    12600.806:    1.56061    4.13444          0.90518      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.66186)
+S    12605.468:    1.56351    4.13444          0.90633      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.65589)
+S    12610.124:    1.56640    4.13444          0.90749      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.64985)
+S    12614.774:    1.56929    4.13444          0.90867      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.64377)
+S    12619.418:    1.57218    4.13444          0.90986      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.63764)
+S    12624.055:    1.57507    4.13444          0.91106      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.63148)
+S    12628.687:    1.57796    4.13444          0.91227      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.62528)
+S    12633.312:    1.58085    4.13444          0.91349      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.61905)
+S    12637.931:    1.58374    4.13444          0.91473      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.61281)
+S    12642.544:    1.58663    4.13444          0.91596      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.60655)
+S    12647.150:    1.58952    4.13444          0.91721      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.60028)
+S    12651.751:    1.59241    4.13444          0.91846      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.59401)
+S    12656.345:    1.59531    4.13444          0.91971      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.58774)
+S    12660.933:    1.59820    4.13444          0.92097      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.58149)
+S    12665.514:    1.60109    4.13444          0.92223      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.57525)
+S    12670.089:    1.60398    4.13444          0.92348      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.56903)
+S    12674.658:    1.60687    4.13444          0.92474      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.56284)
+S    12679.221:    1.60977    4.13444          0.92599      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.55669)
+S    12683.778:    1.61266    4.13444          0.92725      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.55057)
+S    12688.328:    1.61556    4.13444          0.92849      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.54450)
+S    12692.873:    1.61845    4.13444          0.92973      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.53848)
+S    12697.411:    1.62135    4.13444          0.93097      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.53251)
+S    12701.944:    1.62425    4.13444          0.93219      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.52659)
+S    12706.470:    1.62714    4.13444          0.93341      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.52074)
+S    12710.991:    1.63004    4.13444          0.93462      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.51495)
+S    12715.506:    1.63294    4.13444          0.93582      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.50923)
+S    12720.015:    1.63584    4.13444          0.93701      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.50357)
+S    12724.519:    1.63874    4.13444          0.93818      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.49800)
+S    12729.017:    1.64163    4.13444          0.93934      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.49249)
+S    12733.509:    1.64453    4.13444          0.94050      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.48707)
+S    12737.997:    1.64743    4.13444          0.94163      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.48172)
+S    12742.478:    1.65033    4.13444          0.94276      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.47646)
+S    12746.955:    1.65323    4.13444          0.94386      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.47127)
+S    12751.426:    1.65612    4.13444          0.94496      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.46618)
+S    12755.892:    1.65903    4.13444          0.94604      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.46116)
+S    12760.353:    1.66193    4.13444          0.94710      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.45623)
+S    12764.810:    1.66483    4.13444          0.94815      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.45139)
+S    12769.261:    1.66774    4.13444          0.94918      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.44663)
+S    12773.708:    1.67065    4.13444          0.95020      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.44195)
+S    12778.150:    1.67355    4.13444          0.95120      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.43737)
+S    12782.587:    1.67646    4.13444          0.95218      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.43286)
+S    12787.020:    1.67937    4.13444          0.95315      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.42844)
+S    12791.448:    1.68228    4.13444          0.95410      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.42410)
+S    12795.872:    1.68519    4.13444          0.95504      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.41984)
+S    12800.292:    1.68810    4.13444          0.95596      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.41565)
+S    12804.708:    1.69101    4.13444          0.95686      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.41155)
+S    12809.119:    1.69393    4.13444          0.95775      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.40752)
+S    12813.527:    1.69684    4.13444          0.95863      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.40356)
+S    12817.930:    1.69975    4.13444          0.95949      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.39967)
+S    12822.330:    1.70267    4.13444          0.96034      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.39584)
+S    12826.726:    1.70558    4.13444          0.96117      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.39208)
+S    12831.118:    1.70850    4.13444          0.96200      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.38838)
+S    12835.506:    1.71141    4.13444          0.96281      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.38474)
+S    12839.891:    1.71433    4.13444          0.96361      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.38115)
+S    12844.272:    1.71725    4.13444          0.96440      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.37761)
+S    12848.650:    1.72018    4.13444          0.96518      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.37411)
+S    12853.024:    1.72310    4.13444          0.96595      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.37065)
+S    12857.395:    1.72603    4.13444          0.96671      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.36724)
+S    12861.762:    1.72895    4.13444          0.96747      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.36385)
+S    12866.126:    1.73188    4.13444          0.96822      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.36050)
+S    12870.486:    1.73481    4.13444          0.96897      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.35716)
+S    12874.843:    1.73774    4.13444          0.96971      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.35385)
+S    12879.197:    1.74067    4.13444          0.97044      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.35056)
+S    12883.548:    1.74361    4.13444          0.97118      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.34728)
+S    12887.895:    1.74655    4.13444          0.97191      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.34400)
+S    12892.239:    1.74949    4.13444          0.97264      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.34073)
+S    12896.580:    1.75244    4.13444          0.97338      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.33746)
+S    12900.917:    1.75539    4.13444          0.97411      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.33418)
+S    12905.251:    1.75834    4.13444          0.97485      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.33089)
+S    12909.582:    1.76129    4.13444          0.97559      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.32760)
+S    12913.910:    1.76424    4.13444          0.97633      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.32428)
+S    12918.234:    1.76720    4.13444          0.97708      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.32095)
+S    12922.555:    1.77015    4.13444          0.97783      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.31759)
+S    12926.873:    1.77311    4.13444          0.97859      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.31421)
+S    12931.187:    1.77607    4.13444          0.97936      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.31079)
+S    12935.498:    1.77903    4.13444          0.98014      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.30735)
+S    12939.805:    1.78199    4.13444          0.98092      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.30387)
+S    12944.109:    1.78496    4.13444          0.98171      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.30035)
+S    12948.409:    1.78793    4.13444          0.98252      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.29679)
+S    12952.706:    1.79090    4.13444          0.98333      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.29319)
+S    12956.999:    1.79387    4.13444          0.98416      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.28955)
+S    12961.289:    1.79685    4.13444          0.98499      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.28586)
+S    12965.575:    1.79982    4.13444          0.98584      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.28212)
+S    12969.857:    1.80280    4.13444          0.98670      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.27834)
+S    12974.135:    1.80578    4.13444          0.98757      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.27450)
+S    12978.410:    1.80876    4.13444          0.98846      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.27062)
+S    12982.680:    1.81174    4.13444          0.98936      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.26669)
+S    12986.947:    1.81472    4.13444          0.99027      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.26270)
+S    12991.210:    1.81770    4.13444          0.99119      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.25867)
+S    12995.468:    1.82068    4.13444          0.99213      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.25459)
+S    12999.723:    1.82367    4.13444          0.99308      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.25046)
+S    13003.973:    1.82665    4.13444          0.99405      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.24629)
+S    13008.220:    1.82964    4.13444          0.99503      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.24207)
+S    13012.462:    1.83263    4.13444          0.99602      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.23781)
+S    13016.700:    1.83562    4.13444          0.99702      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.23349)
+S    13020.933:    1.83861    4.13444          0.99803      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.22861)
+S    13025.162:    1.84160    4.13444          0.99919      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.22370)
+S    13029.385:    1.84459    4.13444          1.00035      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.21875)
+S    13033.604:    1.84758    4.13444          1.00152      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.21378)
+S    13037.818:    1.85057    4.13444          1.00270      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.20879)
+S    13042.027:    1.85356    4.13444          1.00389      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.20377)
+S    13046.230:    1.85655    4.13444          1.00509      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.19874)
+S    13050.429:    1.85954    4.13444          1.00629      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.19371)
+S    13054.623:    1.86254    4.13444          1.00750      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.18866)
+S    13058.812:    1.86553    4.13444          1.00872      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.18361)
+S    13062.995:    1.86852    4.13444          1.00993      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.17857)
+S    13067.174:    1.87152    4.13444          1.01115      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.17353)
+S    13071.347:    1.87451    4.13444          1.01237      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.16850)
+S    13075.516:    1.87751    4.13444          1.01359      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.16349)
+S    13079.679:    1.88050    4.13444          1.01481      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.15850)
+S    13083.838:    1.88349    4.13444          1.01603      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.15353)
+S    13087.991:    1.88649    4.13444          1.01725      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.14858)
+S    13092.140:    1.88948    4.13444          1.01846      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.14367)
+S    13096.284:    1.89248    4.13444          1.01967      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.13878)
+S    13100.422:    1.89547    4.13444          1.02087      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.13394)
+S    13104.556:    1.89847    4.13444          1.02207      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.12913)
+S    13108.685:    1.90146    4.13444          1.02326      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.12437)
+S    13112.810:    1.90446    4.13444          1.02444      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.11965)
+S    13116.929:    1.90745    4.13444          1.02561      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.11498)
+S    13121.044:    1.91045    4.13444          1.02678      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.11036)
+S    13125.155:    1.91344    4.13444          1.02793      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.10579)
+S    13129.261:    1.91644    4.13444          1.02908      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.10127)
+S    13133.362:    1.91943    4.13444          1.03021      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.09681)
+S    13137.459:    1.92243    4.13444          1.03133      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.09241)
+S    13141.551:    1.92543    4.13444          1.03244      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.08806)
+S    13145.639:    1.92843    4.13444          1.03354      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.08378)
+S    13149.723:    1.93142    4.13444          1.03462      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.07956)
+S    13153.802:    1.93442    4.13444          1.03569      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.07540)
+S    13157.878:    1.93742    4.13444          1.03675      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.07130)
+S    13161.949:    1.94042    4.13444          1.03779      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.06726)
+S    13166.016:    1.94341    4.13444          1.03882      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.06329)
+S    13170.080:    1.94641    4.13444          1.03984      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.05938)
+S    13174.139:    1.94941    4.13444          1.04084      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.05553)
+S    13178.195:    1.95241    4.13444          1.04183      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.05174)
+S    13182.246:    1.95541    4.13444          1.04280      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.04802)
+S    13186.294:    1.95840    4.13444          1.04376      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.04435)
+S    13190.339:    1.96140    4.13444          1.04471      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.04075)
+S    13194.379:    1.96440    4.13444          1.04564      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.03721)
+S    13198.417:    1.96740    4.13444          1.04656      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.03372)
+S    13202.450:    1.97040    4.13444          1.04746      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.03029)
+S    13206.481:    1.97340    4.13444          1.04835      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.02691)
+S    13210.508:    1.97640    4.13444          1.04923      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.02359)
+S    13214.531:    1.97940    4.13444          1.05010      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.02032)
+S    13218.551:    1.98240    4.13444          1.05095      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.01710)
+S    13222.569:    1.98540    4.13444          1.05180      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.01392)
+S    13226.582:    1.98841    4.13444          1.05263      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.01079)
+S    13230.593:    1.99141    4.13444          1.05345      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.00771)
+S    13234.601:    1.99442    4.13444          1.05426      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.00466)
+S    13238.606:    1.99743    4.13444          1.05506      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=4.00165)
+S    13242.607:    2.00045    4.13444          1.05586      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.99868)
+S    13246.606:    2.00347    4.13444          1.05664      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.99574)
+S    13250.602:    2.00649    4.13444          1.05742      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.99283)
+S    13254.595:    2.00951    4.13444          1.05819      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.98995)
+S    13258.584:    2.01253    4.13444          1.05895      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.98709)
+S    13262.572:    2.01555    4.13444          1.05971      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.98425)
+S    13266.556:    2.01858    4.13444          1.06047      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.98144)
+S    13270.537:    2.02161    4.13444          1.06122      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.97864)
+S    13274.516:    2.02464    4.13444          1.06196      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.97585)
+S    13278.492:    2.02768    4.13444          1.06271      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.97307)
+S    13282.465:    2.03072    4.13444          1.06345      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.97031)
+S    13286.435:    2.03375    4.13444          1.06419      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.96754)
+S    13290.403:    2.03679    4.13444          1.06493      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.96478)
+S    13294.367:    2.03983    4.13444          1.06568      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.96202)
+S    13298.329:    2.04288    4.13444          1.06642      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.95925)
+S    13302.289:    2.04592    4.13444          1.06716      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.95648)
+S    13306.245:    2.04897    4.13444          1.06791      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.95371)
+S    13310.199:    2.05202    4.13444          1.06866      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.95092)
+S    13314.150:    2.05507    4.13444          1.06941      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.94811)
+S    13318.098:    2.05812    4.13444          1.07017      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.94530)
+S    13322.043:    2.06117    4.13444          1.07094      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.94246)
+S    13325.986:    2.06423    4.13444          1.07171      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.93960)
+S    13329.925:    2.06729    4.13444          1.07249      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.93673)
+S    13333.862:    2.07035    4.13444          1.07327      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.93383)
+S    13337.796:    2.07341    4.13444          1.07406      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.93090)
+S    13341.727:    2.07647    4.13444          1.07486      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.92795)
+S    13345.655:    2.07953    4.13444          1.07567      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.92496)
+S    13349.580:    2.08260    4.13444          1.07649      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.92195)
+S    13353.502:    2.08566    4.13444          1.07731      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.91891)
+S    13357.421:    2.08873    4.13444          1.07815      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.91583)
+S    13361.336:    2.09179    4.13444          1.07900      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.91272)
+S    13365.249:    2.09486    4.13444          1.07985      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.90958)
+S    13369.159:    2.09793    4.13444          1.08072      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.90641)
+S    13373.065:    2.10100    4.13444          1.08160      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.90319)
+S    13376.968:    2.10407    4.13444          1.08249      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.89995)
+S    13380.868:    2.10714    4.13444          1.08339      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.89667)
+S    13384.765:    2.11021    4.13444          1.08430      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.89335)
+S    13388.658:    2.11328    4.13444          1.08523      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.89000)
+S    13392.548:    2.11635    4.13444          1.08616      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.88662)
+S    13396.435:    2.11942    4.13444          1.08711      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.88321)
+S    13400.318:    2.12250    4.13444          1.08806      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.87976)
+S    13404.198:    2.12557    4.13444          1.08903      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.87628)
+S    13408.074:    2.12865    4.13444          1.09001      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.87277)
+S    13411.947:    2.13172    4.13444          1.09099      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.86924)
+S    13415.816:    2.13480    4.13444          1.09199      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.86567)
+S    13419.682:    2.13788    4.13444          1.09300      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.86208)
+S    13423.544:    2.14097    4.13444          1.09401      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.85847)
+S    13427.402:    2.14405    4.13444          1.09504      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.85484)
+S    13431.257:    2.14713    4.13444          1.09607      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.85100)
+S    13435.108:    2.15022    4.13444          1.09716      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.84705)
+S    13438.955:    2.15330    4.13444          1.09829      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.84309)
+S    13442.798:    2.15638    4.13444          1.09942      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.83911)
+S    13446.637:    2.15947    4.13444          1.10056      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.83513)
+S    13450.473:    2.16255    4.13444          1.10170      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.83115)
+S    13454.304:    2.16564    4.13444          1.10285      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.82716)
+S    13458.131:    2.16872    4.13444          1.10400      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.82318)
+S    13461.954:    2.17180    4.13444          1.10515      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.81919)
+S    13465.773:    2.17489    4.13444          1.10630      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.81522)
+S    13469.588:    2.17797    4.13444          1.10745      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.81125)
+S    13473.400:    2.18105    4.13444          1.10860      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.80730)
+S    13477.207:    2.18414    4.13444          1.10975      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.80336)
+S    13481.010:    2.18722    4.13444          1.11090      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.79943)
+S    13484.810:    2.19030    4.13444          1.11205      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.79553)
+S    13488.605:    2.19338    4.13444          1.11320      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.79164)
+S    13492.397:    2.19647    4.13444          1.11434      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.78778)
+S    13496.185:    2.19955    4.13444          1.11547      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.78394)
+S    13499.969:    2.20263    4.13444          1.11660      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.78013)
+S    13503.749:    2.20572    4.13444          1.11773      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.77635)
+S    13507.525:    2.20880    4.13444          1.11885      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.77260)
+S    13511.298:    2.21189    4.13444          1.11996      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.76888)
+S    13515.067:    2.21497    4.13444          1.12107      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.76519)
+S    13518.832:    2.21806    4.13444          1.12217      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.76154)
+S    13522.593:    2.22115    4.13444          1.12325      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.75793)
+S    13526.351:    2.22423    4.13444          1.12434      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.75435)
+S    13530.106:    2.22732    4.13444          1.12541      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.75081)
+S    13533.856:    2.23041    4.13444          1.12647      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.74731)
+S    13537.604:    2.23349    4.13444          1.12752      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.74385)
+S    13541.348:    2.23658    4.13444          1.12856      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.74043)
+S    13545.088:    2.23967    4.13444          1.12960      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.73705)
+S    13548.825:    2.24276    4.13444          1.13062      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.73371)
+S    13552.559:    2.24585    4.13444          1.13163      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.73041)
+S    13556.289:    2.24894    4.13444          1.13263      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.72716)
+S    13560.016:    2.25203    4.13444          1.13362      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.72395)
+S    13563.740:    2.25512    4.13444          1.13459      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.72078)
+S    13567.461:    2.25821    4.13444          1.13556      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.71765)
+S    13571.179:    2.26131    4.13444          1.13652      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.71456)
+S    13574.893:    2.26440    4.13444          1.13746      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.71151)
+S    13578.605:    2.26750    4.13444          1.13840      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.70851)
+S    13582.313:    2.27059    4.13444          1.13932      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.70554)
+S    13586.019:    2.27369    4.13444          1.14023      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.70261)
+S    13589.721:    2.27678    4.13444          1.14113      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.69972)
+S    13593.421:    2.27988    4.13444          1.14202      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.69687)
+S    13597.118:    2.28298    4.13444          1.14290      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.69406)
+S    13600.812:    2.28607    4.13444          1.14377      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.69128)
+S    13604.503:    2.28917    4.13444          1.14463      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.68854)
+S    13608.192:    2.29227    4.13444          1.14549      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.68583)
+S    13611.878:    2.29537    4.13444          1.14633      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.68315)
+S    13615.561:    2.29847    4.13444          1.14716      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.68051)
+S    13619.241:    2.30157    4.13444          1.14799      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.67789)
+S    13622.919:    2.30468    4.13444          1.14880      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.67531)
+S    13626.595:    2.30779    4.13444          1.14961      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.67275)
+S    13630.267:    2.31090    4.13444          1.15041      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.67021)
+S    13633.938:    2.31402    4.13444          1.15121      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.66770)
+S    13637.605:    2.31713    4.13444          1.15199      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.66522)
+S    13641.271:    2.32025    4.13444          1.15277      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.66275)
+S    13644.933:    2.32336    4.13444          1.15355      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.66031)
+S    13648.594:    2.32648    4.13444          1.15432      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.65788)
+S    13652.251:    2.32960    4.13444          1.15509      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.65547)
+S    13655.907:    2.33273    4.13444          1.15585      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.65308)
+S    13659.560:    2.33585    4.13444          1.15661      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.65070)
+S    13663.211:    2.33897    4.13444          1.15736      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.64832)
+S    13666.859:    2.34210    4.13444          1.15811      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.64596)
+S    13670.505:    2.34523    4.13444          1.15886      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.64361)
+S    13674.149:    2.34836    4.13444          1.15961      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.64127)
+S    13677.790:    2.35149    4.13444          1.16036      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.63892)
+S    13681.429:    2.35462    4.13444          1.16110      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.63659)
+S    13685.065:    2.35775    4.13444          1.16185      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.63425)
+S    13688.700:    2.36088    4.13444          1.16260      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.63191)
+S    13692.332:    2.36402    4.13444          1.16335      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.62957)
+S    13695.961:    2.36715    4.13444          1.16410      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.62722)
+S    13699.588:    2.37029    4.13444          1.16485      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.62487)
+S    13703.213:    2.37342    4.13444          1.16560      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.62252)
+S    13706.836:    2.37656    4.13444          1.16636      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.62015)
+S    13710.456:    2.37970    4.13444          1.16712      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.61778)
+S    13714.074:    2.38284    4.13444          1.16789      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.61539)
+S    13717.689:    2.38598    4.13444          1.16866      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.61300)
+S    13721.302:    2.38913    4.13444          1.16944      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.61059)
+S    13724.913:    2.39227    4.13444          1.17022      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.60817)
+S    13728.521:    2.39542    4.13444          1.17100      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.60572)
+S    13732.127:    2.39856    4.13444          1.17180      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.60326)
+S    13735.730:    2.40171    4.13444          1.17260      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.60078)
+S    13739.331:    2.40485    4.13444          1.17340      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.59829)
+S    13742.929:    2.40800    4.13444          1.17422      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.59577)
+S    13746.525:    2.41115    4.13444          1.17504      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.59323)
+S    13750.118:    2.41430    4.13444          1.17587      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.59066)
+S    13753.708:    2.41745    4.13444          1.17671      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.58808)
+S    13757.297:    2.42061    4.13444          1.17756      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.58547)
+S    13760.882:    2.42376    4.13444          1.17841      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.58284)
+S    13764.465:    2.42692    4.13444          1.17928      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.58018)
+S    13768.045:    2.43008    4.13444          1.18015      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.57750)
+S    13771.623:    2.43324    4.13444          1.18104      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.57480)
+S    13775.197:    2.43640    4.13444          1.18193      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.57208)
+S    13778.769:    2.43957    4.13444          1.18283      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.56933)
+S    13782.339:    2.44273    4.13444          1.18374      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.56656)
+S    13785.905:    2.44590    4.13444          1.18466      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.56377)
+S    13789.469:    2.44907    4.13444          1.18559      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.56096)
+S    13793.030:    2.45224    4.13444          1.18653      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.55813)
+S    13796.588:    2.45540    4.13444          1.18747      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.55527)
+S    13800.143:    2.45857    4.13444          1.18842      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.55240)
+S    13803.696:    2.46175    4.13444          1.18938      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.54951)
+S    13807.245:    2.46492    4.13444          1.19035      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.54661)
+S    13810.792:    2.46809    4.13444          1.19133      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.54369)
+S    13814.336:    2.47126    4.13444          1.19231      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.54075)
+S    13817.876:    2.47443    4.13444          1.19330      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.53780)
+S    13821.414:    2.47760    4.13444          1.19429      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.53484)
+S    13824.949:    2.48078    4.13444          1.19529      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.53187)
+S    13828.481:    2.48395    4.13444          1.19630      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.52889)
+S    13832.010:    2.48712    4.13444          1.19731      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.52590)
+S    13835.536:    2.49030    4.13444          1.19832      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.52290)
+S    13839.059:    2.49347    4.13444          1.19934      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.51990)
+S    13842.579:    2.49665    4.13444          1.20037      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.51690)
+S    13846.095:    2.49983    4.13444          1.20139      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.51389)
+S    13849.609:    2.50300    4.13444          1.20242      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.51088)
+S    13853.120:    2.50618    4.13444          1.20345      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.50788)
+S    13856.628:    2.50935    4.13444          1.20448      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.50465)
+S    13860.133:    2.51253    4.13444          1.20559      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.50141)
+S    13863.634:    2.51571    4.13444          1.20670      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.49819)
+S    13867.132:    2.51889    4.13444          1.20782      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.49497)
+S    13870.627:    2.52206    4.13444          1.20893      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.49177)
+S    13874.119:    2.52524    4.13444          1.21003      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.48859)
+S    13877.608:    2.52842    4.13444          1.21114      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.48543)
+S    13881.093:    2.53160    4.13444          1.21224      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.48228)
+S    13884.575:    2.53478    4.13444          1.21333      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.47915)
+S    13888.055:    2.53795    4.13444          1.21442      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.47605)
+S    13891.531:    2.54113    4.13444          1.21551      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.47297)
+S    13895.004:    2.54431    4.13444          1.21659      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.46991)
+S    13898.473:    2.54749    4.13444          1.21766      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.46688)
+S    13901.940:    2.55067    4.13444          1.21872      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.46387)
+S    13905.404:    2.55385    4.13444          1.21978      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.46089)
+S    13908.865:    2.55702    4.13444          1.22083      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.45793)
+S    13912.323:    2.56020    4.13444          1.22188      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.45501)
+S    13915.778:    2.56338    4.13444          1.22291      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.45211)
+S    13919.230:    2.56656    4.13444          1.22394      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.44924)
+S    13922.679:    2.56974    4.13444          1.22495      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.44641)
+S    13926.126:    2.57292    4.13444          1.22596      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.44360)
+S    13929.569:    2.57610    4.13444          1.22696      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.44082)
+S    13933.010:    2.57929    4.13444          1.22795      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.43807)
+S    13936.448:    2.58247    4.13444          1.22893      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.43536)
+S    13939.884:    2.58565    4.13444          1.22991      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.43267)
+S    13943.316:    2.58883    4.13444          1.23087      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.43002)
+S    13946.746:    2.59202    4.13444          1.23182      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.42740)
+S    13950.174:    2.59520    4.13444          1.23276      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.42481)
+S    13953.599:    2.59838    4.13444          1.23370      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.42224)
+S    13957.021:    2.60157    4.13444          1.23462      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.41971)
+S    13960.440:    2.60475    4.13444          1.23553      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.41721)
+S    13963.858:    2.60794    4.13444          1.23644      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.41474)
+S    13967.272:    2.61112    4.13444          1.23733      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.41230)
+S    13970.685:    2.61431    4.13444          1.23822      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.40989)
+S    13974.095:    2.61750    4.13444          1.23909      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.40750)
+S    13977.502:    2.62068    4.13444          1.23996      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.40514)
+S    13980.907:    2.62387    4.13444          1.24082      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.40281)
+S    13984.310:    2.62706    4.13444          1.24167      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.40051)
+S    13987.711:    2.63025    4.13444          1.24251      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.39823)
+S    13991.109:    2.63345    4.13444          1.24334      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.39598)
+S    13994.505:    2.63664    4.13444          1.24417      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.39375)
+S    13997.899:    2.63983    4.13444          1.24499      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.39154)
+S    14001.290:    2.64303    4.13444          1.24580      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.38935)
+S    14004.679:    2.64623    4.13444          1.24660      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.38719)
+S    14008.067:    2.64942    4.13444          1.24740      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.38505)
+S    14011.452:    2.65262    4.13444          1.24819      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.38292)
+S    14014.835:    2.65582    4.13444          1.24897      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.38081)
+S    14018.215:    2.65902    4.13444          1.24975      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.37872)
+S    14021.594:    2.66223    4.13444          1.25052      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.37665)
+S    14024.971:    2.66543    4.13444          1.25129      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.37458)
+S    14028.345:    2.66864    4.13444          1.25206      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.37254)
+S    14031.718:    2.67184    4.13444          1.25282      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.37050)
+S    14035.088:    2.67505    4.13444          1.25357      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.36848)
+S    14038.457:    2.67826    4.13444          1.25433      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.36646)
+S    14041.823:    2.68147    4.13444          1.25508      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.36445)
+S    14045.188:    2.68469    4.13444          1.25583      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.36245)
+S    14048.550:    2.68790    4.13444          1.25657      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.36046)
+S    14051.911:    2.69111    4.13444          1.25732      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.35847)
+S    14055.269:    2.69432    4.13444          1.25806      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.35648)
+S    14058.626:    2.69754    4.13444          1.25881      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.35449)
+S    14061.980:    2.70076    4.13444          1.25956      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.35251)
+S    14065.333:    2.70398    4.13444          1.26030      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.35052)
+S    14068.683:    2.70720    4.13444          1.26105      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.34853)
+S    14072.032:    2.71043    4.13444          1.26180      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.34654)
+S    14075.378:    2.71365    4.13444          1.26255      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.34455)
+S    14078.723:    2.71688    4.13444          1.26330      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.34254)
+S    14082.065:    2.72011    4.13444          1.26406      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.34054)
+S    14085.406:    2.72334    4.13444          1.26482      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.33852)
+S    14088.744:    2.72657    4.13444          1.26558      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.33650)
+S    14092.081:    2.72980    4.13444          1.26635      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.33446)
+S    14095.415:    2.73304    4.13444          1.26712      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.33242)
+S    14098.748:    2.73627    4.13444          1.26790      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.33036)
+S    14102.078:    2.73951    4.13444          1.26868      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.32829)
+S    14105.406:    2.74275    4.13444          1.26947      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.32621)
+S    14108.733:    2.74599    4.13444          1.27027      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.32411)
+S    14112.057:    2.74923    4.13444          1.27107      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.32200)
+S    14115.379:    2.75247    4.13444          1.27188      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.31987)
+S    14118.699:    2.75571    4.13444          1.27269      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.31773)
+S    14122.016:    2.75895    4.13444          1.27351      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.31557)
+S    14125.332:    2.76220    4.13444          1.27434      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.31339)
+S    14128.645:    2.76544    4.13444          1.27518      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.31120)
+S    14131.956:    2.76869    4.13444          1.27602      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.30899)
+S    14135.265:    2.77193    4.13444          1.27688      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.30676)
+S    14138.572:    2.77518    4.13444          1.27773      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.30452)
+S    14141.877:    2.77843    4.13444          1.27860      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.30226)
+S    14145.179:    2.78169    4.13444          1.27948      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.29998)
+S    14148.479:    2.78494    4.13444          1.28036      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.29769)
+S    14151.777:    2.78819    4.13444          1.28125      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.29538)
+S    14155.072:    2.79145    4.13444          1.28215      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.29305)
+S    14158.365:    2.79470    4.13444          1.28306      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.29071)
+S    14161.656:    2.79795    4.13444          1.28397      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.28835)
+S    14164.944:    2.80121    4.13444          1.28489      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.28597)
+S    14168.230:    2.80447    4.13444          1.28582      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.28358)
+S    14171.514:    2.80772    4.13444          1.28676      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.28118)
+S    14174.795:    2.81098    4.13444          1.28770      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.27877)
+S    14178.074:    2.81423    4.13444          1.28865      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.27634)
+S    14181.350:    2.81749    4.13444          1.28960      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.27390)
+S    14184.624:    2.82075    4.13444          1.29056      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.27145)
+S    14187.895:    2.82400    4.13444          1.29153      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.26899)
+S    14191.164:    2.82726    4.13444          1.29250      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.26652)
+S    14194.431:    2.83052    4.13444          1.29348      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.26404)
+S    14197.695:    2.83378    4.13444          1.29446      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.26156)
+S    14200.956:    2.83703    4.13444          1.29544      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.25907)
+S    14204.216:    2.84029    4.13444          1.29643      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.25657)
+S    14207.472:    2.84355    4.13444          1.29743      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.25407)
+S    14210.726:    2.84680    4.13444          1.29843      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.25157)
+S    14213.978:    2.85006    4.13444          1.29942      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.24906)
+S    14217.227:    2.85332    4.13444          1.30043      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.24656)
+S    14220.473:    2.85658    4.13444          1.30143      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.24405)
+S    14223.717:    2.85984    4.13444          1.30244      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.24154)
+S    14226.959:    2.86309    4.13444          1.30344      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.23904)
+S    14230.198:    2.86635    4.13444          1.30445      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.23654)
+S    14233.435:    2.86961    4.13444          1.30546      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.23404)
+S    14236.669:    2.87287    4.13444          1.30647      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.23155)
+S    14239.900:    2.87613    4.13444          1.30748      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.22906)
+S    14243.129:    2.87939    4.13444          1.30848      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.22658)
+S    14246.356:    2.88266    4.13444          1.30949      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.22402)
+S    14249.580:    2.88592    4.13444          1.31053      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.22143)
+S    14252.801:    2.88918    4.13444          1.31158      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.21886)
+S    14256.020:    2.89245    4.13444          1.31263      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.21630)
+S    14259.236:    2.89571    4.13444          1.31368      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.21375)
+S    14262.450:    2.89897    4.13444          1.31472      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.21122)
+S    14265.661:    2.90224    4.13444          1.31575      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.20871)
+S    14268.870:    2.90550    4.13444          1.31678      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.20622)
+S    14272.076:    2.90877    4.13444          1.31780      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.20374)
+S    14275.280:    2.91203    4.13444          1.31882      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.20128)
+S    14278.481:    2.91530    4.13444          1.31984      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.19884)
+S    14281.680:    2.91856    4.13444          1.32084      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.19642)
+S    14284.877:    2.92183    4.13444          1.32184      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.19402)
+S    14288.071:    2.92509    4.13444          1.32284      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.19164)
+S    14291.262:    2.92836    4.13444          1.32382      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.18928)
+S    14294.451:    2.93163    4.13444          1.32480      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.18694)
+S    14297.638:    2.93489    4.13444          1.32578      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.18463)
+S    14300.823:    2.93816    4.13444          1.32674      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.18233)
+S    14304.005:    2.94143    4.13444          1.32770      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.18006)
+S    14307.185:    2.94470    4.13444          1.32865      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.17780)
+S    14310.363:    2.94797    4.13444          1.32959      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.17557)
+S    14313.539:    2.95123    4.13444          1.33052      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.17336)
+S    14316.712:    2.95450    4.13444          1.33145      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.17118)
+S    14319.883:    2.95777    4.13444          1.33237      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.16901)
+S    14323.052:    2.96105    4.13444          1.33328      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.16687)
+S    14326.219:    2.96432    4.13444          1.33418      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.16475)
+S    14329.384:    2.96759    4.13444          1.33507      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.16265)
+S    14332.547:    2.97086    4.13444          1.33596      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.16057)
+S    14335.707:    2.97414    4.13444          1.33684      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.15852)
+S    14338.866:    2.97741    4.13444          1.33771      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.15648)
+S    14342.022:    2.98068    4.13444          1.33857      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.15446)
+S    14345.177:    2.98396    4.13444          1.33943      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.15247)
+S    14348.329:    2.98724    4.13444          1.34027      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.15049)
+S    14351.480:    2.99052    4.13444          1.34111      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.14853)
+S    14354.628:    2.99380    4.13444          1.34195      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.14659)
+S    14357.775:    2.99708    4.13444          1.34278      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.14467)
+S    14360.919:    3.00036    4.13444          1.34360      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.14277)
+S    14364.062:    3.00364    4.13444          1.34441      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.14089)
+S    14367.203:    3.00693    4.13444          1.34522      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.13902)
+S    14370.342:    3.01021    4.13444          1.34602      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.13716)
+S    14373.479:    3.01350    4.13444          1.34681      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.13533)
+S    14376.615:    3.01678    4.13444          1.34760      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.13350)
+S    14379.748:    3.02007    4.13444          1.34839      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.13169)
+S    14382.880:    3.02336    4.13444          1.34916      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.12990)
+S    14386.010:    3.02665    4.13444          1.34994      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.12811)
+S    14389.138:    3.02994    4.13444          1.35071      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.12634)
+S    14392.264:    3.03323    4.13444          1.35148      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.12458)
+S    14395.389:    3.03653    4.13444          1.35224      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.12282)
+S    14398.512:    3.03982    4.13444          1.35300      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.12108)
+S    14401.633:    3.04312    4.13444          1.35375      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.11934)
+S    14404.752:    3.04642    4.13444          1.35451      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.11762)
+S    14407.870:    3.04972    4.13444          1.35526      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.11589)
+S    14410.985:    3.05302    4.13444          1.35601      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.11418)
+S    14414.100:    3.05632    4.13444          1.35675      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.11247)
+S    14417.212:    3.05962    4.13444          1.35750      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.11076)
+S    14420.323:    3.06292    4.13444          1.35824      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.10906)
+S    14423.432:    3.06622    4.13444          1.35899      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.10735)
+S    14426.539:    3.06952    4.13444          1.35973      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.10565)
+S    14429.645:    3.07283    4.13444          1.36048      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.10395)
+S    14432.749:    3.07614    4.13444          1.36122      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.10225)
+S    14435.851:    3.07945    4.13444          1.36197      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.10055)
+S    14438.952:    3.08276    4.13444          1.36271      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.09885)
+S    14442.051:    3.08608    4.13444          1.36346      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.09714)
+S    14445.148:    3.08939    4.13444          1.36421      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.09543)
+S    14448.243:    3.09271    4.13444          1.36497      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.09372)
+S    14451.337:    3.09602    4.13444          1.36572      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.09200)
+S    14454.429:    3.09934    4.13444          1.36648      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.09028)
+S    14457.519:    3.10266    4.13444          1.36725      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.08855)
+S    14460.608:    3.10598    4.13444          1.36801      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.08681)
+S    14463.695:    3.10930    4.13444          1.36878      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.08507)
+S    14466.780:    3.11262    4.13444          1.36955      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.08331)
+S    14469.863:    3.11594    4.13444          1.37033      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.08155)
+S    14472.944:    3.11926    4.13444          1.37112      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.07978)
+S    14476.024:    3.12258    4.13444          1.37190      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.07801)
+S    14479.102:    3.12591    4.13444          1.37270      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.07622)
+S    14482.178:    3.12923    4.13444          1.37349      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.07442)
+S    14485.253:    3.13256    4.13444          1.37430      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.07261)
+S    14488.325:    3.13588    4.13444          1.37511      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.07079)
+S    14491.396:    3.13921    4.13444          1.37592      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.06896)
+S    14494.465:    3.14254    4.13444          1.37674      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.06712)
+S    14497.532:    3.14587    4.13444          1.37757      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.06527)
+S    14500.598:    3.14920    4.13444          1.37840      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.06340)
+S    14503.661:    3.15253    4.13444          1.37924      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.06153)
+S    14506.723:    3.15586    4.13444          1.38008      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.05964)
+S    14509.782:    3.15919    4.13444          1.38094      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.05774)
+S    14512.840:    3.16252    4.13444          1.38179      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.05584)
+S    14515.896:    3.16585    4.13444          1.38266      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.05392)
+S    14518.950:    3.16918    4.13444          1.38353      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.05198)
+S    14522.002:    3.17251    4.13444          1.38440      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.05004)
+S    14525.052:    3.17584    4.13444          1.38528      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.04809)
+S    14528.100:    3.17918    4.13444          1.38617      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.04613)
+S    14531.146:    3.18251    4.13444          1.38706      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.04415)
+S    14534.190:    3.18584    4.13444          1.38796      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.04217)
+S    14537.232:    3.18918    4.13444          1.38887      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.04018)
+S    14540.272:    3.19251    4.13444          1.38978      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.03818)
+S    14543.311:    3.19585    4.13444          1.39069      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.03617)
+S    14546.347:    3.19918    4.13444          1.39161      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.03415)
+S    14549.381:    3.20252    4.13444          1.39254      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.03213)
+S    14552.413:    3.20586    4.13444          1.39347      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.03010)
+S    14555.443:    3.20919    4.13444          1.39440      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.02806)
+S    14558.471:    3.21253    4.13444          1.39534      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.02602)
+S    14561.497:    3.21587    4.13444          1.39628      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.02397)
+S    14564.521:    3.21921    4.13444          1.39723      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.02192)
+S    14567.543:    3.22256    4.13444          1.39818      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.01986)
+S    14570.563:    3.22590    4.13444          1.39913      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.01780)
+S    14573.581:    3.22925    4.13444          1.40008      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.01574)
+S    14576.597:    3.23259    4.13444          1.40104      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.01367)
+S    14579.610:    3.23594    4.13444          1.40200      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.01161)
+S    14582.622:    3.23929    4.13444          1.40296      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.00954)
+S    14585.631:    3.24264    4.13444          1.40393      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.00747)
+S    14588.639:    3.24598    4.13444          1.40489      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.00541)
+S    14591.644:    3.24933    4.13444          1.40586      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.00334)
+S    14594.648:    3.25268    4.13444          1.40682      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=3.00128)
+S    14597.649:    3.25603    4.13444          1.40779      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.99922)
+S    14600.648:    3.25938    4.13444          1.40876      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.99716)
+S    14603.645:    3.26273    4.13444          1.40972      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.99511)
+S    14606.640:    3.26608    4.13444          1.41069      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.99306)
+S    14609.633:    3.26943    4.13444          1.41165      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.99102)
+S    14612.624:    3.27278    4.13444          1.41262      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.98898)
+S    14615.613:    3.27613    4.13444          1.41358      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.98696)
+S    14618.600:    3.27948    4.13444          1.41454      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.98493)
+S    14621.585:    3.28283    4.13444          1.41550      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.98292)
+S    14624.568:    3.28618    4.13444          1.41646      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.98091)
+S    14627.549:    3.28953    4.13444          1.41741      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.97891)
+S    14630.528:    3.29288    4.13444          1.41836      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.97692)
+S    14633.505:    3.29623    4.13444          1.41931      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.97495)
+S    14636.480:    3.29959    4.13444          1.42025      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.97298)
+S    14639.453:    3.30294    4.13444          1.42119      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.97102)
+S    14642.424:    3.30629    4.13444          1.42213      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.96907)
+S    14645.393:    3.30965    4.13444          1.42306      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.96714)
+S    14648.360:    3.31300    4.13444          1.42399      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.96521)
+S    14651.325:    3.31635    4.13444          1.42491      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.96330)
+S    14654.289:    3.31971    4.13444          1.42583      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.96140)
+S    14657.250:    3.32306    4.13444          1.42675      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.95951)
+S    14660.210:    3.32642    4.13444          1.42766      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.95764)
+S    14663.167:    3.32977    4.13444          1.42856      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.95578)
+S    14666.123:    3.33313    4.13444          1.42946      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.95393)
+S    14669.077:    3.33649    4.13444          1.43035      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.95210)
+S    14672.029:    3.33984    4.13444          1.43124      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.95028)
+S    14674.979:    3.34320    4.13444          1.43212      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.94844)
+S    14677.928:    3.34656    4.13444          1.43302      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.94658)
+S    14680.874:    3.34992    4.13444          1.43392      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.94475)
+S    14683.819:    3.35327    4.13444          1.43482      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.94293)
+S    14686.762:    3.35663    4.13444          1.43570      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.94112)
+S    14689.703:    3.35999    4.13444          1.43658      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.93933)
+S    14692.642:    3.36335    4.13444          1.43746      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.93756)
+S    14695.580:    3.36671    4.13444          1.43833      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.93580)
+S    14698.516:    3.37007    4.13444          1.43919      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.93406)
+S    14701.450:    3.37343    4.13444          1.44004      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.93234)
+S    14704.382:    3.37679    4.13444          1.44089      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.93063)
+S    14707.313:    3.38015    4.13444          1.44173      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.92893)
+S    14710.242:    3.38351    4.13444          1.44256      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.92725)
+S    14713.169:    3.38688    4.13444          1.44339      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.92558)
+S    14716.095:    3.39024    4.13444          1.44421      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.92393)
+S    14719.018:    3.39361    4.13444          1.44503      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.92229)
+S    14721.941:    3.39698    4.13444          1.44584      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.92066)
+S    14724.861:    3.40034    4.13444          1.44665      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.91905)
+S    14727.780:    3.40371    4.13444          1.44745      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.91745)
+S    14730.698:    3.40708    4.13444          1.44824      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.91586)
+S    14733.614:    3.41045    4.13444          1.44903      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.91428)
+S    14736.528:    3.41383    4.13444          1.44981      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.91272)
+S    14739.441:    3.41720    4.13444          1.45059      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.91116)
+S    14742.352:    3.42057    4.13444          1.45137      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.90961)
+S    14745.262:    3.42395    4.13444          1.45214      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.90808)
+S    14748.170:    3.42733    4.13444          1.45291      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.90655)
+S    14751.076:    3.43070    4.13444          1.45367      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.90503)
+S    14753.981:    3.43408    4.13444          1.45443      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.90351)
+S    14756.885:    3.43746    4.13444          1.45519      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.90201)
+S    14759.787:    3.44084    4.13444          1.45595      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.90051)
+S    14762.687:    3.44422    4.13444          1.45670      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.89902)
+S    14765.586:    3.44760    4.13444          1.45745      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.89753)
+S    14768.484:    3.45098    4.13444          1.45820      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.89604)
+S    14771.380:    3.45437    4.13444          1.45894      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.89456)
+S    14774.274:    3.45775    4.13444          1.45969      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.89309)
+S    14777.167:    3.46114    4.13444          1.46044      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.89161)
+S    14780.059:    3.46453    4.13444          1.46118      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.89014)
+S    14782.949:    3.46792    4.13444          1.46192      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.88867)
+S    14785.838:    3.47131    4.13444          1.46267      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.88720)
+S    14788.725:    3.47470    4.13444          1.46341      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.88573)
+S    14791.611:    3.47810    4.13444          1.46416      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.88426)
+S    14794.495:    3.48149    4.13444          1.46490      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.88279)
+S    14797.378:    3.48489    4.13444          1.46565      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.88132)
+S    14800.259:    3.48828    4.13444          1.46640      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.87985)
+S    14803.139:    3.49168    4.13444          1.46715      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.87837)
+S    14806.017:    3.49508    4.13444          1.46790      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.87690)
+S    14808.894:    3.49848    4.13444          1.46866      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.87541)
+S    14811.770:    3.50188    4.13444          1.46941      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.87393)
+S    14814.644:    3.50528    4.13444          1.47017      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.87244)
+S    14817.516:    3.50868    4.13444          1.47094      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.87094)
+S    14820.387:    3.51208    4.13444          1.47170      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.86944)
+S    14823.257:    3.51549    4.13444          1.47247      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.86793)
+S    14826.124:    3.51889    4.13444          1.47324      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.86642)
+S    14828.991:    3.52229    4.13444          1.47402      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.86490)
+S    14831.856:    3.52570    4.13444          1.47480      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.86337)
+S    14834.719:    3.52910    4.13444          1.47559      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.86184)
+S    14837.581:    3.53251    4.13444          1.47638      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.86030)
+S    14840.441:    3.53592    4.13444          1.47718      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.85875)
+S    14843.300:    3.53933    4.13444          1.47798      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.85719)
+S    14846.157:    3.54274    4.13444          1.47878      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.85563)
+S    14849.013:    3.54615    4.13444          1.47959      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.85406)
+S    14851.867:    3.54956    4.13444          1.48041      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.85248)
+S    14854.719:    3.55298    4.13444          1.48123      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.85089)
+S    14857.570:    3.55639    4.13444          1.48205      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.84929)
+S    14860.420:    3.55980    4.13444          1.48289      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.84768)
+S    14863.267:    3.56322    4.13444          1.48372      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.84606)
+S    14866.113:    3.56664    4.13444          1.48457      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.84444)
+S    14868.958:    3.57005    4.13444          1.48541      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.84281)
+S    14871.801:    3.57347    4.13444          1.48627      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.84117)
+S    14874.642:    3.57689    4.13444          1.48712      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.83952)
+S    14877.481:    3.58030    4.13444          1.48799      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.83786)
+S    14880.319:    3.58372    4.13444          1.48886      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.83619)
+S    14883.155:    3.58714    4.13444          1.48973      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.83452)
+S    14885.990:    3.59056    4.13444          1.49061      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.83284)
+S    14888.823:    3.59398    4.13444          1.49150      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.83115)
+S    14891.654:    3.59740    4.13444          1.49239      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.82945)
+S    14894.483:    3.60082    4.13444          1.49328      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.82775)
+S    14897.311:    3.60425    4.13444          1.49418      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.82604)
+S    14900.137:    3.60767    4.13444          1.49508      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.82432)
+S    14902.961:    3.61109    4.13444          1.49599      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.82260)
+S    14905.784:    3.61452    4.13444          1.49690      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.82088)
+S    14908.605:    3.61794    4.13444          1.49782      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.81915)
+S    14911.424:    3.62137    4.13444          1.49874      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.81741)
+S    14914.241:    3.62479    4.13444          1.49966      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.81567)
+S    14917.057:    3.62822    4.13444          1.50059      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.81393)
+S    14919.871:    3.63165    4.13444          1.50152      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.81218)
+S    14922.683:    3.63508    4.13444          1.50245      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.81043)
+S    14925.494:    3.63850    4.13444          1.50339      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.80868)
+S    14928.302:    3.64193    4.13444          1.50433      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.80692)
+S    14931.109:    3.64536    4.13444          1.50527      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.80517)
+S    14933.914:    3.64879    4.13444          1.50621      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.80341)
+S    14936.718:    3.65222    4.13444          1.50715      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.80166)
+S    14939.519:    3.65565    4.13444          1.50810      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.79990)
+S    14942.319:    3.65908    4.13444          1.50904      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.79814)
+S    14945.118:    3.66251    4.13444          1.50999      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.79639)
+S    14947.914:    3.66594    4.13444          1.51094      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.79464)
+S    14950.709:    3.66937    4.13444          1.51188      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.79289)
+S    14953.501:    3.67280    4.13444          1.51283      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.79114)
+S    14956.293:    3.67623    4.13444          1.51378      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.78940)
+S    14959.082:    3.67966    4.13444          1.51472      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.78766)
+S    14961.870:    3.68309    4.13444          1.51567      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.78592)
+S    14964.656:    3.68652    4.13444          1.51661      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.78419)
+S    14967.440:    3.68995    4.13444          1.51756      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.78246)
+S    14970.222:    3.69338    4.13444          1.51850      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.78074)
+S    14973.003:    3.69681    4.13444          1.51944      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.77903)
+S    14975.782:    3.70024    4.13444          1.52038      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.77732)
+S    14978.559:    3.70367    4.13444          1.52131      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.77562)
+S    14981.335:    3.70710    4.13444          1.52224      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.77392)
+S    14984.109:    3.71053    4.13444          1.52317      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.77224)
+S    14986.881:    3.71396    4.13444          1.52410      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.77056)
+S    14989.652:    3.71739    4.13444          1.52503      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.76888)
+S    14992.421:    3.72083    4.13444          1.52595      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.76722)
+S    14995.188:    3.72426    4.13444          1.52686      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.76557)
+S    14997.953:    3.72769    4.13444          1.52778      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.76392)
+S    15000.717:    3.73112    4.13444          1.52869      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.76229)
+S    15003.479:    3.73455    4.13444          1.52959      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.76066)
+S    15006.240:    3.73798    4.13444          1.53049      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.75904)
+S    15008.999:    3.74142    4.13444          1.53139      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.75744)
+S    15011.757:    3.74485    4.13444          1.53228      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.75584)
+S    15014.512:    3.74828    4.13444          1.53317      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.75425)
+S    15017.267:    3.75171    4.13444          1.53405      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.75268)
+S    15020.019:    3.75515    4.13444          1.53493      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.75111)
+S    15022.771:    3.75858    4.13444          1.53580      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.74956)
+S    15025.520:    3.76202    4.13444          1.53667      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.74801)
+S    15028.268:    3.76545    4.13444          1.53754      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.74648)
+S    15031.015:    3.76889    4.13444          1.53839      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.74496)
+S    15033.760:    3.77233    4.13444          1.53925      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.74345)
+S    15036.503:    3.77577    4.13444          1.54009      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.74195)
+S    15039.245:    3.77921    4.13444          1.54094      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.74046)
+S    15041.985:    3.78265    4.13444          1.54177      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.73898)
+S    15044.724:    3.78609    4.13444          1.54261      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.73751)
+S    15047.462:    3.78953    4.13444          1.54343      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.73606)
+S    15050.198:    3.79298    4.13444          1.54425      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.73461)
+S    15052.933:    3.79642    4.13444          1.54507      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.73318)
+S    15055.666:    3.79987    4.13444          1.54588      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.73175)
+S    15058.397:    3.80332    4.13444          1.54669      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.73034)
+S    15061.128:    3.80677    4.13444          1.54749      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.72893)
+S    15063.857:    3.81021    4.13444          1.54829      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.72751)
+S    15066.584:    3.81366    4.13444          1.54910      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.72609)
+S    15069.310:    3.81711    4.13444          1.54990      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.72468)
+S    15072.035:    3.82057    4.13444          1.55070      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.72329)
+S    15074.758:    3.82402    4.13444          1.55150      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.72190)
+S    15077.480:    3.82747    4.13444          1.55229      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.72052)
+S    15080.201:    3.83093    4.13444          1.55307      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.71916)
+S    15082.920:    3.83438    4.13444          1.55385      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.71780)
+S    15085.638:    3.83784    4.13444          1.55463      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.71644)
+S    15088.354:    3.84129    4.13444          1.55540      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.71510)
+S    15091.069:    3.84475    4.13444          1.55617      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.71377)
+S    15093.783:    3.84821    4.13444          1.55694      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.71244)
+S    15096.495:    3.85167    4.13444          1.55770      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.71111)
+S    15099.207:    3.85513    4.13444          1.55846      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.70980)
+S    15101.916:    3.85859    4.13444          1.55922      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.70849)
+S    15104.625:    3.86206    4.13444          1.55997      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.70719)
+S    15107.332:    3.86552    4.13444          1.56072      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.70589)
+S    15110.038:    3.86898    4.13444          1.56147      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.70459)
+S    15112.743:    3.87245    4.13444          1.56222      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.70330)
+S    15115.446:    3.87592    4.13444          1.56296      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.70202)
+S    15118.148:    3.87939    4.13444          1.56371      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.70074)
+S    15120.849:    3.88286    4.13444          1.56445      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.69946)
+S    15123.548:    3.88633    4.13444          1.56519      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.69818)
+S    15126.246:    3.88980    4.13444          1.56593      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.69691)
+S    15128.943:    3.89327    4.13444          1.56667      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.69564)
+S    15131.639:    3.89674    4.13444          1.56741      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.69437)
+S    15134.333:    3.90022    4.13444          1.56815      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.69310)
+S    15137.026:    3.90369    4.13444          1.56889      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.69183)
+S    15139.718:    3.90717    4.13444          1.56963      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.69056)
+S    15142.409:    3.91064    4.13444          1.57037      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.68929)
+S    15145.098:    3.91412    4.13444          1.57111      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.68802)
+S    15147.786:    3.91759    4.13444          1.57185      0.00000
+$v$Eh  diffusivity (overrides energy) (dt=2.68675)
+S    15150.473:    3.92107    4.13444          1.57259      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.68548)
+S    15153.158:    3.92455    4.13444          1.57334      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.68421)
+S    15155.842:    3.92803    4.13444          1.57408      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.68293)
+S    15158.525:    3.93151    4.13444          1.57483      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.68165)
+S    15161.207:    3.93499    4.13444          1.57558      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.68037)
+S    15163.887:    3.93847    4.13444          1.57634      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.67909)
+S    15166.566:    3.94195    4.13444          1.57709      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.67780)
+S    15169.244:    3.94543    4.13444          1.57785      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.67651)
+S    15171.921:    3.94892    4.13444          1.57861      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.67522)
+S    15174.596:    3.95240    4.13444          1.57938      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.67392)
+S    15177.270:    3.95589    4.13444          1.58014      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.67261)
+S    15179.942:    3.95938    4.13444          1.58091      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.67130)
+S    15182.614:    3.96286    4.13444          1.58169      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.66999)
+S    15185.284:    3.96635    4.13444          1.58247      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.66867)
+S    15187.952:    3.96984    4.13444          1.58325      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.66734)
+S    15190.620:    3.97333    4.13444          1.58404      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.66601)
+S    15193.286:    3.97682    4.13444          1.58483      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.66468)
+S    15195.950:    3.98031    4.13444          1.58562      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.66334)
+S    15198.614:    3.98380    4.13444          1.58642      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.66199)
+S    15201.276:    3.98729    4.13444          1.58722      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.66064)
+S    15203.936:    3.99078    4.13444          1.58803      0.00000
+$v$Eh  diffusivity (overrides end of the run) (dt=2.65928)
+S    15206.596:    3.99428    4.13444          1.58884      0.00000
+$v$Eh  end of the run (overrides diffusivity) (dt=1.40428)
+S    15208.000:    3.99612    4.13444          1.58966      0.00000
+done with run
+NUMERICAL ERRORS evaluated at final time (relative to exact solution):
+geometry  :    prcntVOL        maxH         avH   relmaxETA
+               0.112814  215.530724    7.504389    0.012165
+NUM ERRORS DONE
+Writing model state to file `unnamed.nc'...
+real:9.58
+real:9.58
+real:9.58
+real:9.58
+real:9.58
+real:9.58
+real:9.59
+real:9.68
+real:9.68
+real:9.68
+real:9.68
+real:9.68
+real:9.68
+real:9.68
+real:9.68
+real:9.68
+real:9.68
+real:9.69
+real:9.69
+real:9.69
+real:9.68
+real:9.69
+real:9.68
+real:9.69
+real:9.68
+real:9.69
+real:9.68
+real:9.70
+real:9.70
+real:9.71
+real:9.72
+real:9.72
+real:9.72
+real:9.72
+real:9.72
+real:9.72
+real:9.72
+real:9.73
+real:9.72
+real:9.73
+real:9.73
+real:9.73
+real:9.73
+real:9.73
+real:9.73
+real:9.73
+real:9.73
+real:9.73
+real:9.73
+real:9.73
+real:9.73
+real:9.73
+real:9.73
+real:9.73
+real:9.73
+real:9.74
+real:9.74
+real:9.74
+real:9.74
+real:9.74
+real:9.74
+real:9.75
+real:9.75
+real:9.75
