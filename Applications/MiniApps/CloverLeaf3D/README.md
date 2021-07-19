@@ -10,7 +10,7 @@
 
 ### Spack Package Modification
 
-Default spack recipe is usable. However, optimisation flags is added. See [spack.patch](./spack.patch) and use `git apply spack.patch` for patching and pull request to official spack repo is pending.
+Default spack recipe is usable.
 
 Git commit hash of checkout for package: 7880dfd
 
@@ -160,7 +160,7 @@ Concretized
 
 ## Test Case
 
-[ReFrame Benchmark](./cloverleaf_bm8_short_exclusive.py)
+[ReFrame Benchmark](./cloverleaf_bm8_short.py)
 
 ```
 reframe -c cloverleaf_bm8_short_exclusive.py -r --performance-report
@@ -172,7 +172,9 @@ For simplicity we just check for kinetic energy = 0.2093E+02 ± 0.00005E+02
 
 ### ReFrame Output
 
-```
+#### AWS:C6GN Instance (Aarch64)
+
+```shell
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
@@ -180,148 +182,125 @@ CloverLeaf3D_BM8_short_cloverleaf3d_1_0__gcc_10_3_0_N_1_MPI_1_OMP_1
 - aws:c6gn
    - builtin
       * num_tasks: 1
-      * Total Time: 350.75899600982666 s
+      * Total Time: 1986.477441072464 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__gcc_10_3_0_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 229.4602301120758 s
+      * Total Time: 1061.8275830745697 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__gcc_10_3_0_N_1_MPI_4_OMP_1
    - builtin
       * num_tasks: 4
-      * Total Time: 129.30270504951477 s
+      * Total Time: 511.8222589492798 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__gcc_10_3_0_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 82.30532383918762 s
+      * Total Time: 272.73988008499146 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__gcc_10_3_0_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 57.14682698249817 s
+      * Total Time: 150.19025492668152 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__gcc_10_3_0_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 34.57797288894653 s
+      * Total Time: 72.64931607246399 s
 ------------------------------------------------------------------------------
-CloverLeaf3D_BM8_short_cloverleaf3d_1_0__gcc_10_3_0_N_2_MPI_64_OMP_1
+CloverLeaf3D_BM8_short_cloverleaf3d_1_0__gcc_10_3_0_N_1_MPI_64_OMP_1
    - builtin
       * num_tasks: 64
-      * Total Time: 16.07563591003418 s
-------------------------------------------------------------------------------
-CloverLeaf3D_BM8_short_cloverleaf3d_1_0__gcc_10_3_0_N_4_MPI_128_OMP_1
-   - builtin
-      * num_tasks: 128
-      * Total Time: 11.487725019454956 s
-------------------------------------------------------------------------------
-CloverLeaf3D_BM8_short_cloverleaf3d_1_0__gcc_10_3_0_N_8_MPI_256_OMP_1
-   - builtin
-      * num_tasks: 256
-      * Total Time: 4.155719041824341 s
+      * Total Time: 41.034847021102905 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__arm_21_0_0_879_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 295.5387468338013 s
+      * Total Time: 267.2780830860138 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__arm_21_0_0_879_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 166.374351978302 s
+      * Total Time: 158.1196520328522 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__arm_21_0_0_879_N_1_MPI_4_OMP_1
    - builtin
       * num_tasks: 4
-      * Total Time: 103.238508939743 s
+      * Total Time: 83.16673588752747 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__arm_21_0_0_879_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 62.71004486083984 s
+      * Total Time: 45.64590001106262 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__arm_21_0_0_879_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 34.35910415649414 s
+      * Total Time: 25.59792900085449 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__arm_21_0_0_879_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 19.40960788726807 s
+      * Total Time: 20.3975510597229 s
 ------------------------------------------------------------------------------
-CloverLeaf3D_BM8_short_cloverleaf3d_1_0__arm_21_0_0_879_N_2_MPI_64_OMP_1
+CloverLeaf3D_BM8_short_cloverleaf3d_1_0__arm_21_0_0_879_N_1_MPI_64_OMP_1
    - builtin
       * num_tasks: 64
-      * Total Time: 10.79916596412659 s
-------------------------------------------------------------------------------
-CloverLeaf3D_BM8_short_cloverleaf3d_1_0__arm_21_0_0_879_N_4_MPI_128_OMP_1
-   - builtin
-      * num_tasks: 128
-      * Total Time: 5.783955097198486 s
-------------------------------------------------------------------------------
-CloverLeaf3D_BM8_short_cloverleaf3d_1_0__arm_21_0_0_879_N_8_MPI_256_OMP_1
-   - builtin
-      * num_tasks: 256
-      * Total Time: 4.773585081100464 s
+      * Total Time: 20.74977612495422 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__nvhpc_21_2_N_1_MPI_1_OMP_1
    - builtin
       * num_tasks: 1
-      * Total Time: 297.7256031036377 s
+      * Total Time: 309.698842048645 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__nvhpc_21_2_N_1_MPI_2_OMP_1
    - builtin
       * num_tasks: 2
-      * Total Time: 149.6047248840332 s
+      * Total Time: 167.0417008399963 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__nvhpc_21_2_N_1_MPI_4_OMP_1
    - builtin
       * num_tasks: 4
-      * Total Time: 85.92013812065125 s
+      * Total Time: 77.94018077850342 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__nvhpc_21_2_N_1_MPI_8_OMP_1
    - builtin
       * num_tasks: 8
-      * Total Time: 52.82903790473938 s
+      * Total Time: 44.53975701332092 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__nvhpc_21_2_N_1_MPI_16_OMP_1
    - builtin
       * num_tasks: 16
-      * Total Time: 35.01609706878662 s
+      * Total Time: 25.93927001953125 s
 ------------------------------------------------------------------------------
 CloverLeaf3D_BM8_short_cloverleaf3d_1_0__nvhpc_21_2_N_1_MPI_32_OMP_1
    - builtin
       * num_tasks: 32
-      * Total Time: 20.02013897895813 s
+      * Total Time: 20.0884861946106 s
 ------------------------------------------------------------------------------
-CloverLeaf3D_BM8_short_cloverleaf3d_1_0__nvhpc_21_2_N_2_MPI_64_OMP_1
+CloverLeaf3D_BM8_short_cloverleaf3d_1_0__nvhpc_21_2_N_1_MPI_64_OMP_1
    - builtin
       * num_tasks: 64
-      * Total Time: 14.73618578910828 s
-------------------------------------------------------------------------------
-CloverLeaf3D_BM8_short_cloverleaf3d_1_0__nvhpc_21_2_N_4_MPI_128_OMP_1
-   - builtin
-      * num_tasks: 128
-      * Total Time: 5.879961013793945 s
-------------------------------------------------------------------------------
-CloverLeaf3D_BM8_short_cloverleaf3d_1_0__nvhpc_21_2_N_8_MPI_256_OMP_1
-   - builtin
-      * num_tasks: 256
-      * Total Time: 6.758138179779053 s
+      * Total Time: 21.15679597854614 s
 ------------------------------------------------------------------------------
 ```
 
 ### On-node Compiler Comparison
 
-Performance comparison of two compilers.
+Performance comparison of three compilers. 
 
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-|       |            |            |
+#### AWS:C6GN Instance (Aarch64)
 
+| Cores | GCC                | ARM               | NVHPC             |
+| ----- | ------------------ | ----------------- | ----------------- |
+| 1     | 1986.477441072464  | 267.2780830860138 | 309.698842048645  |
+| 2     | 1061.8275830745697 | 158.1196520328522 | 167.0417008399963 |
+| 4     | 511.8222589492798  | 83.16673588752747 | 77.94018077850342 |
+| 8     | 272.73988008499146 | 45.64590001106262 | 44.53975701332092 |
+| 16    | 150.19025492668152 | 25.59792900085449 | 25.93927001953125 |
+| 32    | 72.64931607246399  | 20.3975510597229  | 20.0884861946106  |
+| 64    | 41.034847021102905 | 20.74977612495422 | 21.15679597854614 |
 
 ### Serial Hot-spot Profile
 
@@ -333,7 +312,7 @@ Profiling command used:
 ```
 
 | Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
+| -------- | ------- | -------- | -------- |
 | 1        |         |          |          |
 | 2        |         |          |          |
 | 3        |         |          |          |
@@ -356,7 +335,7 @@ Profiling command used:
 ```
 
 | Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
+| -------- | ------- | -------- | -------- | ------- |
 | 1        |         |          |          |         |
 | 2        |         |          |          |         |
 | 3        |         |          |          |         |
@@ -372,30 +351,20 @@ Profiling command used:
 
 On-node scaling study for two compilers.
 
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
+| Cores | GCC | ARM | NVHPC |
+| ----- | --- | --- | ----- |
+| 1     |     |     |       |
+| 2     |     |     |       |
+| 4     |     |     |       |
+| 8     |     |     |       |
+| 16    |     |     |       |
+| 32    |     |     |       |
+| 64    |     |     |       |
 
 
 ### Off-Node Scaling Study
 
-Off-node scaling study comparing C6g and C6gn instances.
-
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
+Not focus.
 
 
 ### On-Node Architecture Comparison
@@ -403,7 +372,7 @@ Off-node scaling study comparing C6g and C6gn instances.
 On-node scaling study for two architectures.
 
 | Cores | C6gn (Aarch64) | C5n (X86) |
-|-------|----------------|-----------|
+| ----- | -------------- | --------- |
 | 1     |                |           |
 | 2     |                |           |
 | 4     |                |           |
@@ -415,33 +384,79 @@ On-node scaling study for two architectures.
 
 ## Optimisation
 
-See [spack.patch](./spack.patch) and use `git apply spack.patch` for patching and pull request to official spack repo is pending.
+See [spack.patch](./spack.patch) and use `git apply spack.patch` for patching as pull request to official spack repo is pending.
 
 ### Compiler Flag Tuning
 
-Compiler flags before:
-```
-CFLAGS=
-FFLAGS=
-```
-
-Compiler flags after:
-```
-CFLAGS=
-FFLAGS=
+```diff
+-        if '%gcc' in self.spec:
+-            targets.append('COMPILER=GNU')
+-            targets.append('FLAGS_GNU=')
+-            targets.append('CFLAGS_GNU=')
+-        elif '%cce' in self.spec:
+-            targets.append('COMPILER=CRAY')
+-            targets.append('FLAGS_CRAY=')
+-            targets.append('CFLAGS_CRAY=')
+-        elif '%intel' in self.spec:
+-            targets.append('COMPILER=INTEL')
+-            targets.append('FLAGS_INTEL=')
+-            targets.append('CFLAGS_INTEL=')
+-        elif '%pgi' in self.spec:
+-            targets.append('COMPILER=PGI')
+-            targets.append('FLAGS_PGI=')
+-            targets.append('CFLAGS_PGI=')
+-        elif '%xl' in self.spec:
+-            targets.append('COMPILER=XLF')
+-            targets.append('FLAGS_XLF=')
+-            targets.append('CFLAGS_XLF=')
++        if "%gcc" in self.spec:
++            targets.append("COMPILER=GNU")
++            targets.append("FLAGS_GNU=-g -O3 -march=native -funroll-loops")
++            targets.append("CFLAGS_GNU=-g -O3 -march=native -funroll-loops")
++            targets.append("OMP_GNU=-fopenmp")
++        elif "%cce" in self.spec:
++            targets.append("COMPILER=CRAY")
++            targets.append("FLAGS_CRAY=")
++            targets.append("CFLAGS_CRAY=")
++        elif "%intel" in self.spec:
++            targets.append("COMPILER=INTEL")
++            targets.append("FLAGS_INTEL=")
++            targets.append("CFLAGS_INTEL=")
++        elif "%pgi" in self.spec:
++            targets.append("COMPILER=PGI")
++            targets.append("FLAGS_PGI=")
++            targets.append("CFLAGS_PGI=")
++        elif "%xl" in self.spec:
++            targets.append("COMPILER=XLF")
++            targets.append("FLAGS_XLF=")
++            targets.append("CFLAGS_XLF=")
++        elif "%arm" in self.spec:
++            targets.append("COMPILER=ARM")
++            targets.append("FLAGS_ARM=-g -O3 -mcpu=native -funroll-loops")
++            targets.append("CFLAGS_ARM=-g -O3 -mcpu=native -funroll-loops")
++            targets.append("OMP_ARM=-fopenmp")
++        elif "%nvhpc" in self.spec:
++            targets.append("COMPILER=NVHPC")
++            targets.append("FLAGS_NVHPC=-g -O3 -fast")
++            targets.append("CFLAGS_NVHPC=-g -O3 -fast")
++            targets.append("OMP_NVHPC=-mp=multicore")
 ```
 
 #### Compiler Flag Performance
 
-| Cores | Original Flags | New Flags |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
+Check [c6gn_optimised_report.log](./c6gn_optimised_report.log) detail.
+
+##### AWS:C6GN ARM Compiler
+
+| Cores | Original Flags | New Flags         |
+| ----- | -------------- | ----------------- |
+| 1     |  267.2780830860138              | 397.5117690563202 |
+| 2     |  158.1196520328522              | 165.8251559734344 |
+| 4     |  83.1667358875274              | 90.69438290596008 |
+| 8     | 45.64590001106262               | 50.34649682044983 |
+| 16    | 25.59792900085449               | 28.56867694854736 |
+| 32    |  20.3975510597229              | 21.55204296112061 |
+| 64    |  20.74977612495422              | 20.84540319442749 |
 
 
 ### Maths Library Report
@@ -455,8 +470,8 @@ Please attach the corresponding apl files.
 Performance analysis of the use of different maths libraries.
 
 
-| Cores | OpenBLAS | ArmPL | BLIS | 
-|-------|----------|-------| ---- |
+| Cores | OpenBLAS | ArmPL | BLIS |
+| ----- | -------- | ----- | ---- |
 | 1     |          |       |      |
 | 2     |          |       |      |
 | 4     |          |       |      |
