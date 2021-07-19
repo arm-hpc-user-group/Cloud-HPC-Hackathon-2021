@@ -2,9 +2,11 @@
 
 **Description:** Branson's purpose is to study different algorithms for parallel Monte Carlo transport. Currently it contains particle passing and mesh passing methods for domain decomposition.
 
+**notice for /data , they are there as they _might_ be helpful but they are far from perfect: for example, I initally forgot to update the name of test class from previous app, so the first few tests were for branson but were named "LaghosTest0", or sometimes directories got overwritten, but we have the Graylog server for a reason! Everything is reprodicible _AND_ already logged to Graylog.**
+
 **URL:** https://github.com/lanl/branson
 
-**Team:**  
+**Team:** Iman
 
 ## Compilation
 
@@ -15,6 +17,8 @@ Details of any changes to the Spack recipe used.
 Git commit hash of checkout for pacakage:
 
 Pull request for Spack recipe changes:
+
+Pull request to branson: https://github.com/lanl/branson/pull/23 (tiny fix for an input file which did not run due to transport type / cell count)
 
 ### Building branson
 
@@ -170,20 +174,22 @@ Concretized
 ## Validation
 This app's repo has a convenient document included with **figure of merit** and test cases and sanity conditions specified. I implemented the test cases right from that document: https://www.lanl.gov/projects/crossroads/_assets/docs/ssi/summary-branson.pdf For verification (correctness) I quote the docment: 
 
-" _The output of Branson can be assumed to be correct if the values for radiation conservation and material conservation are on the order of 1.0e-13 relative to the emission energy and census energy._ "
+" _The output of Branson can be assumed to be correct if the values for radiation conservation and material conservation are on the order of 1.0e-13 relative to the emission energy and census energy._ " ** EVERY test case and every run we have IS validated **
 
 ## Test Case 1: Proxy Small
 
 [ReFrame Benchmark 1](#)
 
+As descibed, the repo has verification examples, which the reframe tests pull and later verify results, and chart the figure of merit: 
+
+```
+prerun_cmds = ['wget -O branson.in https://raw.githubusercontent.com/lanl/branson/develop/inputs/proxy_small.xml']
+```
+But for _proxy small_ (this test case) the configuration throws an error as no paritioning occures: there are two ways to make it work, more cells, or change the transport type from cell pass to replicated, I apllied this change and instead of wgeting I load my patched input. I also made a pull request to branson repo: https://github.com/lanl/branson/pull/23
+
 ```
 reframe --stage /scratch/home/${USER} -c t0.py -r --performance-report
 ```
-
-### Validation
-
-Details of the validation for `Test Case 1`.
-
 
 ### ReFrame Output
 
@@ -191,183 +197,163 @@ Details of the validation for `Test Case 1`.
 ==============================================================================
 PERFORMANCE REPORT
 ------------------------------------------------------------------------------
-     **** 
+branson_test0_2_branson_0_82__arm_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total transport: 5875.65 s
+------------------------------------------------------------------------------
+branson_test0_2_branson_0_82__arm_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total transport: 1562.39 s
+------------------------------------------------------------------------------
+branson_test0_2_branson_0_82__arm_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total transport: 500.085 s
+------------------------------------------------------------------------------
+branson_test0_2_branson_0_82__arm_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total transport: 297.64 s
+------------------------------------------------------------------------------
+branson_test0_2_branson_0_82__gcc__gsc3hlo_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total transport: 8131.49 s
+------------------------------------------------------------------------------
+branson_test0_2_branson_0_82__gcc__gsc3hlo_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total transport: 2195.08 s
+------------------------------------------------------------------------------
+branson_test0_2_branson_0_82__gcc__gsc3hlo_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total transport: 663.968 s
+------------------------------------------------------------------------------
+branson_test0_2_branson_0_82__gcc__gsc3hlo_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total transport: 348.833 s
+------------------------------------------------------------------------------
+branson_test0_2_branson_0_82__nvhpc_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total transport: 6362.01 s
+------------------------------------------------------------------------------
+branson_test0_2_branson_0_82__nvhpc_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total transport: 1692.63 s
+------------------------------------------------------------------------------
+branson_test0_2_branson_0_82__nvhpc_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total transport: 531.085 s
+------------------------------------------------------------------------------
+branson_test0_2_branson_0_82__nvhpc_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total transport: 308.267 s
 ------------------------------------------------------------------------------
 ```
 
 ### On-node Compiler Comparison
 
-Performance comparison of two compilers.
+Performance comparison of two compilers. Measure is Total transport time in seconds.
 
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-|       |            |            |
+| Cores | ARM    | GCC     | NVHPC   |
+|-------|--------|---------|---------|
+| 64    | 297.64 | 348.833 | 308.267 |
 
+This is one of those apps where ARM compiler really shines, Kudos!
 
 ### Serial Hot-spot Profile
 
 List of top-10 functions / code locations from a serial profile.
 
-Profiling command used:
+Profiling command used: I actually used the normal reframe test case run, but the script includes flags for _HSPOT\_RUN_ and _DEBUG\_RUN_ which I use to set it up for profiling or a short run for debug. 
 ```
-:
+reframe --stage /scratch/home/${USER} -c t0.py -r --performance-report
 ```
 
-| Position | Routine | Time (s) | Time (%) |
-|----------|---------|----------|----------|
-| 1        |         |          |          |
-| 2        |         |          |          |
-| 3        |         |          |          |
-| 4        |         |          |          |
-| 5        |         |          |          |
-| 6        |         |          |          |
-| 7        |         |          |          |
-| 8        |         |          |          |
-| 9        |         |          |          |
-| 10       |         |          |          |
+The profiling is done on arm compiler, by using the ReFrame's _LaunchWrapper_ call map like this:
+```
+self.job.launcher = LauncherWrapper(self.job.launcher,'map',['--profile', '--export-functions='+self.proffile])
+```
+
+|depth|Self |Total|Child|MPI|Overhead|Regions|Function                                                                                                                       |
+|-----|-----|-----|-----|---|--------|-------|-------------------------------------------------------------------------------------------------------------------------------|
+|0    |24.0%|24.0%|     |   |        |       |optr_gcc_exp_f64                                                                                                               |
+|0    |21.7%|89.1%|67.4%|   |        |       |transport_photon_particle_pass(Photon&, Mesh const&, RNG*, double&, double&, double&, std::vector<double, std::allocator<double|
+|0    |18.6%|18.6%|     |   |        |       |optr_ac_log_f64                                                                                                                |
+|0    |5.0% |5.0% |     |   |        |       |threefry2x64_R(unsigned int, r123array2x64, r123array2x64) [inlined]                                                           |
+|0    |4.2% |4.2% |     |   |        |       |cos                                                                                                                            |
+|0    |2.8% |2.8% |     |   |        |       |(anonymous namespace)::_ran(unsigned long*) [inlined]                                                                          |
+|0    |2.8% |2.8% |     |   |        |       |std::__introsort_loop<__gnu_cxx::__normal_iterator<Photon*, std::vector<Photon, std::allocator<Photon                          |
+|0    |2.6% |2.6% |     |   |        |       |sin                                                                                                                            |
+|0    |1.9% |1.9% |     |   |        |       |log@plt                                                                                                                        |
+|0    |1.9% |1.9% |     |   |        |       |Cell::get_f() const [inlined]                                                                                                  |
+
 
 
 ### Full Node Hot-spot Profile
 
 List of top-10 functions / code locations from a full node profile.
 
-Profiling command used:
+Profiling command used: I actually used the normal reframe test case run, but the script includes flags for _HSPOT\_RUN_ and _DEBUG\_RUN_ which I use to set it up for profiling or a short run for debug. 
 ```
-:
+reframe --stage /scratch/home/${USER} -c t0.py -r --performance-report
 ```
 
-| Position | Routine | Time (s) | Time (%) | MPI (%) |
-|----------|---------|----------|----------|---------|
-| 1        |         |          |          |         |
-| 2        |         |          |          |         |
-| 3        |         |          |          |         |
-| 4        |         |          |          |         |
-| 5        |         |          |          |         |
-| 6        |         |          |          |         |
-| 7        |         |          |          |         |
-| 8        |         |          |          |         |
-| 9        |         |          |          |         |
-| 10       |         |          |          |         |
+The profiling is done on arm compiler, by using the ReFrame's _LaunchWrapper_ call map like this:
+```
+self.job.launcher = LauncherWrapper(self.job.launcher,'map',['--profile', '--export-functions='+self.proffile])
+```
+
+|depth|Self |Total|Child|MPI |Overhead|Regions|Function                                                                                                                       |
+|-----|-----|-----|-----|----|--------|-------|-------------------------------------------------------------------------------------------------------------------------------|
+|0    |21.9%|72.6%|50.7%|    |        |       |transport_photon_particle_pass(Photon&, Mesh const&, RNG*, double&, double&, double&, std::vector<double, std::allocator<double|
+|0    |17.0%|17.0%|     |    |        |       |Mesh::get_on_rank_cell(unsigned int) const [inlined]                                                                           |
+|0    |10.9%|10.9%|     |    |        |       |optr_gcc_exp_f64                                                                                                               |
+|0    |8.0% |8.0% |     |    |        |       |optr_ac_log_f64                                                                                                                |
+|0    |5.8% |5.8% |<0.1%|    |        |       |std::__introsort_loop<__gnu_cxx::__normal_iterator<Photon*, std::vector<Photon, std::allocator<Photon                          |
+|0    |4.5% |4.5% |     |    |        |       |Mesh::get_on_rank_cell(unsigned int) const [inlined]                                                                           |
+|0    |3.0% |3.0% |     |    |        |       |syscall                                                                                                                        |
+|0    |2.4% |2.4% |     |    |        |       |threefry2x64_R(unsigned int, r123array2x64, r123array2x64) [inlined]                                                           |
+|0    |1.6% |1.6% |<0.1%|    |        |       |cos                                                                                                                            |
+|0    |1.2% |1.2% |     |1.2%|        |       |MPI_Barrier                                                                                                                    |
+
+Waaaait what? Take the above result (full node top 10 function) with a grain of salt, no time to investigate but they might be trash because where are all the rest of mpi calls?
 
 ### Strong Scaling Study
 
-On-node scaling study for two compilers.
+On-node scaling study for two compilers. Transport time in seconds. Branson test cases are long, so no seconds!
 
-| Cores | Compiler 1 | Compiler 2 |
-|-------|------------|------------|
-| 1     |            |            |
-| 2     |            |            |
-| 4     |            |            |
-| 8     |            |            |
-| 16    |            |            |
-| 32    |            |            |
-| 64    |            |            |
-
-
-### Off-Node Scaling Study
-
-Off-node scaling study comparing C6g and C6gn instances.
-
-| Nodes | Cores | C6g | C6gn |
-|-------|-------|-----|------|
-| 1     | 8     |     |      |
-| 1     | 16    |     |      |
-| 1     | 32    |     |      |
-| 1     | 64    |     |      |
-| 2     | 128   |     |      |
-| 4     | 256   |     |      |
-| 8     | 512   |     |      |
-
-
-### On-Node Architecture Comparison
-
-On-node scaling study for two architectures.
-
-| Cores | C6gn (Aarch64) | C5n (X86) |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
-
-
-## Optimisation
-
-Details of steps taken to optimise performance of the application.
-Please document work with compiler flags, maths libraries, system libraries, code optimisations, etc.
-
-### Compiler Flag Tuning
-
-Compiler flags before:
-```
-CFLAGS=
-FFLAGS=
-```
-
-Compiler flags after:
-```
-CFLAGS=
-FFLAGS=
-```
-
-#### Compiler Flag Performance
-
-| Cores | Original Flags | New Flags |
-|-------|----------------|-----------|
-| 1     |                |           |
-| 2     |                |           |
-| 4     |                |           |
-| 8     |                |           |
-| 16    |                |           |
-| 32    |                |           |
-| 64    |                |           |
-
-
-### Maths Library Report
-
-Report on use of maths library calls generated by (Perf Lib Tools)[https://github.com/ARM-software/perf-libs-tools].
-Please attach the corresponding apl files.
-
-
-### Maths Library Optimisation
-
-Performance analysis of the use of different maths libraries.
-
-
-| Cores | OpenBLAS | ArmPL | BLIS | 
-|-------|----------|-------| ---- |
-| 1     |          |       |      |
-| 2     |          |       |      |
-| 4     |          |       |      |
-| 8     |          |       |      |
-| 16    |          |       |      |
-| 32    |          |       |      |
-| 64    |          |       |      |
-
-
-### Performance Regression
-
-How fast can you make the code?
-
-Use all of the above aproaches and any others to make the code as fast as possible.
-Demonstrate your gains by providing a scaling study for your test case, demonstrating the performance before and after.
-
+| Cores | arm  | gcc  | nvhpc |
+|-------|------|------|-------|
+| 1     | 5875 | 8131 | 6362  |
+| 4     | 1562 | 2195 | 1692  |
+| 16    | 500  | 663  |  531  |
+| 64    | 297  | 348  |  308  |
 
 
 ## Report
 
 ### Compilation Summary
 
-Details of lessons from compiling the application.
+No hitches here.
 
 ### Performance Summary
 
-Details of lessons from analysing the performance of the application.
+![alt text](https://raw.githubusercontent.com/ImanHosseini/Cloud-HPC-Hackathon-2021/app/branson/Applications/Applications/branson/brans1.PNG)
+
+Branson test case was long running, and so good for a performance review. I ran the map profiler (not the one for functions) for 32 cores. First stop: the app is compute bound, at 98.8 in compute. Well let's get back to what BRANSON does: first, no I/O obviously, but why so little MPI? Well for 1, it is shamefully a parallel thing to do: there is only two barriers after all is done, and with good load balancing everything would just do in parallel.
+
+![alt text](https://raw.githubusercontent.com/ImanHosseini/Cloud-HPC-Hackathon-2021/app/branson/Applications/Applications/branson/brans2.PNG)
+![alt text](https://raw.githubusercontent.com/ImanHosseini/Cloud-HPC-Hackathon-2021/app/branson/Applications/Applications/branson/brans4.PNG)
 
 
-### Optimisation Summary
-
-Details of lessons from performance optimising the application.
+CPU metrics is reasonable, CPI could be less (more SIMD, probably would be less CPI on an x86 machine I guess?). What we described about two barriers first and last, shows in MPI breakdown: collective calls trump p2p. Thread breakdown also shows system load at 50% (remember we picked 32) so great.

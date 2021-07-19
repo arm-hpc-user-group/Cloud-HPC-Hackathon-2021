@@ -1,0 +1,172 @@
+-------- Branson, a massively parallel proxy app for Implicit Monte Carlo ------
+-------- Author: Alex Long (along@lanl.gov) ------------------------------------
+-------- Version: 0.81----------------------------------------------------------
+
+ Branson compiled on: CCS
+"use_combing" not found or recognized, defaulting to TRUE
+WARNING: Mesh decomposition method not recognized... setting to METIS method
+Replicated transport mode, mesh decomposition method ignored
+Problem Specifications:Constants -- c: 299.792 (cm/sh) , a: 0.01372
+Run Parameters-- Photons: 160000000, time finish: 0.01 (sh), time step: 0.001 (sh) ,
+ time multiplier: 1 , max dt:1 (sh), Random number seed: 14706 , output frequency: 1
+Stratified sampling in angle: FALSE
+Combing census enabled (default)
+Terse printing mode (default)
+NOTE: SILO libraries not linked... no visualization
+Spatial Information -- cells x,y,z: 100 100 100
+--Material Information--
+ heat capacity: 0.1 opacity constants: 10 + 0^0, scattering opacity: 0
+ heat capacity: 0.1 opacity constants: 100 + 0^0, scattering opacity: 0
+ heat capacity: 0.1 opacity constants: 10 + 0^0, scattering opacity: 0
+--Parallel Information--
+DD algorithm: REPLICATED
+No parameters are needed in replicated mode
+Mesh decomposition: N/A (no decomposition in replicated mode)
+
+********************************************************************************
+Step: 1  Start Time: 0  End Time: 0.001  dt: 0.001
+Total Photons transported: 287808000
+Emission E: 1.55491e-05, Absorption E: 2.47521e-05, Exit E: 2.9962e-15
+Pre census E: 1.372e-05 Post census E: 4.51703e-06 Post census Size: 150380983
+Pre mat E: 0.0001999 Post mat E: 0.000209103
+Radiation conservation: 3.78858e-16
+Material conservation: -1.07764e-15
+Sends posted: 0, sends completed: 0
+Receives posted: 0, receives completed: 0
+Step cell messages sent: 0, Step cells sent: 0
+Step cells requested: 0
+Load balance time: 0
+Transport time max/min: 20.9578/20.3264
+********************************************************************************
+Step: 2  Start Time: 0.001  End Time: 0.002  dt: 0.001
+Total Photons transported: 374225591
+Emission E: 1.48046e-05, Absorption E: 1.4802e-05, Exit E: 2.94715e-15
+Pre census E: 4.51703e-06 Post census E: 4.51969e-06 Post census Size: 180519563
+Pre mat E: 0.000209103 Post mat E: 0.0002091
+Radiation conservation: 2.25094e-16
+Material conservation: -1.03493e-15
+Sends posted: 0, sends completed: 0
+Receives posted: 0, receives completed: 0
+Step cell messages sent: 0, Step cells sent: 0
+Step cells requested: 0
+Load balance time: 0
+Transport time max/min: 23.8221/23.195
+********************************************************************************
+Step: 3  Start Time: 0.002  End Time: 0.003  dt: 0.001
+Total Photons transported: 404349515
+Emission E: 1.36144e-05, Absorption E: 1.40864e-05, Exit E: 2.93305e-15
+Pre census E: 4.51969e-06 Post census E: 4.04769e-06 Post census Size: 194158692
+Pre mat E: 0.0002091 Post mat E: 0.000209572
+Radiation conservation: 2.87161e-16
+Material conservation: -6.62312e-16
+Sends posted: 0, sends completed: 0
+Receives posted: 0, receives completed: 0
+Step cell messages sent: 0, Step cells sent: 0
+Step cells requested: 0
+Load balance time: 0
+Transport time max/min: 23.6423/22.7566
+********************************************************************************
+Step: 4  Start Time: 0.003  End Time: 0.004  dt: 0.001
+Total Photons transported: 417972260
+Emission E: 1.29141e-05, Absorption E: 1.33357e-05, Exit E: 2.93244e-15
+Pre census E: 4.04769e-06 Post census E: 3.62609e-06 Post census Size: 199758844
+Pre mat E: 0.000209572 Post mat E: 0.000209994
+Radiation conservation: 2.86416e-16
+Material conservation: -7.27744e-16
+Sends posted: 0, sends completed: 0
+Receives posted: 0, receives completed: 0
+Step cell messages sent: 0, Step cells sent: 0
+Step cells requested: 0
+Load balance time: 0
+Transport time max/min: 24.2276/23.607
+********************************************************************************
+Step: 5  Start Time: 0.004  End Time: 0.005  dt: 0.001
+Total Photons transported: 423565500
+Emission E: 1.24769e-05, Absorption E: 1.28008e-05, Exit E: 2.93216e-15
+Pre census E: 3.62609e-06 Post census E: 3.30219e-06 Post census Size: 201503215
+Pre mat E: 0.000209994 Post mat E: 0.000210318
+Radiation conservation: 3.03627e-16
+Material conservation: -5.31882e-16
+Sends posted: 0, sends completed: 0
+Receives posted: 0, receives completed: 0
+Step cell messages sent: 0, Step cells sent: 0
+Step cells requested: 0
+Load balance time: 0
+Transport time max/min: 24.6224/24.0184
+********************************************************************************
+Step: 6  Start Time: 0.005  End Time: 0.006  dt: 0.001
+Total Photons transported: 425300591
+Emission E: 1.21043e-05, Absorption E: 1.23721e-05, Exit E: 2.93315e-15
+Pre census E: 3.30219e-06 Post census E: 3.03434e-06 Post census Size: 200924355
+Pre mat E: 0.000210318 Post mat E: 0.000210586
+Radiation conservation: 3.04451e-16
+Material conservation: -4.6477e-16
+Sends posted: 0, sends completed: 0
+Receives posted: 0, receives completed: 0
+Step cell messages sent: 0, Step cells sent: 0
+Step cells requested: 0
+Load balance time: 0
+Transport time max/min: 24.8708/24.1491
+********************************************************************************
+Step: 7  Start Time: 0.006  End Time: 0.007  dt: 0.001
+Total Photons transported: 424713283
+Emission E: 1.17819e-05, Absorption E: 1.2008e-05, Exit E: 2.93239e-15
+Pre census E: 3.03434e-06 Post census E: 2.80823e-06 Post census Size: 199402317
+Pre mat E: 0.000210586 Post mat E: 0.000210812
+Radiation conservation: 3.03748e-16
+Material conservation: -7.2281e-16
+Sends posted: 0, sends completed: 0
+Receives posted: 0, receives completed: 0
+Step cell messages sent: 0, Step cells sent: 0
+Step cells requested: 0
+Load balance time: 0
+Transport time max/min: 24.8911/24.1208
+********************************************************************************
+Step: 8  Start Time: 0.007  End Time: 0.008  dt: 0.001
+Total Photons transported: 423182605
+Emission E: 1.15154e-05, Absorption E: 1.17075e-05, Exit E: 2.93156e-15
+Pre census E: 2.80823e-06 Post census E: 2.61614e-06 Post census Size: 197441006
+Pre mat E: 0.000210812 Post mat E: 0.000211004
+Radiation conservation: 3.03478e-16
+Material conservation: 9.94755e-18
+Sends posted: 0, sends completed: 0
+Receives posted: 0, receives completed: 0
+Step cell messages sent: 0, Step cells sent: 0
+Step cells requested: 0
+Load balance time: 0
+Transport time max/min: 24.7349/24.0551
+********************************************************************************
+Step: 9  Start Time: 0.008  End Time: 0.009  dt: 0.001
+Total Photons transported: 421217518
+Emission E: 1.1292e-05, Absorption E: 1.14554e-05, Exit E: 2.93426e-15
+Pre census E: 2.61614e-06 Post census E: 2.45277e-06 Post census Size: 195281944
+Pre mat E: 0.000211004 Post mat E: 0.000211167
+Radiation conservation: 3.04408e-16
+Material conservation: -8.38603e-16
+Sends posted: 0, sends completed: 0
+Receives posted: 0, receives completed: 0
+Step cell messages sent: 0, Step cells sent: 0
+Step cells requested: 0
+Load balance time: 0
+Transport time max/min: 24.5926/23.9447
+********************************************************************************
+Step: 10  Start Time: 0.009  End Time: 0.01  dt: 0.001
+Total Photons transported: 419053976
+Emission E: 1.10937e-05, Absorption E: 1.12347e-05, Exit E: 2.93313e-15
+Pre census E: 2.45277e-06 Post census E: 2.31181e-06 Post census Size: 193055362
+Pre mat E: 0.000211167 Post mat E: 0.000211308
+Radiation conservation: 3.03612e-16
+Material conservation: -2.16109e-16
+Sends posted: 0, sends completed: 0
+Receives posted: 0, receives completed: 0
+Step cell messages sent: 0, Step cells sent: 0
+Step cells requested: 0
+Load balance time: 0
+Transport time max/min: 24.4547/23.8038
+********************************************************************************
+Total cells requested: 0
+Total cells sent: 0
+Total cell messages: 0
+********************************************************************************
+Total transport: 297.55
+Total setup: 8.12092
