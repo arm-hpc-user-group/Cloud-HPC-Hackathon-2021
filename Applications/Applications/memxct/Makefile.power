@@ -1,0 +1,23 @@
+# ----- Make Macros -----
+
+CXX = mpicxx
+CXXFLAGS = -std=c++11 -qreport -qsmp=omp -qlistfmt=html
+OPTFLAGS = -O3 -xhost -qarch=pwr9 -qtune=pwr9 -qstrict -qsimd=auto
+
+LD_FLAGS = -Xcompiler -qsmp=omp
+
+TARGETS = memxct
+OBJECTS = src/main.o src/raytrace.o src/kernels.o
+
+# ----- Make Rules -----
+
+all:	$(TARGETS)
+
+%.o: %.cpp vars.h
+	${CXX} ${CXXFLAGS} ${OPTFLAGS} $^ -c -o $@
+
+memxct: $(OBJECTS)
+	$(CXX) -o $@ $(OBJECTS) $(LD_FLAGS)
+
+clean:
+	rm -f $(TARGETS) src/*.o src/*.o.* *.txt *.bin core

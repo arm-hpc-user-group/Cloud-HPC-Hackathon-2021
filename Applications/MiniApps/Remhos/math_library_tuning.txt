@@ -1,0 +1,1029 @@
+[ReFrame Setup]
+  version:           3.7.0-dev.3+34ee3d0b
+  command:           '/software/reframe/bin/reframe -c remhos_math_library_tuning.py -r --performance-report -v'
+  launched by:       yhchang3@ip-10-0-0-93
+  working directory: '/home/yhchang3/Cloud-HPC-Hackathon-2021/Applications/MiniApps/Remhos'
+  settings file:     '/software/reframe/settings.py'
+  check search path: '/home/yhchang3/Cloud-HPC-Hackathon-2021/Applications/MiniApps/Remhos/remhos_math_library_tuning.py'
+  stage directory:   '/home/yhchang3/Cloud-HPC-Hackathon-2021/Applications/MiniApps/Remhos/stage'
+  output directory:  '/home/yhchang3/Cloud-HPC-Hackathon-2021/Applications/MiniApps/Remhos/output'
+
+Loaded 84 test(s)
+Generated 84 test case(s)
+Filtering test cases(s) by name: 84 remaining
+Filtering test cases(s) by tags: 84 remaining
+Filtering test cases(s) by other attributes: 84 remaining
+Final number of test cases: 84
+[==========] Running 84 check(s)
+[==========] Started on Fri Jul 16 05:14:38 2021 
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_1_OMP_1 (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_2_OMP_1 (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_4_OMP_1 (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_8_OMP_1 (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_16_OMP_1 (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_32_OMP_1 (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_64_OMP_1 (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_1_OMP_1 (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ (Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ (Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ (Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___1___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___2___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___4___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___8___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___1___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___2___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___4___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___8___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy___nodes___1___mpi___64___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___1___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___2___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___4___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___8___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___16___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___32___omp___1_)
+
+[----------] started processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_)
+[ [32mRUN     [0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[ [32m    HOLD[0m ] Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ on aws:c6gn using builtin
+[----------] finished processing Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_ (Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u___nodes___1___mpi___64___omp___1_)
+
+[----------] waiting for spawned checks to finish
+[ [32m      OK[0m ] ( 1/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 355.919s total: 355.940s]
+==> timings: setup: 0.006s compile: 0.005s run: 355.919s sanity: 0.002s performance: 0.074s total: 355.940s
+[ [32m      OK[0m ] ( 2/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 357.332s total: 357.352s]
+==> timings: setup: 0.006s compile: 0.005s run: 357.332s sanity: 0.000s performance: 0.074s total: 357.352s
+[ [32m      OK[0m ] ( 3/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 358.722s total: 358.743s]
+==> timings: setup: 0.006s compile: 0.005s run: 358.722s sanity: 0.000s performance: 0.075s total: 358.743s
+[ [32m      OK[0m ] ( 4/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 359.568s total: 359.589s]
+==> timings: setup: 0.006s compile: 0.005s run: 359.568s sanity: 0.000s performance: 0.073s total: 359.589s
+[ [32m      OK[0m ] ( 5/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 9.329s total: 326.702s]
+==> timings: setup: 0.006s compile: 0.005s run: 9.329s sanity: 0.000s performance: 0.074s total: 326.702s
+[ [32m      OK[0m ] ( 6/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 9.395s total: 328.444s]
+==> timings: setup: 0.006s compile: 0.005s run: 9.395s sanity: 0.000s performance: 0.074s total: 328.444s
+[ [32m      OK[0m ] ( 7/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 10.500s total: 328.707s]
+==> timings: setup: 0.006s compile: 0.005s run: 10.500s sanity: 0.000s performance: 0.073s total: 328.707s
+[ [32m      OK[0m ] ( 8/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.006s run: 10.138s total: 330.460s]
+==> timings: setup: 0.006s compile: 0.006s run: 10.138s sanity: 0.000s performance: 0.073s total: 330.460s
+[ [32m      OK[0m ] ( 9/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 368.091s total: 368.112s]
+==> timings: setup: 0.006s compile: 0.005s run: 368.091s sanity: 0.000s performance: 0.073s total: 368.112s
+[ [32m      OK[0m ] (10/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 372.601s total: 372.623s]
+==> timings: setup: 0.006s compile: 0.005s run: 372.601s sanity: 0.000s performance: 0.074s total: 372.623s
+[ [32m      OK[0m ] (11/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.920s total: 335.676s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.920s sanity: 0.000s performance: 0.073s total: 335.676s
+[ [32m      OK[0m ] (12/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.437s total: 340.301s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.437s sanity: 0.000s performance: 0.073s total: 340.301s
+[ [32m      OK[0m ] (13/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.522s total: 340.552s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.522s sanity: 0.000s performance: 0.073s total: 340.552s
+[ [32m      OK[0m ] (14/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 8.497s total: 341.094s]
+==> timings: setup: 0.006s compile: 0.005s run: 8.497s sanity: 0.000s performance: 0.073s total: 341.094s
+[ [32m      OK[0m ] (15/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 10.795s total: 340.793s]
+==> timings: setup: 0.006s compile: 0.005s run: 10.795s sanity: 0.000s performance: 0.074s total: 340.793s
+[ [32m      OK[0m ] (16/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.061s total: 344.860s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.061s sanity: 0.000s performance: 0.073s total: 344.860s
+[ [32m      OK[0m ] (17/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 12.797s total: 344.138s]
+==> timings: setup: 0.006s compile: 0.005s run: 12.797s sanity: 0.000s performance: 0.073s total: 344.138s
+[ [32m      OK[0m ] (18/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 381.921s total: 381.942s]
+==> timings: setup: 0.006s compile: 0.005s run: 381.921s sanity: 0.000s performance: 0.073s total: 381.942s
+[ [32m      OK[0m ] (19/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.482s total: 348.870s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.482s sanity: 0.000s performance: 0.073s total: 348.870s
+[ [32m      OK[0m ] (20/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 8.245s total: 350.861s]
+==> timings: setup: 0.006s compile: 0.005s run: 8.245s sanity: 0.000s performance: 0.073s total: 350.861s
+[ [32m      OK[0m ] (21/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.667s total: 353.084s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.667s sanity: 0.000s performance: 0.074s total: 353.084s
+[ [32m      OK[0m ] (22/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.952s total: 353.359s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.952s sanity: 0.001s performance: 0.073s total: 353.359s
+[ [32m      OK[0m ] (23/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.973s total: 355.225s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.973s sanity: 0.000s performance: 0.074s total: 355.225s
+[ [32m      OK[0m ] (24/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.496s total: 356.508s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.496s sanity: 0.000s performance: 0.073s total: 356.508s
+[ [32m      OK[0m ] (25/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.561s total: 358.072s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.561s sanity: 0.000s performance: 0.073s total: 358.072s
+[ [32m      OK[0m ] (26/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 391.208s total: 391.228s]
+==> timings: setup: 0.006s compile: 0.005s run: 391.208s sanity: 0.000s performance: 0.073s total: 391.228s
+[ [32m      OK[0m ] (27/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 13.972s total: 358.107s]
+==> timings: setup: 0.006s compile: 0.005s run: 13.972s sanity: 0.000s performance: 0.074s total: 358.107s
+[ [32m      OK[0m ] (28/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.932s total: 362.447s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.932s sanity: 0.000s performance: 0.073s total: 362.447s
+[ [32m      OK[0m ] (29/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.169s total: 364.173s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.169s sanity: 0.000s performance: 0.073s total: 364.173s
+[ [32m      OK[0m ] (30/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.601s total: 366.175s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.601s sanity: 0.000s performance: 0.073s total: 366.175s
+[ [32m      OK[0m ] (31/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 8.144s total: 366.434s]
+==> timings: setup: 0.006s compile: 0.005s run: 8.144s sanity: 0.000s performance: 0.074s total: 366.434s
+[ [32m      OK[0m ] (32/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.916s total: 368.185s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.916s sanity: 0.000s performance: 0.074s total: 368.185s
+[ [32m      OK[0m ] (33/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.349s total: 369.454s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.349s sanity: 0.000s performance: 0.073s total: 369.454s
+[ [32m      OK[0m ] (34/84) Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 12.032s total: 367.775s]
+==> timings: setup: 0.006s compile: 0.005s run: 12.032s sanity: 0.000s performance: 0.074s total: 367.775s
+[ [32m      OK[0m ] (35/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.605s total: 372.409s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.605s sanity: 0.000s performance: 0.073s total: 372.409s
+[ [32m      OK[0m ] (36/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 4.842s total: 375.408s]
+==> timings: setup: 0.006s compile: 0.005s run: 4.842s sanity: 0.000s performance: 0.073s total: 375.408s
+[ [32m      OK[0m ] (37/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.006s run: 6.753s total: 374.559s]
+==> timings: setup: 0.006s compile: 0.006s run: 6.753s sanity: 0.000s performance: 0.073s total: 374.559s
+[ [32m      OK[0m ] (38/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.849s total: 376.158s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.849s sanity: 0.000s performance: 0.073s total: 376.158s
+[ [32m      OK[0m ] (39/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.072s total: 377.904s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.072s sanity: 0.000s performance: 0.073s total: 377.904s
+[ [32m      OK[0m ] (40/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.076s total: 379.174s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.076s sanity: 0.000s performance: 0.073s total: 379.174s
+[ [32m      OK[0m ] (41/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 11.151s total: 377.712s]
+==> timings: setup: 0.006s compile: 0.005s run: 11.151s sanity: 0.000s performance: 0.073s total: 377.712s
+[ [32m      OK[0m ] (42/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.295s total: 381.674s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.295s sanity: 0.000s performance: 0.073s total: 381.674s
+[ [32m      OK[0m ] (43/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 4.946s total: 385.238s]
+==> timings: setup: 0.006s compile: 0.005s run: 4.946s sanity: 0.000s performance: 0.074s total: 385.238s
+[ [32m      OK[0m ] (44/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.799s total: 384.915s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.799s sanity: 0.000s performance: 0.073s total: 384.915s
+[ [32m      OK[0m ] (45/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 4.932s total: 387.738s]
+==> timings: setup: 0.007s compile: 0.005s run: 4.932s sanity: 0.000s performance: 0.073s total: 387.738s
+[ [32m      OK[0m ] (46/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.368s total: 386.410s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.368s sanity: 0.000s performance: 0.073s total: 386.410s
+[ [32m      OK[0m ] (47/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 9.971s total: 386.434s]
+==> timings: setup: 0.006s compile: 0.005s run: 9.971s sanity: 0.000s performance: 0.073s total: 386.434s
+[ [32m      OK[0m ] (48/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.732s total: 389.268s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.732s sanity: 0.000s performance: 0.074s total: 389.268s
+[ [32m      OK[0m ] (49/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.692s total: 391.019s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.692s sanity: 0.000s performance: 0.074s total: 391.019s
+[ [32m      OK[0m ] (50/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.292s total: 394.093s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.292s sanity: 0.000s performance: 0.074s total: 394.093s
+[ [32m      OK[0m ] (51/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.306s total: 395.339s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.306s sanity: 0.000s performance: 0.075s total: 395.339s
+[ [32m      OK[0m ] (52/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.149s total: 396.617s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.149s sanity: 0.000s performance: 0.074s total: 396.617s
+[ [32m      OK[0m ] (53/84) Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 10.094s total: 395.895s]
+==> timings: setup: 0.006s compile: 0.005s run: 10.094s sanity: 0.001s performance: 0.074s total: 395.895s
+[ [32m      OK[0m ] (54/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.401s total: 398.706s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.401s sanity: 0.000s performance: 0.073s total: 398.706s
+[ [32m      OK[0m ] (55/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.430s total: 400.079s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.430s sanity: 0.000s performance: 0.073s total: 400.079s
+[ [32m      OK[0m ] (56/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 4.627s total: 403.617s]
+==> timings: setup: 0.006s compile: 0.005s run: 4.627s sanity: 0.001s performance: 0.074s total: 403.617s
+[ [32m      OK[0m ] (57/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 4.610s total: 404.850s]
+==> timings: setup: 0.006s compile: 0.005s run: 4.610s sanity: 0.000s performance: 0.074s total: 404.850s
+[ [32m      OK[0m ] (58/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.885s total: 404.623s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.885s sanity: 0.000s performance: 0.073s total: 404.623s
+[ [32m      OK[0m ] (59/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.350s total: 406.859s]
+==> timings: setup: 0.006s compile: 0.005s run: 5.350s sanity: 0.000s performance: 0.074s total: 406.859s
+[ [32m      OK[0m ] (60/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 11.288s total: 405.201s]
+==> timings: setup: 0.006s compile: 0.005s run: 11.288s sanity: 0.000s performance: 0.073s total: 405.201s
+[ [32m      OK[0m ] (61/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.212s total: 410.029s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.212s sanity: 0.000s performance: 0.073s total: 410.029s
+[ [32m      OK[0m ] (62/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 4.862s total: 413.590s]
+==> timings: setup: 0.006s compile: 0.005s run: 4.862s sanity: 0.000s performance: 0.073s total: 413.590s
+[ [32m      OK[0m ] (63/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.360s total: 413.842s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.360s sanity: 0.000s performance: 0.073s total: 413.842s
+[ [32m      OK[0m ] (64/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 5.609s total: 415.613s]
+==> timings: setup: 0.007s compile: 0.005s run: 5.609s sanity: 0.000s performance: 0.073s total: 415.613s
+[ [32m      OK[0m ] (65/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.006s run: 15.582s total: 410.745s]
+==> timings: setup: 0.006s compile: 0.006s run: 15.582s sanity: 0.000s performance: 0.073s total: 410.745s
+[ [32m      OK[0m ] (66/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.078s total: 417.370s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.078s sanity: 0.000s performance: 0.074s total: 417.370s
+[ [32m      OK[0m ] (67/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 10.851s total: 414.953s]
+==> timings: setup: 0.006s compile: 0.005s run: 10.851s sanity: 0.000s performance: 0.073s total: 414.953s
+[ [32m      OK[0m ] (68/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.253s total: 419.925s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.253s sanity: 0.000s performance: 0.075s total: 419.925s
+[ [32m      OK[0m ] (69/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 13.915s total: 420.074s]
+==> timings: setup: 0.006s compile: 0.005s run: 13.915s sanity: 0.000s performance: 0.073s total: 420.074s
+[ [32m      OK[0m ] (70/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 8.477s total: 424.150s]
+==> timings: setup: 0.006s compile: 0.005s run: 8.477s sanity: 0.000s performance: 0.074s total: 424.150s
+[ [32m      OK[0m ] (71/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.481s total: 426.634s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.481s sanity: 0.000s performance: 0.073s total: 426.634s
+[ [32m      OK[0m ] (72/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.328s total: 427.906s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.328s sanity: 0.000s performance: 0.075s total: 427.906s
+[ [32m      OK[0m ] (73/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 9.349s total: 427.669s]
+==> timings: setup: 0.006s compile: 0.005s run: 9.349s sanity: 0.000s performance: 0.074s total: 427.669s
+[ [32m      OK[0m ] (74/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 8.516s total: 430.014s]
+==> timings: setup: 0.006s compile: 0.005s run: 8.516s sanity: 0.000s performance: 0.073s total: 430.014s
+[ [32m      OK[0m ] (75/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 9.378s total: 432.939s]
+==> timings: setup: 0.006s compile: 0.005s run: 9.378s sanity: 0.000s performance: 0.073s total: 432.939s
+[ [32m      OK[0m ] (76/84) Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 14.208s total: 431.116s]
+==> timings: setup: 0.006s compile: 0.005s run: 14.208s sanity: 0.001s performance: 0.074s total: 431.116s
+[ [32m      OK[0m ] (77/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_16_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 6.287s total: 438.601s]
+==> timings: setup: 0.006s compile: 0.005s run: 6.287s sanity: 0.000s performance: 0.074s total: 438.601s
+[ [32m      OK[0m ] (78/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_64_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.964s total: 437.754s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.964s sanity: 0.000s performance: 0.074s total: 437.754s
+[ [32m      OK[0m ] (79/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_32_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 7.624s total: 438.675s]
+==> timings: setup: 0.006s compile: 0.005s run: 7.624s sanity: 0.000s performance: 0.074s total: 438.675s
+[ [32m      OK[0m ] (80/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_8_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 8.108s total: 441.686s]
+==> timings: setup: 0.006s compile: 0.005s run: 8.108s sanity: 0.000s performance: 0.073s total: 441.686s
+[ [32m      OK[0m ] (81/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 13.814s total: 440.593s]
+==> timings: setup: 0.006s compile: 0.005s run: 13.814s sanity: 0.000s performance: 0.074s total: 440.593s
+[ [32m      OK[0m ] (82/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_4_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 9.035s total: 445.526s]
+==> timings: setup: 0.006s compile: 0.005s run: 9.035s sanity: 0.000s performance: 0.074s total: 445.526s
+[ [32m      OK[0m ] (83/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_2_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 14.478s total: 452.205s]
+==> timings: setup: 0.006s compile: 0.005s run: 14.478s sanity: 0.000s performance: 0.074s total: 452.205s
+[ [32m      OK[0m ] (84/84) Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_1_OMP_1 on aws:c6gn using builtin [compile: 0.005s run: 23.490s total: 451.773s]
+==> timings: setup: 0.006s compile: 0.005s run: 23.490s sanity: 0.000s performance: 0.074s total: 451.773s
+[----------] all spawned checks have finished
+
+[ [32m PASSED [0m ] Ran 84/84 test case(s) from 84 check(s) (0 failure(s), 0 skipped)
+[==========] Finished on Fri Jul 16 05:22:18 2021 
+==============================================================================
+PERFORMANCE REPORT
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_1_OMP_1
+- aws:c6gn
+   - builtin
+      * num_tasks: 1
+      * Total Time: 21.14 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 11.51 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 6.96 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 5.26 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 4.77 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 4.9 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 6.54 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 21.33 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 11.28 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 6.6 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 4.52 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.85 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 4.09 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 5.64 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 20.67 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 11.1 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 6.49 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 4.44 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.87 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 4.1 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 5.46 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 11.85 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 6.5 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 3.91 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 2.67 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.3 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 2.44 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 3.45 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 11.93 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 6.52 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 3.95 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 2.68 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.27 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 2.43 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 3.29 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 11.86 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 6.52 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 3.94 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 2.72 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.3 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 2.46 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DRemapMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 3.5 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 7.55 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 4.51 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 3.08 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 2.49 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.46 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 2.88 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.25 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 7.55 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 4.59 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 3.11 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 2.5 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.54 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 3.05 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.07 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 7.7 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 4.51 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 3.07 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 2.49 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 2.87 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 3.4 s
+------------------------------------------------------------------------------
+Remhos_Remhos2DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.14 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 10.21 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 5.91 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 3.94 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 3.04 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.06 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 3.47 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_q2vad4t_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.98 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 10.28 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 5.94 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 3.89 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 3.1 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.2 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 3.55 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_26rm5xy_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 4.91 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_1_OMP_1
+   - builtin
+      * num_tasks: 1
+      * Total Time: 10.19 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_2_OMP_1
+   - builtin
+      * num_tasks: 2
+      * Total Time: 6.09 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_4_OMP_1
+   - builtin
+      * num_tasks: 4
+      * Total Time: 3.87 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_8_OMP_1
+   - builtin
+      * num_tasks: 8
+      * Total Time: 3.34 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_16_OMP_1
+   - builtin
+      * num_tasks: 16
+      * Total Time: 3.5 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_32_OMP_1
+   - builtin
+      * num_tasks: 32
+      * Total Time: 4.01 s
+------------------------------------------------------------------------------
+Remhos_Remhos3DTransportMathLibraryTuningTest_remhos_1_0_arm_21_0_0_879_3iu3o7u_N_1_MPI_64_OMP_1
+   - builtin
+      * num_tasks: 64
+      * Total Time: 5.24 s
+------------------------------------------------------------------------------
+Log file(s) saved in: '/tmp/rfm-r765n8vv.log'

@@ -1,0 +1,6 @@
+2021-07-16T07:33:38|reframe 3.7.0-dev.3+34ee3d0b|Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_4_OMP_1 on aws:c6gn using builtin|jobid=1046|Total Time=6.39|ref=0 (l=null, u=null)|s
+2021-07-16T07:35:46|reframe 3.7.0-dev.3+34ee3d0b|Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_4_OMP_1 on aws:c6gn using builtin|jobid=1060|Total Time=6.39|ref=0 (l=null, u=null)|s
+2021-07-16T07:38:29|reframe 3.7.0-dev.3+34ee3d0b|Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_4_OMP_1 on aws:c6gn using builtin|jobid=1074|Total Time=6.39|ref=0 (l=null, u=null)|s
+2021-07-16T07:40:23|reframe 3.7.0-dev.3+34ee3d0b|Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_4_OMP_1 on aws:c6gn using builtin|jobid=1088|Total Time=6.38|ref=0 (l=null, u=null)|s
+2021-07-16T07:42:57|reframe 3.7.0-dev.3+34ee3d0b|Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_4_OMP_1 on aws:c6gn using builtin|jobid=1102|Total Time=6.38|ref=0 (l=null, u=null)|s
+2021-07-16T07:44:35|reframe 3.7.0-dev.3+34ee3d0b|Remhos_Remhos2DRemapRegressionTest_remhos_1_0_arm_21_0_0_879_orhbc67_N_1_MPI_4_OMP_1 on aws:c6gn using builtin|jobid=1116|Total Time=6.36|ref=0 (l=null, u=null)|s

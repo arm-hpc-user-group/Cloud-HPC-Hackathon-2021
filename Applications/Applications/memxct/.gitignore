@@ -1,0 +1,4 @@
+*.o
+memxct
+dataset
+*.sw*

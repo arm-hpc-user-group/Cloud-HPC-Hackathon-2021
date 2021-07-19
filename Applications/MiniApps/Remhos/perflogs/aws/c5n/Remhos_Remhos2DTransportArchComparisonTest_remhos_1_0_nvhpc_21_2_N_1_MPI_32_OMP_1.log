@@ -1,0 +1,2 @@
+2021-07-14T16:01:40|reframe 3.7.0-dev.3+34ee3d0b|Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1 on aws:c5n using builtin|jobid=76|Total Time=3.51|ref=0 (l=null, u=null)|s
+2021-07-14T16:07:19|reframe 3.7.0-dev.3+34ee3d0b|Remhos_Remhos2DTransportArchComparisonTest_remhos_1_0_nvhpc_21_2_N_1_MPI_32_OMP_1 on aws:c5n using builtin|jobid=159|Total Time=3.29|ref=0 (l=null, u=null)|s
