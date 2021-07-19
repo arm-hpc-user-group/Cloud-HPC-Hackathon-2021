@@ -4,11 +4,15 @@
 
 **URL:** https://github.com/alexdobin/STAR
 
-**Team:**  
+**Team: BlueHPCHens**  
 
 ## Compilation
 
 ### Spack Package Modification
+
+No changes to Spack recipe
+Changes are all done to the original codebase to support compiling using nvhpc
+https://github.com/lisanhu/STAR.git 7ea5331
 
 Details of any changes to the Spack recipe used.
 
@@ -18,31 +22,62 @@ Pull request for Spack recipe changes:
 
 ### Building STAR
 
-
-
-#### Compiler 1
-
+### GCC
 ```
-spack install <app>%<compiler1>
+spack install star%gcc
 ```
 
+### ARM
 ```
-$ spack spec -Il <app>%<compiler1>
+spack install star%arm
+```
 
+### NVHPC on x86
+```
+git clone https://github.com/lisanhu/STAR.git
+cd STAR
+git checkout 7ea5331
+cd source
+make STAR
+export LD_LIBRARY_PATH=`pwd`/htslib:$LD_LIBRARY_PATH # The htslib folder required in the LD_LIBRARY_PATH to run the code
+```
+
+## Testing Pre-Run script
+```
+wget https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
+gunzip hg38.fa.gz
+./STAR --runMode genomeGenerate --genomeFastaFiles hg38.fa
 ```
 
 ## Test Case 1
+
+```
+./STAR --genomeDir GenomeDir --readFilesIn hg38-1k-500.fastq --outSAMtype BAM SortedByCoordinate
+```
+
+## Test Case 2
+
+```
+./STAR --genomeDir GenomeDir --readFilesIn hg38-2k-500.fastq --outSAMtype BAM SortedByCoordinate
+```
+
+## Test Case 3
+
+```
+./STAR --genomeDir GenomeDir --readFilesIn hg38-4k-500.fastq --outSAMtype BAM SortedByCoordinate
+```
+
+<!-- ## Test Case 1
 
 [ReFrame Benchmark 1](#)
 
 ```
 ../bin/reframe -c benchmark.py -r --performance-report
-```
+``` -->
 
 ### Validation
 
-Details of the validation for `Test Case 1`.
-
+Validation of Tests need to compare the output BAM files with the corresponding SAM files using special tools, validation is not fully scripted yet.
 
 ### ReFrame Output
 
