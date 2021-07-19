@@ -76,4 +76,3 @@ class CloverLeafTest(hack.HackathonBase):
        self.perf_patterns = {
                'Total Time': sn.extractsingle(perf_regex, self.logfile, 1, float, item=-1)
        }
-
