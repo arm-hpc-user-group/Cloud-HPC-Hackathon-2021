@@ -1,0 +1,4 @@
+crystal.x salt.cell 1
+crystal.x salt 4 y n n
+xtalmin.x salt 0.0001
+rm salt.xyz*

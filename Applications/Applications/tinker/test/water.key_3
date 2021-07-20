@@ -1,0 +1,33 @@
+parameters      ../params/water03
+fix-monopole
+resp-weight
+
+#
+# Multipoles from Electrostatic Potential Fitting
+#
+
+multipole     1   -2   -2              -0.51966
+                                        0.00000    0.00000    0.12673
+                                        0.38780
+                                        0.00000   -0.51270
+                                        0.00000    0.00000    0.12490
+multipole     2    1    2               0.25983
+                                       -0.06207    0.00000   -0.10070
+                                        0.03703
+                                        0.00000   -0.06674
+                                       -0.02264    0.00000    0.02971
+
+#
+# Multipoles from Electrostatic Potential Fitting
+#
+
+multipole     1   -2   -2              -0.51966
+                                        0.00000    0.00000    0.12666
+                                        0.39283
+                                        0.00000   -0.52501
+                                        0.00000    0.00000    0.13218
+multipole     2    1    2               0.25983
+                                       -0.06233    0.00000   -0.10099
+                                        0.03778
+                                        0.00000   -0.06234
+                                       -0.02297    0.00000    0.02456

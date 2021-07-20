@@ -1,0 +1,2 @@
+../bin/distgeom.x < ifabp.dat
+rm ifabp.0*
