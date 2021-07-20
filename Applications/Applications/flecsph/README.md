@@ -18,22 +18,59 @@ Pull request for Spack recipe changes: https://github.com/mferrato/spack/commit/
 
 ** Had to edit Spack package for FleCSPH **
 
+** Update 5/16: PR was merged into Spack **
+
 ### Building FleCSPH
 
-
-
-#### Compiler 1
+#### Compiler 1: GCC
 
 ```
-spack install flecsph
-```
-
-```
+$ mkdir flecsph-devel
+$ cd flecsph-devel
+$ spack env create -d .
+$ spack env activate .
+$ spack install flecsph%gcc@10.3.0
 $ spack load flecsph
+```
 
 ```
+$ echo $PATH  # check path to gcc-10.3.0/flecsph-***/bin
+```
+cd into gcc-10.3.0/flecsph-***/bin
+Binaries to run FleCSPH will be in this `bin` folder
+
+#### Compiler 2: NVHPC
+
+```
+$ mkdir flecsph-devel
+$ cd flecsph-devel
+$ spack env create -d .
+$ spack env activate .
+$ spack develop flecsph@master     # puts a copy of the application src in current dir
+$ spack concretize -f
+$EDITOR flecsph/include/physics/eos/eos.h  # edit this file
+```
+*** Delete Line 422: "template<>"
+
+```
+spack install flecsph%nvhpc ^cmake%gcc ^python%gcc ^perl@5.30.3 ^boost%gcc ^m4%gcc ^pfunit%gcc 
+spack load flecsph
+```
+```
+$ echo $PATH  # check path to nvhpc-*/flecsph-***/bin
+```
+cd into nvhpc-*/flecsph-***/bin
+Binaries to run FleCSPH will be in this `bin` folder
 
 ## Test Case 1
+
+https://github.com/laristra/flecsph/wiki/1D-Sod-shock-tubes
+
+Generates test data
+```
+mpirun -np 1 ./sodtube_1d_generator sod_test1_n10000.par
+```
+
 
 [ReFrame Benchmark 1](#)
 
@@ -44,6 +81,8 @@ $ spack load flecsph
 ### Validation
 
 Details of the validation for `Test Case 1`.
+
+We were not sure which energy value would be relevant so we used Kinetic, Internal, and Total energy values at the end of 5000 iterations. We then used a boundary threshold of 0.01 to check for errors in the outputs of the 3 energy values.
 
 
 ### ReFrame Output
@@ -223,6 +262,8 @@ Demonstrate your gains by providing a scaling study for your test case, demonstr
 ### Compilation Summary
 
 Details of lessons from compiling the application.
+
+We had to make a change (documented in the steps above) to get the application to run on NVHPC.
 
 ### Performance Summary
 
