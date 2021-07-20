@@ -1,0 +1,53 @@
+From 25fab027caf3acb2e6d779896c87eeadfd2d65a1 Mon Sep 17 00:00:00 2001
+From: FindHao <find@findhao.net>
+Date: Fri, 16 Jul 2021 15:32:36 -0400
+Subject: [PATCH] add armflang
+
+---
+ src/docktools/convgrids/gridconv.mk | 2 +-
+ src/docktools/convgrids/gridrdsl.mk | 2 +-
+ src/grid/Makefile                   | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/docktools/convgrids/gridconv.mk b/src/docktools/convgrids/gridconv.mk
+index e03ea83..2722085 100644
+--- a/src/docktools/convgrids/gridconv.mk
++++ b/src/docktools/convgrids/gridconv.mk
+@@ -25,7 +25,7 @@ uninstall:
+ 	-cd $(BIN); /bin/rm $(PROGS)
+ 
+ grid-convert: $(OBJS)
+-	$(FC) $(LINK_WITHOUT_FORTRAN_MAIN) $(FFLAGS) $(OBJS) $(LIBS) -o $@ \
++	$(CC) $(LINK_WITHOUT_FORTRAN_MAIN) $(FFLAGS) -larmflang $(OBJS) $(LIBS) -o $@ \
+ 	    $(DOCKBUILDFLAGS)
+ 
+ grid.o :	 define.h utility.h mol.h global.h score.h \
+diff --git a/src/docktools/convgrids/gridrdsl.mk b/src/docktools/convgrids/gridrdsl.mk
+index 27a699a..c0ecf07 100644
+--- a/src/docktools/convgrids/gridrdsl.mk
++++ b/src/docktools/convgrids/gridrdsl.mk
+@@ -27,7 +27,7 @@ uninstall:
+ 	-cd $(BIN); /bin/rm $(PROGS)
+ 
+ grid-convrds: $(OBJS)
+-	$(FC) $(LINK_WITHOUT_FORTRAN_MAIN) $(FFLAGS) $(OBJS) $(LIBS) -o $@ \
++	$(CC) $(LINK_WITHOUT_FORTRAN_MAIN) $(FFLAGS) -larmflang $(OBJS) $(LIBS) -o $@ \
+ 	    $(DOCKBUILDFLAGS)
+ 
+ grid.o :	 define.h utility.h mol.h global.h score.h \
+diff --git a/src/grid/Makefile b/src/grid/Makefile
+index 01da668..34e64c0 100644
+--- a/src/grid/Makefile
++++ b/src/grid/Makefile
+@@ -29,7 +29,7 @@ uninstall:
+ 	cd $(BIN) && /bin/rm -f $(PROGS)
+ 
+ grid: $(OBJS2)
+-	$(FC) $(LINK_WITHOUT_FORTRAN_MAIN) $(FFLAGS) $(OBJS2) $(LIBS) -o $@ \
++	$(CC) $(LINK_WITHOUT_FORTRAN_MAIN) $(FFLAGS) $(OBJS2) $(LIBS) -larmflang -o $@ \
+ 	    $(DOCKBUILDFLAGS)
+ 
+ define.o :	 define.h
+-- 
+2.25.1
+
