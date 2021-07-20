@@ -8,6 +8,7 @@
 
 **Website:** [A-HUG Hackathon](https://a-hug.org/hackathons/aws-hackathon/)
 
+**DOI:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5115938.svg)](https://doi.org/10.5281/zenodo.5115938)
 
 ## Description
 
