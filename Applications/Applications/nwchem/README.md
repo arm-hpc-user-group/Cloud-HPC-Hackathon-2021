@@ -4,7 +4,7 @@
 
 **URL:** https://nwchemgit.github.io
 
-**Team:**  
+**Team:** QMLab 
 
 ## Compilation
 

@@ -5,7 +5,7 @@
 
 **URL:** http://ab-initio.mit.edu/wiki/index.php/Harminv 
 
-**Team:**  
+**Team:** QMLab 
 
 ## Compilation
 

@@ -4,7 +4,7 @@
 
 **URL:** https://computing.llnl.gov/projects/co-design/laghos
 
-**Team:**  
+**Team:** Iman
 
 ## Compilation
 
