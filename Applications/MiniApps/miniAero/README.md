@@ -4,8 +4,7 @@
 
 **URL:** https://github.com/Mantevo/miniAero 
 
-**Team:**  
-Team Joe
+**Team:**  Team Joe
 
 ## Compilation
 I had to modify the miniAero source code in order to add MPI support in Spack. The updated code is hosted in `https://github.com/ghe-asu/miniAero.git` for the moment.

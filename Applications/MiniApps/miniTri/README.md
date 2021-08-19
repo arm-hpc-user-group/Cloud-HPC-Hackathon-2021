@@ -206,7 +206,7 @@ miniTri_ca-GrQc_minitri__nvhpc_21_2_N_1_MPI_1_OMP_1
 Performance comparison of two compilers.
 
 | Cores(MPI rank) | GCC | ARM | NVHPC|
-|-------|------------|------------|
+|-----------------|-----|-----|------|
 |  1     |  13.041   | 189.265| 153.415  |  
 |  2     |  12.307    | 189.389| 155.663	|
 |  4     |  11.571    | 188.967| 153.119	|

@@ -109,7 +109,7 @@ PERFORMANCE REPORT
 Performance comparison of two compilers.
 Compiler 2: nvhpc@21.2
 
-| Cores | Compiler 1 | Compiler 2 |
+| Cores | GCC 10.3   | NVHPC 21.2 |
 |-------|------------|------------|
 | 1     | 1343       | 1338       |
 | 2     | 1385       | 1380       |
@@ -171,7 +171,7 @@ On-node scaling study for two compilers.
 
 Compiler 2: nvhpc@21.2
 
-| Cores | Compiler 1 | Compiler 2 |
+| Cores | GCC 10.3   | NVHPC 21.2 |
 |-------|------------|------------|
 | 1     | 1343       | 1338       |
 | 2     | 1385       | 1380       |

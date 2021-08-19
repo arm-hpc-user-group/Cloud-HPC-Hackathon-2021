@@ -2,9 +2,11 @@
 
 **Description:** Computes the correlation energy with the Hartree-Fock energy and wave-function given as inputs. The inputs were generated from GAMESS.
 
-**URL:** https://github.com/jkwack/GAMESS_RI-MP2_MiniAp hacckernels
+**URL:** https://github.com/jkwack/GAMESS_RI-MP2_MiniApp
 
-**Team:** @neuralmimicry https://github.com/neuralmimicry/GAMESS_RI-MP2_MiniApp 
+**Team:** neuralmimicry 
+
+**Fork:** https://github.com/neuralmimicry/GAMESS_RI-MP2_MiniApp 
 
 ## Compilation
 

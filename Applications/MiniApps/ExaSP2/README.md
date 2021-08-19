@@ -4,7 +4,7 @@
 
 **URL:** https://github.com/ECP-copa/ExaSP2
 
-**Team:**
+**Team:** CloudHPC
 
 ## Compilation
 
