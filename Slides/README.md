@@ -1,9 +1,12 @@
-# Presentation Slides
+# Presentation Slides and Videos
 
-* [Compilers for HPC - Will Lovett (Arm)](AWS-Hackathon-Compilers-public.pdf)
-* [Intro into MPI - Brian Barrett (AWS)](Intro_Into_MPI_Brian_Barrett.pdf)
-* [Application Scaling - Jeff Hammond (NVIDIA)](Application_Scaling_Jeff_Hammond.pdf)
-* [Crash Course on CMake - Robert Maynard (NVIDIA)](CMake_Robert_Maynard.pdf)
-* [Profiling without Printf - John Linford (Arm)](Profiling_without_printf_John_Linford.pdf)
-* [Performance Portability - Tom Deakin (University of Bristol)](Performance_portability_Tom_Deakin.pdf)
-* [Maths Libraries - Chris Goodyer (Arm)](Maths_Libraries_Chris_Goodyer.pdf)
+| Talk                     | Presenter                          | Slides                                            | Video                                 |
+|--------------------------|------------------------------------|---------------------------------------------------|---------------------------------------|
+| Compilers for HPC        | Will Lovett (Arm)                  | [Here](AWS-Hackathon-Compilers-public.pdf)        | [Here](https://t.co/Nu0ZadFEci?amp=1) |
+| Intro to MPI             | Brian Barrett (AWS)                | [Here](Intro_Into_MPI_Brian_Barrett.pdf)          |                                       |
+| Application Scaling      | Jeff Hammond (NVIDIA)              | [Here](Application_Scaling_Jeff_Hammond.pdf)      | [Here](https://t.co/pzdOxLVnxc?amp=1) |
+| Crash Course on CMake    | Robert Maynard (NVIDIA)            | [Here](CMake_Robert_Maynard.pdf)                  |                                       |
+| Profiling without Printf | John Linford (Arm)                 | [Here](Profiling_without_printf_John_Linford.pdf) | [Here](https://t.co/4hRe2UHToF?amp=1) |
+| Performance Portability  | Tom Deakin (University of Bristol) | [Here](Performance_portability_Tom_Deakin.pdf)    | [Here](https://t.co/EhuQxiYIe9?amp=1) |
+| Maths Libraries          | Chris Goodyer (Arm)                | [Here](Maths_Libraries_Chris_Goodyer.pdf)         | [Here](https://t.co/L0zuGBEcnp?amp=1) |
+| Spack Introduction       | Todd Gamblin (LLNL)                |                                                   | [Here](https://t.co/4t0J2NtyQt?amp=1) |
