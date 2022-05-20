@@ -10,6 +10,11 @@
 
 **DOI:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5115938.svg)](https://doi.org/10.5281/zenodo.5115938)
 
+## Wrap-up
+This event is now over, but we encourage you to check out the summary article here. Please feel free to cite and use this repo (with DOI above) for your own open-source work with Arm, Spack, and AWS.
+
+[AWS, Arm and A-HUG team up to host a wildly successful HPC Cloud hackathon (with pizza)](https://community.arm.com/arm-community-blogs/b/high-performance-computing-blog/posts/aws-arm-ahug-hpc-cloud-hackathon)
+
 ## Description
 
 Teams will undertake application porting and performance tuning of key HPC applications using virtual clusters on the AWS cloud – powered by their Arm Neoverse-N1 based Graviton2 processor. Using the Spack package manager teams will have to control the installation of their codes – and tune compiler, library and optimization flag choice to ensure a robust and performance tuned installation. 
